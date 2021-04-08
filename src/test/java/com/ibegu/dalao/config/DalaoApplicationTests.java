@@ -1,4 +1,4 @@
-package com.ibegu.dalao;
+package com.ibegu.dalao.config;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
