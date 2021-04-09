@@ -33,4 +33,12 @@ public class TestController {
 
     }
 
+    @PostMapping("/hello/post")
+    // public String helloPost(Map<String, String> map){
+    public String helloPost(String name){
+
+        return "Hello World ! Post" + name;
+
+    }
+
 }
