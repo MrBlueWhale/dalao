@@ -3,12 +3,14 @@ package com.ibegu.dalao.config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.env.Environment;
 
 @ComponentScan("com.ibegu")
 @SpringBootApplication
+@MapperScan("com.ibegu.dalao.mapper")
 public class DalaoApplication {
 
     private static final Logger LOG = LoggerFactory.getLogger(DalaoApplication.class);
