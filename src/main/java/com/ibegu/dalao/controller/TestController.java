@@ -1,6 +1,9 @@
 package com.ibegu.dalao.controller;
 
-import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @Description
@@ -11,6 +14,9 @@ import org.springframework.web.bind.annotation.*;
 @RestController    //用来返回字符串（controll+responsebody）
 // @Controller   //用来返回页面
 public class TestController {
+
+    @Value("${test.hello:TEST}")
+    private String testHello;
 
 
     /**
@@ -29,7 +35,7 @@ public class TestController {
     @GetMapping("/hello")
     public String hello(){
 
-        return "Hello World !";
+        return "Hello World !" + testHello;
 
     }
 
