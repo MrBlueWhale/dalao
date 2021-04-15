@@ -1,6 +1,7 @@
 package com.ibegu.dalao.controller;
 
 import com.ibegu.dalao.domain.Demo;
+import com.ibegu.dalao.resp.CommonResp;
 import com.ibegu.dalao.service.DemoService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,9 +26,12 @@ public class DemoController {
 
 
     @GetMapping("/list")
-    public List<Demo> list(){
+    public CommonResp list(){
 
-        return demoService.list();
+        CommonResp<List<Demo>> resp = new CommonResp<>();
+        List<Demo> list = demoService.list();
+        resp.setContent(list);
+        return resp;
 
     }
 
