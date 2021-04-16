@@ -17,3 +17,6 @@ create table `demo`(
 ) engine=innodb default charset=utf8mb4 comment '测试';
 
 insert into `demo` (id, name ) VALUES (1,'测试' );
+
+
+
