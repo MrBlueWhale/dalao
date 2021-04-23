@@ -52,13 +52,18 @@ public class TestController {
     // public String helloPost(Map<String, String> map){
     public String helloPost(String name){
 
+
         return "Hello World ! Post" + name;
+
 
     }
 
 
     @GetMapping("/test/list")
     public List<Test> list(){
+        
+
+
 
         return testService.list();
 
