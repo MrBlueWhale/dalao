@@ -56,7 +56,17 @@
         <a-layout-content
             :style="{ background: '#fff', padding: '24px', margin: 0, minHeight: '280px' }"
         >
-          Content
+          Content:<br/>
+          通过ref():
+          <pre>{{ demos }}</pre>
+          <br/>
+          通过reactive():<br/>
+          <pre>
+          {{ demos_reactive }}
+        </pre>
+          <br/>
+
+          <!--        {{demos}}-->
         </a-layout-content>
       </a-layout>
     </a-layout>
@@ -66,7 +76,7 @@
 
 
 <script lang="ts">
-import {defineComponent, onMounted,} from 'vue';
+import {defineComponent, onMounted, ref, reactive, toRef} from 'vue';
 import AdminHeader from '@/components/admin-header.vue';
 import AdminFooter from '@/components/admin-footer.vue';
 import axios from 'axios';
@@ -76,12 +86,33 @@ import axios from 'axios';
 export default defineComponent({
   name: 'AdminHome',
 
-
-  setup(){
+  //放一些参数定义，方法定义
+  setup() {
     console.log("setup");
-    axios.get("http://localhost:8002/demo/list?name=测试").then((response) => {
-      console.log(response )
-    })
+    // 使用ref()定义响应式数据
+    const demos = ref();
+    //reactive中放入对象 并自定义属性
+    const demos2 = reactive({demos: []});
+
+    //初始化逻辑都写到onMounted()里
+    onMounted(() => {
+      console.log("onMounted");
+      axios.get("http://localhost:8002/demo/list").then((response) => {
+        const data = response.data;
+        //ref数据的赋值
+        demos.value = data.content;
+        demos2.demos = data.content;
+
+        console.log(response)
+      });
+    });
+
+    //html代码要拿到响应式变量 需要在setup的最后return
+    return {
+      demos,
+      demos_reactive: toRef(demos2, "demos")
+    }
+
   },
 
 
