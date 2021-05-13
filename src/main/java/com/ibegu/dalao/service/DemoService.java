@@ -7,6 +7,7 @@ import com.ibegu.dalao.req.DemoReq;
 import com.ibegu.dalao.resp.DemoResp;
 import com.ibegu.dalao.utils.CopyUtil;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -24,20 +25,22 @@ public class DemoService {
     @Resource
     private DemoMapper demoMapper;
 
-    public List<Demo> list(){
+    public List<Demo> list() {
 
 
         return demoMapper.selectByExample(null);
         // return demoMapper.selectByExample(new DemoExample());
     }
 
-    public List<DemoResp> list(DemoReq demoReq){
+    public List<DemoResp> list(DemoReq demoReq) {
 
         //创建查询条件 从数据库中返回
         DemoExample demoExample = new DemoExample();
         DemoExample.Criteria criteria = demoExample.createCriteria();
-        criteria.andNameLike("%" + demoReq.getName() + "%");
-
+        //条件查询
+        if (!ObjectUtils.isEmpty(demoReq.getName())) {
+            criteria.andNameLike("%" + demoReq.getName() + "%");
+        }
         List<Demo> demoList = demoMapper.selectByExample(demoExample);
 
 
@@ -65,7 +68,6 @@ public class DemoService {
 
         // return demoMapper.selectByExample(new DemoExample());
     }
-
 
 
 }
