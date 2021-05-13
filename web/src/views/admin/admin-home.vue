@@ -152,7 +152,7 @@ export default defineComponent({
     //初始化逻辑都写到onMounted()里
     onMounted(() => {
       console.log("onMounted");
-      axios.get("http://localhost:8002/demo/list").then((response) => {
+      axios.get(process.env.VUE_APP_SERVER + "/demo/list").then((response) => {
         const data = response.data;
         //ref数据的赋值
         demos.value = data.content;
