@@ -76,12 +76,14 @@ import axios from 'axios';
 export default defineComponent({
   name: 'AdminHome',
 
+
   setup(){
     console.log("setup");
     axios.get("http://localhost:8002/demo/list?name=测试").then((response) => {
       console.log(response )
     })
   },
+
 
   components: {
     AdminHeader,
