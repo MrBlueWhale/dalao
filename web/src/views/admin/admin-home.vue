@@ -69,11 +69,20 @@
 import {defineComponent, onMounted,} from 'vue';
 import AdminHeader from '@/components/admin-header.vue';
 import AdminFooter from '@/components/admin-footer.vue';
+import axios from 'axios';
 
 // import HelloWorld from "@/components/HelloWorld.vue";
 
 export default defineComponent({
   name: 'AdminHome',
+
+  setup(){
+    console.log("setup");
+    axios.get("http://localhost:8002/demo/list?name=测试").then((response) => {
+      console.log(response )
+    })
+  },
+
   components: {
     AdminHeader,
     AdminFooter,

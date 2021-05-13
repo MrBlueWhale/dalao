@@ -2,7 +2,7 @@
 ###
 
 ###
-GET http://localhost:8081/demo/list1
+GET http://localhost:8002/demo/list
 
 ###
-GET http://localhost:8081/demo/list?name=测试
+GET http://localhost:8002/demo/list?name=测试
