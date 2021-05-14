@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ibegu.dalao.mapper.ReplyMapper">
+  <resultMap id="BaseResultMap" type="com.ibegu.dalao.domain.Reply">
+    <id column="rpid" jdbcType="INTEGER" property="rpid" />
+    <result column="rid" jdbcType="INTEGER" property="rid" />
+    <result column="from_id" jdbcType="INTEGER" property="fromId" />
+    <result column="to_id" jdbcType="INTEGER" property="toId" />
+    <result column="reply_content" jdbcType="VARCHAR" property="replyContent" />
+    <result column="like" jdbcType="INTEGER" property="like" />
+    <result column="reply_date" jdbcType="TIMESTAMP" property="replyDate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    rpid, rid, from_id, to_id, reply_content, `like`, reply_date
+  </sql>
+  <select id="selectByExample" parameterType="com.ibegu.dalao.domain.ReplyExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from reply
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from reply
+    where rpid = #{rpid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from reply
+    where rpid = #{rpid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ibegu.dalao.domain.ReplyExample">
+    delete from reply
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ibegu.dalao.domain.Reply">
+    insert into reply (rpid, rid, from_id, 
+      to_id, reply_content, `like`, 
+      reply_date)
+    values (#{rpid,jdbcType=INTEGER}, #{rid,jdbcType=INTEGER}, #{fromId,jdbcType=INTEGER}, 
+      #{toId,jdbcType=INTEGER}, #{replyContent,jdbcType=VARCHAR}, #{like,jdbcType=INTEGER}, 
+      #{replyDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ibegu.dalao.domain.Reply">
+    insert into reply
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="rpid != null">
+        rpid,
+      </if>
+      <if test="rid != null">
+        rid,
+      </if>
+      <if test="fromId != null">
+        from_id,
+      </if>
+      <if test="toId != null">
+        to_id,
+      </if>
+      <if test="replyContent != null">
+        reply_content,
+      </if>
+      <if test="like != null">
+        `like`,
+      </if>
+      <if test="replyDate != null">
+        reply_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="rpid != null">
+        #{rpid,jdbcType=INTEGER},
+      </if>
+      <if test="rid != null">
+        #{rid,jdbcType=INTEGER},
+      </if>
+      <if test="fromId != null">
+        #{fromId,jdbcType=INTEGER},
+      </if>
+      <if test="toId != null">
+        #{toId,jdbcType=INTEGER},
+      </if>
+      <if test="replyContent != null">
+        #{replyContent,jdbcType=VARCHAR},
+      </if>
+      <if test="like != null">
+        #{like,jdbcType=INTEGER},
+      </if>
+      <if test="replyDate != null">
+        #{replyDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ibegu.dalao.domain.ReplyExample" resultType="java.lang.Long">
+    select count(*) from reply
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update reply
+    <set>
+      <if test="record.rpid != null">
+        rpid = #{record.rpid,jdbcType=INTEGER},
+      </if>
+      <if test="record.rid != null">
+        rid = #{record.rid,jdbcType=INTEGER},
+      </if>
+      <if test="record.fromId != null">
+        from_id = #{record.fromId,jdbcType=INTEGER},
+      </if>
+      <if test="record.toId != null">
+        to_id = #{record.toId,jdbcType=INTEGER},
+      </if>
+      <if test="record.replyContent != null">
+        reply_content = #{record.replyContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.like != null">
+        `like` = #{record.like,jdbcType=INTEGER},
+      </if>
+      <if test="record.replyDate != null">
+        reply_date = #{record.replyDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update reply
+    set rpid = #{record.rpid,jdbcType=INTEGER},
+      rid = #{record.rid,jdbcType=INTEGER},
+      from_id = #{record.fromId,jdbcType=INTEGER},
+      to_id = #{record.toId,jdbcType=INTEGER},
+      reply_content = #{record.replyContent,jdbcType=VARCHAR},
+      `like` = #{record.like,jdbcType=INTEGER},
+      reply_date = #{record.replyDate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ibegu.dalao.domain.Reply">
+    update reply
+    <set>
+      <if test="rid != null">
+        rid = #{rid,jdbcType=INTEGER},
+      </if>
+      <if test="fromId != null">
+        from_id = #{fromId,jdbcType=INTEGER},
+      </if>
+      <if test="toId != null">
+        to_id = #{toId,jdbcType=INTEGER},
+      </if>
+      <if test="replyContent != null">
+        reply_content = #{replyContent,jdbcType=VARCHAR},
+      </if>
+      <if test="like != null">
+        `like` = #{like,jdbcType=INTEGER},
+      </if>
+      <if test="replyDate != null">
+        reply_date = #{replyDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where rpid = #{rpid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ibegu.dalao.domain.Reply">
+    update reply
+    set rid = #{rid,jdbcType=INTEGER},
+      from_id = #{fromId,jdbcType=INTEGER},
+      to_id = #{toId,jdbcType=INTEGER},
+      reply_content = #{replyContent,jdbcType=VARCHAR},
+      `like` = #{like,jdbcType=INTEGER},
+      reply_date = #{replyDate,jdbcType=TIMESTAMP}
+    where rpid = #{rpid,jdbcType=INTEGER}
+  </update>
+</mapper>

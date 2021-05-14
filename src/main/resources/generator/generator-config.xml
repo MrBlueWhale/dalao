@@ -42,7 +42,16 @@
                              type="XMLMAPPER"/>
 
         <table tableName="demo" />
+        <table tableName="test" />
+        <table tableName="admin" />
+        <table tableName="adminkey" />
         <table tableName="contest" />
+        <table tableName="notification" />
+        <table tableName="participant" />
+        <table tableName="reply" />
+        <table tableName="review" />
+        <table tableName="sponsor" />
+        <table tableName="team" />
         <!--        <table tableName="demo" domainObjectName="Demo"/>-->
         <!--<table tableName="ebook"/>-->
         <!--<table tableName="category"/>-->

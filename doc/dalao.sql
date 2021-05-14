@@ -190,3 +190,9 @@ CREATE TABLE `test`  (
 INSERT INTO `test` VALUES (1, '测试', 'password');
 
 SET FOREIGN_KEY_CHECKS = 1;
+
+-- 管理员秘钥表增加是否激活字段
+--
+
+ALTER TABLE `dalao`.`adminkey`
+    ADD COLUMN `if_used` int(0) NOT NULL COMMENT '是否已经使用' AFTER `admin_key`;

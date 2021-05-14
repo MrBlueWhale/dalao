@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ibegu.dalao.mapper.ContestMapper">
+  <resultMap id="BaseResultMap" type="com.ibegu.dalao.domain.Contest">
+    <id column="cid" jdbcType="INTEGER" property="cid" />
+    <result column="contest_name" jdbcType="VARCHAR" property="contestName" />
+    <result column="sponsor_id" jdbcType="INTEGER" property="sponsorId" />
+    <result column="contest_intro" jdbcType="VARCHAR" property="contestIntro" />
+    <result column="registration_start_time" jdbcType="TIMESTAMP" property="registrationStartTime" />
+    <result column="registration_end_time" jdbcType="TIMESTAMP" property="registrationEndTime" />
+    <result column="compete_start_time" jdbcType="TIMESTAMP" property="competeStartTime" />
+    <result column="compete_end_time" jdbcType="TIMESTAMP" property="competeEndTime" />
+    <result column="page_view" jdbcType="INTEGER" property="pageView" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="category" jdbcType="VARCHAR" property="category" />
+    <result column="entry_fee" jdbcType="INTEGER" property="entryFee" />
+    <result column="rank" jdbcType="VARCHAR" property="rank" />
+    <result column="audience" jdbcType="VARCHAR" property="audience" />
+    <result column="contest_status" jdbcType="INTEGER" property="contestStatus" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    cid, contest_name, sponsor_id, contest_intro, registration_start_time, registration_end_time, 
+    compete_start_time, compete_end_time, page_view, `type`, category, entry_fee, `rank`, 
+    audience, contest_status
+  </sql>
+  <select id="selectByExample" parameterType="com.ibegu.dalao.domain.ContestExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from contest
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from contest
+    where cid = #{cid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from contest
+    where cid = #{cid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ibegu.dalao.domain.ContestExample">
+    delete from contest
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ibegu.dalao.domain.Contest">
+    insert into contest (cid, contest_name, sponsor_id, 
+      contest_intro, registration_start_time, 
+      registration_end_time, compete_start_time, 
+      compete_end_time, page_view, `type`, 
+      category, entry_fee, `rank`, 
+      audience, contest_status)
+    values (#{cid,jdbcType=INTEGER}, #{contestName,jdbcType=VARCHAR}, #{sponsorId,jdbcType=INTEGER}, 
+      #{contestIntro,jdbcType=VARCHAR}, #{registrationStartTime,jdbcType=TIMESTAMP}, 
+      #{registrationEndTime,jdbcType=TIMESTAMP}, #{competeStartTime,jdbcType=TIMESTAMP}, 
+      #{competeEndTime,jdbcType=TIMESTAMP}, #{pageView,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, 
+      #{category,jdbcType=VARCHAR}, #{entryFee,jdbcType=INTEGER}, #{rank,jdbcType=VARCHAR}, 
+      #{audience,jdbcType=VARCHAR}, #{contestStatus,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ibegu.dalao.domain.Contest">
+    insert into contest
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        cid,
+      </if>
+      <if test="contestName != null">
+        contest_name,
+      </if>
+      <if test="sponsorId != null">
+        sponsor_id,
+      </if>
+      <if test="contestIntro != null">
+        contest_intro,
+      </if>
+      <if test="registrationStartTime != null">
+        registration_start_time,
+      </if>
+      <if test="registrationEndTime != null">
+        registration_end_time,
+      </if>
+      <if test="competeStartTime != null">
+        compete_start_time,
+      </if>
+      <if test="competeEndTime != null">
+        compete_end_time,
+      </if>
+      <if test="pageView != null">
+        page_view,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="category != null">
+        category,
+      </if>
+      <if test="entryFee != null">
+        entry_fee,
+      </if>
+      <if test="rank != null">
+        `rank`,
+      </if>
+      <if test="audience != null">
+        audience,
+      </if>
+      <if test="contestStatus != null">
+        contest_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="contestName != null">
+        #{contestName,jdbcType=VARCHAR},
+      </if>
+      <if test="sponsorId != null">
+        #{sponsorId,jdbcType=INTEGER},
+      </if>
+      <if test="contestIntro != null">
+        #{contestIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="registrationStartTime != null">
+        #{registrationStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="registrationEndTime != null">
+        #{registrationEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="competeStartTime != null">
+        #{competeStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="competeEndTime != null">
+        #{competeEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pageView != null">
+        #{pageView,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null">
+        #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="entryFee != null">
+        #{entryFee,jdbcType=INTEGER},
+      </if>
+      <if test="rank != null">
+        #{rank,jdbcType=VARCHAR},
+      </if>
+      <if test="audience != null">
+        #{audience,jdbcType=VARCHAR},
+      </if>
+      <if test="contestStatus != null">
+        #{contestStatus,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ibegu.dalao.domain.ContestExample" resultType="java.lang.Long">
+    select count(*) from contest
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update contest
+    <set>
+      <if test="record.cid != null">
+        cid = #{record.cid,jdbcType=INTEGER},
+      </if>
+      <if test="record.contestName != null">
+        contest_name = #{record.contestName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sponsorId != null">
+        sponsor_id = #{record.sponsorId,jdbcType=INTEGER},
+      </if>
+      <if test="record.contestIntro != null">
+        contest_intro = #{record.contestIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="record.registrationStartTime != null">
+        registration_start_time = #{record.registrationStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.registrationEndTime != null">
+        registration_end_time = #{record.registrationEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.competeStartTime != null">
+        compete_start_time = #{record.competeStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.competeEndTime != null">
+        compete_end_time = #{record.competeEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.pageView != null">
+        page_view = #{record.pageView,jdbcType=INTEGER},
+      </if>
+      <if test="record.type != null">
+        `type` = #{record.type,jdbcType=VARCHAR},
+      </if>
+      <if test="record.category != null">
+        category = #{record.category,jdbcType=VARCHAR},
+      </if>
+      <if test="record.entryFee != null">
+        entry_fee = #{record.entryFee,jdbcType=INTEGER},
+      </if>
+      <if test="record.rank != null">
+        `rank` = #{record.rank,jdbcType=VARCHAR},
+      </if>
+      <if test="record.audience != null">
+        audience = #{record.audience,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contestStatus != null">
+        contest_status = #{record.contestStatus,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update contest
+    set cid = #{record.cid,jdbcType=INTEGER},
+      contest_name = #{record.contestName,jdbcType=VARCHAR},
+      sponsor_id = #{record.sponsorId,jdbcType=INTEGER},
+      contest_intro = #{record.contestIntro,jdbcType=VARCHAR},
+      registration_start_time = #{record.registrationStartTime,jdbcType=TIMESTAMP},
+      registration_end_time = #{record.registrationEndTime,jdbcType=TIMESTAMP},
+      compete_start_time = #{record.competeStartTime,jdbcType=TIMESTAMP},
+      compete_end_time = #{record.competeEndTime,jdbcType=TIMESTAMP},
+      page_view = #{record.pageView,jdbcType=INTEGER},
+      `type` = #{record.type,jdbcType=VARCHAR},
+      category = #{record.category,jdbcType=VARCHAR},
+      entry_fee = #{record.entryFee,jdbcType=INTEGER},
+      `rank` = #{record.rank,jdbcType=VARCHAR},
+      audience = #{record.audience,jdbcType=VARCHAR},
+      contest_status = #{record.contestStatus,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ibegu.dalao.domain.Contest">
+    update contest
+    <set>
+      <if test="contestName != null">
+        contest_name = #{contestName,jdbcType=VARCHAR},
+      </if>
+      <if test="sponsorId != null">
+        sponsor_id = #{sponsorId,jdbcType=INTEGER},
+      </if>
+      <if test="contestIntro != null">
+        contest_intro = #{contestIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="registrationStartTime != null">
+        registration_start_time = #{registrationStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="registrationEndTime != null">
+        registration_end_time = #{registrationEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="competeStartTime != null">
+        compete_start_time = #{competeStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="competeEndTime != null">
+        compete_end_time = #{competeEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pageView != null">
+        page_view = #{pageView,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null">
+        category = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="entryFee != null">
+        entry_fee = #{entryFee,jdbcType=INTEGER},
+      </if>
+      <if test="rank != null">
+        `rank` = #{rank,jdbcType=VARCHAR},
+      </if>
+      <if test="audience != null">
+        audience = #{audience,jdbcType=VARCHAR},
+      </if>
+      <if test="contestStatus != null">
+        contest_status = #{contestStatus,jdbcType=INTEGER},
+      </if>
+    </set>
+    where cid = #{cid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ibegu.dalao.domain.Contest">
+    update contest
+    set contest_name = #{contestName,jdbcType=VARCHAR},
+      sponsor_id = #{sponsorId,jdbcType=INTEGER},
+      contest_intro = #{contestIntro,jdbcType=VARCHAR},
+      registration_start_time = #{registrationStartTime,jdbcType=TIMESTAMP},
+      registration_end_time = #{registrationEndTime,jdbcType=TIMESTAMP},
+      compete_start_time = #{competeStartTime,jdbcType=TIMESTAMP},
+      compete_end_time = #{competeEndTime,jdbcType=TIMESTAMP},
+      page_view = #{pageView,jdbcType=INTEGER},
+      `type` = #{type,jdbcType=VARCHAR},
+      category = #{category,jdbcType=VARCHAR},
+      entry_fee = #{entryFee,jdbcType=INTEGER},
+      `rank` = #{rank,jdbcType=VARCHAR},
+      audience = #{audience,jdbcType=VARCHAR},
+      contest_status = #{contestStatus,jdbcType=INTEGER}
+    where cid = #{cid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ibegu.dalao.mapper.TeamMapper">
+  <resultMap id="BaseResultMap" type="com.ibegu.dalao.domain.Team">
+    <id column="tid" jdbcType="INTEGER" property="tid" />
+    <result column="contest_id" jdbcType="INTEGER" property="contestId" />
+    <result column="team_name" jdbcType="VARCHAR" property="teamName" />
+    <result column="uni_name" jdbcType="VARCHAR" property="uniName" />
+    <result column="uni_addr" jdbcType="VARCHAR" property="uniAddr" />
+    <result column="zone" jdbcType="VARCHAR" property="zone" />
+    <result column="instructor_name" jdbcType="VARCHAR" property="instructorName" />
+    <result column="instructor_tel" jdbcType="VARCHAR" property="instructorTel" />
+    <result column="instructor_email" jdbcType="VARCHAR" property="instructorEmail" />
+    <result column="instructor_prof" jdbcType="VARCHAR" property="instructorProf" />
+    <result column="leader_tel" jdbcType="VARCHAR" property="leaderTel" />
+    <result column="member1_tel" jdbcType="VARCHAR" property="member1Tel" />
+    <result column="member2_tel" jdbcType="VARCHAR" property="member2Tel" />
+    <result column="member3_tel" jdbcType="VARCHAR" property="member3Tel" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    tid, contest_id, team_name, uni_name, uni_addr, `zone`, instructor_name, instructor_tel, 
+    instructor_email, instructor_prof, leader_tel, member1_tel, member2_tel, member3_tel
+  </sql>
+  <select id="selectByExample" parameterType="com.ibegu.dalao.domain.TeamExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from team
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from team
+    where tid = #{tid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from team
+    where tid = #{tid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ibegu.dalao.domain.TeamExample">
+    delete from team
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ibegu.dalao.domain.Team">
+    insert into team (tid, contest_id, team_name, 
+      uni_name, uni_addr, `zone`, 
+      instructor_name, instructor_tel, instructor_email, 
+      instructor_prof, leader_tel, member1_tel, 
+      member2_tel, member3_tel)
+    values (#{tid,jdbcType=INTEGER}, #{contestId,jdbcType=INTEGER}, #{teamName,jdbcType=VARCHAR}, 
+      #{uniName,jdbcType=VARCHAR}, #{uniAddr,jdbcType=VARCHAR}, #{zone,jdbcType=VARCHAR}, 
+      #{instructorName,jdbcType=VARCHAR}, #{instructorTel,jdbcType=VARCHAR}, #{instructorEmail,jdbcType=VARCHAR}, 
+      #{instructorProf,jdbcType=VARCHAR}, #{leaderTel,jdbcType=VARCHAR}, #{member1Tel,jdbcType=VARCHAR}, 
+      #{member2Tel,jdbcType=VARCHAR}, #{member3Tel,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ibegu.dalao.domain.Team">
+    insert into team
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tid != null">
+        tid,
+      </if>
+      <if test="contestId != null">
+        contest_id,
+      </if>
+      <if test="teamName != null">
+        team_name,
+      </if>
+      <if test="uniName != null">
+        uni_name,
+      </if>
+      <if test="uniAddr != null">
+        uni_addr,
+      </if>
+      <if test="zone != null">
+        `zone`,
+      </if>
+      <if test="instructorName != null">
+        instructor_name,
+      </if>
+      <if test="instructorTel != null">
+        instructor_tel,
+      </if>
+      <if test="instructorEmail != null">
+        instructor_email,
+      </if>
+      <if test="instructorProf != null">
+        instructor_prof,
+      </if>
+      <if test="leaderTel != null">
+        leader_tel,
+      </if>
+      <if test="member1Tel != null">
+        member1_tel,
+      </if>
+      <if test="member2Tel != null">
+        member2_tel,
+      </if>
+      <if test="member3Tel != null">
+        member3_tel,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tid != null">
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="contestId != null">
+        #{contestId,jdbcType=INTEGER},
+      </if>
+      <if test="teamName != null">
+        #{teamName,jdbcType=VARCHAR},
+      </if>
+      <if test="uniName != null">
+        #{uniName,jdbcType=VARCHAR},
+      </if>
+      <if test="uniAddr != null">
+        #{uniAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="zone != null">
+        #{zone,jdbcType=VARCHAR},
+      </if>
+      <if test="instructorName != null">
+        #{instructorName,jdbcType=VARCHAR},
+      </if>
+      <if test="instructorTel != null">
+        #{instructorTel,jdbcType=VARCHAR},
+      </if>
+      <if test="instructorEmail != null">
+        #{instructorEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="instructorProf != null">
+        #{instructorProf,jdbcType=VARCHAR},
+      </if>
+      <if test="leaderTel != null">
+        #{leaderTel,jdbcType=VARCHAR},
+      </if>
+      <if test="member1Tel != null">
+        #{member1Tel,jdbcType=VARCHAR},
+      </if>
+      <if test="member2Tel != null">
+        #{member2Tel,jdbcType=VARCHAR},
+      </if>
+      <if test="member3Tel != null">
+        #{member3Tel,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ibegu.dalao.domain.TeamExample" resultType="java.lang.Long">
+    select count(*) from team
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update team
+    <set>
+      <if test="record.tid != null">
+        tid = #{record.tid,jdbcType=INTEGER},
+      </if>
+      <if test="record.contestId != null">
+        contest_id = #{record.contestId,jdbcType=INTEGER},
+      </if>
+      <if test="record.teamName != null">
+        team_name = #{record.teamName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uniName != null">
+        uni_name = #{record.uniName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uniAddr != null">
+        uni_addr = #{record.uniAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zone != null">
+        `zone` = #{record.zone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.instructorName != null">
+        instructor_name = #{record.instructorName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.instructorTel != null">
+        instructor_tel = #{record.instructorTel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.instructorEmail != null">
+        instructor_email = #{record.instructorEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.instructorProf != null">
+        instructor_prof = #{record.instructorProf,jdbcType=VARCHAR},
+      </if>
+      <if test="record.leaderTel != null">
+        leader_tel = #{record.leaderTel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.member1Tel != null">
+        member1_tel = #{record.member1Tel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.member2Tel != null">
+        member2_tel = #{record.member2Tel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.member3Tel != null">
+        member3_tel = #{record.member3Tel,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update team
+    set tid = #{record.tid,jdbcType=INTEGER},
+      contest_id = #{record.contestId,jdbcType=INTEGER},
+      team_name = #{record.teamName,jdbcType=VARCHAR},
+      uni_name = #{record.uniName,jdbcType=VARCHAR},
+      uni_addr = #{record.uniAddr,jdbcType=VARCHAR},
+      `zone` = #{record.zone,jdbcType=VARCHAR},
+      instructor_name = #{record.instructorName,jdbcType=VARCHAR},
+      instructor_tel = #{record.instructorTel,jdbcType=VARCHAR},
+      instructor_email = #{record.instructorEmail,jdbcType=VARCHAR},
+      instructor_prof = #{record.instructorProf,jdbcType=VARCHAR},
+      leader_tel = #{record.leaderTel,jdbcType=VARCHAR},
+      member1_tel = #{record.member1Tel,jdbcType=VARCHAR},
+      member2_tel = #{record.member2Tel,jdbcType=VARCHAR},
+      member3_tel = #{record.member3Tel,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ibegu.dalao.domain.Team">
+    update team
+    <set>
+      <if test="contestId != null">
+        contest_id = #{contestId,jdbcType=INTEGER},
+      </if>
+      <if test="teamName != null">
+        team_name = #{teamName,jdbcType=VARCHAR},
+      </if>
+      <if test="uniName != null">
+        uni_name = #{uniName,jdbcType=VARCHAR},
+      </if>
+      <if test="uniAddr != null">
+        uni_addr = #{uniAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="zone != null">
+        `zone` = #{zone,jdbcType=VARCHAR},
+      </if>
+      <if test="instructorName != null">
+        instructor_name = #{instructorName,jdbcType=VARCHAR},
+      </if>
+      <if test="instructorTel != null">
+        instructor_tel = #{instructorTel,jdbcType=VARCHAR},
+      </if>
+      <if test="instructorEmail != null">
+        instructor_email = #{instructorEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="instructorProf != null">
+        instructor_prof = #{instructorProf,jdbcType=VARCHAR},
+      </if>
+      <if test="leaderTel != null">
+        leader_tel = #{leaderTel,jdbcType=VARCHAR},
+      </if>
+      <if test="member1Tel != null">
+        member1_tel = #{member1Tel,jdbcType=VARCHAR},
+      </if>
+      <if test="member2Tel != null">
+        member2_tel = #{member2Tel,jdbcType=VARCHAR},
+      </if>
+      <if test="member3Tel != null">
+        member3_tel = #{member3Tel,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where tid = #{tid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ibegu.dalao.domain.Team">
+    update team
+    set contest_id = #{contestId,jdbcType=INTEGER},
+      team_name = #{teamName,jdbcType=VARCHAR},
+      uni_name = #{uniName,jdbcType=VARCHAR},
+      uni_addr = #{uniAddr,jdbcType=VARCHAR},
+      `zone` = #{zone,jdbcType=VARCHAR},
+      instructor_name = #{instructorName,jdbcType=VARCHAR},
+      instructor_tel = #{instructorTel,jdbcType=VARCHAR},
+      instructor_email = #{instructorEmail,jdbcType=VARCHAR},
+      instructor_prof = #{instructorProf,jdbcType=VARCHAR},
+      leader_tel = #{leaderTel,jdbcType=VARCHAR},
+      member1_tel = #{member1Tel,jdbcType=VARCHAR},
+      member2_tel = #{member2Tel,jdbcType=VARCHAR},
+      member3_tel = #{member3Tel,jdbcType=VARCHAR}
+    where tid = #{tid,jdbcType=INTEGER}
+  </update>
+</mapper>
