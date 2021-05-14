@@ -22,5 +22,5 @@ name=TEST
 
 
 ###
-GET http://localhost:8081/test/list
+GET http://localhost:8002/test/list
 

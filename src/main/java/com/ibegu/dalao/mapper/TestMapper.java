@@ -2,10 +2,12 @@ package com.ibegu.dalao.mapper;
 
 import com.ibegu.dalao.domain.Test;
 import com.ibegu.dalao.domain.TestExample;
-import java.util.List;
+import com.ibegu.dalao.mapper.extend.TestMapperExtend;
 import org.apache.ibatis.annotations.Param;
 
-public interface TestMapper {
+import java.util.List;
+
+public interface TestMapper extends TestMapperExtend {
     long countByExample(TestExample example);
 
     int deleteByExample(TestExample example);
@@ -27,4 +29,7 @@ public interface TestMapper {
     int updateByPrimaryKeySelective(Test record);
 
     int updateByPrimaryKey(Test record);
+
+
+
 }
