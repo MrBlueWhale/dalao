@@ -5,8 +5,6 @@ import java.util.Date;
 public class Contest {
     private Integer cid;
 
-    private String contestName;
-
     private Integer sponsorId;
 
     private String contestIntro;
@@ -33,20 +31,14 @@ public class Contest {
 
     private Integer contestStatus;
 
+    private String contestName;
+
     public Integer getCid() {
         return cid;
     }
 
     public void setCid(Integer cid) {
         this.cid = cid;
-    }
-
-    public String getContestName() {
-        return contestName;
-    }
-
-    public void setContestName(String contestName) {
-        this.contestName = contestName;
     }
 
     public Integer getSponsorId() {
@@ -153,6 +145,14 @@ public class Contest {
         this.contestStatus = contestStatus;
     }
 
+    public String getContestName() {
+        return contestName;
+    }
+
+    public void setContestName(String contestName) {
+        this.contestName = contestName;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -160,7 +160,6 @@ public class Contest {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", cid=").append(cid);
-        sb.append(", contestName=").append(contestName);
         sb.append(", sponsorId=").append(sponsorId);
         sb.append(", contestIntro=").append(contestIntro);
         sb.append(", registrationStartTime=").append(registrationStartTime);
@@ -174,6 +173,7 @@ public class Contest {
         sb.append(", rank=").append(rank);
         sb.append(", audience=").append(audience);
         sb.append(", contestStatus=").append(contestStatus);
+        sb.append(", contestName=").append(contestName);
         sb.append("]");
         return sb.toString();
     }
