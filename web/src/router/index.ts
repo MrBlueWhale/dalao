@@ -3,10 +3,15 @@ import Home from '../views/home.vue'
 import About from '../views/about.vue'
 import AdminApp from '../views/admin/admin-app.vue'
 import AdminHome from '../views/admin/admin-home.vue'
+import SponsorHome from '../views/sponsor/sponsor-home.vue'
+import UserApp from '../views/user/user-app.vue'
+import UserHome from '../views/user/user-home.vue'
+import UserHelp from '../views/user/user-help.vue'
 import AdminContest from '../views/admin/admin-contest.vue'
 import AdminDiscussion from '../views/admin/admin-discussion.vue'
 import AdminNotification from '../views/admin/admin-notification.vue'
 import AdminParticipant from '../views/admin/admin-participant.vue'
+import AdminTeam from '../views/admin/admin-team.vue'
 import AdminSponsor from '../views/admin/admin-sponsor.vue'
 
 const routes: Array<RouteRecordRaw> = [
@@ -54,8 +59,33 @@ const routes: Array<RouteRecordRaw> = [
         path: 'sponsor',
         name: 'AdminSponsor',
         component: AdminSponsor
+      },{
+        path: 'team',
+        name: 'AdminTeam',
+        component: AdminTeam
       },
     ],
+  },
+  {
+    path: '/sponsor/home',
+    name: 'SponsorHome',
+    component: SponsorHome
+  },
+  {
+    path: '/user/',
+    name: 'UserApp',
+    component: UserApp,
+    redirect: '/user/home',
+    children: [{
+      path: 'home',
+      name: 'UserHome',
+      component: UserHome,
+    },{
+      path: 'help',
+      name: 'UserHelp',
+      component: UserHelp,
+    },
+    ]
   },
 
 
