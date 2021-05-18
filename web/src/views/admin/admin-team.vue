@@ -1,16 +1,15 @@
 <template>
   <a-layout>
-    <admin-header></admin-header>
-    <router-view></router-view>
-    <admin-footer></admin-footer>
+
+    <h1 class="h1">这是组队管理模块的页面</h1>
+
   </a-layout>
 </template>
 
 
 <script lang="ts">
 import {defineComponent, onMounted, ref, reactive, toRef} from 'vue';
-import AdminHeader from '@/components/admin-header.vue';
-import AdminFooter from '@/components/admin-footer.vue';
+
 import axios from 'axios';
 
 // import HelloWorld from "@/components/HelloWorld.vue";
@@ -31,8 +30,10 @@ for (let i = 0; i < 23; i++) {
 }
 
 
+
+
 export default defineComponent({
-  name: 'AdminHome',
+  name: 'AdminTeam',
 
   //放一些参数定义，方法定义
   setup() {
@@ -60,36 +61,47 @@ export default defineComponent({
       demos,
       demos_reactive: toRef(demos2, "demos"),
       listData,
-      pagination: {
+      pagination : {
         onChange: (page: any) => {
           console.log(page);
         },
         pageSize: 3,
       },
       actions: [
-        {type: 'StarOutlined', text: '156'},
-        {type: 'LikeOutlined', text: '156'},
-        {type: 'MessageOutlined', text: '2'},
+        { type: 'StarOutlined', text: '156' },
+        { type: 'LikeOutlined', text: '156' },
+        { type: 'MessageOutlined', text: '2' },
       ],
     }
   },
 
 
   components: {
-    AdminHeader,
-    AdminFooter,
+
   },
 
 });
 </script>
 
 
+
+
 <style scoped>
+
+.h1{
+  font-size: 25px;
+}
+
 /*img {*/
 /*  width: 50px;*/
 /*  height: 50px;*/
 /*}*/
 </style>
+
+
+
+
+
 
 
 <style>

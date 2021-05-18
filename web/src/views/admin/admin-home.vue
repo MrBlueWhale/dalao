@@ -116,7 +116,6 @@
 <script lang="ts">
 import {defineComponent, onMounted, ref, reactive, toRef} from 'vue';
 import AdminHeader from '@/components/admin-header.vue';
-import AdminHeaderTop from '@/components/admin-header-top.vue';
 import AdminFooter from '@/components/admin-footer.vue';
 import axios from 'axios';
 
@@ -185,7 +184,6 @@ export default defineComponent({
 
 
   components: {
-    AdminHeaderTop,
     AdminHeader,
     AdminFooter,
   },

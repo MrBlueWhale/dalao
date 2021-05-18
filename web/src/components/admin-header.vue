@@ -19,6 +19,9 @@
       <a-menu-item key="/admin-contest">
         <router-link to="/admin/contest">竞赛管理</router-link>
       </a-menu-item>
+      <a-menu-item key="/admin-team">
+        <router-link to="/admin/team">组队管理</router-link>
+      </a-menu-item>
       <a-menu-item key="/admin-notification">
         <router-link to="/admin/notification">通知管理</router-link>
       </a-menu-item>
