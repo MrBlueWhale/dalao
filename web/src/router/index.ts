@@ -11,6 +11,9 @@ import UserRecord from '../views/user/user-record.vue'
 import UserContest from '../views/user/user-contest.vue'
 import UserDate from '../views/user/user-date.vue'
 import UserMessage from '../views/user/user-message.vue'
+import UserProfile from '../views/user/user-profile.vue'
+import UserSafety from '../views/user/user-safety.vue'
+import UserAbout from '../views/user/user-about.vue'
 import AdminContest from '../views/admin/admin-contest.vue'
 import AdminDiscussion from '../views/admin/admin-discussion.vue'
 import AdminNotification from '../views/admin/admin-notification.vue'
@@ -104,7 +107,24 @@ const routes: Array<RouteRecordRaw> = [
       path: 'message',
       name: 'UserMessage',
       component: UserMessage,
+    },{
+      path: 'profile',
+      name: 'UserProfile',
+      component: UserProfile,
+    },{
+      path: 'safety',
+      name: 'UserSafety',
+      component: UserSafety,
+    },{
+      path: 'about',
+      name: 'UserAbout',
+      component: UserAbout,
+    },{
+      path: 'home',
+      name: 'UserHome',
+      component: UserHome,
     },
+
     ]
   },
 

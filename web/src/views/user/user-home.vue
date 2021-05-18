@@ -10,7 +10,7 @@
         <a-menu-item key="4">
           <pie-chart-outlined />
           <span>竞赛</span>
-          <router-link to="/user/contest"></router-link>
+          <router-link to="/user/home"></router-link>
         </a-menu-item>
         <a-sub-menu key="sub2">
           <template #title>
