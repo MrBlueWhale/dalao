@@ -7,14 +7,22 @@
         v-model:selectedKeys="selectedKeys1"
         :style="{ lineHeight: '64px' }"
     >
-      <template>
-        <a-page-header
-                style="border: 1px solid rgb(235, 237, 240)"
-                title="来个大佬一站组队平台"
-                sub-title="This is a subtitle"
-                @back="() => null"
-        />
-      </template>
+      <a-menu-item key="mail">
+        <HomeOutlined />
+        首页
+      </a-menu-item>
+      <a-sub-menu>
+        <template #title>
+        <span class="submenu-title-wrapper">
+          <UserOutlined />
+          我的
+        </span>
+        </template>
+        <a-menu-item key="setting:1">个人资料</a-menu-item>
+        <a-menu-item key="setting:2">安全中心</a-menu-item>
+        <a-menu-item key="setting:2">关于我们</a-menu-item>
+
+      </a-sub-menu>
     </a-menu>
 
   </a-layout-header>

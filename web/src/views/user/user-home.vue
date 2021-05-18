@@ -7,20 +7,10 @@
               v-model:openKeys="openKeys"
               :style="{ height: '100%', borderRight: 0 }"
       >
-        <a-sub-menu key="sub1">
-          <template #title>
-              <span>
-                <user-outlined />
-                首页
-              </span>
-          </template>
-          <a-menu-item key="1">个人资料</a-menu-item>
-          <a-menu-item key="2">安全中心</a-menu-item>
-          <a-menu-item key="3">关于我们</a-menu-item>
-        </a-sub-menu>
         <a-menu-item key="4">
           <pie-chart-outlined />
           <span>竞赛</span>
+          <router-link to="/user/contest"></router-link>
         </a-menu-item>
         <a-sub-menu key="sub2">
           <template #title>
@@ -29,16 +19,17 @@
                 我的比赛
               </span>
           </template>
-          <a-menu-item key="5">待参加比赛</a-menu-item>
-          <a-menu-item key="6">比赛记录</a-menu-item>
-          <a-menu-item key="7">我的赛表</a-menu-item>
+          <a-menu-item key="6"><FormOutlined />比赛记录<router-link to="/user/record"></router-link></a-menu-item>
+
+          <a-menu-item key="7"><ScheduleOutlined />我的赛程<router-link to="/user/date"></router-link></a-menu-item>
         </a-sub-menu>
         <a-menu-item key="8">
           <notification-outlined />
           <span>消息</span>
+          <router-link to="/user/message"></router-link>
         </a-menu-item>
         <a-menu-item key="9">
-          <file-outlined />
+          <QuestionCircleOutlined />
           <span>帮助</span>
           <router-link to="/user/help"></router-link>
         </a-menu-item>
