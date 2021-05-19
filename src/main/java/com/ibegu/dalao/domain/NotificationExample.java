@@ -115,52 +115,52 @@ public class NotificationExample {
             return (Criteria) this;
         }
 
-        public Criteria andNidEqualTo(Integer value) {
+        public Criteria andNidEqualTo(Long value) {
             addCriterion("nid =", value, "nid");
             return (Criteria) this;
         }
 
-        public Criteria andNidNotEqualTo(Integer value) {
+        public Criteria andNidNotEqualTo(Long value) {
             addCriterion("nid <>", value, "nid");
             return (Criteria) this;
         }
 
-        public Criteria andNidGreaterThan(Integer value) {
+        public Criteria andNidGreaterThan(Long value) {
             addCriterion("nid >", value, "nid");
             return (Criteria) this;
         }
 
-        public Criteria andNidGreaterThanOrEqualTo(Integer value) {
+        public Criteria andNidGreaterThanOrEqualTo(Long value) {
             addCriterion("nid >=", value, "nid");
             return (Criteria) this;
         }
 
-        public Criteria andNidLessThan(Integer value) {
+        public Criteria andNidLessThan(Long value) {
             addCriterion("nid <", value, "nid");
             return (Criteria) this;
         }
 
-        public Criteria andNidLessThanOrEqualTo(Integer value) {
+        public Criteria andNidLessThanOrEqualTo(Long value) {
             addCriterion("nid <=", value, "nid");
             return (Criteria) this;
         }
 
-        public Criteria andNidIn(List<Integer> values) {
+        public Criteria andNidIn(List<Long> values) {
             addCriterion("nid in", values, "nid");
             return (Criteria) this;
         }
 
-        public Criteria andNidNotIn(List<Integer> values) {
+        public Criteria andNidNotIn(List<Long> values) {
             addCriterion("nid not in", values, "nid");
             return (Criteria) this;
         }
 
-        public Criteria andNidBetween(Integer value1, Integer value2) {
+        public Criteria andNidBetween(Long value1, Long value2) {
             addCriterion("nid between", value1, value2, "nid");
             return (Criteria) this;
         }
 
-        public Criteria andNidNotBetween(Integer value1, Integer value2) {
+        public Criteria andNidNotBetween(Long value1, Long value2) {
             addCriterion("nid not between", value1, value2, "nid");
             return (Criteria) this;
         }
@@ -175,62 +175,52 @@ public class NotificationExample {
             return (Criteria) this;
         }
 
-        public Criteria andContestIdEqualTo(String value) {
+        public Criteria andContestIdEqualTo(Long value) {
             addCriterion("contest_id =", value, "contestId");
             return (Criteria) this;
         }
 
-        public Criteria andContestIdNotEqualTo(String value) {
+        public Criteria andContestIdNotEqualTo(Long value) {
             addCriterion("contest_id <>", value, "contestId");
             return (Criteria) this;
         }
 
-        public Criteria andContestIdGreaterThan(String value) {
+        public Criteria andContestIdGreaterThan(Long value) {
             addCriterion("contest_id >", value, "contestId");
             return (Criteria) this;
         }
 
-        public Criteria andContestIdGreaterThanOrEqualTo(String value) {
+        public Criteria andContestIdGreaterThanOrEqualTo(Long value) {
             addCriterion("contest_id >=", value, "contestId");
             return (Criteria) this;
         }
 
-        public Criteria andContestIdLessThan(String value) {
+        public Criteria andContestIdLessThan(Long value) {
             addCriterion("contest_id <", value, "contestId");
             return (Criteria) this;
         }
 
-        public Criteria andContestIdLessThanOrEqualTo(String value) {
+        public Criteria andContestIdLessThanOrEqualTo(Long value) {
             addCriterion("contest_id <=", value, "contestId");
             return (Criteria) this;
         }
 
-        public Criteria andContestIdLike(String value) {
-            addCriterion("contest_id like", value, "contestId");
-            return (Criteria) this;
-        }
-
-        public Criteria andContestIdNotLike(String value) {
-            addCriterion("contest_id not like", value, "contestId");
-            return (Criteria) this;
-        }
-
-        public Criteria andContestIdIn(List<String> values) {
+        public Criteria andContestIdIn(List<Long> values) {
             addCriterion("contest_id in", values, "contestId");
             return (Criteria) this;
         }
 
-        public Criteria andContestIdNotIn(List<String> values) {
+        public Criteria andContestIdNotIn(List<Long> values) {
             addCriterion("contest_id not in", values, "contestId");
             return (Criteria) this;
         }
 
-        public Criteria andContestIdBetween(String value1, String value2) {
+        public Criteria andContestIdBetween(Long value1, Long value2) {
             addCriterion("contest_id between", value1, value2, "contestId");
             return (Criteria) this;
         }
 
-        public Criteria andContestIdNotBetween(String value1, String value2) {
+        public Criteria andContestIdNotBetween(Long value1, Long value2) {
             addCriterion("contest_id not between", value1, value2, "contestId");
             return (Criteria) this;
         }

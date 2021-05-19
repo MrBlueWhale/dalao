@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ibegu.dalao.mapper.ReviewMapper">
   <resultMap id="BaseResultMap" type="com.ibegu.dalao.domain.Review">
-    <id column="rid" jdbcType="INTEGER" property="rid" />
-    <result column="contest_id" jdbcType="INTEGER" property="contestId" />
-    <result column="reviewer_id" jdbcType="INTEGER" property="reviewerId" />
+    <id column="rid" jdbcType="BIGINT" property="rid" />
+    <result column="contest_id" jdbcType="BIGINT" property="contestId" />
+    <result column="reviewer_id" jdbcType="BIGINT" property="reviewerId" />
     <result column="review_content" jdbcType="VARCHAR" property="reviewContent" />
     <result column="review_date" jdbcType="TIMESTAMP" property="reviewDate" />
     <result column="like" jdbcType="INTEGER" property="like" />
@@ -84,15 +84,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from review
-    where rid = #{rid,jdbcType=INTEGER}
+    where rid = #{rid,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from review
-    where rid = #{rid,jdbcType=INTEGER}
+    where rid = #{rid,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="com.ibegu.dalao.domain.ReviewExample">
     delete from review
@@ -104,7 +104,7 @@
     insert into review (rid, contest_id, reviewer_id, 
       review_content, review_date, `like`
       )
-    values (#{rid,jdbcType=INTEGER}, #{contestId,jdbcType=INTEGER}, #{reviewerId,jdbcType=INTEGER}, 
+    values (#{rid,jdbcType=BIGINT}, #{contestId,jdbcType=BIGINT}, #{reviewerId,jdbcType=BIGINT}, 
       #{reviewContent,jdbcType=VARCHAR}, #{reviewDate,jdbcType=TIMESTAMP}, #{like,jdbcType=INTEGER}
       )
   </insert>
@@ -132,13 +132,13 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="rid != null">
-        #{rid,jdbcType=INTEGER},
+        #{rid,jdbcType=BIGINT},
       </if>
       <if test="contestId != null">
-        #{contestId,jdbcType=INTEGER},
+        #{contestId,jdbcType=BIGINT},
       </if>
       <if test="reviewerId != null">
-        #{reviewerId,jdbcType=INTEGER},
+        #{reviewerId,jdbcType=BIGINT},
       </if>
       <if test="reviewContent != null">
         #{reviewContent,jdbcType=VARCHAR},
@@ -161,13 +161,13 @@
     update review
     <set>
       <if test="record.rid != null">
-        rid = #{record.rid,jdbcType=INTEGER},
+        rid = #{record.rid,jdbcType=BIGINT},
       </if>
       <if test="record.contestId != null">
-        contest_id = #{record.contestId,jdbcType=INTEGER},
+        contest_id = #{record.contestId,jdbcType=BIGINT},
       </if>
       <if test="record.reviewerId != null">
-        reviewer_id = #{record.reviewerId,jdbcType=INTEGER},
+        reviewer_id = #{record.reviewerId,jdbcType=BIGINT},
       </if>
       <if test="record.reviewContent != null">
         review_content = #{record.reviewContent,jdbcType=VARCHAR},
@@ -185,9 +185,9 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update review
-    set rid = #{record.rid,jdbcType=INTEGER},
-      contest_id = #{record.contestId,jdbcType=INTEGER},
-      reviewer_id = #{record.reviewerId,jdbcType=INTEGER},
+    set rid = #{record.rid,jdbcType=BIGINT},
+      contest_id = #{record.contestId,jdbcType=BIGINT},
+      reviewer_id = #{record.reviewerId,jdbcType=BIGINT},
       review_content = #{record.reviewContent,jdbcType=VARCHAR},
       review_date = #{record.reviewDate,jdbcType=TIMESTAMP},
       `like` = #{record.like,jdbcType=INTEGER}
@@ -199,10 +199,10 @@
     update review
     <set>
       <if test="contestId != null">
-        contest_id = #{contestId,jdbcType=INTEGER},
+        contest_id = #{contestId,jdbcType=BIGINT},
       </if>
       <if test="reviewerId != null">
-        reviewer_id = #{reviewerId,jdbcType=INTEGER},
+        reviewer_id = #{reviewerId,jdbcType=BIGINT},
       </if>
       <if test="reviewContent != null">
         review_content = #{reviewContent,jdbcType=VARCHAR},
@@ -214,15 +214,15 @@
         `like` = #{like,jdbcType=INTEGER},
       </if>
     </set>
-    where rid = #{rid,jdbcType=INTEGER}
+    where rid = #{rid,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.ibegu.dalao.domain.Review">
     update review
-    set contest_id = #{contestId,jdbcType=INTEGER},
-      reviewer_id = #{reviewerId,jdbcType=INTEGER},
+    set contest_id = #{contestId,jdbcType=BIGINT},
+      reviewer_id = #{reviewerId,jdbcType=BIGINT},
       review_content = #{reviewContent,jdbcType=VARCHAR},
       review_date = #{reviewDate,jdbcType=TIMESTAMP},
       `like` = #{like,jdbcType=INTEGER}
-    where rid = #{rid,jdbcType=INTEGER}
+    where rid = #{rid,jdbcType=BIGINT}
   </update>
 </mapper>

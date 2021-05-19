@@ -10,7 +10,7 @@ public interface AdminkeyMapper {
 
     int deleteByExample(AdminkeyExample example);
 
-    int deleteByPrimaryKey(Integer akid);
+    int deleteByPrimaryKey(Long akid);
 
     int insert(Adminkey record);
 
@@ -18,7 +18,7 @@ public interface AdminkeyMapper {
 
     List<Adminkey> selectByExample(AdminkeyExample example);
 
-    Adminkey selectByPrimaryKey(Integer akid);
+    Adminkey selectByPrimaryKey(Long akid);
 
     int updateByExampleSelective(@Param("record") Adminkey record, @Param("example") AdminkeyExample example);
 

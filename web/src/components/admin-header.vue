@@ -11,6 +11,7 @@
         <router-link to="/admin/home">首页</router-link>
       </a-menu-item>
       <a-menu-item key="/admin-participant">
+<!--        <TeamOutlined />-->
         <router-link to="/admin/participant">参赛者管理</router-link>
       </a-menu-item>
       <a-menu-item key="/admin-sponsor">

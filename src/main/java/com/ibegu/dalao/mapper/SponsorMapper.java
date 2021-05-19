@@ -10,7 +10,7 @@ public interface SponsorMapper {
 
     int deleteByExample(SponsorExample example);
 
-    int deleteByPrimaryKey(Integer sid);
+    int deleteByPrimaryKey(Long sid);
 
     int insert(Sponsor record);
 
@@ -18,7 +18,7 @@ public interface SponsorMapper {
 
     List<Sponsor> selectByExample(SponsorExample example);
 
-    Sponsor selectByPrimaryKey(Integer sid);
+    Sponsor selectByPrimaryKey(Long sid);
 
     int updateByExampleSelective(@Param("record") Sponsor record, @Param("example") SponsorExample example);
 

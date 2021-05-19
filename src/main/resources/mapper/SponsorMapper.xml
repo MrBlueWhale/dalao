@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ibegu.dalao.mapper.SponsorMapper">
   <resultMap id="BaseResultMap" type="com.ibegu.dalao.domain.Sponsor">
-    <id column="sid" jdbcType="INTEGER" property="sid" />
+    <id column="sid" jdbcType="BIGINT" property="sid" />
     <result column="avatar" jdbcType="VARCHAR" property="avatar" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="address" jdbcType="VARCHAR" property="address" />
@@ -90,15 +90,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from sponsor
-    where sid = #{sid,jdbcType=INTEGER}
+    where sid = #{sid,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from sponsor
-    where sid = #{sid,jdbcType=INTEGER}
+    where sid = #{sid,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="com.ibegu.dalao.domain.SponsorExample">
     delete from sponsor
@@ -111,7 +111,7 @@
       address, tel_num, email, 
       `password`, intro, identity_status, 
       join_date, account_status)
-    values (#{sid,jdbcType=INTEGER}, #{avatar,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+    values (#{sid,jdbcType=BIGINT}, #{avatar,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
       #{address,jdbcType=VARCHAR}, #{telNum,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
       #{password,jdbcType=VARCHAR}, #{intro,jdbcType=VARCHAR}, #{identityStatus,jdbcType=VARCHAR}, 
       #{joinDate,jdbcType=TIMESTAMP}, #{accountStatus,jdbcType=INTEGER})
@@ -155,7 +155,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="sid != null">
-        #{sid,jdbcType=INTEGER},
+        #{sid,jdbcType=BIGINT},
       </if>
       <if test="avatar != null">
         #{avatar,jdbcType=VARCHAR},
@@ -199,7 +199,7 @@
     update sponsor
     <set>
       <if test="record.sid != null">
-        sid = #{record.sid,jdbcType=INTEGER},
+        sid = #{record.sid,jdbcType=BIGINT},
       </if>
       <if test="record.avatar != null">
         avatar = #{record.avatar,jdbcType=VARCHAR},
@@ -238,7 +238,7 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update sponsor
-    set sid = #{record.sid,jdbcType=INTEGER},
+    set sid = #{record.sid,jdbcType=BIGINT},
       avatar = #{record.avatar,jdbcType=VARCHAR},
       `name` = #{record.name,jdbcType=VARCHAR},
       address = #{record.address,jdbcType=VARCHAR},
@@ -287,7 +287,7 @@
         account_status = #{accountStatus,jdbcType=INTEGER},
       </if>
     </set>
-    where sid = #{sid,jdbcType=INTEGER}
+    where sid = #{sid,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.ibegu.dalao.domain.Sponsor">
     update sponsor
@@ -301,6 +301,6 @@
       identity_status = #{identityStatus,jdbcType=VARCHAR},
       join_date = #{joinDate,jdbcType=TIMESTAMP},
       account_status = #{accountStatus,jdbcType=INTEGER}
-    where sid = #{sid,jdbcType=INTEGER}
+    where sid = #{sid,jdbcType=BIGINT}
   </update>
 </mapper>

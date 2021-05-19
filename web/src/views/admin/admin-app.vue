@@ -1,5 +1,6 @@
 <template>
   <a-layout>
+<!--    <admin-header-top></admin-header-top>-->
     <admin-header></admin-header>
     <router-view></router-view>
     <admin-footer></admin-footer>

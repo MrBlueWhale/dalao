@@ -3,7 +3,7 @@ package com.ibegu.dalao.domain;
 import java.util.Date;
 
 public class Participant {
-    private Integer pid;
+    private Long pid;
 
     private String nickname;
 
@@ -35,11 +35,11 @@ public class Participant {
 
     private Integer accountStatus;
 
-    public Integer getPid() {
+    public Long getPid() {
         return pid;
     }
 
-    public void setPid(Integer pid) {
+    public void setPid(Long pid) {
         this.pid = pid;
     }
 

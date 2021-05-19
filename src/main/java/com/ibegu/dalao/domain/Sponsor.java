@@ -3,7 +3,7 @@ package com.ibegu.dalao.domain;
 import java.util.Date;
 
 public class Sponsor {
-    private Integer sid;
+    private Long sid;
 
     private String avatar;
 
@@ -25,11 +25,11 @@ public class Sponsor {
 
     private Integer accountStatus;
 
-    public Integer getSid() {
+    public Long getSid() {
         return sid;
     }
 
-    public void setSid(Integer sid) {
+    public void setSid(Long sid) {
         this.sid = sid;
     }
 
