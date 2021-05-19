@@ -1,5 +1,12 @@
 <template>
-  <h1>这里是竞赛页面</h1>
+  <a-layout>
+    <a-layout-content
+            :style="{ background:'#fff', padding: '24px', margin: 0,
+    minHeight:'600px'}">
+
+      <h1>这里是竞赛页面</h1>
+    </a-layout-content>
+  </a-layout>
 </template>
 
 

@@ -3,6 +3,8 @@
 
 ###
 GET http://localhost:8002/contest/list?contestName=大学生
+###
+GET http://localhost:8002/contest/list
 
 
 
