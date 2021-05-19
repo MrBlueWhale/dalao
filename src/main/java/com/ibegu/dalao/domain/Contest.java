@@ -3,9 +3,9 @@ package com.ibegu.dalao.domain;
 import java.util.Date;
 
 public class Contest {
-    private Integer cid;
+    private Long cid;
 
-    private Integer sponsorId;
+    private Long sponsorId;
 
     private String contestIntro;
 
@@ -33,19 +33,19 @@ public class Contest {
 
     private String contestName;
 
-    public Integer getCid() {
+    public Long getCid() {
         return cid;
     }
 
-    public void setCid(Integer cid) {
+    public void setCid(Long cid) {
         this.cid = cid;
     }
 
-    public Integer getSponsorId() {
+    public Long getSponsorId() {
         return sponsorId;
     }
 
-    public void setSponsorId(Integer sponsorId) {
+    public void setSponsorId(Long sponsorId) {
         this.sponsorId = sponsorId;
     }
 

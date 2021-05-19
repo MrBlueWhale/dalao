@@ -3,9 +3,9 @@ package com.ibegu.dalao.domain;
 import java.util.Date;
 
 public class Notification {
-    private Integer nid;
+    private Long nid;
 
-    private String contestId;
+    private Long contestId;
 
     private Date releaseTime;
 
@@ -13,19 +13,19 @@ public class Notification {
 
     private String promulgator;
 
-    public Integer getNid() {
+    public Long getNid() {
         return nid;
     }
 
-    public void setNid(Integer nid) {
+    public void setNid(Long nid) {
         this.nid = nid;
     }
 
-    public String getContestId() {
+    public Long getContestId() {
         return contestId;
     }
 
-    public void setContestId(String contestId) {
+    public void setContestId(Long contestId) {
         this.contestId = contestId;
     }
 

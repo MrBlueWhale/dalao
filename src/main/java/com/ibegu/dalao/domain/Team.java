@@ -1,9 +1,9 @@
 package com.ibegu.dalao.domain;
 
 public class Team {
-    private Integer tid;
+    private Long tid;
 
-    private Integer contestId;
+    private Long contestId;
 
     private String teamName;
 
@@ -29,19 +29,19 @@ public class Team {
 
     private String member3Tel;
 
-    public Integer getTid() {
+    public Long getTid() {
         return tid;
     }
 
-    public void setTid(Integer tid) {
+    public void setTid(Long tid) {
         this.tid = tid;
     }
 
-    public Integer getContestId() {
+    public Long getContestId() {
         return contestId;
     }
 
-    public void setContestId(Integer contestId) {
+    public void setContestId(Long contestId) {
         this.contestId = contestId;
     }
 

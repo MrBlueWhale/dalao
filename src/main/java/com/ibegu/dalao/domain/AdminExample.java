@@ -115,52 +115,52 @@ public class AdminExample {
             return (Criteria) this;
         }
 
-        public Criteria andAidEqualTo(Integer value) {
+        public Criteria andAidEqualTo(Long value) {
             addCriterion("aid =", value, "aid");
             return (Criteria) this;
         }
 
-        public Criteria andAidNotEqualTo(Integer value) {
+        public Criteria andAidNotEqualTo(Long value) {
             addCriterion("aid <>", value, "aid");
             return (Criteria) this;
         }
 
-        public Criteria andAidGreaterThan(Integer value) {
+        public Criteria andAidGreaterThan(Long value) {
             addCriterion("aid >", value, "aid");
             return (Criteria) this;
         }
 
-        public Criteria andAidGreaterThanOrEqualTo(Integer value) {
+        public Criteria andAidGreaterThanOrEqualTo(Long value) {
             addCriterion("aid >=", value, "aid");
             return (Criteria) this;
         }
 
-        public Criteria andAidLessThan(Integer value) {
+        public Criteria andAidLessThan(Long value) {
             addCriterion("aid <", value, "aid");
             return (Criteria) this;
         }
 
-        public Criteria andAidLessThanOrEqualTo(Integer value) {
+        public Criteria andAidLessThanOrEqualTo(Long value) {
             addCriterion("aid <=", value, "aid");
             return (Criteria) this;
         }
 
-        public Criteria andAidIn(List<Integer> values) {
+        public Criteria andAidIn(List<Long> values) {
             addCriterion("aid in", values, "aid");
             return (Criteria) this;
         }
 
-        public Criteria andAidNotIn(List<Integer> values) {
+        public Criteria andAidNotIn(List<Long> values) {
             addCriterion("aid not in", values, "aid");
             return (Criteria) this;
         }
 
-        public Criteria andAidBetween(Integer value1, Integer value2) {
+        public Criteria andAidBetween(Long value1, Long value2) {
             addCriterion("aid between", value1, value2, "aid");
             return (Criteria) this;
         }
 
-        public Criteria andAidNotBetween(Integer value1, Integer value2) {
+        public Criteria andAidNotBetween(Long value1, Long value2) {
             addCriterion("aid not between", value1, value2, "aid");
             return (Criteria) this;
         }

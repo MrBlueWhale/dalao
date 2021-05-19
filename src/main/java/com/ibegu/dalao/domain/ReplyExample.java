@@ -115,52 +115,52 @@ public class ReplyExample {
             return (Criteria) this;
         }
 
-        public Criteria andRpidEqualTo(Integer value) {
+        public Criteria andRpidEqualTo(Long value) {
             addCriterion("rpid =", value, "rpid");
             return (Criteria) this;
         }
 
-        public Criteria andRpidNotEqualTo(Integer value) {
+        public Criteria andRpidNotEqualTo(Long value) {
             addCriterion("rpid <>", value, "rpid");
             return (Criteria) this;
         }
 
-        public Criteria andRpidGreaterThan(Integer value) {
+        public Criteria andRpidGreaterThan(Long value) {
             addCriterion("rpid >", value, "rpid");
             return (Criteria) this;
         }
 
-        public Criteria andRpidGreaterThanOrEqualTo(Integer value) {
+        public Criteria andRpidGreaterThanOrEqualTo(Long value) {
             addCriterion("rpid >=", value, "rpid");
             return (Criteria) this;
         }
 
-        public Criteria andRpidLessThan(Integer value) {
+        public Criteria andRpidLessThan(Long value) {
             addCriterion("rpid <", value, "rpid");
             return (Criteria) this;
         }
 
-        public Criteria andRpidLessThanOrEqualTo(Integer value) {
+        public Criteria andRpidLessThanOrEqualTo(Long value) {
             addCriterion("rpid <=", value, "rpid");
             return (Criteria) this;
         }
 
-        public Criteria andRpidIn(List<Integer> values) {
+        public Criteria andRpidIn(List<Long> values) {
             addCriterion("rpid in", values, "rpid");
             return (Criteria) this;
         }
 
-        public Criteria andRpidNotIn(List<Integer> values) {
+        public Criteria andRpidNotIn(List<Long> values) {
             addCriterion("rpid not in", values, "rpid");
             return (Criteria) this;
         }
 
-        public Criteria andRpidBetween(Integer value1, Integer value2) {
+        public Criteria andRpidBetween(Long value1, Long value2) {
             addCriterion("rpid between", value1, value2, "rpid");
             return (Criteria) this;
         }
 
-        public Criteria andRpidNotBetween(Integer value1, Integer value2) {
+        public Criteria andRpidNotBetween(Long value1, Long value2) {
             addCriterion("rpid not between", value1, value2, "rpid");
             return (Criteria) this;
         }
@@ -175,52 +175,52 @@ public class ReplyExample {
             return (Criteria) this;
         }
 
-        public Criteria andRidEqualTo(Integer value) {
+        public Criteria andRidEqualTo(Long value) {
             addCriterion("rid =", value, "rid");
             return (Criteria) this;
         }
 
-        public Criteria andRidNotEqualTo(Integer value) {
+        public Criteria andRidNotEqualTo(Long value) {
             addCriterion("rid <>", value, "rid");
             return (Criteria) this;
         }
 
-        public Criteria andRidGreaterThan(Integer value) {
+        public Criteria andRidGreaterThan(Long value) {
             addCriterion("rid >", value, "rid");
             return (Criteria) this;
         }
 
-        public Criteria andRidGreaterThanOrEqualTo(Integer value) {
+        public Criteria andRidGreaterThanOrEqualTo(Long value) {
             addCriterion("rid >=", value, "rid");
             return (Criteria) this;
         }
 
-        public Criteria andRidLessThan(Integer value) {
+        public Criteria andRidLessThan(Long value) {
             addCriterion("rid <", value, "rid");
             return (Criteria) this;
         }
 
-        public Criteria andRidLessThanOrEqualTo(Integer value) {
+        public Criteria andRidLessThanOrEqualTo(Long value) {
             addCriterion("rid <=", value, "rid");
             return (Criteria) this;
         }
 
-        public Criteria andRidIn(List<Integer> values) {
+        public Criteria andRidIn(List<Long> values) {
             addCriterion("rid in", values, "rid");
             return (Criteria) this;
         }
 
-        public Criteria andRidNotIn(List<Integer> values) {
+        public Criteria andRidNotIn(List<Long> values) {
             addCriterion("rid not in", values, "rid");
             return (Criteria) this;
         }
 
-        public Criteria andRidBetween(Integer value1, Integer value2) {
+        public Criteria andRidBetween(Long value1, Long value2) {
             addCriterion("rid between", value1, value2, "rid");
             return (Criteria) this;
         }
 
-        public Criteria andRidNotBetween(Integer value1, Integer value2) {
+        public Criteria andRidNotBetween(Long value1, Long value2) {
             addCriterion("rid not between", value1, value2, "rid");
             return (Criteria) this;
         }
@@ -235,52 +235,52 @@ public class ReplyExample {
             return (Criteria) this;
         }
 
-        public Criteria andFromIdEqualTo(Integer value) {
+        public Criteria andFromIdEqualTo(Long value) {
             addCriterion("from_id =", value, "fromId");
             return (Criteria) this;
         }
 
-        public Criteria andFromIdNotEqualTo(Integer value) {
+        public Criteria andFromIdNotEqualTo(Long value) {
             addCriterion("from_id <>", value, "fromId");
             return (Criteria) this;
         }
 
-        public Criteria andFromIdGreaterThan(Integer value) {
+        public Criteria andFromIdGreaterThan(Long value) {
             addCriterion("from_id >", value, "fromId");
             return (Criteria) this;
         }
 
-        public Criteria andFromIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andFromIdGreaterThanOrEqualTo(Long value) {
             addCriterion("from_id >=", value, "fromId");
             return (Criteria) this;
         }
 
-        public Criteria andFromIdLessThan(Integer value) {
+        public Criteria andFromIdLessThan(Long value) {
             addCriterion("from_id <", value, "fromId");
             return (Criteria) this;
         }
 
-        public Criteria andFromIdLessThanOrEqualTo(Integer value) {
+        public Criteria andFromIdLessThanOrEqualTo(Long value) {
             addCriterion("from_id <=", value, "fromId");
             return (Criteria) this;
         }
 
-        public Criteria andFromIdIn(List<Integer> values) {
+        public Criteria andFromIdIn(List<Long> values) {
             addCriterion("from_id in", values, "fromId");
             return (Criteria) this;
         }
 
-        public Criteria andFromIdNotIn(List<Integer> values) {
+        public Criteria andFromIdNotIn(List<Long> values) {
             addCriterion("from_id not in", values, "fromId");
             return (Criteria) this;
         }
 
-        public Criteria andFromIdBetween(Integer value1, Integer value2) {
+        public Criteria andFromIdBetween(Long value1, Long value2) {
             addCriterion("from_id between", value1, value2, "fromId");
             return (Criteria) this;
         }
 
-        public Criteria andFromIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andFromIdNotBetween(Long value1, Long value2) {
             addCriterion("from_id not between", value1, value2, "fromId");
             return (Criteria) this;
         }
@@ -295,52 +295,52 @@ public class ReplyExample {
             return (Criteria) this;
         }
 
-        public Criteria andToIdEqualTo(Integer value) {
+        public Criteria andToIdEqualTo(Long value) {
             addCriterion("to_id =", value, "toId");
             return (Criteria) this;
         }
 
-        public Criteria andToIdNotEqualTo(Integer value) {
+        public Criteria andToIdNotEqualTo(Long value) {
             addCriterion("to_id <>", value, "toId");
             return (Criteria) this;
         }
 
-        public Criteria andToIdGreaterThan(Integer value) {
+        public Criteria andToIdGreaterThan(Long value) {
             addCriterion("to_id >", value, "toId");
             return (Criteria) this;
         }
 
-        public Criteria andToIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andToIdGreaterThanOrEqualTo(Long value) {
             addCriterion("to_id >=", value, "toId");
             return (Criteria) this;
         }
 
-        public Criteria andToIdLessThan(Integer value) {
+        public Criteria andToIdLessThan(Long value) {
             addCriterion("to_id <", value, "toId");
             return (Criteria) this;
         }
 
-        public Criteria andToIdLessThanOrEqualTo(Integer value) {
+        public Criteria andToIdLessThanOrEqualTo(Long value) {
             addCriterion("to_id <=", value, "toId");
             return (Criteria) this;
         }
 
-        public Criteria andToIdIn(List<Integer> values) {
+        public Criteria andToIdIn(List<Long> values) {
             addCriterion("to_id in", values, "toId");
             return (Criteria) this;
         }
 
-        public Criteria andToIdNotIn(List<Integer> values) {
+        public Criteria andToIdNotIn(List<Long> values) {
             addCriterion("to_id not in", values, "toId");
             return (Criteria) this;
         }
 
-        public Criteria andToIdBetween(Integer value1, Integer value2) {
+        public Criteria andToIdBetween(Long value1, Long value2) {
             addCriterion("to_id between", value1, value2, "toId");
             return (Criteria) this;
         }
 
-        public Criteria andToIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andToIdNotBetween(Long value1, Long value2) {
             addCriterion("to_id not between", value1, value2, "toId");
             return (Criteria) this;
         }

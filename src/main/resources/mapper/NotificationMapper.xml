@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ibegu.dalao.mapper.NotificationMapper">
   <resultMap id="BaseResultMap" type="com.ibegu.dalao.domain.Notification">
-    <id column="nid" jdbcType="INTEGER" property="nid" />
-    <result column="contest_id" jdbcType="VARCHAR" property="contestId" />
+    <id column="nid" jdbcType="BIGINT" property="nid" />
+    <result column="contest_id" jdbcType="BIGINT" property="contestId" />
     <result column="release_time" jdbcType="TIMESTAMP" property="releaseTime" />
     <result column="notify_content" jdbcType="VARCHAR" property="notifyContent" />
     <result column="promulgator" jdbcType="VARCHAR" property="promulgator" />
@@ -83,15 +83,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from notification
-    where nid = #{nid,jdbcType=INTEGER}
+    where nid = #{nid,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from notification
-    where nid = #{nid,jdbcType=INTEGER}
+    where nid = #{nid,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="com.ibegu.dalao.domain.NotificationExample">
     delete from notification
@@ -102,7 +102,7 @@
   <insert id="insert" parameterType="com.ibegu.dalao.domain.Notification">
     insert into notification (nid, contest_id, release_time, 
       notify_content, promulgator)
-    values (#{nid,jdbcType=INTEGER}, #{contestId,jdbcType=VARCHAR}, #{releaseTime,jdbcType=TIMESTAMP}, 
+    values (#{nid,jdbcType=BIGINT}, #{contestId,jdbcType=BIGINT}, #{releaseTime,jdbcType=TIMESTAMP}, 
       #{notifyContent,jdbcType=VARCHAR}, #{promulgator,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.ibegu.dalao.domain.Notification">
@@ -126,10 +126,10 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="nid != null">
-        #{nid,jdbcType=INTEGER},
+        #{nid,jdbcType=BIGINT},
       </if>
       <if test="contestId != null">
-        #{contestId,jdbcType=VARCHAR},
+        #{contestId,jdbcType=BIGINT},
       </if>
       <if test="releaseTime != null">
         #{releaseTime,jdbcType=TIMESTAMP},
@@ -152,10 +152,10 @@
     update notification
     <set>
       <if test="record.nid != null">
-        nid = #{record.nid,jdbcType=INTEGER},
+        nid = #{record.nid,jdbcType=BIGINT},
       </if>
       <if test="record.contestId != null">
-        contest_id = #{record.contestId,jdbcType=VARCHAR},
+        contest_id = #{record.contestId,jdbcType=BIGINT},
       </if>
       <if test="record.releaseTime != null">
         release_time = #{record.releaseTime,jdbcType=TIMESTAMP},
@@ -173,8 +173,8 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update notification
-    set nid = #{record.nid,jdbcType=INTEGER},
-      contest_id = #{record.contestId,jdbcType=VARCHAR},
+    set nid = #{record.nid,jdbcType=BIGINT},
+      contest_id = #{record.contestId,jdbcType=BIGINT},
       release_time = #{record.releaseTime,jdbcType=TIMESTAMP},
       notify_content = #{record.notifyContent,jdbcType=VARCHAR},
       promulgator = #{record.promulgator,jdbcType=VARCHAR}
@@ -186,7 +186,7 @@
     update notification
     <set>
       <if test="contestId != null">
-        contest_id = #{contestId,jdbcType=VARCHAR},
+        contest_id = #{contestId,jdbcType=BIGINT},
       </if>
       <if test="releaseTime != null">
         release_time = #{releaseTime,jdbcType=TIMESTAMP},
@@ -198,14 +198,14 @@
         promulgator = #{promulgator,jdbcType=VARCHAR},
       </if>
     </set>
-    where nid = #{nid,jdbcType=INTEGER}
+    where nid = #{nid,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.ibegu.dalao.domain.Notification">
     update notification
-    set contest_id = #{contestId,jdbcType=VARCHAR},
+    set contest_id = #{contestId,jdbcType=BIGINT},
       release_time = #{releaseTime,jdbcType=TIMESTAMP},
       notify_content = #{notifyContent,jdbcType=VARCHAR},
       promulgator = #{promulgator,jdbcType=VARCHAR}
-    where nid = #{nid,jdbcType=INTEGER}
+    where nid = #{nid,jdbcType=BIGINT}
   </update>
 </mapper>

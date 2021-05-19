@@ -10,7 +10,7 @@ public interface TeamMapper {
 
     int deleteByExample(TeamExample example);
 
-    int deleteByPrimaryKey(Integer tid);
+    int deleteByPrimaryKey(Long tid);
 
     int insert(Team record);
 
@@ -18,7 +18,7 @@ public interface TeamMapper {
 
     List<Team> selectByExample(TeamExample example);
 
-    Team selectByPrimaryKey(Integer tid);
+    Team selectByPrimaryKey(Long tid);
 
     int updateByExampleSelective(@Param("record") Team record, @Param("example") TeamExample example);
 

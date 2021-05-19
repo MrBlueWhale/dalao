@@ -10,7 +10,7 @@ public interface ParticipantMapper {
 
     int deleteByExample(ParticipantExample example);
 
-    int deleteByPrimaryKey(Integer pid);
+    int deleteByPrimaryKey(Long pid);
 
     int insert(Participant record);
 
@@ -18,7 +18,7 @@ public interface ParticipantMapper {
 
     List<Participant> selectByExample(ParticipantExample example);
 
-    Participant selectByPrimaryKey(Integer pid);
+    Participant selectByPrimaryKey(Long pid);
 
     int updateByExampleSelective(@Param("record") Participant record, @Param("example") ParticipantExample example);
 

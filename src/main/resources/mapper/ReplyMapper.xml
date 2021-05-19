@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ibegu.dalao.mapper.ReplyMapper">
   <resultMap id="BaseResultMap" type="com.ibegu.dalao.domain.Reply">
-    <id column="rpid" jdbcType="INTEGER" property="rpid" />
-    <result column="rid" jdbcType="INTEGER" property="rid" />
-    <result column="from_id" jdbcType="INTEGER" property="fromId" />
-    <result column="to_id" jdbcType="INTEGER" property="toId" />
+    <id column="rpid" jdbcType="BIGINT" property="rpid" />
+    <result column="rid" jdbcType="BIGINT" property="rid" />
+    <result column="from_id" jdbcType="BIGINT" property="fromId" />
+    <result column="to_id" jdbcType="BIGINT" property="toId" />
     <result column="reply_content" jdbcType="VARCHAR" property="replyContent" />
     <result column="like" jdbcType="INTEGER" property="like" />
     <result column="reply_date" jdbcType="TIMESTAMP" property="replyDate" />
@@ -85,15 +85,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from reply
-    where rpid = #{rpid,jdbcType=INTEGER}
+    where rpid = #{rpid,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from reply
-    where rpid = #{rpid,jdbcType=INTEGER}
+    where rpid = #{rpid,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="com.ibegu.dalao.domain.ReplyExample">
     delete from reply
@@ -105,8 +105,8 @@
     insert into reply (rpid, rid, from_id, 
       to_id, reply_content, `like`, 
       reply_date)
-    values (#{rpid,jdbcType=INTEGER}, #{rid,jdbcType=INTEGER}, #{fromId,jdbcType=INTEGER}, 
-      #{toId,jdbcType=INTEGER}, #{replyContent,jdbcType=VARCHAR}, #{like,jdbcType=INTEGER}, 
+    values (#{rpid,jdbcType=BIGINT}, #{rid,jdbcType=BIGINT}, #{fromId,jdbcType=BIGINT}, 
+      #{toId,jdbcType=BIGINT}, #{replyContent,jdbcType=VARCHAR}, #{like,jdbcType=INTEGER}, 
       #{replyDate,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.ibegu.dalao.domain.Reply">
@@ -136,16 +136,16 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="rpid != null">
-        #{rpid,jdbcType=INTEGER},
+        #{rpid,jdbcType=BIGINT},
       </if>
       <if test="rid != null">
-        #{rid,jdbcType=INTEGER},
+        #{rid,jdbcType=BIGINT},
       </if>
       <if test="fromId != null">
-        #{fromId,jdbcType=INTEGER},
+        #{fromId,jdbcType=BIGINT},
       </if>
       <if test="toId != null">
-        #{toId,jdbcType=INTEGER},
+        #{toId,jdbcType=BIGINT},
       </if>
       <if test="replyContent != null">
         #{replyContent,jdbcType=VARCHAR},
@@ -168,16 +168,16 @@
     update reply
     <set>
       <if test="record.rpid != null">
-        rpid = #{record.rpid,jdbcType=INTEGER},
+        rpid = #{record.rpid,jdbcType=BIGINT},
       </if>
       <if test="record.rid != null">
-        rid = #{record.rid,jdbcType=INTEGER},
+        rid = #{record.rid,jdbcType=BIGINT},
       </if>
       <if test="record.fromId != null">
-        from_id = #{record.fromId,jdbcType=INTEGER},
+        from_id = #{record.fromId,jdbcType=BIGINT},
       </if>
       <if test="record.toId != null">
-        to_id = #{record.toId,jdbcType=INTEGER},
+        to_id = #{record.toId,jdbcType=BIGINT},
       </if>
       <if test="record.replyContent != null">
         reply_content = #{record.replyContent,jdbcType=VARCHAR},
@@ -195,10 +195,10 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update reply
-    set rpid = #{record.rpid,jdbcType=INTEGER},
-      rid = #{record.rid,jdbcType=INTEGER},
-      from_id = #{record.fromId,jdbcType=INTEGER},
-      to_id = #{record.toId,jdbcType=INTEGER},
+    set rpid = #{record.rpid,jdbcType=BIGINT},
+      rid = #{record.rid,jdbcType=BIGINT},
+      from_id = #{record.fromId,jdbcType=BIGINT},
+      to_id = #{record.toId,jdbcType=BIGINT},
       reply_content = #{record.replyContent,jdbcType=VARCHAR},
       `like` = #{record.like,jdbcType=INTEGER},
       reply_date = #{record.replyDate,jdbcType=TIMESTAMP}
@@ -210,13 +210,13 @@
     update reply
     <set>
       <if test="rid != null">
-        rid = #{rid,jdbcType=INTEGER},
+        rid = #{rid,jdbcType=BIGINT},
       </if>
       <if test="fromId != null">
-        from_id = #{fromId,jdbcType=INTEGER},
+        from_id = #{fromId,jdbcType=BIGINT},
       </if>
       <if test="toId != null">
-        to_id = #{toId,jdbcType=INTEGER},
+        to_id = #{toId,jdbcType=BIGINT},
       </if>
       <if test="replyContent != null">
         reply_content = #{replyContent,jdbcType=VARCHAR},
@@ -228,16 +228,16 @@
         reply_date = #{replyDate,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where rpid = #{rpid,jdbcType=INTEGER}
+    where rpid = #{rpid,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.ibegu.dalao.domain.Reply">
     update reply
-    set rid = #{rid,jdbcType=INTEGER},
-      from_id = #{fromId,jdbcType=INTEGER},
-      to_id = #{toId,jdbcType=INTEGER},
+    set rid = #{rid,jdbcType=BIGINT},
+      from_id = #{fromId,jdbcType=BIGINT},
+      to_id = #{toId,jdbcType=BIGINT},
       reply_content = #{replyContent,jdbcType=VARCHAR},
       `like` = #{like,jdbcType=INTEGER},
       reply_date = #{replyDate,jdbcType=TIMESTAMP}
-    where rpid = #{rpid,jdbcType=INTEGER}
+    where rpid = #{rpid,jdbcType=BIGINT}
   </update>
 </mapper>

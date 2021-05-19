@@ -3,13 +3,13 @@ package com.ibegu.dalao.domain;
 import java.util.Date;
 
 public class Reply {
-    private Integer rpid;
+    private Long rpid;
 
-    private Integer rid;
+    private Long rid;
 
-    private Integer fromId;
+    private Long fromId;
 
-    private Integer toId;
+    private Long toId;
 
     private String replyContent;
 
@@ -17,35 +17,35 @@ public class Reply {
 
     private Date replyDate;
 
-    public Integer getRpid() {
+    public Long getRpid() {
         return rpid;
     }
 
-    public void setRpid(Integer rpid) {
+    public void setRpid(Long rpid) {
         this.rpid = rpid;
     }
 
-    public Integer getRid() {
+    public Long getRid() {
         return rid;
     }
 
-    public void setRid(Integer rid) {
+    public void setRid(Long rid) {
         this.rid = rid;
     }
 
-    public Integer getFromId() {
+    public Long getFromId() {
         return fromId;
     }
 
-    public void setFromId(Integer fromId) {
+    public void setFromId(Long fromId) {
         this.fromId = fromId;
     }
 
-    public Integer getToId() {
+    public Long getToId() {
         return toId;
     }
 
-    public void setToId(Integer toId) {
+    public void setToId(Long toId) {
         this.toId = toId;
     }
 
