@@ -5,25 +5,34 @@
     >
       <a-table
               :columns="columns"
-              :row-key="record => record.id"
-              :data-source="contest"
+              :row-key="record => record.cid"
+              :data-source="contests"
               :pagination="pagination"
               :loading="loading"
               @change="handleTableChange"
       >
         <template v-slot:action="{ text, record }">
           <a-space size="small">
-            <a-button type="primary" @click="edit(record)">
-              编辑
-            </a-button>
-            <a-button type="danger">
-              删除
-            </a-button>
+            <router-link :to="'/user/details?cid=' + record.cid">
+              <a-button type="primary">
+                详情
+              </a-button>
+            </router-link>
           </a-space>
         </template>
       </a-table>
     </a-layout-content>
   </a-layout>
+
+  <a-modal
+          title="电子书表单"
+          v-model:visible="modalVisible"
+          :confirm-loading="modalLoading"
+          @ok="handleModalOk"
+  >
+    <p>test</p>
+  </a-modal>
+
 </template>
 
 <script lang="ts">
@@ -33,7 +42,7 @@
   export default defineComponent({
     name: 'UserRecord',
     setup() {
-      const contest = ref();
+      const contests = ref();
       //分页组件
       const pagination = ref({
         current: 1,
@@ -92,12 +101,13 @@
         }).then((response) => {
           loading.value = false;
           const data = response.data;
-          contest.value = data.content.list;
+          contests.value = data.content.list;
             // 重置分页按钮
-            pagination.value.current = params.page;
+          pagination.value.current = params.page;
           pagination.value.total = data.content.total;
         });
       };
+
 
       /**
        * 表格点击页码时触发
@@ -110,6 +120,21 @@
         });
       };
 
+      //表单
+      const modalVisible = ref(false);
+      const modalLoading = ref(false);
+      const handleModalOk = () => {
+        modalLoading.value = true;
+        setTimeout(()=>{
+          modalVisible.value = false;
+          modalLoading.value = false;
+        },2000);
+      };
+
+      //编辑
+      const edit = () => {
+        modalVisible.value = true;
+      };
 
       //进入此页面时初始从这里运行进行查询，此时应该显示列表的第一页数据
       onMounted(()=> {
@@ -121,14 +146,20 @@
       });
 
       return {
-        contest,
+        contests,
         pagination,
         columns,
         loading,
-        handleTableChange
+        handleTableChange,
+
+        edit,
+        modalVisible,
+        modalLoading,
+        handleModalOk
       }
     }
   });
+
 </script>
 
 <style scoped>

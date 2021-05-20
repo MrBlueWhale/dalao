@@ -31,13 +31,13 @@ public class ContestController {
         return resp;
 
     }
-//@GetMapping("/list")
-//public List<Contest> list(){
-//
-//
-//
-//    return contestService.list();
-//
-//}
+    @GetMapping("/detail")
+    public CommonResp getDetail(ContestReq req){
+        CommonResp<ContestResp> resp = new CommonResp<>();
+        ContestResp details = contestService.getDetail(req);
+        resp.setContent(details);
 
+        return resp;
+
+    }
 }
