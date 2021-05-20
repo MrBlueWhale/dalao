@@ -4,6 +4,8 @@ import java.util.Date;
 
 public class ContestReq extends PageReq{
 
+    private Long cid;
+
     private String contestName;
 
     private Date competeStartTime;
@@ -18,6 +20,14 @@ public class ContestReq extends PageReq{
 
     private String rank;
 
+
+    public Long getCid() {
+        return cid;
+    }
+
+    public void setCid(Long cid) {
+        this.cid = cid;
+    }
 
     public String getContestName() {
         return contestName;
@@ -82,6 +92,7 @@ public class ContestReq extends PageReq{
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
+        sb.append(", cid=").append(cid);
         sb.append(", contestName=").append(contestName);
         sb.append(", competeStartTime=").append(competeStartTime);
         sb.append(", competeEndTime=").append(competeEndTime);

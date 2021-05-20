@@ -38,7 +38,6 @@ public class ContestService {
         if(!ObjectUtils.isEmpty(req.getContestName())){
             criteria.andContestNameLike("%"+req.getContestName()+"%");
         }
-
         //进行分页，通过前端获得的数据来确定请求的每页行数和第几页
         PageHelper.startPage(req.getPage(),req.getSize());
         List<Contest> contestList = contestMapper.selectByExample(contestExample);
@@ -70,4 +69,12 @@ public class ContestService {
     }
 
 
+    public ContestResp getDetail(ContestReq req) {
+
+       Contest contest = contestMapper.selectByPrimaryKey(req.getCid());
+
+       ContestResp contestResp = CopyUtil.copy(contest, ContestResp.class);
+
+        return contestResp;
+    }
 }
