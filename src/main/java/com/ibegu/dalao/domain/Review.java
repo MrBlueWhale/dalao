@@ -3,11 +3,11 @@ package com.ibegu.dalao.domain;
 import java.util.Date;
 
 public class Review {
-    private Integer rid;
+    private Long rid;
 
-    private Integer contestId;
+    private Long contestId;
 
-    private Integer reviewerId;
+    private Long reviewerId;
 
     private String reviewContent;
 
@@ -15,27 +15,27 @@ public class Review {
 
     private Integer like;
 
-    public Integer getRid() {
+    public Long getRid() {
         return rid;
     }
 
-    public void setRid(Integer rid) {
+    public void setRid(Long rid) {
         this.rid = rid;
     }
 
-    public Integer getContestId() {
+    public Long getContestId() {
         return contestId;
     }
 
-    public void setContestId(Integer contestId) {
+    public void setContestId(Long contestId) {
         this.contestId = contestId;
     }
 
-    public Integer getReviewerId() {
+    public Long getReviewerId() {
         return reviewerId;
     }
 
-    public void setReviewerId(Integer reviewerId) {
+    public void setReviewerId(Long reviewerId) {
         this.reviewerId = reviewerId;
     }
 

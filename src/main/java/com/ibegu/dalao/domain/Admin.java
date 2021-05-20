@@ -3,7 +3,7 @@ package com.ibegu.dalao.domain;
 import java.util.Date;
 
 public class Admin {
-    private Integer aid;
+    private Long aid;
 
     private String avatar;
 
@@ -19,11 +19,11 @@ public class Admin {
 
     private String adminName;
 
-    public Integer getAid() {
+    public Long getAid() {
         return aid;
     }
 
-    public void setAid(Integer aid) {
+    public void setAid(Long aid) {
         this.aid = aid;
     }
 

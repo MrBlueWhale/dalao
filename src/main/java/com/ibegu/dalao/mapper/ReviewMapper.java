@@ -10,7 +10,7 @@ public interface ReviewMapper {
 
     int deleteByExample(ReviewExample example);
 
-    int deleteByPrimaryKey(Integer rid);
+    int deleteByPrimaryKey(Long rid);
 
     int insert(Review record);
 
@@ -18,7 +18,7 @@ public interface ReviewMapper {
 
     List<Review> selectByExample(ReviewExample example);
 
-    Review selectByPrimaryKey(Integer rid);
+    Review selectByPrimaryKey(Long rid);
 
     int updateByExampleSelective(@Param("record") Review record, @Param("example") ReviewExample example);
 

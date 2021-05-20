@@ -114,52 +114,52 @@ public class AdminkeyExample {
             return (Criteria) this;
         }
 
-        public Criteria andAkidEqualTo(Integer value) {
+        public Criteria andAkidEqualTo(Long value) {
             addCriterion("akid =", value, "akid");
             return (Criteria) this;
         }
 
-        public Criteria andAkidNotEqualTo(Integer value) {
+        public Criteria andAkidNotEqualTo(Long value) {
             addCriterion("akid <>", value, "akid");
             return (Criteria) this;
         }
 
-        public Criteria andAkidGreaterThan(Integer value) {
+        public Criteria andAkidGreaterThan(Long value) {
             addCriterion("akid >", value, "akid");
             return (Criteria) this;
         }
 
-        public Criteria andAkidGreaterThanOrEqualTo(Integer value) {
+        public Criteria andAkidGreaterThanOrEqualTo(Long value) {
             addCriterion("akid >=", value, "akid");
             return (Criteria) this;
         }
 
-        public Criteria andAkidLessThan(Integer value) {
+        public Criteria andAkidLessThan(Long value) {
             addCriterion("akid <", value, "akid");
             return (Criteria) this;
         }
 
-        public Criteria andAkidLessThanOrEqualTo(Integer value) {
+        public Criteria andAkidLessThanOrEqualTo(Long value) {
             addCriterion("akid <=", value, "akid");
             return (Criteria) this;
         }
 
-        public Criteria andAkidIn(List<Integer> values) {
+        public Criteria andAkidIn(List<Long> values) {
             addCriterion("akid in", values, "akid");
             return (Criteria) this;
         }
 
-        public Criteria andAkidNotIn(List<Integer> values) {
+        public Criteria andAkidNotIn(List<Long> values) {
             addCriterion("akid not in", values, "akid");
             return (Criteria) this;
         }
 
-        public Criteria andAkidBetween(Integer value1, Integer value2) {
+        public Criteria andAkidBetween(Long value1, Long value2) {
             addCriterion("akid between", value1, value2, "akid");
             return (Criteria) this;
         }
 
-        public Criteria andAkidNotBetween(Integer value1, Integer value2) {
+        public Criteria andAkidNotBetween(Long value1, Long value2) {
             addCriterion("akid not between", value1, value2, "akid");
             return (Criteria) this;
         }

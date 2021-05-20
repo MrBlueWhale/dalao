@@ -10,21 +10,27 @@ public interface ContestMapper {
 
     int deleteByExample(ContestExample example);
 
-    int deleteByPrimaryKey(Integer cid);
+    int deleteByPrimaryKey(Long cid);
 
     int insert(Contest record);
 
     int insertSelective(Contest record);
 
+    List<Contest> selectByExampleWithBLOBs(ContestExample example);
+
     List<Contest> selectByExample(ContestExample example);
 
-    Contest selectByPrimaryKey(Integer cid);
+    Contest selectByPrimaryKey(Long cid);
 
     int updateByExampleSelective(@Param("record") Contest record, @Param("example") ContestExample example);
+
+    int updateByExampleWithBLOBs(@Param("record") Contest record, @Param("example") ContestExample example);
 
     int updateByExample(@Param("record") Contest record, @Param("example") ContestExample example);
 
     int updateByPrimaryKeySelective(Contest record);
+
+    int updateByPrimaryKeyWithBLOBs(Contest record);
 
     int updateByPrimaryKey(Contest record);
 }

@@ -2,10 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ibegu.dalao.mapper.ContestMapper">
   <resultMap id="BaseResultMap" type="com.ibegu.dalao.domain.Contest">
-    <id column="cid" jdbcType="INTEGER" property="cid" />
+    <id column="cid" jdbcType="BIGINT" property="cid" />
     <result column="contest_name" jdbcType="VARCHAR" property="contestName" />
-    <result column="sponsor_id" jdbcType="INTEGER" property="sponsorId" />
-    <result column="contest_intro" jdbcType="VARCHAR" property="contestIntro" />
+    <result column="sponsor_id" jdbcType="BIGINT" property="sponsorId" />
     <result column="registration_start_time" jdbcType="TIMESTAMP" property="registrationStartTime" />
     <result column="registration_end_time" jdbcType="TIMESTAMP" property="registrationEndTime" />
     <result column="compete_start_time" jdbcType="TIMESTAMP" property="competeStartTime" />
@@ -17,6 +16,9 @@
     <result column="rank" jdbcType="VARCHAR" property="rank" />
     <result column="audience" jdbcType="VARCHAR" property="audience" />
     <result column="contest_status" jdbcType="INTEGER" property="contestStatus" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.ibegu.dalao.domain.Contest">
+    <result column="contest_intro" jdbcType="LONGVARCHAR" property="contestIntro" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -77,10 +79,28 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    cid, contest_name, sponsor_id, contest_intro, registration_start_time, registration_end_time, 
-    compete_start_time, compete_end_time, page_view, `type`, category, entry_fee, `rank`, 
-    audience, contest_status
+    cid, contest_name, sponsor_id, registration_start_time, registration_end_time, compete_start_time, 
+    compete_end_time, page_view, `type`, category, entry_fee, `rank`, audience, contest_status
   </sql>
+  <sql id="Blob_Column_List">
+    contest_intro
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.ibegu.dalao.domain.ContestExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from contest
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
   <select id="selectByExample" parameterType="com.ibegu.dalao.domain.ContestExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
@@ -95,15 +115,17 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
     select 
     <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
     from contest
-    where cid = #{cid,jdbcType=INTEGER}
+    where cid = #{cid,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from contest
-    where cid = #{cid,jdbcType=INTEGER}
+    where cid = #{cid,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="com.ibegu.dalao.domain.ContestExample">
     delete from contest
@@ -113,17 +135,17 @@
   </delete>
   <insert id="insert" parameterType="com.ibegu.dalao.domain.Contest">
     insert into contest (cid, contest_name, sponsor_id, 
-      contest_intro, registration_start_time, 
-      registration_end_time, compete_start_time, 
-      compete_end_time, page_view, `type`, 
-      category, entry_fee, `rank`, 
-      audience, contest_status)
-    values (#{cid,jdbcType=INTEGER}, #{contestName,jdbcType=VARCHAR}, #{sponsorId,jdbcType=INTEGER}, 
-      #{contestIntro,jdbcType=VARCHAR}, #{registrationStartTime,jdbcType=TIMESTAMP}, 
-      #{registrationEndTime,jdbcType=TIMESTAMP}, #{competeStartTime,jdbcType=TIMESTAMP}, 
-      #{competeEndTime,jdbcType=TIMESTAMP}, #{pageView,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, 
-      #{category,jdbcType=VARCHAR}, #{entryFee,jdbcType=INTEGER}, #{rank,jdbcType=VARCHAR}, 
-      #{audience,jdbcType=VARCHAR}, #{contestStatus,jdbcType=INTEGER})
+      registration_start_time, registration_end_time, 
+      compete_start_time, compete_end_time, page_view, 
+      `type`, category, entry_fee, 
+      `rank`, audience, contest_status, 
+      contest_intro)
+    values (#{cid,jdbcType=BIGINT}, #{contestName,jdbcType=VARCHAR}, #{sponsorId,jdbcType=BIGINT}, 
+      #{registrationStartTime,jdbcType=TIMESTAMP}, #{registrationEndTime,jdbcType=TIMESTAMP}, 
+      #{competeStartTime,jdbcType=TIMESTAMP}, #{competeEndTime,jdbcType=TIMESTAMP}, #{pageView,jdbcType=INTEGER}, 
+      #{type,jdbcType=VARCHAR}, #{category,jdbcType=VARCHAR}, #{entryFee,jdbcType=INTEGER}, 
+      #{rank,jdbcType=VARCHAR}, #{audience,jdbcType=VARCHAR}, #{contestStatus,jdbcType=INTEGER}, 
+      #{contestIntro,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.ibegu.dalao.domain.Contest">
     insert into contest
@@ -136,9 +158,6 @@
       </if>
       <if test="sponsorId != null">
         sponsor_id,
-      </if>
-      <if test="contestIntro != null">
-        contest_intro,
       </if>
       <if test="registrationStartTime != null">
         registration_start_time,
@@ -173,19 +192,19 @@
       <if test="contestStatus != null">
         contest_status,
       </if>
+      <if test="contestIntro != null">
+        contest_intro,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="cid != null">
-        #{cid,jdbcType=INTEGER},
+        #{cid,jdbcType=BIGINT},
       </if>
       <if test="contestName != null">
         #{contestName,jdbcType=VARCHAR},
       </if>
       <if test="sponsorId != null">
-        #{sponsorId,jdbcType=INTEGER},
-      </if>
-      <if test="contestIntro != null">
-        #{contestIntro,jdbcType=VARCHAR},
+        #{sponsorId,jdbcType=BIGINT},
       </if>
       <if test="registrationStartTime != null">
         #{registrationStartTime,jdbcType=TIMESTAMP},
@@ -220,6 +239,9 @@
       <if test="contestStatus != null">
         #{contestStatus,jdbcType=INTEGER},
       </if>
+      <if test="contestIntro != null">
+        #{contestIntro,jdbcType=LONGVARCHAR},
+      </if>
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.ibegu.dalao.domain.ContestExample" resultType="java.lang.Long">
@@ -232,16 +254,13 @@
     update contest
     <set>
       <if test="record.cid != null">
-        cid = #{record.cid,jdbcType=INTEGER},
+        cid = #{record.cid,jdbcType=BIGINT},
       </if>
       <if test="record.contestName != null">
         contest_name = #{record.contestName,jdbcType=VARCHAR},
       </if>
       <if test="record.sponsorId != null">
-        sponsor_id = #{record.sponsorId,jdbcType=INTEGER},
-      </if>
-      <if test="record.contestIntro != null">
-        contest_intro = #{record.contestIntro,jdbcType=VARCHAR},
+        sponsor_id = #{record.sponsorId,jdbcType=BIGINT},
       </if>
       <if test="record.registrationStartTime != null">
         registration_start_time = #{record.registrationStartTime,jdbcType=TIMESTAMP},
@@ -276,17 +295,40 @@
       <if test="record.contestStatus != null">
         contest_status = #{record.contestStatus,jdbcType=INTEGER},
       </if>
+      <if test="record.contestIntro != null">
+        contest_intro = #{record.contestIntro,jdbcType=LONGVARCHAR},
+      </if>
     </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update contest
+    set cid = #{record.cid,jdbcType=BIGINT},
+      contest_name = #{record.contestName,jdbcType=VARCHAR},
+      sponsor_id = #{record.sponsorId,jdbcType=BIGINT},
+      registration_start_time = #{record.registrationStartTime,jdbcType=TIMESTAMP},
+      registration_end_time = #{record.registrationEndTime,jdbcType=TIMESTAMP},
+      compete_start_time = #{record.competeStartTime,jdbcType=TIMESTAMP},
+      compete_end_time = #{record.competeEndTime,jdbcType=TIMESTAMP},
+      page_view = #{record.pageView,jdbcType=INTEGER},
+      `type` = #{record.type,jdbcType=VARCHAR},
+      category = #{record.category,jdbcType=VARCHAR},
+      entry_fee = #{record.entryFee,jdbcType=INTEGER},
+      `rank` = #{record.rank,jdbcType=VARCHAR},
+      audience = #{record.audience,jdbcType=VARCHAR},
+      contest_status = #{record.contestStatus,jdbcType=INTEGER},
+      contest_intro = #{record.contestIntro,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
     update contest
-    set cid = #{record.cid,jdbcType=INTEGER},
+    set cid = #{record.cid,jdbcType=BIGINT},
       contest_name = #{record.contestName,jdbcType=VARCHAR},
-      sponsor_id = #{record.sponsorId,jdbcType=INTEGER},
-      contest_intro = #{record.contestIntro,jdbcType=VARCHAR},
+      sponsor_id = #{record.sponsorId,jdbcType=BIGINT},
       registration_start_time = #{record.registrationStartTime,jdbcType=TIMESTAMP},
       registration_end_time = #{record.registrationEndTime,jdbcType=TIMESTAMP},
       compete_start_time = #{record.competeStartTime,jdbcType=TIMESTAMP},
@@ -309,10 +351,7 @@
         contest_name = #{contestName,jdbcType=VARCHAR},
       </if>
       <if test="sponsorId != null">
-        sponsor_id = #{sponsorId,jdbcType=INTEGER},
-      </if>
-      <if test="contestIntro != null">
-        contest_intro = #{contestIntro,jdbcType=VARCHAR},
+        sponsor_id = #{sponsorId,jdbcType=BIGINT},
       </if>
       <if test="registrationStartTime != null">
         registration_start_time = #{registrationStartTime,jdbcType=TIMESTAMP},
@@ -347,14 +386,34 @@
       <if test="contestStatus != null">
         contest_status = #{contestStatus,jdbcType=INTEGER},
       </if>
+      <if test="contestIntro != null">
+        contest_intro = #{contestIntro,jdbcType=LONGVARCHAR},
+      </if>
     </set>
-    where cid = #{cid,jdbcType=INTEGER}
+    where cid = #{cid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.ibegu.dalao.domain.Contest">
+    update contest
+    set contest_name = #{contestName,jdbcType=VARCHAR},
+      sponsor_id = #{sponsorId,jdbcType=BIGINT},
+      registration_start_time = #{registrationStartTime,jdbcType=TIMESTAMP},
+      registration_end_time = #{registrationEndTime,jdbcType=TIMESTAMP},
+      compete_start_time = #{competeStartTime,jdbcType=TIMESTAMP},
+      compete_end_time = #{competeEndTime,jdbcType=TIMESTAMP},
+      page_view = #{pageView,jdbcType=INTEGER},
+      `type` = #{type,jdbcType=VARCHAR},
+      category = #{category,jdbcType=VARCHAR},
+      entry_fee = #{entryFee,jdbcType=INTEGER},
+      `rank` = #{rank,jdbcType=VARCHAR},
+      audience = #{audience,jdbcType=VARCHAR},
+      contest_status = #{contestStatus,jdbcType=INTEGER},
+      contest_intro = #{contestIntro,jdbcType=LONGVARCHAR}
+    where cid = #{cid,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.ibegu.dalao.domain.Contest">
     update contest
     set contest_name = #{contestName,jdbcType=VARCHAR},
-      sponsor_id = #{sponsorId,jdbcType=INTEGER},
-      contest_intro = #{contestIntro,jdbcType=VARCHAR},
+      sponsor_id = #{sponsorId,jdbcType=BIGINT},
       registration_start_time = #{registrationStartTime,jdbcType=TIMESTAMP},
       registration_end_time = #{registrationEndTime,jdbcType=TIMESTAMP},
       compete_start_time = #{competeStartTime,jdbcType=TIMESTAMP},
@@ -366,6 +425,6 @@
       `rank` = #{rank,jdbcType=VARCHAR},
       audience = #{audience,jdbcType=VARCHAR},
       contest_status = #{contestStatus,jdbcType=INTEGER}
-    where cid = #{cid,jdbcType=INTEGER}
+    where cid = #{cid,jdbcType=BIGINT}
   </update>
 </mapper>

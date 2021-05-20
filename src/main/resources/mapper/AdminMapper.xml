@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ibegu.dalao.mapper.AdminMapper">
   <resultMap id="BaseResultMap" type="com.ibegu.dalao.domain.Admin">
-    <id column="aid" jdbcType="INTEGER" property="aid" />
+    <id column="aid" jdbcType="BIGINT" property="aid" />
     <result column="avatar" jdbcType="VARCHAR" property="avatar" />
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="tel_num" jdbcType="VARCHAR" property="telNum" />
@@ -86,15 +86,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from admin
-    where aid = #{aid,jdbcType=INTEGER}
+    where aid = #{aid,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from admin
-    where aid = #{aid,jdbcType=INTEGER}
+    where aid = #{aid,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="com.ibegu.dalao.domain.AdminExample">
     delete from admin
@@ -106,7 +106,7 @@
     insert into admin (aid, avatar, `password`, 
       tel_num, email, admin_key, 
       join_date, admin_name)
-    values (#{aid,jdbcType=INTEGER}, #{avatar,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+    values (#{aid,jdbcType=BIGINT}, #{avatar,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{telNum,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{adminKey,jdbcType=VARCHAR}, 
       #{joinDate,jdbcType=TIMESTAMP}, #{adminName,jdbcType=VARCHAR})
   </insert>
@@ -140,7 +140,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="aid != null">
-        #{aid,jdbcType=INTEGER},
+        #{aid,jdbcType=BIGINT},
       </if>
       <if test="avatar != null">
         #{avatar,jdbcType=VARCHAR},
@@ -175,7 +175,7 @@
     update admin
     <set>
       <if test="record.aid != null">
-        aid = #{record.aid,jdbcType=INTEGER},
+        aid = #{record.aid,jdbcType=BIGINT},
       </if>
       <if test="record.avatar != null">
         avatar = #{record.avatar,jdbcType=VARCHAR},
@@ -205,7 +205,7 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update admin
-    set aid = #{record.aid,jdbcType=INTEGER},
+    set aid = #{record.aid,jdbcType=BIGINT},
       avatar = #{record.avatar,jdbcType=VARCHAR},
       `password` = #{record.password,jdbcType=VARCHAR},
       tel_num = #{record.telNum,jdbcType=VARCHAR},
@@ -242,7 +242,7 @@
         admin_name = #{adminName,jdbcType=VARCHAR},
       </if>
     </set>
-    where aid = #{aid,jdbcType=INTEGER}
+    where aid = #{aid,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.ibegu.dalao.domain.Admin">
     update admin
@@ -253,6 +253,6 @@
       admin_key = #{adminKey,jdbcType=VARCHAR},
       join_date = #{joinDate,jdbcType=TIMESTAMP},
       admin_name = #{adminName,jdbcType=VARCHAR}
-    where aid = #{aid,jdbcType=INTEGER}
+    where aid = #{aid,jdbcType=BIGINT}
   </update>
 </mapper>

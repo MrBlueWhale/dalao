@@ -1,6 +1,7 @@
 <template>
   <a-layout>
-<admin-header></admin-header>
+<!--    <admin-header-top></admin-header-top>-->
+<!--<admin-header></admin-header>-->
     <a-layout>
       <a-layout-sider width="200" style="background: #fff">
         <a-menu
@@ -107,7 +108,7 @@
         </a-layout-content>
       </a-layout>
     </a-layout>
-<admin-footer></admin-footer>
+<!--<admin-footer></admin-footer>-->
   </a-layout>
 </template>
 

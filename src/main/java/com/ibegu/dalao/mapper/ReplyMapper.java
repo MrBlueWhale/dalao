@@ -10,7 +10,7 @@ public interface ReplyMapper {
 
     int deleteByExample(ReplyExample example);
 
-    int deleteByPrimaryKey(Integer rpid);
+    int deleteByPrimaryKey(Long rpid);
 
     int insert(Reply record);
 
@@ -18,7 +18,7 @@ public interface ReplyMapper {
 
     List<Reply> selectByExample(ReplyExample example);
 
-    Reply selectByPrimaryKey(Integer rpid);
+    Reply selectByPrimaryKey(Long rpid);
 
     int updateByExampleSelective(@Param("record") Reply record, @Param("example") ReplyExample example);
 

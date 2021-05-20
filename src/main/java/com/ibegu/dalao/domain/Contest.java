@@ -3,13 +3,11 @@ package com.ibegu.dalao.domain;
 import java.util.Date;
 
 public class Contest {
-    private Integer cid;
+    private Long cid;
 
     private String contestName;
 
-    private Integer sponsorId;
-
-    private String contestIntro;
+    private Long sponsorId;
 
     private Date registrationStartTime;
 
@@ -33,11 +31,13 @@ public class Contest {
 
     private Integer contestStatus;
 
-    public Integer getCid() {
+    private String contestIntro;
+
+    public Long getCid() {
         return cid;
     }
 
-    public void setCid(Integer cid) {
+    public void setCid(Long cid) {
         this.cid = cid;
     }
 
@@ -49,20 +49,12 @@ public class Contest {
         this.contestName = contestName;
     }
 
-    public Integer getSponsorId() {
+    public Long getSponsorId() {
         return sponsorId;
     }
 
-    public void setSponsorId(Integer sponsorId) {
+    public void setSponsorId(Long sponsorId) {
         this.sponsorId = sponsorId;
-    }
-
-    public String getContestIntro() {
-        return contestIntro;
-    }
-
-    public void setContestIntro(String contestIntro) {
-        this.contestIntro = contestIntro;
     }
 
     public Date getRegistrationStartTime() {
@@ -153,6 +145,14 @@ public class Contest {
         this.contestStatus = contestStatus;
     }
 
+    public String getContestIntro() {
+        return contestIntro;
+    }
+
+    public void setContestIntro(String contestIntro) {
+        this.contestIntro = contestIntro;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -162,7 +162,6 @@ public class Contest {
         sb.append(", cid=").append(cid);
         sb.append(", contestName=").append(contestName);
         sb.append(", sponsorId=").append(sponsorId);
-        sb.append(", contestIntro=").append(contestIntro);
         sb.append(", registrationStartTime=").append(registrationStartTime);
         sb.append(", registrationEndTime=").append(registrationEndTime);
         sb.append(", competeStartTime=").append(competeStartTime);
@@ -174,6 +173,7 @@ public class Contest {
         sb.append(", rank=").append(rank);
         sb.append(", audience=").append(audience);
         sb.append(", contestStatus=").append(contestStatus);
+        sb.append(", contestIntro=").append(contestIntro);
         sb.append("]");
         return sb.toString();
     }

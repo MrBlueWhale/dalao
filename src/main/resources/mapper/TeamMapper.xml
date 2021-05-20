@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ibegu.dalao.mapper.TeamMapper">
   <resultMap id="BaseResultMap" type="com.ibegu.dalao.domain.Team">
-    <id column="tid" jdbcType="INTEGER" property="tid" />
-    <result column="contest_id" jdbcType="INTEGER" property="contestId" />
+    <id column="tid" jdbcType="BIGINT" property="tid" />
+    <result column="contest_id" jdbcType="BIGINT" property="contestId" />
     <result column="team_name" jdbcType="VARCHAR" property="teamName" />
     <result column="uni_name" jdbcType="VARCHAR" property="uniName" />
     <result column="uni_addr" jdbcType="VARCHAR" property="uniAddr" />
@@ -93,15 +93,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from team
-    where tid = #{tid,jdbcType=INTEGER}
+    where tid = #{tid,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from team
-    where tid = #{tid,jdbcType=INTEGER}
+    where tid = #{tid,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="com.ibegu.dalao.domain.TeamExample">
     delete from team
@@ -115,7 +115,7 @@
       instructor_name, instructor_tel, instructor_email, 
       instructor_prof, leader_tel, member1_tel, 
       member2_tel, member3_tel)
-    values (#{tid,jdbcType=INTEGER}, #{contestId,jdbcType=INTEGER}, #{teamName,jdbcType=VARCHAR}, 
+    values (#{tid,jdbcType=BIGINT}, #{contestId,jdbcType=BIGINT}, #{teamName,jdbcType=VARCHAR}, 
       #{uniName,jdbcType=VARCHAR}, #{uniAddr,jdbcType=VARCHAR}, #{zone,jdbcType=VARCHAR}, 
       #{instructorName,jdbcType=VARCHAR}, #{instructorTel,jdbcType=VARCHAR}, #{instructorEmail,jdbcType=VARCHAR}, 
       #{instructorProf,jdbcType=VARCHAR}, #{leaderTel,jdbcType=VARCHAR}, #{member1Tel,jdbcType=VARCHAR}, 
@@ -169,10 +169,10 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="tid != null">
-        #{tid,jdbcType=INTEGER},
+        #{tid,jdbcType=BIGINT},
       </if>
       <if test="contestId != null">
-        #{contestId,jdbcType=INTEGER},
+        #{contestId,jdbcType=BIGINT},
       </if>
       <if test="teamName != null">
         #{teamName,jdbcType=VARCHAR},
@@ -222,10 +222,10 @@
     update team
     <set>
       <if test="record.tid != null">
-        tid = #{record.tid,jdbcType=INTEGER},
+        tid = #{record.tid,jdbcType=BIGINT},
       </if>
       <if test="record.contestId != null">
-        contest_id = #{record.contestId,jdbcType=INTEGER},
+        contest_id = #{record.contestId,jdbcType=BIGINT},
       </if>
       <if test="record.teamName != null">
         team_name = #{record.teamName,jdbcType=VARCHAR},
@@ -270,8 +270,8 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update team
-    set tid = #{record.tid,jdbcType=INTEGER},
-      contest_id = #{record.contestId,jdbcType=INTEGER},
+    set tid = #{record.tid,jdbcType=BIGINT},
+      contest_id = #{record.contestId,jdbcType=BIGINT},
       team_name = #{record.teamName,jdbcType=VARCHAR},
       uni_name = #{record.uniName,jdbcType=VARCHAR},
       uni_addr = #{record.uniAddr,jdbcType=VARCHAR},
@@ -292,7 +292,7 @@
     update team
     <set>
       <if test="contestId != null">
-        contest_id = #{contestId,jdbcType=INTEGER},
+        contest_id = #{contestId,jdbcType=BIGINT},
       </if>
       <if test="teamName != null">
         team_name = #{teamName,jdbcType=VARCHAR},
@@ -331,11 +331,11 @@
         member3_tel = #{member3Tel,jdbcType=VARCHAR},
       </if>
     </set>
-    where tid = #{tid,jdbcType=INTEGER}
+    where tid = #{tid,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.ibegu.dalao.domain.Team">
     update team
-    set contest_id = #{contestId,jdbcType=INTEGER},
+    set contest_id = #{contestId,jdbcType=BIGINT},
       team_name = #{teamName,jdbcType=VARCHAR},
       uni_name = #{uniName,jdbcType=VARCHAR},
       uni_addr = #{uniAddr,jdbcType=VARCHAR},
@@ -348,6 +348,6 @@
       member1_tel = #{member1Tel,jdbcType=VARCHAR},
       member2_tel = #{member2Tel,jdbcType=VARCHAR},
       member3_tel = #{member3Tel,jdbcType=VARCHAR}
-    where tid = #{tid,jdbcType=INTEGER}
+    where tid = #{tid,jdbcType=BIGINT}
   </update>
 </mapper>

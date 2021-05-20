@@ -1,17 +1,17 @@
 package com.ibegu.dalao.domain;
 
 public class Adminkey {
-    private Integer akid;
+    private Long akid;
 
     private String adminKey;
 
     private Integer ifUsed;
 
-    public Integer getAkid() {
+    public Long getAkid() {
         return akid;
     }
 
-    public void setAkid(Integer akid) {
+    public void setAkid(Long akid) {
         this.akid = akid;
     }
 
