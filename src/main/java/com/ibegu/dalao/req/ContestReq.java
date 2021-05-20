@@ -2,7 +2,9 @@ package com.ibegu.dalao.req;
 
 import java.util.Date;
 
-public class ContestReq {
+public class ContestReq extends PageReq{
+
+    private Long cid;
 
     private String contestName;
 
@@ -18,6 +20,14 @@ public class ContestReq {
 
     private String rank;
 
+
+    public Long getCid() {
+        return cid;
+    }
+
+    public void setCid(Long cid) {
+        this.cid = cid;
+    }
 
     public String getContestName() {
         return contestName;
@@ -82,6 +92,7 @@ public class ContestReq {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
+        sb.append(", cid=").append(cid);
         sb.append(", contestName=").append(contestName);
         sb.append(", competeStartTime=").append(competeStartTime);
         sb.append(", competeEndTime=").append(competeEndTime);
