@@ -2183,3 +2183,158 @@
 2021-05-20 16:05:36.955 INFO  com.ibegu.dalao.service.AdminService              :70   [32m                  [0;39m 总页数：1
 2021-05-20 16:05:36.955 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":{"list":[{"accountStatus":1,"address":"test4","avatar":"/image/avatar4.jpg","email":"2971529737@qq.com","identityStatus":"已认证","intro":"比赛主办方测试账号4","joinDate":1621426329000,"name":"test4","sid":4,"telNum":"19981481120"},{"accountStatus":1,"address":"test6","avatar":"/image/avatar6.jpg","email":"2971529737@qq.com","identityStatus":"已认证","intro":"比赛主办方测试账号6","joinDate":1621426449000,"name":"test6","sid":6,"telNum":"19981481120"}],"total":2},"success":true}
 2021-05-20 16:05:36.955 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：3 ms -------------
+2021-05-20 16:26:48.350 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 17944 (started by Mr�������� in F:\Code\Code IDEA\dalao)
+2021-05-20 16:26:48.353 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
+2021-05-20 16:26:48.354 INFO  org.hibernate.validator.internal.util.Version     :21   [32m                  [0;39m HV000001: Hibernate Validator 6.1.6.Final
+2021-05-20 16:26:50.718 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :181  [32m                  [0;39m Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-20 16:26:51.358 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :61   [32m                  [0;39m Started DalaoApplicationTests in 3.416 seconds (JVM running for 4.372)
+2021-05-20 16:26:51.684 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :218  [32m                  [0;39m Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-20 16:26:57.046 INFO  org.hibernate.validator.internal.util.Version     :21   [32m                  [0;39m HV000001: Hibernate Validator 6.1.6.Final
+2021-05-20 16:26:57.055 INFO  com.ibegu.dalao.config.DalaoApplication           :55   [32m                  [0;39m Starting DalaoApplication using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 12120 (F:\Code\Code IDEA\dalao\target\classes started by Mr风语恺撒 in F:\Code\Code IDEA\dalao)
+2021-05-20 16:26:57.056 INFO  com.ibegu.dalao.config.DalaoApplication           :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
+2021-05-20 16:26:57.099 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :255  [32m                  [0;39m Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-05-20 16:26:57.099 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :255  [32m                  [0;39m For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-05-20 16:26:58.667 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :108  [32m                  [0;39m Tomcat initialized with port(s): 8002 (http)
+2021-05-20 16:26:58.682 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  [32m                  [0;39m Initializing ProtocolHandler ["http-nio-8002"]
+2021-05-20 16:26:58.682 INFO  org.apache.catalina.core.StandardService          :173  [32m                  [0;39m Starting service [Tomcat]
+2021-05-20 16:26:58.683 INFO  org.apache.catalina.core.StandardEngine           :173  [32m                  [0;39m Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-05-20 16:26:58.685 INFO  org.apache.catalina.core.AprLifecycleListener     :173  [32m                  [0;39m Loaded Apache Tomcat Native library [1.2.24] using APR version [1.7.0].
+2021-05-20 16:26:58.685 INFO  org.apache.catalina.core.AprLifecycleListener     :173  [32m                  [0;39m APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2021-05-20 16:26:58.685 INFO  org.apache.catalina.core.AprLifecycleListener     :173  [32m                  [0;39m APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-05-20 16:26:58.711 INFO  org.apache.catalina.core.AprLifecycleListener     :173  [32m                  [0;39m OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2021-05-20 16:26:58.778 INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] :173  [32m                  [0;39m Initializing Spring embedded WebApplicationContext
+2021-05-20 16:26:58.778 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :289  [32m                  [0;39m Root WebApplicationContext: initialization completed in 1678 ms
+2021-05-20 16:26:59.394 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :181  [32m                  [0;39m Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-20 16:26:59.672 INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer    :58   [32m                  [0;39m LiveReload server is running on port 35729
+2021-05-20 16:26:59.689 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  [32m                  [0;39m Starting ProtocolHandler ["http-nio-8002"]
+2021-05-20 16:26:59.704 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :220  [32m                  [0;39m Tomcat started on port(s): 8002 (http) with context path ''
+2021-05-20 16:26:59.713 INFO  com.ibegu.dalao.config.DalaoApplication           :61   [32m                  [0;39m Started DalaoApplication in 3.11 seconds (JVM running for 6.049)
+2021-05-20 16:26:59.715 INFO  com.ibegu.dalao.config.DalaoApplication           :25   [32m                  [0;39m 启动成功！！
+2021-05-20 16:26:59.715 INFO  com.ibegu.dalao.config.DalaoApplication           :26   [32m                  [0;39m 地址: 	http://127.0.0.1:8002
+2021-05-20 16:28:32.068 INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] :173  [32m                  [0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-20 16:28:32.069 INFO  org.springframework.web.servlet.DispatcherServlet :525  [32m                  [0;39m Initializing Servlet 'dispatcherServlet'
+2021-05-20 16:28:32.070 INFO  org.springframework.web.servlet.DispatcherServlet :547  [32m                  [0;39m Completed initialization in 1 ms
+2021-05-20 16:28:32.125 INFO  com.ibegu.dalao.aspect.LogAspect                  :52   [32m                  [0;39m ------------- 开始 -------------
+2021-05-20 16:28:32.126 INFO  com.ibegu.dalao.aspect.LogAspect                  :53   [32m                  [0;39m 请求地址: http://localhost:8002/demo/list GET
+2021-05-20 16:28:32.127 INFO  com.ibegu.dalao.aspect.LogAspect                  :54   [32m                  [0;39m 类名方法: com.ibegu.dalao.controller.DemoController.list
+2021-05-20 16:28:32.127 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
+2021-05-20 16:28:32.176 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{}]
+2021-05-20 16:28:32.215 INFO  com.zaxxer.hikari.HikariDataSource                :110  [32m                  [0;39m HikariPool-1 - Starting...
+2021-05-20 16:28:34.142 INFO  com.zaxxer.hikari.HikariDataSource                :123  [32m                  [0;39m HikariPool-1 - Start completed.
+2021-05-20 16:28:34.192 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":[{"id":1,"name":"测试"},{"id":2,"name":"恣意横行"},{"id":3,"name":"一本有趣的书"},{"id":4,"name":"大陆译本"},{"id":5,"name":"放下了吗"},{"id":6,"name":"回血"}],"success":true}
+2021-05-20 16:28:34.193 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：2069 ms -------------
+2021-05-20 16:28:34.982 INFO  com.ibegu.dalao.aspect.LogAspect                  :52   [32m                  [0;39m ------------- 开始 -------------
+2021-05-20 16:28:34.982 INFO  com.ibegu.dalao.aspect.LogAspect                  :52   [32m                  [0;39m ------------- 开始 -------------
+2021-05-20 16:28:34.983 INFO  com.ibegu.dalao.aspect.LogAspect                  :53   [32m                  [0;39m 请求地址: http://localhost:8002/demo/list GET
+2021-05-20 16:28:34.983 INFO  com.ibegu.dalao.aspect.LogAspect                  :53   [32m                  [0;39m 请求地址: http://localhost:8002/demo/list GET
+2021-05-20 16:28:34.983 INFO  com.ibegu.dalao.aspect.LogAspect                  :54   [32m                  [0;39m 类名方法: com.ibegu.dalao.controller.DemoController.list
+2021-05-20 16:28:34.983 INFO  com.ibegu.dalao.aspect.LogAspect                  :54   [32m                  [0;39m 类名方法: com.ibegu.dalao.controller.DemoController.list
+2021-05-20 16:28:34.983 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
+2021-05-20 16:28:34.983 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
+2021-05-20 16:28:34.983 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{}]
+2021-05-20 16:28:34.983 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{}]
+2021-05-20 16:28:34.988 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":[{"id":1,"name":"测试"},{"id":2,"name":"恣意横行"},{"id":3,"name":"一本有趣的书"},{"id":4,"name":"大陆译本"},{"id":5,"name":"放下了吗"},{"id":6,"name":"回血"}],"success":true}
+2021-05-20 16:28:34.988 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：6 ms -------------
+2021-05-20 16:28:34.991 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":[{"id":1,"name":"测试"},{"id":2,"name":"恣意横行"},{"id":3,"name":"一本有趣的书"},{"id":4,"name":"大陆译本"},{"id":5,"name":"放下了吗"},{"id":6,"name":"回血"}],"success":true}
+2021-05-20 16:28:34.991 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：9 ms -------------
+2021-05-20 16:28:43.779 INFO  com.ibegu.dalao.aspect.LogAspect                  :52   [32m                  [0;39m ------------- 开始 -------------
+2021-05-20 16:28:43.780 INFO  com.ibegu.dalao.aspect.LogAspect                  :53   [32m                  [0;39m 请求地址: http://localhost:8002/demo/list GET
+2021-05-20 16:28:43.780 INFO  com.ibegu.dalao.aspect.LogAspect                  :54   [32m                  [0;39m 类名方法: com.ibegu.dalao.controller.DemoController.list
+2021-05-20 16:28:43.780 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
+2021-05-20 16:28:43.781 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{}]
+2021-05-20 16:28:43.783 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":[{"id":1,"name":"测试"},{"id":2,"name":"恣意横行"},{"id":3,"name":"一本有趣的书"},{"id":4,"name":"大陆译本"},{"id":5,"name":"放下了吗"},{"id":6,"name":"回血"}],"success":true}
+2021-05-20 16:28:43.783 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：4 ms -------------
+2021-05-20 16:28:45.591 INFO  com.ibegu.dalao.aspect.LogAspect                  :52   [32m                  [0;39m ------------- 开始 -------------
+2021-05-20 16:28:45.592 INFO  com.ibegu.dalao.aspect.LogAspect                  :53   [32m                  [0;39m 请求地址: http://localhost:8002/demo/list GET
+2021-05-20 16:28:45.592 INFO  com.ibegu.dalao.aspect.LogAspect                  :54   [32m                  [0;39m 类名方法: com.ibegu.dalao.controller.DemoController.list
+2021-05-20 16:28:45.593 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
+2021-05-20 16:28:45.593 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{}]
+2021-05-20 16:28:45.595 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":[{"id":1,"name":"测试"},{"id":2,"name":"恣意横行"},{"id":3,"name":"一本有趣的书"},{"id":4,"name":"大陆译本"},{"id":5,"name":"放下了吗"},{"id":6,"name":"回血"}],"success":true}
+2021-05-20 16:28:45.595 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：4 ms -------------
+2021-05-20 16:28:49.859 INFO  com.ibegu.dalao.aspect.LogAspect                  :52   [32m                  [0;39m ------------- 开始 -------------
+2021-05-20 16:28:49.859 INFO  com.ibegu.dalao.aspect.LogAspect                  :53   [32m                  [0;39m 请求地址: http://localhost:8002/admin/listSponsor GET
+2021-05-20 16:28:49.859 INFO  com.ibegu.dalao.aspect.LogAspect                  :54   [32m                  [0;39m 类名方法: com.ibegu.dalao.controller.AdminController.listSponsor
+2021-05-20 16:28:49.859 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
+2021-05-20 16:28:49.862 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{"identityStatus":"未认证","page":1,"size":1000}]
+2021-05-20 16:28:49.895 INFO  com.ibegu.dalao.service.AdminService              :69   [32m                  [0;39m 总行数：3
+2021-05-20 16:28:49.895 INFO  com.ibegu.dalao.service.AdminService              :70   [32m                  [0;39m 总页数：1
+2021-05-20 16:28:49.903 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":{"list":[{"accountStatus":0,"address":"test1","avatar":"/image/avatar.jpg","email":"2971529737@qq.com","identityStatus":"未认证","intro":"比赛主办方测试账号1","joinDate":1621426209000,"name":"test1","sid":1,"telNum":"19981481120"},{"accountStatus":0,"address":"test3","avatar":"/image/avatar3.jpg","email":"2971529737@qq.com","identityStatus":"未认证","intro":"比赛主办方测试账号3","joinDate":1621426269000,"name":"test3","sid":3,"telNum":"19981481120"},{"accountStatus":0,"address":"test5","avatar":"/image/avatar5.jpg","email":"2971529737@qq.com","identityStatus":"未认证","intro":"比赛主办方测试账号5","joinDate":1621426389000,"name":"test5","sid":5,"telNum":"19981481120"}],"total":3},"success":true}
+2021-05-20 16:28:49.903 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：44 ms -------------
+2021-05-20 16:28:53.479 INFO  com.ibegu.dalao.aspect.LogAspect                  :52   [32m                  [0;39m ------------- 开始 -------------
+2021-05-20 16:28:53.480 INFO  com.ibegu.dalao.aspect.LogAspect                  :53   [32m                  [0;39m 请求地址: http://localhost:8002/admin/listSponsor GET
+2021-05-20 16:28:53.480 INFO  com.ibegu.dalao.aspect.LogAspect                  :54   [32m                  [0;39m 类名方法: com.ibegu.dalao.controller.AdminController.listSponsor
+2021-05-20 16:28:53.480 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
+2021-05-20 16:28:53.480 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{"identityStatus":"未认证","page":2,"size":2}]
+2021-05-20 16:28:53.484 INFO  com.ibegu.dalao.service.AdminService              :69   [32m                  [0;39m 总行数：3
+2021-05-20 16:28:53.484 INFO  com.ibegu.dalao.service.AdminService              :70   [32m                  [0;39m 总页数：2
+2021-05-20 16:28:53.485 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":{"list":[{"accountStatus":0,"address":"test5","avatar":"/image/avatar5.jpg","email":"2971529737@qq.com","identityStatus":"未认证","intro":"比赛主办方测试账号5","joinDate":1621426389000,"name":"test5","sid":5,"telNum":"19981481120"}],"total":3},"success":true}
+2021-05-20 16:28:53.485 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：6 ms -------------
+2021-05-20 16:28:54.665 INFO  com.ibegu.dalao.aspect.LogAspect                  :52   [32m                  [0;39m ------------- 开始 -------------
+2021-05-20 16:28:54.666 INFO  com.ibegu.dalao.aspect.LogAspect                  :53   [32m                  [0;39m 请求地址: http://localhost:8002/admin/listSponsor GET
+2021-05-20 16:28:54.666 INFO  com.ibegu.dalao.aspect.LogAspect                  :54   [32m                  [0;39m 类名方法: com.ibegu.dalao.controller.AdminController.listSponsor
+2021-05-20 16:28:54.666 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
+2021-05-20 16:28:54.666 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{"identityStatus":"未认证","page":1,"size":2}]
+2021-05-20 16:28:54.671 INFO  com.ibegu.dalao.service.AdminService              :69   [32m                  [0;39m 总行数：3
+2021-05-20 16:28:54.671 INFO  com.ibegu.dalao.service.AdminService              :70   [32m                  [0;39m 总页数：2
+2021-05-20 16:28:54.671 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":{"list":[{"accountStatus":0,"address":"test1","avatar":"/image/avatar.jpg","email":"2971529737@qq.com","identityStatus":"未认证","intro":"比赛主办方测试账号1","joinDate":1621426209000,"name":"test1","sid":1,"telNum":"19981481120"},{"accountStatus":0,"address":"test3","avatar":"/image/avatar3.jpg","email":"2971529737@qq.com","identityStatus":"未认证","intro":"比赛主办方测试账号3","joinDate":1621426269000,"name":"test3","sid":3,"telNum":"19981481120"}],"total":3},"success":true}
+2021-05-20 16:28:54.672 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：7 ms -------------
+2021-05-20 16:28:56.211 INFO  com.ibegu.dalao.aspect.LogAspect                  :52   [32m                  [0;39m ------------- 开始 -------------
+2021-05-20 16:28:56.211 INFO  com.ibegu.dalao.aspect.LogAspect                  :53   [32m                  [0;39m 请求地址: http://localhost:8002/admin/listSponsor GET
+2021-05-20 16:28:56.211 INFO  com.ibegu.dalao.aspect.LogAspect                  :54   [32m                  [0;39m 类名方法: com.ibegu.dalao.controller.AdminController.listSponsor
+2021-05-20 16:28:56.211 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
+2021-05-20 16:28:56.211 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{"identityStatus":"审核中","page":1,"size":1000}]
+2021-05-20 16:28:56.215 INFO  com.ibegu.dalao.service.AdminService              :69   [32m                  [0;39m 总行数：2
+2021-05-20 16:28:56.215 INFO  com.ibegu.dalao.service.AdminService              :70   [32m                  [0;39m 总页数：1
+2021-05-20 16:28:56.215 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":{"list":[{"accountStatus":1,"address":"test2","avatar":"/image/avatar2.jpg","email":"2971529737@qq.com","identityStatus":"审核中","intro":"比赛主办方测试账号2","joinDate":1621426269000,"name":"test2","sid":2,"telNum":"19981481120"},{"accountStatus":0,"address":"test7","avatar":"/image/avatar.jpg","email":"2971529737@qq.com","identityStatus":"审核中","intro":"比赛主办方测试账号7","joinDate":1621426509000,"name":"test7","sid":7,"telNum":"19981481120"}],"total":2},"success":true}
+2021-05-20 16:28:56.216 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：5 ms -------------
+2021-05-20 16:28:58.255 INFO  com.ibegu.dalao.aspect.LogAspect                  :52   [32m                  [0;39m ------------- 开始 -------------
+2021-05-20 16:28:58.255 INFO  com.ibegu.dalao.aspect.LogAspect                  :53   [32m                  [0;39m 请求地址: http://localhost:8002/admin/listSponsor GET
+2021-05-20 16:28:58.255 INFO  com.ibegu.dalao.aspect.LogAspect                  :54   [32m                  [0;39m 类名方法: com.ibegu.dalao.controller.AdminController.listSponsor
+2021-05-20 16:28:58.255 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
+2021-05-20 16:28:58.256 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{"identityStatus":"已认证","page":1,"size":1000}]
+2021-05-20 16:28:58.259 INFO  com.ibegu.dalao.service.AdminService              :69   [32m                  [0;39m 总行数：2
+2021-05-20 16:28:58.260 INFO  com.ibegu.dalao.service.AdminService              :70   [32m                  [0;39m 总页数：1
+2021-05-20 16:28:58.260 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":{"list":[{"accountStatus":1,"address":"test4","avatar":"/image/avatar4.jpg","email":"2971529737@qq.com","identityStatus":"已认证","intro":"比赛主办方测试账号4","joinDate":1621426329000,"name":"test4","sid":4,"telNum":"19981481120"},{"accountStatus":1,"address":"test6","avatar":"/image/avatar6.jpg","email":"2971529737@qq.com","identityStatus":"已认证","intro":"比赛主办方测试账号6","joinDate":1621426449000,"name":"test6","sid":6,"telNum":"19981481120"}],"total":2},"success":true}
+2021-05-20 16:28:58.260 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：6 ms -------------
+2021-05-20 16:29:48.499 INFO  com.ibegu.dalao.aspect.LogAspect                  :52   [32m                  [0;39m ------------- 开始 -------------
+2021-05-20 16:29:48.500 INFO  com.ibegu.dalao.aspect.LogAspect                  :53   [32m                  [0;39m 请求地址: http://localhost:8002/demo/list GET
+2021-05-20 16:29:48.500 INFO  com.ibegu.dalao.aspect.LogAspect                  :52   [32m                  [0;39m ------------- 开始 -------------
+2021-05-20 16:29:48.500 INFO  com.ibegu.dalao.aspect.LogAspect                  :54   [32m                  [0;39m 类名方法: com.ibegu.dalao.controller.DemoController.list
+2021-05-20 16:29:48.500 INFO  com.ibegu.dalao.aspect.LogAspect                  :53   [32m                  [0;39m 请求地址: http://localhost:8002/demo/list GET
+2021-05-20 16:29:48.500 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
+2021-05-20 16:29:48.500 INFO  com.ibegu.dalao.aspect.LogAspect                  :54   [32m                  [0;39m 类名方法: com.ibegu.dalao.controller.DemoController.list
+2021-05-20 16:29:48.500 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
+2021-05-20 16:29:48.500 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{}]
+2021-05-20 16:29:48.501 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{}]
+2021-05-20 16:29:48.503 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":[{"id":1,"name":"测试"},{"id":2,"name":"恣意横行"},{"id":3,"name":"一本有趣的书"},{"id":4,"name":"大陆译本"},{"id":5,"name":"放下了吗"},{"id":6,"name":"回血"}],"success":true}
+2021-05-20 16:29:48.503 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":[{"id":1,"name":"测试"},{"id":2,"name":"恣意横行"},{"id":3,"name":"一本有趣的书"},{"id":4,"name":"大陆译本"},{"id":5,"name":"放下了吗"},{"id":6,"name":"回血"}],"success":true}
+2021-05-20 16:29:48.504 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：5 ms -------------
+2021-05-20 16:29:48.504 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：4 ms -------------
+2021-05-20 16:29:48.573 INFO  com.ibegu.dalao.aspect.LogAspect                  :52   [32m                  [0;39m ------------- 开始 -------------
+2021-05-20 16:29:48.573 INFO  com.ibegu.dalao.aspect.LogAspect                  :53   [32m                  [0;39m 请求地址: http://localhost:8002/demo/list GET
+2021-05-20 16:29:48.574 INFO  com.ibegu.dalao.aspect.LogAspect                  :54   [32m                  [0;39m 类名方法: com.ibegu.dalao.controller.DemoController.list
+2021-05-20 16:29:48.574 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
+2021-05-20 16:29:48.575 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{}]
+2021-05-20 16:29:48.575 INFO  com.ibegu.dalao.aspect.LogAspect                  :52   [32m                  [0;39m ------------- 开始 -------------
+2021-05-20 16:29:48.575 INFO  com.ibegu.dalao.aspect.LogAspect                  :53   [32m                  [0;39m 请求地址: http://localhost:8002/demo/list GET
+2021-05-20 16:29:48.576 INFO  com.ibegu.dalao.aspect.LogAspect                  :54   [32m                  [0;39m 类名方法: com.ibegu.dalao.controller.DemoController.list
+2021-05-20 16:29:48.576 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
+2021-05-20 16:29:48.576 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{}]
+2021-05-20 16:29:48.577 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":[{"id":1,"name":"测试"},{"id":2,"name":"恣意横行"},{"id":3,"name":"一本有趣的书"},{"id":4,"name":"大陆译本"},{"id":5,"name":"放下了吗"},{"id":6,"name":"回血"}],"success":true}
+2021-05-20 16:29:48.578 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：5 ms -------------
+2021-05-20 16:29:48.579 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":[{"id":1,"name":"测试"},{"id":2,"name":"恣意横行"},{"id":3,"name":"一本有趣的书"},{"id":4,"name":"大陆译本"},{"id":5,"name":"放下了吗"},{"id":6,"name":"回血"}],"success":true}
+2021-05-20 16:29:48.580 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：5 ms -------------
+2021-05-20 16:29:49.266 INFO  com.ibegu.dalao.aspect.LogAspect                  :52   [32m                  [0;39m ------------- 开始 -------------
+2021-05-20 16:29:49.266 INFO  com.ibegu.dalao.aspect.LogAspect                  :53   [32m                  [0;39m 请求地址: http://localhost:8002/demo/list GET
+2021-05-20 16:29:49.267 INFO  com.ibegu.dalao.aspect.LogAspect                  :54   [32m                  [0;39m 类名方法: com.ibegu.dalao.controller.DemoController.list
+2021-05-20 16:29:49.267 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
+2021-05-20 16:29:49.268 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{}]
+2021-05-20 16:29:49.268 INFO  com.ibegu.dalao.aspect.LogAspect                  :52   [32m                  [0;39m ------------- 开始 -------------
+2021-05-20 16:29:49.268 INFO  com.ibegu.dalao.aspect.LogAspect                  :53   [32m                  [0;39m 请求地址: http://localhost:8002/demo/list GET
+2021-05-20 16:29:49.269 INFO  com.ibegu.dalao.aspect.LogAspect                  :54   [32m                  [0;39m 类名方法: com.ibegu.dalao.controller.DemoController.list
+2021-05-20 16:29:49.269 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
+2021-05-20 16:29:49.269 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{}]
+2021-05-20 16:29:49.271 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":[{"id":1,"name":"测试"},{"id":2,"name":"恣意横行"},{"id":3,"name":"一本有趣的书"},{"id":4,"name":"大陆译本"},{"id":5,"name":"放下了吗"},{"id":6,"name":"回血"}],"success":true}
+2021-05-20 16:29:49.271 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：5 ms -------------
+2021-05-20 16:29:49.272 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":[{"id":1,"name":"测试"},{"id":2,"name":"恣意横行"},{"id":3,"name":"一本有趣的书"},{"id":4,"name":"大陆译本"},{"id":5,"name":"放下了吗"},{"id":6,"name":"回血"}],"success":true}
+2021-05-20 16:29:49.272 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：4 ms -------------
