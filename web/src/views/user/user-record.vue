@@ -34,6 +34,7 @@
     name: 'UserRecord',
     setup() {
       const contest = ref();
+      //分页组件
       const pagination = ref({
         current: 1,
         pageSize: 3,
@@ -83,12 +84,18 @@
       const handleQuery = (params: any) => {
         loading.value = true;
         // 如果不清空现有数据，则编辑保存重新加载数据后，再点编辑，则列表显示的还是编辑前的数据
-        axios.get("/contest/list", params).then((response) => {
+        axios.get("/contest/list", {
+          params:{
+            page: params.page,
+            size: params.size
+          }
+        }).then((response) => {
           loading.value = false;
           const data = response.data;
-          contest.value = data.content;
+          contest.value = data.content.list;
             // 重置分页按钮
             pagination.value.current = params.page;
+          pagination.value.total = data.content.total;
         });
       };
 
@@ -103,8 +110,14 @@
         });
       };
 
+
+      //进入此页面时初始从这里运行进行查询，此时应该显示列表的第一页数据
       onMounted(()=> {
-        handleQuery({});
+        handleQuery({
+          //真正传递到后端的page和size的名字，需要与后端中pageReq中的参数值保持一致，才能完成映射
+          page: 1,
+          size: pagination.value.pageSize
+        });
       });
 
       return {
