@@ -36,7 +36,7 @@
       const contest = ref();
       const pagination = ref({
         current: 1,
-        pageSize: 10,
+        pageSize: 3,
         total: 0
       });
       const loading = ref(false);
