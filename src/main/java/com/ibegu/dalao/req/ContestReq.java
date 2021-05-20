@@ -2,7 +2,7 @@ package com.ibegu.dalao.req;
 
 import java.util.Date;
 
-public class ContestReq {
+public class ContestReq extends PageReq{
 
     private String contestName;
 
