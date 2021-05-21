@@ -1,7 +1,15 @@
 <template>
   <a-layout>
 
-    <h1 class="h1">这是竞赛管理模块的页面</h1>
+    <h1 class="h1">这是竞赛管理模块的页面22</h1>
+
+    <div>
+      <a-image-preview-group>
+        <a-image :width="200" src="/image/certification-imgs/test1.jpg"/>
+        <a-image :width="200" src="/image/certification-imgs/test2.jpg"/>
+      </a-image-preview-group>
+    </div>
+
 
   </a-layout>
 </template>
