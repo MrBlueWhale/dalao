@@ -204,9 +204,18 @@
         </a-row>
         <a-divider/>
         <p :style="pStyle">机构证书</p>
+<!--        <a-row>-->
+<!--                    <img class="certify-img" src="/image/certification-imgs/test1.jpg" alt="avatar"/>-->
+<!--        </a-row>-->
         <a-row>
-          <img class="certify-img" src="/image/certification-imgs/test1.jpg" alt="avatar"/>
+          <div>
+            <a-image-preview-group>
+              <a-image :width="220" :height="150" src="/image/certification-imgs/test1.jpg"/>
+              <a-image :width="220" :height="150" src="/image/certification-imgs/test2.jpg"/>
+            </a-image-preview-group>
+          </div>
         </a-row>
+
         <a-divider/>
         <div
             :style="{
@@ -225,6 +234,7 @@
         </div>
 
       </a-drawer>
+
     </template>
 
   </a-layout>
@@ -249,7 +259,6 @@
       </a-form-item>
     </a-form>
   </a-modal>
-
 
 
 </template>
@@ -513,7 +522,7 @@ export default defineComponent({
             size: pagination.value.pageSize,
           });
 
-        //
+          //
           message.success("重置成功！")
 
 
