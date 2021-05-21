@@ -14,3 +14,18 @@ GET http://localhost:8002/admin/listSponsor?page=1&size=4&identityStatus=未认�
 
 
 ###
+GET http://localhost:8002/admin/getSponsorDetail?sid=1
+
+
+###
+
+###
+GET http://localhost:8002/admin/getSponsorDetail?sid=1
+
+###
+POST http://localhost:8002/admin/resetSponsorPassword
+Content-Type: application/x-www-form-urlencoded
+
+sid=1&password=123456
+
+###

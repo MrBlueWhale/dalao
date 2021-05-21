@@ -11,7 +11,7 @@
       >
 
         <a-menu-item key="welcome">
-          <MailOutlined />
+          <MailOutlined/>
           <span>欢迎</span>
         </a-menu-item>
 
@@ -32,7 +32,6 @@
     </a-layout-sider>
 
     <a-layout style="padding: 0 24px 24px">
-
       <!--      <h1 class="h1">这是主办方管理模块的页面</h1>-->
 
       <a-layout-content
@@ -72,7 +71,7 @@
 
           <a-table
               :columns="columns"
-              :row-key="record => record.id"
+              :row-key="record => record.sid"
               :data-source="sponsors"
               :pagination="pagination"
               :loading="loading"
@@ -81,15 +80,12 @@
             <!--          定义对封面的渲染-->
             <template #avatar="{ text: avatar }">
               <!--            <img v-if="avatar" :src="avatar" alt="avatar"/>-->
-              <a-avatar size="large" v-if="avatar" :src="avatar" alt="avatar" />
+              <a-avatar size="large" v-if="avatar" :src="avatar" alt="avatar"/>
             </template>
 
             <template #identityStatus="{ text: identityStatus }">
               <a-tag :identity_status="identityStatus">{{ identityStatus }}</a-tag>
             </template>
-
-
-
 
 
             <!--          &lt;!&ndash;          定义对按钮的渲染&ndash;&gt;-->
@@ -100,78 +96,34 @@
             <template v-slot:action="{ text, record }">
               <!--            空格组件：两个按钮之间的空格-->
               <a-space size="small">
-                <router-link :to="'/admin/contest?sponsorId=' + record.id">
+                <router-link :to="'/admin/contest?sponsorId=' + record.sid">
                   <a-button type="primary">
                     竞赛管理
                   </a-button>
                 </router-link>
 
                 <a-button type="primary" @click="viewDetails(record)">
-                  <!--              <a-button type="primary" @click="edit">-->
+                  <!--              <a-button type="primary" @click="resetPassword">-->
                   查看详情
                 </a-button>
 
-                <a-button type="primary" @click="edit(record)">
-                  <!--              <a-button type="primary" @click="edit">-->
-                  编辑
+                <a-button type="primary" @click="resetPassword(record)">
+                  重置密码
                 </a-button>
                 <a-popconfirm
-                    title="删除后不可恢复，确认删除?"
+                    title="封禁后该账号功能受限，确认封禁?"
                     ok-text="是"
                     cancel-text="否"
-                    @confirm="handleDelete(record.id)"
+                    @confirm="banAccount(record.sid)"
                 >
                   <a-button type="danger">
-                    删除
+                    封禁账号
                   </a-button>
                 </a-popconfirm>
-                <!--              <a-button type="danger" @click="handleDelete(record.id)">-->
-                <!--                删除-->
-                <!--              </a-button>-->
               </a-space>
             </template>
           </a-table>
         </layout>
-
-
-        <!--        <a-list item-layout="vertical" size="large" :pagination="pagination" :grid="{ gutter: 20, column: 1 }"-->
-        <!--                :data-source="sponsors">-->
-        <!--          <template #footer>-->
-        <!--            <div>-->
-        <!--              <b>ant design vue</b>-->
-        <!--              footer part-->
-        <!--            </div>-->
-        <!--          </template>-->
-
-        <!--          <template #renderItem="{ item }">-->
-
-        <!--            <a-list-item key="item.title">-->
-        <!--              <a-tag :identity_status="item.identityStatus">{{ item.identityStatus }}</a-tag>-->
-        <!--              <template #actions>-->
-        <!--                  <span v-for="{ type, text } in actions" :key="type">-->
-        <!--                    <component v-bind:is="type" style="margin-right: 8px"/>-->
-        <!--                    {{ text }}-->
-        <!--                  </span>-->
-        <!--              </template>-->
-        <!--              <template #extra>-->
-        <!--                <img-->
-        <!--                    width="272"-->
-        <!--                    alt="logo"-->
-        <!--                    src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"-->
-        <!--                />-->
-        <!--              </template>-->
-        <!--              <a-list-item-meta :intro="item.intro">-->
-        <!--                <template #title>-->
-        <!--                  <a :href="item.href">{{ item.name }}</a>-->
-        <!--                </template>-->
-        <!--                <template #avatar>-->
-        <!--                  <a-avatar :src="item.avatar"/>-->
-        <!--                </template>-->
-        <!--              </a-list-item-meta>-->
-        <!--              {{ item.content }}-->
-        <!--            </a-list-item>-->
-        <!--          </template>-->
-        <!--        </a-list>-->
 
 
         通过ref():
@@ -180,17 +132,125 @@
       </a-layout-content>
     </a-layout>
 
+    <template>
+      <a-drawer width="640" placement="right" :closable="false" :visible="visible" @close="onClose">
+        <p :style="[pStyle, pStyle2]">主办方详情资料</p>
+        <p :style="pStyle">概况</p>
+        <a-row>
+          <a-col :span="12">
+            <!--            <description-item title="Name" content="{{ sponsorDetail.name }}"/>-->
+            <a-descriptions>
+              <a-descriptions-item label="机构名称">{{ sponsorDetail.name }}</a-descriptions-item>
+            </a-descriptions>
+          </a-col>
+          <a-col :span="12">
+            <!--            <description-item title="Account" content="AntDesign@example.com"/>-->
+            <a-descriptions>
+              <a-descriptions-item label="账号状态">{{ sponsorDetail.identityStatus }}</a-descriptions-item>
+            </a-descriptions>
+          </a-col>
+        </a-row>
+        <a-row>
+          <a-col :span="12">
+            <!--            <description-item title="Name" content="{{ sponsorDetail.name }}"/>-->
+            <a-descriptions>
+              <a-descriptions-item label="机构所在地">中国 浙江 杭州</a-descriptions-item>
+            </a-descriptions>
+          </a-col>
+          <a-col :span="12">
+            <!--            <description-item title="Account" content="AntDesign@example.com"/>-->
+            <a-descriptions>
+              <a-descriptions-item label="入驻时间">{{ sponsorDetail.joinDate }}</a-descriptions-item>
+            </a-descriptions>
+          </a-col>
+        </a-row>
+
+        <a-divider/>
+        <p :style="pStyle">主办方简介</p>
+        <a-row>
+          <a-descriptions>
+            <a-descriptions-item>{{ sponsorDetail.intro }}</a-descriptions-item>
+          </a-descriptions>
+        </a-row>
+        <a-divider/>
+        <p :style="pStyle">联系方式</p>
+        <a-row>
+          <a-col :span="12">
+            <a-descriptions>
+              <a-descriptions-item label="邮件地址">{{ sponsorDetail.email }}</a-descriptions-item>
+            </a-descriptions>
+          </a-col>
+        </a-row>
+        <a-row>
+          <a-col :span="12">
+            <a-descriptions>
+              <a-descriptions-item label="机构电话">{{ sponsorDetail.telNum }}</a-descriptions-item>
+            </a-descriptions>
+          </a-col>
+        </a-row>
+        <a-row>
+          <a-col :span="12">
+            <a-descriptions>
+              <a-descriptions-item label="通信地址">{{ sponsorDetail.address }}</a-descriptions-item>
+            </a-descriptions>
+          </a-col>
+        </a-row>
+        <a-row>
+          <a-col :span="12">
+            <a-descriptions>
+              <a-descriptions-item label="机构代表人">兰鑫</a-descriptions-item>
+            </a-descriptions>
+          </a-col>
+        </a-row>
+        <a-divider/>
+        <p :style="pStyle">机构证书</p>
+        <a-row>
+          <img class="certify-img" src="/image/certification-imgs/test1.jpg" alt="avatar"/>
+        </a-row>
+        <a-divider/>
+        <div
+            :style="{
+        position: 'absolute',
+        bottom: 0,
+        width: '100%',
+        borderTop: '1px solid #e8e8e8',
+        padding: '10px 16px',
+        textAlign: 'right',
+        left: 0,
+        background: '#fff',
+        borderRadius: '0 0 4px 4px',
+      }"
+        >
+          <a-button style="margin-right: 8px" @click="onClose">退出浏览</a-button>
+        </div>
+
+      </a-drawer>
+    </template>
 
   </a-layout>
 
+
   <div id="components-back-top-demo-custom">
-    <a-back-top>
-      <div class="ant-back-top-inner">UP</div>
-    </a-back-top>
+    <a-back-top/>
     Scroll down to see the bottom-right
-    <strong style="color: #1088e9">blue</strong>
+    <strong style="color: rgba(64, 64, 64, 0.6)"> gray </strong>
     button.
   </div>
+
+  <a-modal
+      title="重置密码"
+      v-model:visible="resetModalVisible"
+      :confirm-loading="resetModalLoading"
+      @ok="handleResetModalOk"
+  >
+    <a-form :model="sponsor" :label-col="{ span: 6 }" :wrapper-col="{ span: 18 }">
+      <a-form-item label="新密码">
+        <a-input v-model:value="sponsor.password" type="password"/>
+      </a-form-item>
+    </a-form>
+  </a-modal>
+
+
 
 </template>
 
@@ -199,6 +259,9 @@
 import {defineComponent, onMounted, ref, reactive, toRef} from 'vue';
 import {createFromIconfontCN} from '@ant-design/icons-vue';
 import {message} from 'ant-design-vue';
+import {Tool} from "@/util/tool";
+
+import descriptionItem from './descriptionItem/index.vue';
 
 
 import axios from 'axios';
@@ -206,6 +269,10 @@ import axios from 'axios';
 const IconFont = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_2558111_009ekmettrll3.js',
 });
+
+declare let hexMd5: any;
+declare let KEY: any;
+
 
 // import HelloWorld from "@/components/HelloWorld.vue";
 
@@ -265,19 +332,19 @@ export default defineComponent({
       {
         title: '通讯地址',
         dataIndex: 'address',
-        slots: { customRender: 'address' }
+        slots: {customRender: 'address'}
       },
       {
         title: '认证状态',
         key: 'identityStatus',
         dataIndex: 'identityStatus',
-        slots: { customRender: 'identityStatus' }
+        slots: {customRender: 'identityStatus'}
       },
-      {
-        title: '主办方简介',
-        key: 'intro',
-        dataIndex: 'intro'
-      },
+      // {
+      //   title: '主办方简介',
+      //   key: 'intro',
+      //   dataIndex: 'intro'
+      // },
       {
         title: '入驻时间',
         dataIndex: 'joinDate'
@@ -301,15 +368,12 @@ export default defineComponent({
 
     let identity_status = '';
     let identityMap = new Map()
-    identityMap.set('notCertified','未认证')
-    identityMap.set('underReview','审核中')
-    identityMap.set('verified','已认证')
-
-
-
+    identityMap.set('notCertified', '未认证')
+    identityMap.set('underReview', '审核中')
+    identityMap.set('verified', '已认证')
 
     const handleQuerySponsor = (params: any) => {
-      axios.get("/admin/listSponsor",{
+      axios.get("/admin/listSponsor", {
         params: {
           page: params.page,
           size: params.size,
@@ -338,12 +402,21 @@ export default defineComponent({
 
     };
 
+    /**
+     * 数据查询
+     **/
+    const handleQuery = (params: any) => {
+      loading.value = true;
+      // 如果不清空现有数据，则编辑保存重新加载数据后，再点编辑，则列表显示的还是编辑前的数据
+
+    };
+
 
     const handleClick = (value: any) => {
-      console.log("menu click", value );
-      if(value.key === 'welcome'){
+      console.log("menu click", value);
+      if (value.key === 'welcome') {
         isShowWelcome.value = true;
-      }else {
+      } else {
         identity_status = identityMap.get(value.key);
         isShowWelcome.value = false;
         //这里本应该去查询数据库里所有的主办方数据 而我写死了只查前1000条 可以另写个all方法
@@ -368,6 +441,132 @@ export default defineComponent({
       });
     };
 
+    const sponsorDetail = ref({});
+    const visible = ref<boolean>(false);
+    const pStyle = {
+      fontSize: '16px',
+      color: 'rgba(0,0,0,0.85)',
+      lineHeight: '24px',
+      display: 'block',
+      marginBottom: '16px',
+    };
+    const pStyle2 = {
+      marginBottom: '24px',
+    };
+
+    const showDrawer = () => {
+      visible.value = true;
+    };
+
+    const onClose = () => {
+      visible.value = false;
+    };
+
+    const viewDetails = (record: any) => {
+      console.log("拿到的数据：", record);
+      console.log("该行数据的id：", record.sid);
+
+      axios.get("/admin/getSponsorDetail", {
+            params: {
+              sid: record.sid
+            }
+          }
+      ).then((response) => {
+        const data = response.data;
+        console.log(data);
+        sponsorDetail.value = data.content;
+        console.log("主办方详情：", sponsorDetail);
+        // if(contestDetail.value.sponsorDetail==1){
+        //   str = "running";
+        // }else {
+        //   str = "end";
+        // }
+      });
+
+
+      visible.value = true;
+
+    };
+
+    const sponsor = ref({
+      password: '',
+    });
+
+    // -------- 重置密码 ---------
+    const resetModalVisible = ref(false);
+    const resetModalLoading = ref(false);
+
+    const handleResetModalOk = () => {
+      resetModalLoading.value = true;
+
+      // sponsor.value.password = hexMd5(sponsor.value.password + KEY);
+
+      axios.post("/admin/resetSponsorPassword", sponsor.value).then((response) => {
+        resetModalLoading.value = false;
+        const data = response.data; // data = commonResp
+        if (data.success) {
+          resetModalVisible.value = false;
+
+          // 重新加载列表
+          handleQuerySponsor({
+            page: pagination.value.current,
+            size: pagination.value.pageSize,
+          });
+        } else {
+          message.error(data.message);
+        }
+      });
+    };
+
+
+    const resetPassword = (record: any) => {
+      resetModalVisible.value = true;
+      console.log("拿到的数据：", record);
+      console.log("该行数据的id：", record.sid);
+
+      // resetModalVisible.value = true;
+      sponsor.value = Tool.copy(record);
+      sponsor.value.password = '';
+      // let password = '123456';
+
+      console.log("sponsor", sponsor.value);
+
+      // // axios.post("/admin/resetSponsorPassword", user.value).then((response) => {
+      // axios.post("/admin/resetSponsorPassword", sponsor.value
+      // //     {
+      // //     sid: record.sid,
+      // //     password: password,
+      // //
+      // // // }).then((response) => {
+      // // // axios.put("/admin/resetSponsorPassword", {
+      // // //   sid: record.sid,
+      // // //   password: sponsor.value.password,
+      // // }
+      // ).then((response) => {
+      //   // modalLoading.value = false;
+      //   const data = response.data; // data = commonResp
+      //   if (data.success) {
+      //     // modalVisible.value = false;
+      //
+      //     console.log(sponsor.value.password);
+      //
+      //     // 重新加载列表
+      //     handleQuerySponsor({
+      //       page: pagination.value.current,
+      //       size: pagination.value.pageSize,
+      //     });
+      //   } else {
+      //     message.error(data.message);
+      //   }
+      // });
+
+
+      // axios.p
+    };
+
+    const banAccount = (sid: any) => {
+      console.log("该行数据的id：", sid);
+    };
 
 
     //初始化逻辑都写到onMounted()里
@@ -416,12 +615,31 @@ export default defineComponent({
       handleQuerySponsor,
 
 
+      //抽屉板块
+      visible,
+      pStyle,
+      pStyle2,
+      viewDetails,
+      onClose,
+      sponsorDetail,
+
+      sponsor,
+      resetPassword,
+      resetModalVisible,
+      resetModalLoading,
+      handleResetModalOk,
+
+
+      banAccount,
+
+
     }
   },
 
 
   components: {
     IconFont,
+    // descriptionItem,
   },
 
 });
@@ -440,7 +658,7 @@ export default defineComponent({
 /*}*/
 
 #components-back-top-demo-custom .ant-back-top {
-  bottom: 100px;
+  bottom: 150px;
 }
 
 #components-back-top-demo-custom .ant-back-top-inner {
@@ -452,6 +670,11 @@ export default defineComponent({
   color: #fff;
   text-align: center;
   font-size: 20px;
+}
+
+.certify-img {
+  width: 360px;
+  height: 240px;
 }
 
 </style>

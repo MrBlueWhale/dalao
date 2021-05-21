@@ -8,6 +8,7 @@ import com.ibegu.dalao.domain.SponsorExample;
 import com.ibegu.dalao.mapper.AdminMapper;
 import com.ibegu.dalao.mapper.SponsorMapper;
 import com.ibegu.dalao.req.AdminSponsorQueryReq;
+import com.ibegu.dalao.req.AdminSponsorSaveReq;
 import com.ibegu.dalao.resp.AdminSponsorQueryResp;
 import com.ibegu.dalao.resp.PageResp;
 import com.ibegu.dalao.utils.CopyUtil;
@@ -84,4 +85,23 @@ public class AdminService {
     }
 
 
+    public AdminSponsorQueryResp getSponsorDetail(AdminSponsorQueryReq req) {
+        Sponsor sponsorDetail = sponsorMapper.selectByPrimaryKey(req.getSid());
+
+        AdminSponsorQueryResp sponsorDetailResp = CopyUtil.copy(sponsorDetail, AdminSponsorQueryResp.class);
+
+        return sponsorDetailResp;
+
+    }
+
+    public void resetSponsorPassword(AdminSponsorSaveReq req) {
+
+        LOG.info("修改密码传入的请求参数：{}", req);
+
+        Sponsor sponsor = CopyUtil.copy(req, Sponsor.class);
+        // sponsor.setSid(req.getSid());
+        sponsor.setPassword(req.getPassword());
+
+        sponsorMapper.updateByPrimaryKeySelective(sponsor);
+    }
 }

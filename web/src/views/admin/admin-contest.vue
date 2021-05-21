@@ -11,6 +11,8 @@
 import {defineComponent, onMounted, ref, reactive, toRef} from 'vue';
 
 import axios from 'axios';
+import {useRoute} from "vue-router";
+
 
 // import HelloWorld from "@/components/HelloWorld.vue";
 
@@ -19,6 +21,7 @@ const listData: any = [];
 
 for (let i = 0; i < 23; i++) {
   listData.push({
+
     href: 'https://www.antdv.com/',
     title: `ant design vue part ${i}`,
     avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
@@ -42,6 +45,18 @@ export default defineComponent({
     const demos = ref();
     //reactive中放入对象 并自定义属性
     const demos2 = reactive({demos: []});
+
+
+    const route = useRoute();
+    console.log("路由：", route);
+    console.log("route.path：", route.path);
+    console.log("route.query：", route.query);
+    console.log("route.param：", route.params);
+    console.log("route.fullPath：", route.fullPath);
+    console.log("route.name：", route.name);
+    console.log("route.meta：", route.meta);
+
+
 
     //初始化逻辑都写到onMounted()里
     onMounted(() => {
