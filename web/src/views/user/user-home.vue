@@ -40,7 +40,14 @@
       <a-layout-content
               :style="{ background: '#fff', padding: '24px', margin: 0, minHeight: '280px' }"
       >
-        Content:<br/>
+        <a-carousel autoplay>
+          <div><h3>1</h3></div>
+          <div><h3>2</h3></div>
+          <div><h3>3</h3></div>
+          <div><h3>4</h3></div>
+        </a-carousel>
+
+        <br><br>
 
 
         <a-list item-layout="vertical" size="large" :pagination="pagination" :grid="{ gutter: 20, column: 3 }" :data-source="listData">
@@ -173,11 +180,20 @@ export default defineComponent({
 
 
 
+
 <style scoped>
-/*img {*/
-/*  width: 50px;*/
-/*  height: 50px;*/
-/*}*/
+  /* For demo */
+  .ant-carousel :deep(.slick-slide) {
+    text-align: center;
+    height: 330px;
+    line-height: 140px;
+    background: #364d79;
+    overflow: hidden;
+  }
+
+  .ant-carousel :deep(.slick-slide h3) {
+    color: #fff;
+  }
 </style>
 
 
