@@ -196,3 +196,7 @@ SET FOREIGN_KEY_CHECKS = 1;
 
 ALTER TABLE `dalao`.`adminkey`
     ADD COLUMN `if_used` int(0) NOT NULL COMMENT '是否已经使用' AFTER `admin_key`;
+
+
+ALTER TABLE `dalao`.`participant`
+    MODIFY COLUMN `avatar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '头像地址' AFTER `password`;
