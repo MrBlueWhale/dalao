@@ -40,12 +40,17 @@
       <a-layout-content
               :style="{ background: '#fff', padding: '24px', margin: 0, minHeight: '280px' }"
       >
-        <a-carousel autoplay>
-          <div><h3>1</h3></div>
-          <div><h3>2</h3></div>
-          <div><h3>3</h3></div>
-          <div><h3>4</h3></div>
-        </a-carousel>
+
+        <div style="position: center;">
+          <a-carousel autoplay style="width: 1080px; margin-left: 13%;" >
+            <div><h3>1</h3></div>
+            <div><h3>2</h3></div>
+            <div><h3>3</h3></div>
+            <div><h3>4</h3></div>
+          </a-carousel>
+        </div>
+
+
 
         <br><br>
 
@@ -186,6 +191,7 @@ export default defineComponent({
   .ant-carousel :deep(.slick-slide) {
     text-align: center;
     height: 330px;
+    /*width: 600px !important;*/
     line-height: 140px;
     background: #364d79;
     overflow: hidden;
