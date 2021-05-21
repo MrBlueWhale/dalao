@@ -507,11 +507,16 @@ export default defineComponent({
         if (data.success) {
           resetModalVisible.value = false;
 
-          // 重新加载列表
+          // 重新加载列表（？需要吗）
           handleQuerySponsor({
             page: pagination.value.current,
             size: pagination.value.pageSize,
           });
+
+        //
+          message.success("重置成功！")
+
+
         } else {
           message.error(data.message);
         }

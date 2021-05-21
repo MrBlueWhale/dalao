@@ -1,7 +1,7 @@
 package com.ibegu.dalao.controller;
 
 import com.ibegu.dalao.req.AdminSponsorQueryReq;
-import com.ibegu.dalao.req.AdminSponsorSaveReq;
+import com.ibegu.dalao.req.AdminSponsorResetPasswordReq;
 import com.ibegu.dalao.resp.AdminSponsorQueryResp;
 import com.ibegu.dalao.resp.CommonResp;
 import com.ibegu.dalao.resp.PageResp;
@@ -61,7 +61,7 @@ public class AdminController {
     // @PutMapping("/resetSponsorPassword")
 
     @PostMapping("/resetSponsorPassword")
-    public CommonResp resetSponsorPassword( @RequestBody AdminSponsorSaveReq req){
+    public CommonResp resetSponsorPassword( @Valid @RequestBody AdminSponsorResetPasswordReq req){
 
         // LOG.info("请求：{}", req);
 

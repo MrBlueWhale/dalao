@@ -8,7 +8,7 @@ import com.ibegu.dalao.domain.SponsorExample;
 import com.ibegu.dalao.mapper.AdminMapper;
 import com.ibegu.dalao.mapper.SponsorMapper;
 import com.ibegu.dalao.req.AdminSponsorQueryReq;
-import com.ibegu.dalao.req.AdminSponsorSaveReq;
+import com.ibegu.dalao.req.AdminSponsorResetPasswordReq;
 import com.ibegu.dalao.resp.AdminSponsorQueryResp;
 import com.ibegu.dalao.resp.PageResp;
 import com.ibegu.dalao.utils.CopyUtil;
@@ -94,7 +94,7 @@ public class AdminService {
 
     }
 
-    public void resetSponsorPassword(AdminSponsorSaveReq req) {
+    public void resetSponsorPassword( AdminSponsorResetPasswordReq req) {
 
         LOG.info("修改密码传入的请求参数：{}", req);
 
