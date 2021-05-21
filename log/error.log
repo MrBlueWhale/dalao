@@ -1378,3 +1378,31 @@ java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be nul
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
+2021-05-21 22:42:11.420 ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter  :40   [32m                  [0;39m 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8002 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8002 or configure this application to listen on another port.
+
+2021-05-21 22:42:13.978 ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter  :40   [32m                  [0;39m 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8002 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8002 or configure this application to listen on another port.
+
