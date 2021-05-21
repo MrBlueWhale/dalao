@@ -1,3 +1,17 @@
+2021-05-22 00:00:47.705 INFO  com.ibegu.dalao.aspect.LogAspect                  :52   [32m                  [0;39m ------------- 开始 -------------
+2021-05-22 00:00:47.705 INFO  com.ibegu.dalao.aspect.LogAspect                  :52   [32m                  [0;39m ------------- 开始 -------------
+2021-05-22 00:00:47.708 INFO  com.ibegu.dalao.aspect.LogAspect                  :53   [32m                  [0;39m 请求地址: http://localhost:8002/demo/list GET
+2021-05-22 00:00:47.708 INFO  com.ibegu.dalao.aspect.LogAspect                  :53   [32m                  [0;39m 请求地址: http://localhost:8002/demo/list GET
+2021-05-22 00:00:47.708 INFO  com.ibegu.dalao.aspect.LogAspect                  :54   [32m                  [0;39m 类名方法: com.ibegu.dalao.controller.DemoController.list
+2021-05-22 00:00:47.708 INFO  com.ibegu.dalao.aspect.LogAspect                  :54   [32m                  [0;39m 类名方法: com.ibegu.dalao.controller.DemoController.list
+2021-05-22 00:00:47.710 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
+2021-05-22 00:00:47.710 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
+2021-05-22 00:00:47.710 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{}]
+2021-05-22 00:00:47.710 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{}]
+2021-05-22 00:00:47.713 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":[{"id":1,"name":"测试"},{"id":2,"name":"恣意横行"},{"id":3,"name":"一本有趣的书"},{"id":4,"name":"大陆译本"},{"id":5,"name":"放下了吗"},{"id":6,"name":"回血"}],"success":true}
+2021-05-22 00:00:47.713 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":[{"id":1,"name":"测试"},{"id":2,"name":"恣意横行"},{"id":3,"name":"一本有趣的书"},{"id":4,"name":"大陆译本"},{"id":5,"name":"放下了吗"},{"id":6,"name":"回血"}],"success":true}
+2021-05-22 00:00:47.713 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：8 ms -------------
+2021-05-22 00:00:47.713 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：8 ms -------------
 2021-05-21 00:10:16.589 INFO  com.ibegu.dalao.aspect.LogAspect                  :52   [32m                  [0;39m ------------- 开始 -------------
 2021-05-21 00:10:16.732 INFO  com.ibegu.dalao.aspect.LogAspect                  :52   [32m                  [0;39m ------------- 开始 -------------
 2021-05-21 00:10:17.021 INFO  com.ibegu.dalao.aspect.LogAspect                  :53   [32m                  [0;39m 请求地址: http://localhost:8002/demo/list GET
@@ -12,7 +26,7 @@
 2021-05-21 00:10:17.233 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：644 ms -------------
 2021-05-21 00:10:17.273 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":[{"id":1,"name":"测试"},{"id":2,"name":"恣意横行"},{"id":3,"name":"一本有趣的书"},{"id":4,"name":"大陆译本"},{"id":5,"name":"放下了吗"},{"id":6,"name":"回血"}],"success":true}
 2021-05-21 00:10:17.274 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：542 ms -------------
-2021-05-21 00:11:25.944 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 12280 (started by Mr�������� in F:\Code\Code IDEA\dalao)
+2021-05-21 00:11:25.944 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 12280 (started by Mr�������� in F:\Code\Code IDEA\dalao)
 2021-05-21 00:11:25.944 INFO  org.hibernate.validator.internal.util.Version     :21   [32m                  [0;39m HV000001: Hibernate Validator 6.1.6.Final
 2021-05-21 00:11:25.956 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
 2021-05-21 00:11:33.723 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :181  [32m                  [0;39m Initializing ExecutorService 'applicationTaskExecutor'
@@ -193,7 +207,7 @@
 2021-05-21 00:52:43.737 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener :63   [32m                  [0;39m Condition evaluation unchanged
 2021-05-21 00:52:43.738 INFO  com.ibegu.dalao.config.DalaoApplication           :25   [32m                  [0;39m 启动成功！！
 2021-05-21 00:52:43.739 INFO  com.ibegu.dalao.config.DalaoApplication           :26   [32m                  [0;39m 地址: 	http://127.0.0.1:8002
-2021-05-21 00:52:44.773 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 22324 (started by Mr�������� in F:\Code\Code IDEA\dalao)
+2021-05-21 00:52:44.773 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 22324 (started by Mr�������� in F:\Code\Code IDEA\dalao)
 2021-05-21 00:52:44.782 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
 2021-05-21 00:52:44.794 INFO  org.hibernate.validator.internal.util.Version     :21   [32m                  [0;39m HV000001: Hibernate Validator 6.1.6.Final
 2021-05-21 00:52:48.881 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :218  [32m                  [0;39m Shutting down ExecutorService 'applicationTaskExecutor'
@@ -315,7 +329,7 @@
 2021-05-21 01:00:27.089 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{"cid":1,"page":0,"size":0}]
 2021-05-21 01:00:27.092 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":{"audience":"全国","category":"\r\n\r\n    数学 计算机&信息技术\r\n\r\n数学 计算机&信息技术","cid":1,"competeEndTime":1622304000000,"competeStartTime":1621612800000,"contestIntro":"在大数据时代背景下，统计学作为大数据分析领域的基础显得尤为重要。为了帮助学生更好的学习和应用数据统计与分析的知识，促进统计、计算机、数学等相关专业的发展，培养具有数据分析与应用型人才，提升高校毕业生的就业竞争力，经研究决定，河北省现场统计学会、四川省现场统计学会等联合发起“全国大学生数据统计与分析竞赛”（以下简称“竞赛”），为我国数据统计与分析行业提供人才支持，夯实人才队伍基础。","contestName":"2021年全国大学生数据统计与分析竞赛","contestStatus":0,"entryFee":150,"pageView":10,"rank":" 全国性","registrationEndTime":1621526400000,"registrationStartTime":1618156800000,"sponsorId":1,"type":"组队赛"},"success":true}
 2021-05-21 01:00:27.092 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：6 ms -------------
-2021-05-21 08:22:47.398 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 21108 (started by Mr�������� in F:\Code\Code IDEA\dalao)
+2021-05-21 08:22:47.398 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 21108 (started by Mr�������� in F:\Code\Code IDEA\dalao)
 2021-05-21 08:22:47.398 INFO  org.hibernate.validator.internal.util.Version     :21   [32m                  [0;39m HV000001: Hibernate Validator 6.1.6.Final
 2021-05-21 08:22:47.398 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
 2021-05-21 08:22:50.062 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :181  [32m                  [0;39m Initializing ExecutorService 'applicationTaskExecutor'
@@ -945,7 +959,7 @@
 2021-05-21 11:58:18.056 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :218  [32m                  [0;39m Shutting down ExecutorService 'applicationTaskExecutor'
 2021-05-21 11:58:18.098 INFO  com.zaxxer.hikari.HikariDataSource                :350  [32m                  [0;39m HikariPool-1 - Shutdown initiated...
 2021-05-21 11:58:18.106 INFO  com.zaxxer.hikari.HikariDataSource                :352  [32m                  [0;39m HikariPool-1 - Shutdown completed.
-2021-05-21 11:58:18.383 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 11380 (started by Mr�������� in F:\Code\Code IDEA\dalao)
+2021-05-21 11:58:18.383 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 11380 (started by Mr�������� in F:\Code\Code IDEA\dalao)
 2021-05-21 11:58:18.383 INFO  org.hibernate.validator.internal.util.Version     :21   [32m                  [0;39m HV000001: Hibernate Validator 6.1.6.Final
 2021-05-21 11:58:18.387 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
 2021-05-21 11:58:20.984 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :181  [32m                  [0;39m Initializing ExecutorService 'applicationTaskExecutor'
@@ -1162,7 +1176,7 @@
 2021-05-21 12:08:16.037 INFO  com.ibegu.dalao.service.AdminService              :71   [32m                  [0;39m 总页数：1
 2021-05-21 12:08:16.038 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":{"list":[{"accountStatus":1,"address":"test2","avatar":"/image/sponsor-avatar/avatar2.jpg","email":"2971529737@qq.com","identityStatus":"审核中","intro":"比赛主办方测试账号2 四川省畜牧兽医学会的前身，是四川省自然科学学会畜牧兽医专业组，1958年11月自然科学学会和科普协会合并成立四川省科学技术协会之后，畜牧兽医专业组在杨兴业、丘祥聘、王正杓、曹振华等几位老专家的倡议下组建而成。经过两年的筹备工作，四川省畜牧兽医学会于1960年底宣告正式成立，召开了第一次会员代表大会，选出了省农牧厅副厅长张敏为第一届理事会理事长。","joinDate":1621426269000,"name":"test2","sid":2,"telNum":"19981481120"},{"accountStatus":0,"address":"test7","avatar":"/image/sponsor-avatar/avatar.jpg","email":"2971529737@qq.com","identityStatus":"审核中","intro":"比赛主办方测试账号7 四川省畜牧兽医学会的前身，是四川省自然科学学会畜牧兽医专业组，1958年11月自然科学学会和科普协会合并成立四川省科学技术协会之后，畜牧兽医专业组在杨兴业、丘祥聘、王正杓、曹振华等几位老专家的倡议下组建而成。经过两年的筹备工作，四川省畜牧兽医学会于1960年底宣告正式成立，召开了第一次会员代表大会，选出了省农牧厅副厅长张敏为第一届理事会理事长。","joinDate":1621426509000,"name":"test7","sid":7,"telNum":"19981481120"}],"total":2},"success":true}
 2021-05-21 12:08:16.038 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：5 ms -------------
-2021-05-21 14:09:56.206 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 23800 (started by Mr�������� in F:\Code\Code IDEA\dalao)
+2021-05-21 14:09:56.206 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 23800 (started by Mr�������� in F:\Code\Code IDEA\dalao)
 2021-05-21 14:09:56.209 INFO  org.hibernate.validator.internal.util.Version     :21   [32m                  [0;39m HV000001: Hibernate Validator 6.1.6.Final
 2021-05-21 14:09:56.212 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
 2021-05-21 14:09:58.785 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :181  [32m                  [0;39m Initializing ExecutorService 'applicationTaskExecutor'
@@ -1250,7 +1264,7 @@
 2021-05-21 14:16:56.057 INFO  com.ibegu.dalao.service.AdminService              :71   [32m                  [0;39m 总页数：2
 2021-05-21 14:16:56.058 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":{"list":[{"accountStatus":0,"address":"test1","avatar":"/image/sponsor-avatar/avatar.jpg","email":"2971529737@qq.com","identityStatus":"未认证","intro":"比赛主办方测试账号1 四川省畜牧兽医学会的前身，是四川省自然科学学会畜牧兽医专业组，1958年11月自然科学学会和科普协会合并成立四川省科学技术协会之后，畜牧兽医专业组在杨兴业、丘祥聘、王正杓、曹振华等几位老专家的倡议下组建而成。经过两年的筹备工作，四川省畜牧兽医学会于1960年底宣告正式成立，召开了第一次会员代表大会，选出了省农牧厅副厅长张敏为第一届理事会理事长。","joinDate":1621426209000,"name":"test1","sid":1,"telNum":"19981481120"},{"accountStatus":0,"address":"test3","avatar":"/image/sponsor-avatar/avatar3.jpg","email":"2971529737@qq.com","identityStatus":"未认证","intro":"比赛主办方测试账号3 四川省畜牧兽医学会的前身，是四川省自然科学学会畜牧兽医专业组，1958年11月自然科学学会和科普协会合并成立四川省科学技术协会之后，畜牧兽医专业组在杨兴业、丘祥聘、王正杓、曹振华等几位老专家的倡议下组建而成。经过两年的筹备工作，四川省畜牧兽医学会于1960年底宣告正式成立，召开了第一次会员代表大会，选出了省农牧厅副厅长张敏为第一届理事会理事长。","joinDate":1621426269000,"name":"test3","sid":3,"telNum":"19981481120"}],"total":3},"success":true}
 2021-05-21 14:16:56.058 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：6 ms -------------
-2021-05-21 14:19:52.704 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 20476 (started by Mr�������� in F:\Code\Code IDEA\dalao)
+2021-05-21 14:19:52.704 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 20476 (started by Mr�������� in F:\Code\Code IDEA\dalao)
 2021-05-21 14:19:52.708 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
 2021-05-21 14:19:52.709 INFO  org.hibernate.validator.internal.util.Version     :21   [32m                  [0;39m HV000001: Hibernate Validator 6.1.6.Final
 2021-05-21 14:19:54.986 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :181  [32m                  [0;39m Initializing ExecutorService 'applicationTaskExecutor'
@@ -1336,7 +1350,7 @@
 2021-05-21 14:21:34.640 INFO  com.ibegu.dalao.service.AdminService              :71   [32m                  [0;39m 总页数：2
 2021-05-21 14:21:34.640 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":{"list":[{"accountStatus":0,"address":"test1","avatar":"/image/sponsor-avatar/avatar.jpg","email":"2971529737@qq.com","identityStatus":"未认证","intro":"比赛主办方测试账号1 四川省畜牧兽医学会的前身，是四川省自然科学学会畜牧兽医专业组，1958年11月自然科学学会和科普协会合并成立四川省科学技术协会之后，畜牧兽医专业组在杨兴业、丘祥聘、王正杓、曹振华等几位老专家的倡议下组建而成。经过两年的筹备工作，四川省畜牧兽医学会于1960年底宣告正式成立，召开了第一次会员代表大会，选出了省农牧厅副厅长张敏为第一届理事会理事长。","joinDate":1621426209000,"name":"test1","sid":1,"telNum":"19981481120"},{"accountStatus":0,"address":"test3","avatar":"/image/sponsor-avatar/avatar3.jpg","email":"2971529737@qq.com","identityStatus":"未认证","intro":"比赛主办方测试账号3 四川省畜牧兽医学会的前身，是四川省自然科学学会畜牧兽医专业组，1958年11月自然科学学会和科普协会合并成立四川省科学技术协会之后，畜牧兽医专业组在杨兴业、丘祥聘、王正杓、曹振华等几位老专家的倡议下组建而成。经过两年的筹备工作，四川省畜牧兽医学会于1960年底宣告正式成立，召开了第一次会员代表大会，选出了省农牧厅副厅长张敏为第一届理事会理事长。","joinDate":1621426269000,"name":"test3","sid":3,"telNum":"19981481120"}],"total":3},"success":true}
 2021-05-21 14:21:34.640 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：6 ms -------------
-2021-05-21 14:25:49.776 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 23936 (started by Mr�������� in F:\Code\Code IDEA\dalao)
+2021-05-21 14:25:49.776 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 23936 (started by Mr�������� in F:\Code\Code IDEA\dalao)
 2021-05-21 14:25:49.779 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
 2021-05-21 14:25:49.782 INFO  org.hibernate.validator.internal.util.Version     :21   [32m                  [0;39m HV000001: Hibernate Validator 6.1.6.Final
 2021-05-21 14:25:52.243 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :181  [32m                  [0;39m Initializing ExecutorService 'applicationTaskExecutor'
@@ -1468,7 +1482,7 @@
 2021-05-21 14:35:11.028 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
 2021-05-21 14:35:11.028 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{"page":0,"sid":1,"size":0}]
 2021-05-21 14:35:11.028 INFO  com.ibegu.dalao.service.AdminService              :99   [32m                  [0;39m 修改密码传入的请求参数：AdminSponsorSaveReq [Hash = 840451954, sid=1, avatar=null, name=null, address=null, telNum=null, email=null, password=123456, intro=null, identityStatus=null, joinDate=null, accountStatus=null]
-2021-05-21 14:35:11.078 ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet]   :175  [32m                  [0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: 
+2021-05-21 14:35:11.078 ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet]   :175  [32m                  [0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException:
 ### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be null
 ### The error may exist in file [F:\Code\Code IDEA\dalao\target\classes\mapper\SponsorMapper.xml]
 ### The error may involve com.ibegu.dalao.mapper.SponsorMapper.updateByPrimaryKey-Inline
@@ -1600,7 +1614,7 @@ java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be nul
 2021-05-21 14:41:17.433 INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] :173  [32m                  [0;39m Initializing Spring embedded WebApplicationContext
 2021-05-21 14:41:17.433 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :289  [32m                  [0;39m Root WebApplicationContext: initialization completed in 350 ms
 2021-05-21 14:41:17.768 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :181  [32m                  [0;39m Initializing ExecutorService 'applicationTaskExecutor'
-2021-05-21 14:41:17.826 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 6068 (started by Mr�������� in F:\Code\Code IDEA\dalao)
+2021-05-21 14:41:17.826 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 6068 (started by Mr�������� in F:\Code\Code IDEA\dalao)
 2021-05-21 14:41:17.829 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
 2021-05-21 14:41:17.836 INFO  org.hibernate.validator.internal.util.Version     :21   [32m                  [0;39m HV000001: Hibernate Validator 6.1.6.Final
 2021-05-21 14:41:17.968 WARN  o.s.b.d.autoconfigure.OptionalLiveReloadServer    :61   [32m                  [0;39m Unable to start LiveReload server
@@ -1677,7 +1691,7 @@ java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be nul
 2021-05-21 14:41:45.313 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
 2021-05-21 14:41:45.313 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{"sid":1}]
 2021-05-21 14:41:45.314 INFO  com.ibegu.dalao.service.AdminService              :99   [32m                  [0;39m 修改密码传入的请求参数：AdminSponsorSaveReq [Hash = 2067975108, sid=1, avatar=null, name=null, address=null, telNum=null, email=null, password=123456, intro=null, identityStatus=null, joinDate=null, accountStatus=null]
-2021-05-21 14:41:45.318 ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet]   :175  [32m                  [0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: 
+2021-05-21 14:41:45.318 ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet]   :175  [32m                  [0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException:
 ### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be null
 ### The error may exist in file [F:\Code\Code IDEA\dalao\target\classes\mapper\SponsorMapper.xml]
 ### The error may involve com.ibegu.dalao.mapper.SponsorMapper.updateByPrimaryKey-Inline
@@ -1821,7 +1835,7 @@ java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be nul
 2021-05-21 14:47:04.433 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
 2021-05-21 14:47:04.433 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{"sid":1}]
 2021-05-21 14:47:04.433 INFO  com.ibegu.dalao.service.AdminService              :99   [32m                  [0;39m 修改密码传入的请求参数：AdminSponsorSaveReq [Hash = 1507386232, sid=1, avatar=null, name=null, address=null, telNum=null, email=null, password=123456, intro=null, identityStatus=null, joinDate=null, accountStatus=null]
-2021-05-21 14:47:04.436 ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet]   :175  [32m                  [0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: 
+2021-05-21 14:47:04.436 ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet]   :175  [32m                  [0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException:
 ### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be null
 ### The error may exist in file [F:\Code\Code IDEA\dalao\target\classes\mapper\SponsorMapper.xml]
 ### The error may involve com.ibegu.dalao.mapper.SponsorMapper.updateByPrimaryKey-Inline
@@ -1936,7 +1950,7 @@ java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be nul
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2021-05-21 14:52:44.757 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 468 (started by Mr�������� in F:\Code\Code IDEA\dalao)
+2021-05-21 14:52:44.757 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 468 (started by Mr�������� in F:\Code\Code IDEA\dalao)
 2021-05-21 14:52:44.759 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
 2021-05-21 14:52:44.760 INFO  org.hibernate.validator.internal.util.Version     :21   [32m                  [0;39m HV000001: Hibernate Validator 6.1.6.Final
 2021-05-21 14:52:44.965 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :218  [32m                  [0;39m Shutting down ExecutorService 'applicationTaskExecutor'
@@ -1999,7 +2013,7 @@ java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be nul
 2021-05-21 14:53:05.760 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
 2021-05-21 14:53:05.761 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{"sid":2}]
 2021-05-21 14:53:05.761 INFO  com.ibegu.dalao.service.AdminService              :99   [32m                  [0;39m 修改密码传入的请求参数：AdminSponsorSaveReq [Hash = 686594167, sid=2, avatar=null, name=null, address=null, telNum=null, email=null, password=123456, intro=null, identityStatus=null, joinDate=null, accountStatus=null]
-2021-05-21 14:53:05.765 ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet]   :175  [32m                  [0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: 
+2021-05-21 14:53:05.765 ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet]   :175  [32m                  [0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException:
 ### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be null
 ### The error may exist in file [F:\Code\Code IDEA\dalao\target\classes\mapper\SponsorMapper.xml]
 ### The error may involve com.ibegu.dalao.mapper.SponsorMapper.updateByPrimaryKey-Inline
@@ -2115,7 +2129,7 @@ java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be nul
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
 2021-05-21 14:59:55.162 WARN  com.zaxxer.hikari.pool.HikariPool                 :787  [32m                  [0;39m HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=4m22s837ms106µs500ns).
-2021-05-21 15:00:28.845 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 15368 (started by Mr�������� in F:\Code\Code IDEA\dalao)
+2021-05-21 15:00:28.845 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 15368 (started by Mr�������� in F:\Code\Code IDEA\dalao)
 2021-05-21 15:00:28.850 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
 2021-05-21 15:00:28.856 INFO  org.hibernate.validator.internal.util.Version     :21   [32m                  [0;39m HV000001: Hibernate Validator 6.1.6.Final
 2021-05-21 15:00:29.185 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :218  [32m                  [0;39m Shutting down ExecutorService 'applicationTaskExecutor'
@@ -2178,7 +2192,7 @@ java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be nul
 2021-05-21 15:00:43.416 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
 2021-05-21 15:00:43.417 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{"sid":1}]
 2021-05-21 15:00:43.417 INFO  com.ibegu.dalao.service.AdminService              :99   [32m                  [0;39m 修改密码传入的请求参数：AdminSponsorSaveReq [Hash = 1056747592, sid=1, avatar=null, name=null, address=null, telNum=null, email=null, password=123456, intro=null, identityStatus=null, joinDate=null, accountStatus=null]
-2021-05-21 15:00:43.421 ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet]   :175  [32m                  [0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: 
+2021-05-21 15:00:43.421 ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet]   :175  [32m                  [0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException:
 ### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be null
 ### The error may exist in file [F:\Code\Code IDEA\dalao\target\classes\mapper\SponsorMapper.xml]
 ### The error may involve com.ibegu.dalao.mapper.SponsorMapper.updateByPrimaryKey-Inline
@@ -2293,7 +2307,7 @@ java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be nul
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2021-05-21 15:01:27.497 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 22736 (started by Mr�������� in F:\Code\Code IDEA\dalao)
+2021-05-21 15:01:27.497 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 22736 (started by Mr�������� in F:\Code\Code IDEA\dalao)
 2021-05-21 15:01:27.498 INFO  org.hibernate.validator.internal.util.Version     :21   [32m                  [0;39m HV000001: Hibernate Validator 6.1.6.Final
 2021-05-21 15:01:27.499 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
 2021-05-21 15:01:29.752 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :181  [32m                  [0;39m Initializing ExecutorService 'applicationTaskExecutor'
@@ -2355,7 +2369,7 @@ java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be nul
 2021-05-21 15:02:09.857 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
 2021-05-21 15:02:09.859 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{"sid":1}]
 2021-05-21 15:02:09.859 INFO  com.ibegu.dalao.service.AdminService              :99   [32m                  [0;39m 修改密码传入的请求参数：AdminSponsorSaveReq [Hash = 1078724805, sid=1, avatar=null, name=null, address=null, telNum=null, email=null, password=123456, intro=null, identityStatus=null, joinDate=null, accountStatus=null]
-2021-05-21 15:02:09.909 ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet]   :175  [32m                  [0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: 
+2021-05-21 15:02:09.909 ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet]   :175  [32m                  [0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException:
 ### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be null
 ### The error may exist in file [F:\Code\Code IDEA\dalao\target\classes\mapper\SponsorMapper.xml]
 ### The error may involve com.ibegu.dalao.mapper.SponsorMapper.updateByPrimaryKey-Inline
@@ -2470,7 +2484,7 @@ java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be nul
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-2021-05-21 15:04:47.360 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 18948 (started by Mr�������� in F:\Code\Code IDEA\dalao)
+2021-05-21 15:04:47.360 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 18948 (started by Mr�������� in F:\Code\Code IDEA\dalao)
 2021-05-21 15:04:47.363 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
 2021-05-21 15:04:47.364 INFO  org.hibernate.validator.internal.util.Version     :21   [32m                  [0;39m HV000001: Hibernate Validator 6.1.6.Final
 2021-05-21 15:04:49.451 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :181  [32m                  [0;39m Initializing ExecutorService 'applicationTaskExecutor'
@@ -2546,7 +2560,7 @@ java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be nul
 2021-05-21 15:06:11.692 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
 2021-05-21 15:06:11.694 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{"sid":1}]
 2021-05-21 15:06:11.694 INFO  com.ibegu.dalao.service.AdminService              :99   [32m                  [0;39m 修改密码传入的请求参数：AdminSponsorSaveReq [Hash = 710271687, sid=1, avatar=null, name=null, address=null, telNum=null, email=null, password=123456, intro=null, identityStatus=null, joinDate=null, accountStatus=null]
-2021-05-21 15:06:11.737 ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet]   :175  [32m                  [0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: 
+2021-05-21 15:06:11.737 ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet]   :175  [32m                  [0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException:
 ### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be null
 ### The error may exist in file [F:\Code\Code IDEA\dalao\target\classes\mapper\SponsorMapper.xml]
 ### The error may involve com.ibegu.dalao.mapper.SponsorMapper.updateByPrimaryKey-Inline
@@ -2667,7 +2681,7 @@ java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be nul
 2021-05-21 15:06:14.044 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
 2021-05-21 15:06:14.045 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{"sid":1}]
 2021-05-21 15:06:14.045 INFO  com.ibegu.dalao.service.AdminService              :99   [32m                  [0;39m 修改密码传入的请求参数：AdminSponsorSaveReq [Hash = 1121566282, sid=1, avatar=null, name=null, address=null, telNum=null, email=null, password=123456, intro=null, identityStatus=null, joinDate=null, accountStatus=null]
-2021-05-21 15:06:14.048 ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet]   :175  [32m                  [0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: 
+2021-05-21 15:06:14.048 ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet]   :175  [32m                  [0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException:
 ### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be null
 ### The error may exist in file [F:\Code\Code IDEA\dalao\target\classes\mapper\SponsorMapper.xml]
 ### The error may involve com.ibegu.dalao.mapper.SponsorMapper.updateByPrimaryKey-Inline
@@ -2795,7 +2809,7 @@ java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be nul
 2021-05-21 15:06:21.837 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
 2021-05-21 15:06:21.837 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{"sid":1}]
 2021-05-21 15:06:21.837 INFO  com.ibegu.dalao.service.AdminService              :99   [32m                  [0;39m 修改密码传入的请求参数：AdminSponsorSaveReq [Hash = 233465074, sid=1, avatar=null, name=null, address=null, telNum=null, email=null, password=123456, intro=null, identityStatus=null, joinDate=null, accountStatus=null]
-2021-05-21 15:06:21.840 ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet]   :175  [32m                  [0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: 
+2021-05-21 15:06:21.840 ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet]   :175  [32m                  [0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException:
 ### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be null
 ### The error may exist in file [F:\Code\Code IDEA\dalao\target\classes\mapper\SponsorMapper.xml]
 ### The error may involve com.ibegu.dalao.mapper.SponsorMapper.updateByPrimaryKey-Inline
@@ -2925,7 +2939,7 @@ java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be nul
 2021-05-21 15:08:58.866 INFO  org.apache.catalina.core.AprLifecycleListener     :173  [32m                  [0;39m OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
 2021-05-21 15:08:58.900 INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] :173  [32m                  [0;39m Initializing Spring embedded WebApplicationContext
 2021-05-21 15:08:58.900 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :289  [32m                  [0;39m Root WebApplicationContext: initialization completed in 338 ms
-2021-05-21 15:08:59.111 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 14736 (started by Mr�������� in F:\Code\Code IDEA\dalao)
+2021-05-21 15:08:59.111 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 14736 (started by Mr�������� in F:\Code\Code IDEA\dalao)
 2021-05-21 15:08:59.114 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
 2021-05-21 15:08:59.118 INFO  org.hibernate.validator.internal.util.Version     :21   [32m                  [0;39m HV000001: Hibernate Validator 6.1.6.Final
 2021-05-21 15:08:59.183 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :181  [32m                  [0;39m Initializing ExecutorService 'applicationTaskExecutor'
@@ -2960,7 +2974,7 @@ java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be nul
 2021-05-21 15:09:03.643 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener :63   [32m                  [0;39m Condition evaluation unchanged
 2021-05-21 15:09:03.644 INFO  com.ibegu.dalao.config.DalaoApplication           :25   [32m                  [0;39m 启动成功！！
 2021-05-21 15:09:03.644 INFO  com.ibegu.dalao.config.DalaoApplication           :26   [32m                  [0;39m 地址: 	http://127.0.0.1:8002
-2021-05-21 15:09:16.734 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 32 (started by Mr�������� in F:\Code\Code IDEA\dalao)
+2021-05-21 15:09:16.734 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 32 (started by Mr�������� in F:\Code\Code IDEA\dalao)
 2021-05-21 15:09:16.737 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
 2021-05-21 15:09:16.740 INFO  org.hibernate.validator.internal.util.Version     :21   [32m                  [0;39m HV000001: Hibernate Validator 6.1.6.Final
 2021-05-21 15:09:18.956 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :181  [32m                  [0;39m Initializing ExecutorService 'applicationTaskExecutor'
@@ -3036,7 +3050,7 @@ java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be nul
 2021-05-21 15:09:39.577 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
 2021-05-21 15:09:39.580 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{"sid":1}]
 2021-05-21 15:09:39.580 INFO  com.ibegu.dalao.service.AdminService              :99   [32m                  [0;39m 修改密码传入的请求参数：AdminSponsorSaveReq [Hash = 1065319654, sid=1, avatar=null, name=null, address=null, telNum=null, email=null, password=123456, intro=null, identityStatus=null, joinDate=null, accountStatus=null]
-2021-05-21 15:09:39.629 ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet]   :175  [32m                  [0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: 
+2021-05-21 15:09:39.629 ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet]   :175  [32m                  [0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException:
 ### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be null
 ### The error may exist in file [F:\Code\Code IDEA\dalao\target\classes\mapper\SponsorMapper.xml]
 ### The error may involve com.ibegu.dalao.mapper.SponsorMapper.updateByPrimaryKey-Inline
@@ -3194,7 +3208,7 @@ java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be nul
 2021-05-21 15:13:02.140 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
 2021-05-21 15:13:02.140 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{"sid":1}]
 2021-05-21 15:13:02.140 INFO  com.ibegu.dalao.service.AdminService              :99   [32m                  [0;39m 修改密码传入的请求参数：AdminSponsorSaveReq [Hash = 179557965, sid=1, avatar=null, name=null, address=null, telNum=null, email=null, password=123456, intro=null, identityStatus=null, joinDate=null, accountStatus=null]
-2021-05-21 15:13:02.143 ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet]   :175  [32m                  [0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: 
+2021-05-21 15:13:02.143 ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet]   :175  [32m                  [0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException:
 ### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be null
 ### The error may exist in file [F:\Code\Code IDEA\dalao\target\classes\mapper\SponsorMapper.xml]
 ### The error may involve com.ibegu.dalao.mapper.SponsorMapper.updateByPrimaryKey-Inline
@@ -3345,7 +3359,7 @@ java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be nul
 2021-05-21 15:14:30.792 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
 2021-05-21 15:14:30.792 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{"sid":1}]
 2021-05-21 15:14:30.792 INFO  com.ibegu.dalao.service.AdminService              :99   [32m                  [0;39m 修改密码传入的请求参数：AdminSponsorSaveReq [Hash = 1704319544, sid=1, avatar=null, name=null, address=null, telNum=null, email=null, password=123456, intro=null, identityStatus=null, joinDate=null, accountStatus=null]
-2021-05-21 15:14:30.795 ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet]   :175  [32m                  [0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: 
+2021-05-21 15:14:30.795 ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet]   :175  [32m                  [0;39m Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException:
 ### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be null
 ### The error may exist in file [F:\Code\Code IDEA\dalao\target\classes\mapper\SponsorMapper.xml]
 ### The error may involve com.ibegu.dalao.mapper.SponsorMapper.updateByPrimaryKey-Inline
@@ -3467,7 +3481,7 @@ java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be nul
 2021-05-21 15:16:30.319 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{}]
 2021-05-21 15:16:30.321 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":[{"id":1,"name":"测试"},{"id":2,"name":"恣意横行"},{"id":3,"name":"一本有趣的书"},{"id":4,"name":"大陆译本"},{"id":5,"name":"放下了吗"},{"id":6,"name":"回血"}],"success":true}
 2021-05-21 15:16:30.322 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：5 ms -------------
-2021-05-21 15:21:50.854 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 13652 (started by Mr�������� in F:\Code\Code IDEA\dalao)
+2021-05-21 15:21:50.854 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 13652 (started by Mr�������� in F:\Code\Code IDEA\dalao)
 2021-05-21 15:21:50.857 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
 2021-05-21 15:21:50.859 INFO  org.hibernate.validator.internal.util.Version     :21   [32m                  [0;39m HV000001: Hibernate Validator 6.1.6.Final
 2021-05-21 15:21:51.223 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :218  [32m                  [0;39m Shutting down ExecutorService 'applicationTaskExecutor'
@@ -3859,7 +3873,7 @@ java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be nul
 2021-05-21 16:14:00.797 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :218  [32m                  [0;39m Shutting down ExecutorService 'applicationTaskExecutor'
 2021-05-21 16:14:00.804 INFO  com.zaxxer.hikari.HikariDataSource                :350  [32m                  [0;39m HikariPool-2 - Shutdown initiated...
 2021-05-21 16:14:00.814 INFO  com.zaxxer.hikari.HikariDataSource                :352  [32m                  [0;39m HikariPool-2 - Shutdown completed.
-2021-05-21 16:14:01.140 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 21380 (started by Mr�������� in F:\Code\Code IDEA\dalao)
+2021-05-21 16:14:01.140 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 21380 (started by Mr�������� in F:\Code\Code IDEA\dalao)
 2021-05-21 16:14:01.145 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
 2021-05-21 16:14:01.148 INFO  org.hibernate.validator.internal.util.Version     :21   [32m                  [0;39m HV000001: Hibernate Validator 6.1.6.Final
 2021-05-21 16:14:01.291 INFO  com.ibegu.dalao.config.DalaoApplication           :55   [32m                  [0;39m Starting DalaoApplication using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 14576 (F:\Code\Code IDEA\dalao\target\classes started by Mr风语恺撒 in F:\Code\Code IDEA\dalao)
@@ -3990,7 +4004,7 @@ java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be nul
 2021-05-21 16:17:25.603 INFO  com.ibegu.dalao.service.AdminService              :72   [32m                  [0;39m 总页数：1
 2021-05-21 16:17:25.603 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":{"list":[{"accountStatus":1,"address":"test4","avatar":"/image/sponsor-avatar/avatar4.jpg","email":"2971529737@qq.com","identityStatus":"已认证","intro":"比赛主办方测试账号4 四川省畜牧兽医学会的前身，是四川省自然科学学会畜牧兽医专业组，1958年11月自然科学学会和科普协会合并成立四川省科学技术协会之后，畜牧兽医专业组在杨兴业、丘祥聘、王正杓、曹振华等几位老专家的倡议下组建而成。经过两年的筹备工作，四川省畜牧兽医学会于1960年底宣告正式成立，召开了第一次会员代表大会，选出了省农牧厅副厅长张敏为第一届理事会理事长。 ","joinDate":1621426329000,"name":"test4","sid":4,"telNum":"19981481120"},{"accountStatus":1,"address":"test6","avatar":"/image/sponsor-avatar/avatar6.jpg","email":"2971529737@qq.com","identityStatus":"已认证","intro":"比赛主办方测试账号6 四川省畜牧兽医学会的前身，是四川省自然科学学会畜牧兽医专业组，1958年11月自然科学学会和科普协会合并成立四川省科学技术协会之后，畜牧兽医专业组在杨兴业、丘祥聘、王正杓、曹振华等几位老专家的倡议下组建而成。经过两年的筹备工作，四川省畜牧兽医学会于1960年底宣告正式成立，召开了第一次会员代表大会，选出了省农牧厅副厅长张敏为第一届理事会理事长。","joinDate":1621426449000,"name":"test6","sid":6,"telNum":"19981481120"}],"total":2},"success":true}
 2021-05-21 16:17:25.603 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：6 ms -------------
-2021-05-21 16:21:32.373 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 4416 (started by Mr�������� in F:\Code\Code IDEA\dalao)
+2021-05-21 16:21:32.373 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 4416 (started by Mr�������� in F:\Code\Code IDEA\dalao)
 2021-05-21 16:21:32.376 INFO  org.hibernate.validator.internal.util.Version     :21   [32m                  [0;39m HV000001: Hibernate Validator 6.1.6.Final
 2021-05-21 16:21:32.379 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
 2021-05-21 16:21:34.758 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :181  [32m                  [0;39m Initializing ExecutorService 'applicationTaskExecutor'
@@ -4063,7 +4077,7 @@ java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be nul
 2021-05-21 16:22:03.141 INFO  com.ibegu.dalao.service.AdminService              :72   [32m                  [0;39m 总页数：2
 2021-05-21 16:22:03.141 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":{"list":[{"accountStatus":0,"address":"test1","avatar":"/image/sponsor-avatar/avatar.jpg","email":"2971529737@qq.com","identityStatus":"未认证","intro":"比赛主办方测试账号1 四川省畜牧兽医学会的前身，是四川省自然科学学会畜牧兽医专业组，1958年11月自然科学学会和科普协会合并成立四川省科学技术协会之后，畜牧兽医专业组在杨兴业、丘祥聘、王正杓、曹振华等几位老专家的倡议下组建而成。经过两年的筹备工作，四川省畜牧兽医学会于1960年底宣告正式成立，召开了第一次会员代表大会，选出了省农牧厅副厅长张敏为第一届理事会理事长。","joinDate":1621426209000,"name":"test1","sid":1,"telNum":"19981481120"},{"accountStatus":0,"address":"test3","avatar":"/image/sponsor-avatar/avatar3.jpg","email":"2971529737@qq.com","identityStatus":"未认证","intro":"比赛主办方测试账号3 四川省畜牧兽医学会的前身，是四川省自然科学学会畜牧兽医专业组，1958年11月自然科学学会和科普协会合并成立四川省科学技术协会之后，畜牧兽医专业组在杨兴业、丘祥聘、王正杓、曹振华等几位老专家的倡议下组建而成。经过两年的筹备工作，四川省畜牧兽医学会于1960年底宣告正式成立，召开了第一次会员代表大会，选出了省农牧厅副厅长张敏为第一届理事会理事长。","joinDate":1621426269000,"name":"test3","sid":3,"telNum":"19981481120"}],"total":3},"success":true}
 2021-05-21 16:22:03.142 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：9 ms -------------
-2021-05-21 16:23:28.004 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 11632 (started by Mr�������� in F:\Code\Code IDEA\dalao)
+2021-05-21 16:23:28.004 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 11632 (started by Mr�������� in F:\Code\Code IDEA\dalao)
 2021-05-21 16:23:28.009 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
 2021-05-21 16:23:28.014 INFO  org.hibernate.validator.internal.util.Version     :21   [32m                  [0;39m HV000001: Hibernate Validator 6.1.6.Final
 2021-05-21 16:23:30.170 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :181  [32m                  [0;39m Initializing ExecutorService 'applicationTaskExecutor'
@@ -5210,7 +5224,7 @@ java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be nul
 2021-05-21 22:35:09.909 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{"page":0,"sid":1,"size":0}]
 2021-05-21 22:35:09.910 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":{"accountStatus":0,"address":"test1","avatar":"/image/sponsor-avatar/ia_100000030.png","email":"2971529737@qq.com","identityStatus":"未认证","intro":"比赛主办方测试账号1 四川省畜牧兽医学会的前身，是四川省自然科学学会畜牧兽医专业组，1958年11月自然科学学会和科普协会合并成立四川省科学技术协会之后，畜牧兽医专业组在杨兴业、丘祥聘、王正杓、曹振华等几位老专家的倡议下组建而成。经过两年的筹备工作，四川省畜牧兽医学会于1960年底宣告正式成立，召开了第一次会员代表大会，选出了省农牧厅副厅长张敏为第一届理事会理事长。","joinDate":1621426209000,"name":"test1","sid":1,"telNum":"19981481120"},"success":true}
 2021-05-21 22:35:09.911 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：3 ms -------------
-2021-05-21 22:41:53.694 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 24704 (started by Mr�������� in F:\Code\Code IDEA\dalao)
+2021-05-21 22:41:53.694 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 24704 (started by Mr�������� in F:\Code\Code IDEA\dalao)
 2021-05-21 22:41:53.699 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
 2021-05-21 22:41:53.713 INFO  org.hibernate.validator.internal.util.Version     :21   [32m                  [0;39m HV000001: Hibernate Validator 6.1.6.Final
 2021-05-21 22:41:57.581 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :181  [32m                  [0;39m Initializing ExecutorService 'applicationTaskExecutor'
@@ -5262,10 +5276,10 @@ java.sql.SQLIntegrityConstraintViolationException: Column 'avatar' cannot be nul
 2021-05-21 22:42:11.398 INFO  org.apache.catalina.core.StandardService          :173  [32m                  [0;39m Stopping service [Tomcat]
 2021-05-21 22:42:11.399 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  [32m                  [0;39m Stopping ProtocolHandler ["http-nio-8002"]
 2021-05-21 22:42:11.399 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  [32m                  [0;39m Destroying ProtocolHandler ["http-nio-8002"]
-2021-05-21 22:42:11.404 INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener:136  [32m                  [0;39m 
+2021-05-21 22:42:11.404 INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener:136  [32m                  [0;39m
 
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2021-05-21 22:42:11.420 ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter  :40   [32m                  [0;39m 
+2021-05-21 22:42:11.420 ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter  :40   [32m                  [0;39m
 
 ***************************
 APPLICATION FAILED TO START
@@ -5300,10 +5314,10 @@ Identify and stop the process that's listening on port 8002 or configure this ap
 2021-05-21 22:42:13.972 INFO  org.apache.catalina.core.StandardService          :173  [32m                  [0;39m Stopping service [Tomcat]
 2021-05-21 22:42:13.973 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  [32m                  [0;39m Stopping ProtocolHandler ["http-nio-8002"]
 2021-05-21 22:42:13.974 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  [32m                  [0;39m Destroying ProtocolHandler ["http-nio-8002"]
-2021-05-21 22:42:13.977 INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener:136  [32m                  [0;39m 
+2021-05-21 22:42:13.977 INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener:136  [32m                  [0;39m
 
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2021-05-21 22:42:13.978 ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter  :40   [32m                  [0;39m 
+2021-05-21 22:42:13.978 ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter  :40   [32m                  [0;39m
 
 ***************************
 APPLICATION FAILED TO START
