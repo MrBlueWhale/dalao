@@ -84,7 +84,48 @@
             </template>
 
             <template #identityStatus="{ text: identityStatus }">
-              <a-tag :identity_status="identityStatus">{{ identityStatus }}</a-tag>
+
+
+              <a-tag color="warning" :identity_status="identityStatus" v-if="identityStatus == '未认证'" >
+                <template #icon>
+                  <exclamation-circle-outlined />
+                </template>
+                {{ identityStatus }}
+              </a-tag>
+              <a-tag color="processing" :identity_status="identityStatus" v-else-if="identityStatus == '审核中'" >
+                <template #icon>
+                  <sync-outlined :spin="true" />
+                </template>
+                {{ identityStatus }}
+              </a-tag>
+              <a-tag color="success" :identity_status="identityStatus" v-else >
+                <template #icon>
+                  <check-circle-outlined />
+                </template>
+                {{ identityStatus }}
+              </a-tag>
+
+<!--              <a-tag :identity_status="identityStatus">{{ identityStatus }}</a-tag>-->
+<!--              -->
+<!--              <a-tag :identity_status="identityStatus">{{ identityStatus }}</a-tag>-->
+
+            </template>
+
+            <template #accountStatus="{ text: accountStatus }">
+              <a-tag color="#55acee" :accountStatus="accountStatus" v-if="accountStatus == 0">
+                <template #icon>
+                  <clock-circle-outlined />
+                </template>
+                正常
+              </a-tag>
+
+              <a-tag color="#cd201f" :accountStatus="accountStatus" v-if="accountStatus == 1">
+                <template #icon>
+                  <minus-circle-outlined />
+                </template>
+                禁言中
+              </a-tag>
+
             </template>
 
 
@@ -114,7 +155,7 @@
                     title="封禁后该账号功能受限，确认封禁?"
                     ok-text="是"
                     cancel-text="否"
-                    @confirm="banAccount(record.sid)"
+                    @confirm="handleBanAccount(record)"
                 >
                   <a-button type="danger">
                     封禁账号
@@ -158,7 +199,7 @@
           <a-col :span="12">
             <!--            <description-item title="Account" content="AntDesign@example.com"/>-->
             <a-descriptions>
-              <a-descriptions-item label="账号状态">{{ sponsorDetail.identityStatus }}</a-descriptions-item>
+              <a-descriptions-item label="认证状态">{{ sponsorDetail.identityStatus }}</a-descriptions-item>
             </a-descriptions>
           </a-col>
         </a-row>
@@ -246,7 +287,6 @@
         </div>
 
       </a-drawer>
-
     </template>
 
   </a-layout>
@@ -273,12 +313,82 @@
   </a-modal>
 
 
+  <a-modal
+      title="封禁账户"
+      v-model:visible="banModalVisible"
+      :confirm-loading="banModalLoading"
+      @ok="handleBanAccountModalOk"
+  >
+    <a-form
+        ref="formRef"
+        :model="formState"
+        :rules="rules"
+        :label-col="labelCol"
+        :wrapper-col="wrapperCol"
+    >
+      <a-form-item ref="name" label="Activity name" name="name">
+        <a-input v-model:value="formState.name" />
+      </a-form-item>
+      <a-form-item label="Activity zone" name="region">
+        <a-select v-model:value="formState.region" placeholder="please select your zone">
+          <a-select-option value="shanghai">Zone one</a-select-option>
+          <a-select-option value="beijing">Zone two</a-select-option>
+        </a-select>
+      </a-form-item>
+      <a-form-item label="Activity time" required name="date1">
+        <a-date-picker
+            v-model:value="formState.date1"
+            show-time
+            type="date"
+            placeholder="Pick a date"
+            style="width: 100%"
+        />
+      </a-form-item>
+      <a-form-item label="Instant delivery" name="delivery">
+        <a-switch v-model:checked="formState.delivery" />
+      </a-form-item>
+      <a-form-item label="Activity type" name="type">
+        <a-checkbox-group v-model:value="formState.type">
+          <a-checkbox value="1" name="type">Online</a-checkbox>
+          <a-checkbox value="2" name="type">Promotion</a-checkbox>
+          <a-checkbox value="3" name="type">Offline</a-checkbox>
+        </a-checkbox-group>
+      </a-form-item>
+      <a-form-item label="Resources" name="resource">
+        <a-radio-group v-model:value="formState.resource">
+          <a-radio value="1">Sponsor</a-radio>
+          <a-radio value="2">Venue</a-radio>
+        </a-radio-group>
+      </a-form-item>
+      <a-form-item label="Activity form" name="desc">
+        <a-textarea v-model:value="formState.desc" />
+      </a-form-item>
+      <a-form-item :wrapper-col="{ span: 14, offset: 4 }">
+        <a-button type="primary" @click="onSubmit">Create</a-button>
+        <a-button style="margin-left: 10px" @click="resetForm">Reset</a-button>
+      </a-form-item>
+    </a-form>
+  </a-modal>
+
+<!--  <a-alert-->
+<!--      message="操作警告"-->
+<!--      description="该账号已被禁言，无法再次封禁！"-->
+<!--      type="warning"-->
+<!--      show-icon-->
+<!--  >-->
+<!--    <template #icon><smile-outlined /></template>-->
+<!--  </a-alert>-->
+
+
 </template>
 
 
 <script lang="ts">
-import {defineComponent, onMounted, ref, reactive, toRef} from 'vue';
+import {defineComponent, onMounted, ref, reactive, toRef, toRaw, UnwrapRef} from 'vue';
 import {createFromIconfontCN} from '@ant-design/icons-vue';
+import { ValidateErrorEntity } from 'ant-design-vue/es/form/interface';
+import { Moment } from 'moment';
+
 import {message} from 'ant-design-vue';
 import {Tool} from "@/util/tool";
 
@@ -293,6 +403,16 @@ const IconFont = createFromIconfontCN({
 
 declare let hexMd5: any;
 declare let KEY: any;
+
+interface FormState {
+  name: string;
+  region: string | undefined;
+  date1: Moment | undefined;
+  delivery: boolean;
+  type: string[];
+  resource: string;
+  desc: string;
+}
 
 
 // import HelloWorld from "@/components/HelloWorld.vue";
@@ -350,22 +470,23 @@ export default defineComponent({
         title: '名称',
         dataIndex: 'name'
       },
-      {
-        title: '通讯地址',
-        dataIndex: 'address',
-        slots: {customRender: 'address'}
-      },
+      // {
+      //   title: '通讯地址',
+      //   dataIndex: 'address',
+      //   slots: {customRender: 'address'}
+      // },
       {
         title: '认证状态',
         key: 'identityStatus',
         dataIndex: 'identityStatus',
         slots: {customRender: 'identityStatus'}
       },
-      // {
-      //   title: '主办方简介',
-      //   key: 'intro',
-      //   dataIndex: 'intro'
-      // },
+      {
+        title: '账号状态',
+        key: 'accountStatus',
+        dataIndex: 'accountStatus',
+        slots: {customRender: 'accountStatus'}
+      },
       {
         title: '入驻时间',
         dataIndex: 'joinDate'
@@ -392,6 +513,12 @@ export default defineComponent({
     identityMap.set('notCertified', '未认证')
     identityMap.set('underReview', '审核中')
     identityMap.set('verified', '已认证')
+
+    let account_status = '';
+    let accountStatusMap = new Map()
+    accountStatusMap.set(0, '正常')
+    accountStatusMap.set(1, '禁言中')
+    // accountStatusMap.set('verified', '已认证')
 
     const handleQuerySponsor = (params: any) => {
       axios.get("/admin/listSponsor", {
@@ -462,6 +589,7 @@ export default defineComponent({
       });
     };
 
+
     const sponsorDetail = ref({});
     const visible = ref<boolean>(false);
     const pStyle = {
@@ -509,11 +637,13 @@ export default defineComponent({
 
     };
 
+
+    // -------- 重置密码 ---------
+
     const sponsor = ref({
       password: '',
     });
 
-    // -------- 重置密码 ---------
     const resetModalVisible = ref(false);
     const resetModalLoading = ref(false);
 
@@ -590,8 +720,114 @@ export default defineComponent({
       // axios.p
     };
 
-    const banAccount = (sid: any) => {
-      console.log("该行数据的id：", sid);
+
+    // -------- 封禁账户 ---------
+
+//////////////// 封禁表单 ///////
+
+    const formRef = ref();
+    const formState: UnwrapRef<FormState> = reactive({
+      name: '',
+      region: undefined,
+      date1: undefined,
+      delivery: false,
+      type: [],
+      resource: '',
+      desc: '',
+    });
+    const rules = {
+      name: [
+        { required: true, message: 'Please input Activity name', trigger: 'blur' },
+        { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
+      ],
+      region: [{ required: true, message: 'Please select Activity zone', trigger: 'change' }],
+      date1: [{ required: true, message: 'Please pick a date', trigger: 'change', type: 'object' }],
+      type: [
+        {
+          type: 'array',
+          required: true,
+          message: 'Please select at least one activity type',
+          trigger: 'change',
+        },
+      ],
+      resource: [{ required: true, message: 'Please select activity resource', trigger: 'change' }],
+      desc: [{ required: true, message: 'Please input activity form', trigger: 'blur' }],
+    };
+    const onSubmit = () => {
+      formRef.value
+          .validate()
+          .then(() => {
+            console.log('values', formState, toRaw(formState));
+          })
+          .catch((error: ValidateErrorEntity<FormState>) => {
+            console.log('error', error);
+          });
+    };
+    const resetForm = () => {
+      formRef.value.resetFields();
+    };
+
+
+
+
+ ///////////////////////
+
+
+    const banAccount = ref({
+      // password: '',
+    });
+
+    const banModalVisible = ref(false);
+    const banModalLoading = ref(false);
+
+    const handleBanAccountModalOk = () => {
+
+      console.log("banDetails", banAccount.value);
+
+      banModalLoading.value = true;
+
+      // sponsor.value.password = hexMd5(sponsor.value.password + KEY);
+
+      axios.post("/admin/banAccount", banAccount.value).then((response) => {
+        banModalLoading.value = false;
+        const data = response.data; // data = commonResp
+        if (data.success) {
+          banModalVisible.value = false;
+
+          // 重新加载列表（？需要吗）
+          handleQuerySponsor({
+            page: pagination.value.current,
+            size: pagination.value.pageSize,
+          });
+
+          //
+          message.success("成功封禁该账户！")
+
+
+        } else {
+          message.error(data.message);
+        }
+      });
+    };
+
+    let banAccountWarningVisible = false;
+
+    const handleBanAccount = (record: any) => {
+      console.log("该行数据的id：", record.sid);
+      console.log("该行数据：", record);
+      if(record.accountStatus === 1){
+          message.warn("该账号已被禁用，无法再次封禁！")
+        // banAccountWarningVisible = true;
+      }else {
+      banModalVisible.value = true;
+      sponsor.value = record;
+      console.log("sponsor", sponsor.value);
+      console.log("banDetails", banAccount.value);
+      }
+
+
+
+
     };
 
 
@@ -657,6 +893,20 @@ export default defineComponent({
 
 
       banAccount,
+      banModalVisible,
+      banModalLoading,
+      handleBanAccountModalOk,
+      handleBanAccount,
+      banAccountWarningVisible,
+
+      formRef,
+      labelCol: { span: 4 },
+      wrapperCol: { span: 14 },
+      other: '',
+      formState,
+      rules,
+      onSubmit,
+      resetForm,
 
 
     }

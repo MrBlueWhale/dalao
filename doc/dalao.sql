@@ -200,3 +200,14 @@ ALTER TABLE `dalao`.`adminkey`
 
 ALTER TABLE `dalao`.`participant`
     MODIFY COLUMN `avatar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '头像地址' AFTER `password`;
+
+CREATE TABLE `dalao`.`ban_account`  (
+                                     `bid` bigint(0) NOT NULL COMMENT '数据id',
+                                     `reason` varchar(255) NULL COMMENT '封禁原因',
+                                     `bannedTime` datetime(0) NULL COMMENT '封禁时间',
+                                     `interval` varchar(255) NULL,
+                                     `uid` bigint(0) NOT NULL COMMENT '被封禁用户id',
+                                     `note` varchar(255) NULL COMMENT '备注',
+                                     `releaseTime` datetime(0) NULL COMMENT '解封时间',
+                                     PRIMARY KEY (`bid`)
+);
