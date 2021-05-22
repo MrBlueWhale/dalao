@@ -44,10 +44,10 @@
         <span>社群管理</span>
         <router-link to="/admin/discussion"></router-link>
       </a-menu-item>
-      <a-menu-item key="/about">
+      <a-menu-item key="/admin/about">
         <icon-font class="icons-bar" type="icon-guanyu" style="font-size:24px"/>
         <span>关于我们</span>
-        <router-link to="/about"></router-link>
+        <router-link to="/admin/about"></router-link>
       </a-menu-item>
     </a-menu>
   </a-layout-header>

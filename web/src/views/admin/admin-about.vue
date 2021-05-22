@@ -1,41 +1,15 @@
 <template>
   <a-layout>
-    <a-layout-sider width="200" style="background: #fff">
-      <a-menu
-          mode="inline"
-          v-model:selectedKeys="selectedKeys2"
-          v-model:openKeys="openKeys"
-          :style="{ height: '100%', borderRight: 0 }"
-      >
-        <a-menu-item key="4">
-          <pie-chart-outlined />
-          <span>个人资料</span>
-          <router-link to="/user/profile"></router-link>
-        </a-menu-item>
-        <a-sub-menu key="sub2">
-          <template #title>
-              <span>
-                <desktop-outlined />
-                安全中心
-              </span>
-          </template>
-          <a-menu-item key="6"><FormOutlined />修改密码<router-link to="/user/safety"></router-link></a-menu-item>
 
-          <a-menu-item key="7"><ScheduleOutlined />安全防护<router-link to="/user/date"></router-link></a-menu-item>
-        </a-sub-menu>
-        <a-menu-item key="8">
-          <notification-outlined />
-          <span>关于我们</span>
-          <router-link to="/user/about"></router-link>
-        </a-menu-item>
+<!--    <div class="BlankBox" style="marginLeft: 25%">-->
 
-      </a-menu>
-    </a-layout-sider>
+<!--    </div>-->
+
     <a-layout-content
-        :style="{ background: '#fff', padding: '24px', margin: 0, minHeight: '600px' }"
+        :style="{ background: '#fff', padding: '24px', minHeight: '600px',  }"
     >
       <div style="background: #ececec; padding: 30px">
-        <a-card title="关于我们" :bordered="false" style="width: 1000px" >
+        <a-card title="关于我们" :bordered="false" style="width: 1000px; marginLeft: 20%;" >
           <a-card title="产品信息" style="width: 900px">
             <template #extra><a href="#">加入我们！</a></template>
             <h3>&ensp;&ensp;来个大佬是帮助在校大学生在本就繁忙的学习当中，快速准确的获取赛事信息，
@@ -71,6 +45,12 @@
       </div>
 
     </a-layout-content>
+
+<!--    <div class="BlankBox" style="marginLeft: 25%">-->
+
+<!--    </div>-->
+
+
   </a-layout>
 </template>
 
@@ -83,7 +63,7 @@ import axios from 'axios';
 
 
 export default defineComponent({
-  name: 'UserHelp',
+  name: 'AdminAbout',
 
   //放一些参数定义，方法定义
   setup() {

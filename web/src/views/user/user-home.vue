@@ -42,11 +42,44 @@
       >
 
         <div style="position: center;">
-          <a-carousel autoplay style="width: 1080px; margin-left: 13%;" >
-            <div><h3>1</h3></div>
-            <div><h3>2</h3></div>
-            <div><h3>3</h3></div>
-            <div><h3>4</h3></div>
+<!--          <a-carousel autoplay autospeed="3000" arrows draggable variableHeight="true" style="width: 1080px; margin-left: 13%;" >-->
+          <a-carousel autoplay autospeed="3000" arrows draggable variableHeight="true" style="-moz-background-size:100% 100%; background-size:100% 100%;" >
+<!--          <a-carousel autoplay autospeed="3000" arrows draggable  style=" margin-left: 13%;" >-->
+
+            <template #prevArrow>
+              <div class="custom-slick-arrow" style="left: 10px; zindex: 1">
+                <left-circle-outlined />
+              </div>
+            </template>
+
+            <template #nextArrow>
+              <div class="custom-slick-arrow" style="right: 10px">
+                <right-circle-outlined />
+              </div>
+            </template>
+
+            <div><img class="slide-img" src="/image/contest-poster/ia_100000001.png"/></div>
+            <div><img class="slide-img" src="/image/contest-poster/ia_100000002.png"/></div>
+            <div><img src="/image/contest-poster/ia_100000003.png"/></div>
+            <div><img src="/image/contest-poster/ia_100000004.jpg"/></div>
+            <div><img src="/image/contest-poster/ia_100000005.png"/></div>
+            <div><img src="/image/contest-poster/ia_100000006.png"/></div>
+            <div><img src="/image/contest-poster/ia_100000007.png"/></div>
+            <div><img src="/image/contest-poster/ia_100000008.png"/></div>
+            <div><img class="slide-img" src="/image/contest-poster/ia_100000011.jpg"/></div>
+<!--            <div><img src="/image/contest-poster/ia_100000019.png"/></div>-->
+<!--            <div><img src="/image/contest-poster/ia_100000020.png"/></div>-->
+<!--            <div><img src="/image/contest-poster/ia_100000021.png"/></div>-->
+<!--            <div><img src="/image/contest-poster/ia_100000022.png"/></div>-->
+<!--            <div><img src="/image/contest-poster/ia_100000023.png"/></div>-->
+<!--            <div><img src="/image/contest-poster/ia_100000024.png"/></div>-->
+<!--            <div><img src="/image/contest-poster/ia_100000025.png"/></div>-->
+<!--            <div><img src="/image/contest-poster/ia_100000026.png"/></div>-->
+<!--            <div><img src="/image/contest-poster/ia_100000052.png"/></div>-->
+<!--            <div><img src="/image/contest-poster/ia_100000053.png"/></div>-->
+<!--            <div><img src="/image/contest-poster/ia_100000054.png"/></div>-->
+<!--            <div><img src="/image/contest-poster/ia_100000055.png"/></div>-->
+
           </a-carousel>
         </div>
 
@@ -108,6 +141,9 @@
 
 <script lang="ts">
 import {defineComponent, onMounted, ref, reactive, toRef} from 'vue';
+
+import { LeftCircleOutlined, RightCircleOutlined } from '@ant-design/icons-vue';
+
 
 import axios from 'axios';
 
@@ -176,7 +212,8 @@ export default defineComponent({
 
 
   components: {
-
+    LeftCircleOutlined,
+    RightCircleOutlined,
   },
 
 });
@@ -187,19 +224,40 @@ export default defineComponent({
 
 
 <style scoped>
-  /* For demo */
-  .ant-carousel :deep(.slick-slide) {
-    text-align: center;
-    height: 330px;
-    /*width: 600px !important;*/
-    line-height: 140px;
-    background: #364d79;
-    overflow: hidden;
-  }
+.ant-carousel :deep(.slick-slide) {
+  text-align: center;
+  height: 250px;
+  line-height: 190px;
+  background: #364d79;
+  overflow: hidden;
+}
 
-  .ant-carousel :deep(.slick-slide h3) {
-    color: #fff;
-  }
+.ant-carousel :deep(.slick-arrow.custom-slick-arrow) {
+  width: 25px;
+  height: 25px;
+  font-size: 25px;
+  color: #fff;
+  background-color: rgba(31, 45, 61, 0.11);
+  opacity: 0.3;
+}
+.ant-carousel :deep(.custom-slick-arrow:before) {
+  display: none;
+}
+.ant-carousel :deep(.custom-slick-arrow:hover) {
+  opacity: 0.5;
+}
+
+.ant-carousel :deep(.slick-slide h3) {
+  color: #fff;
+}
+
+.slide-img{
+  display:block;
+  width:100%;
+  heigth:100%;
+  object-fit:cover;
+}
+
 </style>
 
 

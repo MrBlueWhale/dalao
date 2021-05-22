@@ -127,17 +127,17 @@ export default defineComponent({
 
 <style scoped>
 
-.slogan::after {
-  content: '';
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 1px;
-  background: #fff;
-  left: 0;
-  bottom: 0;
+/*.slogan::after {*/
+/*  content: '';*/
+/*  display: block;*/
+/*  position: absolute;*/
+/*  width: 100%;*/
+/*  height: 1px;*/
+/*  background: #fff;*/
+/*  left: 0;*/
+/*  bottom: 0;*/
 
-}
+/*}*/
 
 .footer-wrap {
   min-width: 1080px;

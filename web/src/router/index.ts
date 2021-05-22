@@ -21,6 +21,7 @@ import AdminNotification from '../views/admin/admin-notification.vue'
 import AdminParticipant from '../views/admin/admin-participant.vue'
 import AdminTeam from '../views/admin/admin-team.vue'
 import AdminSponsor from '../views/admin/admin-sponsor.vue'
+import AdminAbout from '../views/admin/admin-about.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -71,6 +72,10 @@ const routes: Array<RouteRecordRaw> = [
         path: 'team',
         name: 'AdminTeam',
         component: AdminTeam
+      },{
+        path: 'about',
+        name: 'AdminAbout',
+        component: AdminAbout
       },
     ],
   },
