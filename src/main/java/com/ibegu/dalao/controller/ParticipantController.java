@@ -1,25 +1,15 @@
 package com.ibegu.dalao.controller;
 
-<<<<<<< Updated upstream
 import com.ibegu.dalao.req.ParticipantReq;
 import com.ibegu.dalao.resp.CommonResp;
 import com.ibegu.dalao.resp.ParticipantResp;
 import com.ibegu.dalao.resp.PageResp;
 import com.ibegu.dalao.service.ParticipantService;
 import org.springframework.web.bind.annotation.*;
-=======
-import com.ibegu.dalao.req.ContestReq;
-import com.ibegu.dalao.req.ParticipantReq;
-import com.ibegu.dalao.resp.CommonResp;
-import com.ibegu.dalao.resp.ContestResp;
-import com.ibegu.dalao.resp.PageResp;
-import com.ibegu.dalao.resp.ParticipantResp;
-import com.ibegu.dalao.service.ContestService;
-import com.ibegu.dalao.service.ParticipantService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
->>>>>>> Stashed changes
+
 
 import javax.annotation.Resource;
 
@@ -29,7 +19,6 @@ import javax.annotation.Resource;
 @RequestMapping("/participant")
 public class ParticipantController {
     @Resource
-<<<<<<< Updated upstream
     private ParticipantService participantService;
 
 
@@ -43,13 +32,11 @@ public class ParticipantController {
         return resp;
 
     }
-    @GetMapping("/detail")
-=======
-    private  ParticipantService participantService;
+//    @GetMapping("/detail")
+//    private  ParticipantService participantService;
 
 
     @GetMapping("/pdetail")
->>>>>>> Stashed changes
     public CommonResp getDetail(ParticipantReq req){
         CommonResp<ParticipantResp> resp = new CommonResp<>();
         ParticipantResp details = participantService.getDetail(req);
@@ -58,7 +45,6 @@ public class ParticipantController {
         return resp;
 
     }
-<<<<<<< Updated upstream
 
 
     @PostMapping("/save")
@@ -68,6 +54,5 @@ public class ParticipantController {
         participantService.save(req);
         return resp;
     }
-=======
->>>>>>> Stashed changes
+
 }

@@ -29,9 +29,6 @@
     </a-row>
   </div>
 
-  <h1>{{beginDate.getFullYear()}}</h1>
-  <h1>{{contestDetail.competeEndTime}}</h1>
-
   <div :style="{ width: '1500px', border: '1px solid #d9d9d9', borderRadius: '4px',background: '#ececec'}">
     <a-calendar v-model:value="value" :fullscreen="false">
       <template #dateCellRender="{ current: value }">

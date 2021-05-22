@@ -1,1 +1,58 @@
 2021-05-22 01:07:14.071 WARN  com.zaxxer.hikari.pool.HikariPool                 :787  [32m                  [0;39m HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=53m50s343ms68µs100ns).
+2021-05-22 15:48:39.066 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on LAPTOP-VPC0K48T with PID 12964 (started by Lenovo in D:\Study\dalao04)
+2021-05-22 15:48:39.066 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
+2021-05-22 15:48:39.082 INFO  org.hibernate.validator.internal.util.Version     :21   [32m                  [0;39m HV000001: Hibernate Validator 6.1.6.Final
+2021-05-22 15:48:42.187 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :181  [32m                  [0;39m Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-22 15:48:42.921 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :61   [32m                  [0;39m Started DalaoApplicationTests in 4.247 seconds (JVM running for 5.158)
+2021-05-22 15:48:43.688 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :218  [32m                  [0;39m Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-22 15:48:57.475 INFO  org.hibernate.validator.internal.util.Version     :21   [32m                  [0;39m HV000001: Hibernate Validator 6.1.6.Final
+2021-05-22 15:48:57.475 INFO  com.ibegu.dalao.config.DalaoApplication           :55   [32m                  [0;39m Starting DalaoApplication using Java 1.8.0_251 on LAPTOP-VPC0K48T with PID 8964 (D:\Study\dalao04\target\classes started by Lenovo in D:\Study\dalao04)
+2021-05-22 15:48:57.475 INFO  com.ibegu.dalao.config.DalaoApplication           :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
+2021-05-22 15:48:57.521 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :255  [32m                  [0;39m Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-05-22 15:48:57.521 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :255  [32m                  [0;39m For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-05-22 15:49:00.259 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :108  [32m                  [0;39m Tomcat initialized with port(s): 8002 (http)
+2021-05-22 15:49:00.275 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  [32m                  [0;39m Initializing ProtocolHandler ["http-nio-8002"]
+2021-05-22 15:49:00.275 INFO  org.apache.catalina.core.StandardService          :173  [32m                  [0;39m Starting service [Tomcat]
+2021-05-22 15:49:00.275 INFO  org.apache.catalina.core.StandardEngine           :173  [32m                  [0;39m Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-05-22 15:49:00.344 INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] :173  [32m                  [0;39m Initializing Spring embedded WebApplicationContext
+2021-05-22 15:49:00.344 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :289  [32m                  [0;39m Root WebApplicationContext: initialization completed in 2823 ms
+2021-05-22 15:49:01.014 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :181  [32m                  [0;39m Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-22 15:49:01.732 INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer    :58   [32m                  [0;39m LiveReload server is running on port 35729
+2021-05-22 15:49:01.747 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  [32m                  [0;39m Starting ProtocolHandler ["http-nio-8002"]
+2021-05-22 15:49:02.387 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :220  [32m                  [0;39m Tomcat started on port(s): 8002 (http) with context path ''
+2021-05-22 15:49:02.387 INFO  com.ibegu.dalao.config.DalaoApplication           :61   [32m                  [0;39m Started DalaoApplication in 5.927 seconds (JVM running for 8.564)
+2021-05-22 15:49:02.402 INFO  com.ibegu.dalao.config.DalaoApplication           :25   [32m                  [0;39m 启动成功！！
+2021-05-22 15:49:02.402 INFO  com.ibegu.dalao.config.DalaoApplication           :26   [32m                  [0;39m 地址: 	http://127.0.0.1:8002
+2021-05-22 15:50:15.476 INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] :173  [32m                  [0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-22 15:50:15.476 INFO  org.springframework.web.servlet.DispatcherServlet :525  [32m                  [0;39m Initializing Servlet 'dispatcherServlet'
+2021-05-22 15:50:15.476 INFO  org.springframework.web.servlet.DispatcherServlet :547  [32m                  [0;39m Completed initialization in 0 ms
+2021-05-22 15:50:15.582 INFO  com.ibegu.dalao.aspect.LogAspect                  :52   [32m                  [0;39m ------------- 开始 -------------
+2021-05-22 15:50:15.582 INFO  com.ibegu.dalao.aspect.LogAspect                  :52   [32m                  [0;39m ------------- 开始 -------------
+2021-05-22 15:50:15.582 INFO  com.ibegu.dalao.aspect.LogAspect                  :53   [32m                  [0;39m 请求地址: http://localhost:8002/demo/list GET
+2021-05-22 15:50:15.582 INFO  com.ibegu.dalao.aspect.LogAspect                  :53   [32m                  [0;39m 请求地址: http://localhost:8002/demo/list GET
+2021-05-22 15:50:15.582 INFO  com.ibegu.dalao.aspect.LogAspect                  :54   [32m                  [0;39m 类名方法: com.ibegu.dalao.controller.DemoController.list
+2021-05-22 15:50:15.582 INFO  com.ibegu.dalao.aspect.LogAspect                  :54   [32m                  [0;39m 类名方法: com.ibegu.dalao.controller.DemoController.list
+2021-05-22 15:50:15.582 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
+2021-05-22 15:50:15.582 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
+2021-05-22 15:50:15.698 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{}]
+2021-05-22 15:50:15.698 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{}]
+2021-05-22 15:50:15.761 INFO  com.zaxxer.hikari.HikariDataSource                :110  [32m                  [0;39m HikariPool-1 - Starting...
+2021-05-22 15:50:16.015 INFO  com.zaxxer.hikari.HikariDataSource                :123  [32m                  [0;39m HikariPool-1 - Start completed.
+2021-05-22 15:50:16.061 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":[],"success":true}
+2021-05-22 15:50:16.061 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":[],"success":true}
+2021-05-22 15:50:16.061 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：479 ms -------------
+2021-05-22 15:50:16.061 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：479 ms -------------
+2021-05-22 15:50:37.848 INFO  com.ibegu.dalao.aspect.LogAspect                  :52   [32m                  [0;39m ------------- 开始 -------------
+2021-05-22 15:50:37.848 INFO  com.ibegu.dalao.aspect.LogAspect                  :52   [32m                  [0;39m ------------- 开始 -------------
+2021-05-22 15:50:37.848 INFO  com.ibegu.dalao.aspect.LogAspect                  :53   [32m                  [0;39m 请求地址: http://localhost:8002/contest/detail GET
+2021-05-22 15:50:37.848 INFO  com.ibegu.dalao.aspect.LogAspect                  :53   [32m                  [0;39m 请求地址: http://localhost:8002/participant/pdetail GET
+2021-05-22 15:50:37.848 INFO  com.ibegu.dalao.aspect.LogAspect                  :54   [32m                  [0;39m 类名方法: com.ibegu.dalao.controller.ContestController.getDetail
+2021-05-22 15:50:37.848 INFO  com.ibegu.dalao.aspect.LogAspect                  :54   [32m                  [0;39m 类名方法: com.ibegu.dalao.controller.ParticipantController.getDetail
+2021-05-22 15:50:37.848 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
+2021-05-22 15:50:37.848 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
+2021-05-22 15:50:37.848 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{"cid":1,"page":0,"size":0}]
+2021-05-22 15:50:37.848 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{"page":0,"pid":1,"size":0}]
+2021-05-22 15:50:37.880 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":{"audience":"全国","category":"\r\n\r\n    数学 计算机&信息技术\r\n\r\n数学 计算机&信息技术","cid":1,"competeEndTime":1622304000000,"competeStartTime":1621785600000,"contestIntro":"在大数据时代背景下，统计学作为大数据分析领域的基础显得尤为重要。为了帮助学生更好的学习和应用数据统计与分析的知识，促进统计、计算机、数学等相关专业的发展，培养具有数据分析与应用型人才，提升高校毕业生的就业竞争力，经研究决定，河北省现场统计学会、四川省现场统计学会等联合发起“全国大学生数据统计与分析竞赛”（以下简称“竞赛”），为我国数据统计与分析行业提供人才支持，夯实人才队伍基础。","contestName":"2021年全国大学生数据统计与分析竞赛","contestStatus":0,"entryFee":150,"pageView":10,"rank":" 全国性","registrationEndTime":1621526400000,"registrationStartTime":1618156800000,"sponsorId":1,"type":"组队赛"},"success":true}
+2021-05-22 15:50:37.880 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：32 ms -------------
+2021-05-22 15:50:37.880 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":{"accountStatus":0,"avatar":"fsfasda","college":"软件学院","email":"2134243@qq.com","gender":"男","grade":"大一","idNumber":"534645756843523","joinDate":1621526400000,"major":"软件工程","name":"大佬","nickname":"dalao","page":0,"pid":1,"size":0,"studentId":"37129481982741","telNum":"12345678","university":"四川大学"},"success":true}
+2021-05-22 15:50:37.880 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：32 ms -------------
