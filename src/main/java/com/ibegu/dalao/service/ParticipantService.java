@@ -2,6 +2,7 @@ package com.ibegu.dalao.service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+<<<<<<< Updated upstream
 import com.ibegu.dalao.domain.Participant;
 import com.ibegu.dalao.domain.ParticipantExample;
 import com.ibegu.dalao.mapper.ParticipantMapper;
@@ -13,6 +14,21 @@ import com.ibegu.dalao.utils.SnowFlake;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+=======
+import com.ibegu.dalao.domain.Contest;
+import com.ibegu.dalao.domain.ContestExample;
+import com.ibegu.dalao.domain.Participant;
+import com.ibegu.dalao.mapper.ContestMapper;
+import com.ibegu.dalao.mapper.ParticipantMapper;
+import com.ibegu.dalao.req.ContestReq;
+import com.ibegu.dalao.req.ParticipantReq;
+import com.ibegu.dalao.resp.ContestResp;
+import com.ibegu.dalao.resp.PageResp;
+import com.ibegu.dalao.resp.ParticipantResp;
+import com.ibegu.dalao.utils.CopyUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+>>>>>>> Stashed changes
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
@@ -24,13 +40,17 @@ import java.util.List;
 public class ParticipantService {
 
     //日志
+<<<<<<< Updated upstream
     private SnowFlake snowFlake;
+=======
+>>>>>>> Stashed changes
 
     private static final Logger LOG = LoggerFactory.getLogger(ParticipantService.class);
     // @Autowired
     @Resource
     private ParticipantMapper participantMapper;
 
+<<<<<<< Updated upstream
     public PageResp<ParticipantResp> list(ParticipantReq req) {
 
         ParticipantExample participantExample = new ParticipantExample();
@@ -90,5 +110,13 @@ public class ParticipantService {
             System.out.println("A");
         }
 
+=======
+    public ParticipantResp getDetail(ParticipantReq req) {
+
+       Participant participant = participantMapper.selectByPrimaryKey(req.getPid());
+
+
+        return CopyUtil.copy(participant, ParticipantResp.class);
+>>>>>>> Stashed changes
     }
 }

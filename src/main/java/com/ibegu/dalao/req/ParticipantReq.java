@@ -2,7 +2,11 @@ package com.ibegu.dalao.req;
 
 import java.util.Date;
 
+<<<<<<< Updated upstream
 public class ParticipantReq extends PageReq {
+=======
+public class ParticipantReq {
+>>>>>>> Stashed changes
     private Long pid;
 
     private String nickname;

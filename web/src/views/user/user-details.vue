@@ -14,7 +14,7 @@
         <a-descriptions-item label="Status" :span="3">
           <a-badge status="processing" text="Running" />
         </a-descriptions-item>
-        <a-descriptions-item label="报名费"><h1>{{contestDetail.entryFee}}</h1></a-descriptions-item>
+        <a-descriptions-item label="报名费"><h1>{{contestDetail.entryFee}}元</h1></a-descriptions-item>
         <a-descriptions-item label="参赛方式"><h1>{{contestDetail.type}}</h1></a-descriptions-item>
         <a-descriptions-item label="类别"><h1>{{contestDetail.category}}</h1></a-descriptions-item>
         <a-descriptions-item label="比赛介绍">

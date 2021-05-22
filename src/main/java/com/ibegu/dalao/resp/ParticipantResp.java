@@ -1,10 +1,16 @@
 package com.ibegu.dalao.resp;
 
+<<<<<<< Updated upstream
 import com.ibegu.dalao.req.PageReq;
 
 import java.util.Date;
 
 public class ParticipantResp extends PageReq {
+=======
+import java.util.Date;
+
+public class ParticipantResp {
+>>>>>>> Stashed changes
     private Long pid;
 
     private String nickname;
