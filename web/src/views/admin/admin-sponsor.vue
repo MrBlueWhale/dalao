@@ -315,10 +315,19 @@
 
   <a-modal
       title="封禁账户"
+      width="600px"
       v-model:visible="banModalVisible"
       :confirm-loading="banModalLoading"
       @ok="handleBanAccountModalOk"
+      okText="确认"
   >
+    <template #footer>
+      <a-button key="resetThisForm" @click="ResetBanForm">重置</a-button>
+      <a-button key="submit" type="primary" :loading="loading" @click="handleBanAccountModalOk">提交</a-button>
+    </template>
+    <div style="text-align: center;">
+      <p>待封禁账户：{{sponsor.name}}</p>
+    </div>
     <a-form
         ref="formRef"
         :model="formState"
@@ -326,47 +335,49 @@
         :label-col="labelCol"
         :wrapper-col="wrapperCol"
     >
-      <a-form-item ref="name" label="Activity name" name="name">
-        <a-input v-model:value="formState.name" />
-      </a-form-item>
-      <a-form-item label="Activity zone" name="region">
-        <a-select v-model:value="formState.region" placeholder="please select your zone">
-          <a-select-option value="shanghai">Zone one</a-select-option>
-          <a-select-option value="beijing">Zone two</a-select-option>
+<!--      <a-form-item ref="name" label="Activity name" name="name">-->
+<!--        <a-input v-model:value="formState.name" />-->
+<!--      </a-form-item>-->
+      <a-form-item label="封禁原因" name="reason">
+        <a-select v-model:value="formState.reason" placeholder="请选择封禁原因">
+          <a-select-option v-for="item in banReasons" :key="item" value="item">{{ item }}</a-select-option>
+<!--          <a-select-option value="beijing">Zone two</a-select-option>-->
         </a-select>
       </a-form-item>
-      <a-form-item label="Activity time" required name="date1">
+      <a-form-item label="解禁时间" required name="date1">
         <a-date-picker
             v-model:value="formState.date1"
             show-time
             type="date"
-            placeholder="Pick a date"
+            placeholder="选择解禁时间"
             style="width: 100%"
         />
       </a-form-item>
-      <a-form-item label="Instant delivery" name="delivery">
+      <a-form-item label="发送通知" name="delivery">
         <a-switch v-model:checked="formState.delivery" />
       </a-form-item>
-      <a-form-item label="Activity type" name="type">
+      <a-form-item label="限制功能" name="type">
         <a-checkbox-group v-model:value="formState.type">
-          <a-checkbox value="1" name="type">Online</a-checkbox>
-          <a-checkbox value="2" name="type">Promotion</a-checkbox>
-          <a-checkbox value="3" name="type">Offline</a-checkbox>
+          <a-checkbox value="1" name="type">发布评论</a-checkbox>
+          <a-checkbox value="2" name="type">发布比赛</a-checkbox>
+          <a-checkbox value="3" name="type">发布通知</a-checkbox>
+          <a-checkbox value="4" name="type">删除比赛</a-checkbox>
+          <a-checkbox value="5" name="type">删除通知</a-checkbox>
         </a-checkbox-group>
       </a-form-item>
-      <a-form-item label="Resources" name="resource">
-        <a-radio-group v-model:value="formState.resource">
-          <a-radio value="1">Sponsor</a-radio>
-          <a-radio value="2">Venue</a-radio>
-        </a-radio-group>
+<!--      <a-form-item label="Resources" name="resource">-->
+<!--        <a-radio-group v-model:value="formState.resource">-->
+<!--          <a-radio value="1">Sponsor</a-radio>-->
+<!--          <a-radio value="2">Venue</a-radio>-->
+<!--        </a-radio-group>-->
+<!--      </a-form-item>-->
+      <a-form-item label="备注" name="note">
+        <a-textarea v-model:value="formState.note" />
       </a-form-item>
-      <a-form-item label="Activity form" name="desc">
-        <a-textarea v-model:value="formState.desc" />
-      </a-form-item>
-      <a-form-item :wrapper-col="{ span: 14, offset: 4 }">
-        <a-button type="primary" @click="onSubmit">Create</a-button>
-        <a-button style="margin-left: 10px" @click="resetForm">Reset</a-button>
-      </a-form-item>
+<!--      <a-form-item :wrapper-col="{ span: 14, offset: 4 }">-->
+<!--        <a-button type="primary" @click="onSubmit">Create</a-button>-->
+<!--        <a-button style="margin-left: 10px" @click="resetForm">Reset</a-button>-->
+<!--      </a-form-item>-->
     </a-form>
   </a-modal>
 
@@ -405,13 +416,13 @@ declare let hexMd5: any;
 declare let KEY: any;
 
 interface FormState {
-  name: string;
-  region: string | undefined;
+  sid: string;
+  reason: string | undefined;
   date1: Moment | undefined;
   delivery: boolean;
   type: string[];
-  resource: string;
-  desc: string;
+  // resource: string;
+  note: string;
 }
 
 
@@ -519,6 +530,15 @@ export default defineComponent({
     accountStatusMap.set(0, '正常')
     accountStatusMap.set(1, '禁言中')
     // accountStatusMap.set('verified', '已认证')
+
+    let banReasons = new Set();
+    banReasons.add('侮辱或攻击他人的宗教、种族或性取向');
+    banReasons.add('存在主张暴力或虐待人或动物的内容');
+    banReasons.add('显示有人在进行或企图进行自我伤害');
+    banReasons.add('描述了毒品、枪支、管制物品的买卖');
+    banReasons.add('未经授权使用，侵犯版权或商标权');
+
+
 
     const handleQuerySponsor = (params: any) => {
       axios.get("/admin/listSponsor", {
@@ -727,31 +747,31 @@ export default defineComponent({
 
     const formRef = ref();
     const formState: UnwrapRef<FormState> = reactive({
-      name: '',
-      region: undefined,
+      sid: '',
+      reason: undefined,
       date1: undefined,
       delivery: false,
       type: [],
-      resource: '',
-      desc: '',
+      // resource: '',
+      note: '',
     });
     const rules = {
-      name: [
-        { required: true, message: 'Please input Activity name', trigger: 'blur' },
-        { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
-      ],
-      region: [{ required: true, message: 'Please select Activity zone', trigger: 'change' }],
-      date1: [{ required: true, message: 'Please pick a date', trigger: 'change', type: 'object' }],
+      // name: [
+      //   { required: true, message: 'Please input Activity name', trigger: 'blur' },
+      //   { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
+      // ],
+      reason: [{ required: true, message: '选择封禁原因', trigger: 'change' }],
+      date1: [{ required: true, message: '选择最晚解封时间', trigger: 'change', type: 'object' }],
       type: [
         {
           type: 'array',
           required: true,
-          message: 'Please select at least one activity type',
+          message: '至少选择一项封禁功能',
           trigger: 'change',
         },
       ],
-      resource: [{ required: true, message: 'Please select activity resource', trigger: 'change' }],
-      desc: [{ required: true, message: 'Please input activity form', trigger: 'blur' }],
+      // resource: [{ required: true, message: 'Please select activity resource', trigger: 'change' }],
+      note: [{ required: true, message: '填写封禁备注', trigger: 'blur' }],
     };
     const onSubmit = () => {
       formRef.value
@@ -763,7 +783,7 @@ export default defineComponent({
             console.log('error', error);
           });
     };
-    const resetForm = () => {
+    const ResetBanForm = () => {
       formRef.value.resetFields();
     };
 
@@ -782,13 +802,17 @@ export default defineComponent({
 
     const handleBanAccountModalOk = () => {
 
+      onSubmit();
+
+      console.log("banForm1", formState);
+      console.log("banForm2", toRaw(formState));
       console.log("banDetails", banAccount.value);
 
       banModalLoading.value = true;
 
       // sponsor.value.password = hexMd5(sponsor.value.password + KEY);
 
-      axios.post("/admin/banAccount", banAccount.value).then((response) => {
+      axios.post("/admin/banAccount", toRaw(formState)).then((response) => {
         banModalLoading.value = false;
         const data = response.data; // data = commonResp
         if (data.success) {
@@ -821,6 +845,7 @@ export default defineComponent({
       }else {
       banModalVisible.value = true;
       sponsor.value = record;
+        formState.sid = record.sid;
       console.log("sponsor", sponsor.value);
       console.log("banDetails", banAccount.value);
       }
@@ -906,7 +931,8 @@ export default defineComponent({
       formState,
       rules,
       onSubmit,
-      resetForm,
+      ResetBanForm,
+      banReasons,
 
 
     }
