@@ -43,7 +43,7 @@
         </template>
         <a-menu-item key="setting:1"><UserOutlined />个人资料<router-link to="/user/profile"></router-link></a-menu-item>
         <a-menu-item key="setting:2"><VerifiedOutlined />安全中心<router-link to="/user/safety"></router-link></a-menu-item>
-        <a-menu-item key="setting:2"><TeamOutlined />关于我们<router-link to="/user/about"></router-link></a-menu-item>
+        <a-menu-item key="setting:3"><TeamOutlined />关于我们<router-link to="/user/about"></router-link></a-menu-item>
 
       </a-sub-menu>
     </a-menu>

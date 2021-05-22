@@ -22,22 +22,22 @@
               <a-collapse-panel key="3" header="3、麦克风无声或声音很小？">
                 <p>{{ text }}</p>
               </a-collapse-panel>
-              <a-collapse-panel key="4" header="3、麦克风有杂音？">
+              <a-collapse-panel key="4" header="4、麦克风有杂音？">
                 <p>{{ text }}</p>
               </a-collapse-panel>
-              <a-collapse-panel key="5" header="3、扬声器听不见？">
+              <a-collapse-panel key="5" header="5、扬声器听不见？">
                 <p>{{ text }}</p>
               </a-collapse-panel>
-              <a-collapse-panel key="6" header="3、客户端卡顿？">
+              <a-collapse-panel key="6" header="6、客户端卡顿？">
                 <p>{{ text }}</p>
               </a-collapse-panel>
-              <a-collapse-panel key="7" header="3、资料上传要注意什么问题？">
+              <a-collapse-panel key="7" header="7、资料上传要注意什么问题？">
                 <p>{{ text }}</p>
               </a-collapse-panel>
-              <a-collapse-panel key="8" header="3、待参加竞赛列表没有比赛怎么办？">
+              <a-collapse-panel key="8" header="8、待参加竞赛列表没有比赛怎么办？">
                 <p>{{ text }}</p>
               </a-collapse-panel>
-              <a-collapse-panel key="9" header="3、手写板打开，USB也插上，但连接不到设备怎么办？">
+              <a-collapse-panel key="9" header="9、手写板打开，USB也插上，但连接不到设备怎么办？">
                 <p>{{ text }}</p>
               </a-collapse-panel>
             </a-collapse>
