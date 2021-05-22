@@ -10,6 +10,7 @@
     <result column="note" jdbcType="VARCHAR" property="note" />
     <result column="releaseTime" jdbcType="TIMESTAMP" property="releasetime" />
     <result column="user_type" jdbcType="INTEGER" property="userType" />
+    <result column="ban_type" jdbcType="VARCHAR" property="banType" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -70,7 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    bid, reason, bannedTime, `interval`, `uid`, note, releaseTime, user_type
+    bid, reason, bannedTime, `interval`, `uid`, note, releaseTime, user_type, ban_type
   </sql>
   <select id="selectByExample" parameterType="com.ibegu.dalao.domain.BanAccountExample" resultMap="BaseResultMap">
     select
@@ -105,10 +106,12 @@
   <insert id="insert" parameterType="com.ibegu.dalao.domain.BanAccount">
     insert into ban_account (bid, reason, bannedTime, 
       `interval`, `uid`, note, 
-      releaseTime, user_type)
+      releaseTime, user_type, ban_type
+      )
     values (#{bid,jdbcType=BIGINT}, #{reason,jdbcType=VARCHAR}, #{bannedtime,jdbcType=TIMESTAMP}, 
       #{interval,jdbcType=VARCHAR}, #{uid,jdbcType=BIGINT}, #{note,jdbcType=VARCHAR}, 
-      #{releasetime,jdbcType=TIMESTAMP}, #{userType,jdbcType=INTEGER})
+      #{releasetime,jdbcType=TIMESTAMP}, #{userType,jdbcType=INTEGER}, #{banType,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.ibegu.dalao.domain.BanAccount">
     insert into ban_account
@@ -137,6 +140,9 @@
       <if test="userType != null">
         user_type,
       </if>
+      <if test="banType != null">
+        ban_type,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="bid != null">
@@ -162,6 +168,9 @@
       </if>
       <if test="userType != null">
         #{userType,jdbcType=INTEGER},
+      </if>
+      <if test="banType != null">
+        #{banType,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -198,6 +207,9 @@
       <if test="record.userType != null">
         user_type = #{record.userType,jdbcType=INTEGER},
       </if>
+      <if test="record.banType != null">
+        ban_type = #{record.banType,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -212,7 +224,8 @@
       `uid` = #{record.uid,jdbcType=BIGINT},
       note = #{record.note,jdbcType=VARCHAR},
       releaseTime = #{record.releasetime,jdbcType=TIMESTAMP},
-      user_type = #{record.userType,jdbcType=INTEGER}
+      user_type = #{record.userType,jdbcType=INTEGER},
+      ban_type = #{record.banType,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -241,6 +254,9 @@
       <if test="userType != null">
         user_type = #{userType,jdbcType=INTEGER},
       </if>
+      <if test="banType != null">
+        ban_type = #{banType,jdbcType=VARCHAR},
+      </if>
     </set>
     where bid = #{bid,jdbcType=BIGINT}
   </update>
@@ -252,7 +268,8 @@
       `uid` = #{uid,jdbcType=BIGINT},
       note = #{note,jdbcType=VARCHAR},
       releaseTime = #{releasetime,jdbcType=TIMESTAMP},
-      user_type = #{userType,jdbcType=INTEGER}
+      user_type = #{userType,jdbcType=INTEGER},
+      ban_type = #{banType,jdbcType=VARCHAR}
     where bid = #{bid,jdbcType=BIGINT}
   </update>
 </mapper>

@@ -1,5 +1,6 @@
 package com.ibegu.dalao.controller;
 
+import com.ibegu.dalao.req.AdminBanAccountReq;
 import com.ibegu.dalao.req.AdminSponsorQueryReq;
 import com.ibegu.dalao.req.AdminSponsorResetPasswordReq;
 import com.ibegu.dalao.resp.AdminSponsorQueryResp;
@@ -67,6 +68,18 @@ public class AdminController {
 
         CommonResp resp = new CommonResp<>();
         adminService.resetSponsorPassword(req);
+        // resp.setContent(sponsorDetail);
+        return resp;
+
+    }
+
+    @PostMapping("/banAccount")
+    public CommonResp banAccount( @RequestBody AdminBanAccountReq req){
+
+        // LOG.info("请求：{}", req);
+
+        CommonResp resp = new CommonResp<>();
+        adminService.banAccount(req);
         // resp.setContent(sponsorDetail);
         return resp;
 

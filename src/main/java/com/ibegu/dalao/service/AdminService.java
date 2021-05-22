@@ -3,15 +3,19 @@ package com.ibegu.dalao.service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.ibegu.dalao.domain.Admin;
+import com.ibegu.dalao.domain.BanAccount;
 import com.ibegu.dalao.domain.Sponsor;
 import com.ibegu.dalao.domain.SponsorExample;
 import com.ibegu.dalao.mapper.AdminMapper;
+import com.ibegu.dalao.mapper.BanAccountMapper;
 import com.ibegu.dalao.mapper.SponsorMapper;
+import com.ibegu.dalao.req.AdminBanAccountReq;
 import com.ibegu.dalao.req.AdminSponsorQueryReq;
 import com.ibegu.dalao.req.AdminSponsorResetPasswordReq;
 import com.ibegu.dalao.resp.AdminSponsorQueryResp;
 import com.ibegu.dalao.resp.PageResp;
 import com.ibegu.dalao.utils.CopyUtil;
+import com.ibegu.dalao.utils.SnowFlake;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -38,6 +42,11 @@ public class AdminService {
     private AdminMapper adminMapper;
     @Resource
     private SponsorMapper sponsorMapper;
+    @Resource
+    private BanAccountMapper banAccountMapper;
+
+    @Resource
+    private SnowFlake snowFlake;
 
     public List<Admin> list() {
 
@@ -57,13 +66,13 @@ public class AdminService {
         }
 
         if (!ObjectUtils.isEmpty(req.getIdentityStatus())) {
-            criteria.andIdentityStatusEqualTo(req.getIdentityStatus() );
+            criteria.andIdentityStatusEqualTo(req.getIdentityStatus());
         }
 
         //只对遇到的第一句sql起作用 最好放在一起
         //查第几页 多少条
         PageHelper.startPage(req.getPage(), req.getSize());
-        
+
         List<Sponsor> sponsorList = sponsorMapper.selectByExample(sponsorExample);
 
         PageInfo<Sponsor> pageInfo = new PageInfo<>(sponsorList);
@@ -94,7 +103,7 @@ public class AdminService {
 
     }
 
-    public void resetSponsorPassword( AdminSponsorResetPasswordReq req) {
+    public void resetSponsorPassword(AdminSponsorResetPasswordReq req) {
 
         LOG.info("修改密码传入的请求参数：{}", req);
 
@@ -103,5 +112,45 @@ public class AdminService {
         sponsor.setPassword(req.getPassword());
 
         sponsorMapper.updateByPrimaryKeySelective(sponsor);
+    }
+
+    public void banAccount(AdminBanAccountReq req) {
+
+        //更新被封禁账户的账户状态
+        Long sponsorId = req.getUid();
+        Sponsor sponsor = sponsorMapper.selectByPrimaryKey(sponsorId);
+        sponsor.setAccountStatus(1);
+        sponsorMapper.updateByPrimaryKey(sponsor);
+
+    //    更新封禁表
+
+        BanAccount banAccount = CopyUtil.copy(req, BanAccount.class);
+
+        banAccount.setBid(snowFlake.nextId());
+        banAccount.setUid(req.getUid());
+        banAccount.setBanType((req.getBanType()).toString());
+        banAccount.setUserType(1);
+
+        LOG.info("banAccount:{}", banAccount);
+
+        banAccountMapper.insert(banAccount);
+
+
+        // Ebook ebook = CopyUtil.copy(req, Ebook.class);
+        // if (ObjectUtils.isEmpty(req.getId())) {
+        //     // 新增
+        //     ebook.setId(snowFlake.nextId());
+        //     ebookMapper.insert(ebook);
+        // } else {
+        //     // 更新
+        //     ebookMapper.updateByPrimaryKey(ebook);
+        // }
+
+
+
+
+
+
+
     }
 }

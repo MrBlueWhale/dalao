@@ -19,6 +19,8 @@ public class BanAccount {
 
     private Integer userType;
 
+    private String banType;
+
     public Long getBid() {
         return bid;
     }
@@ -83,6 +85,14 @@ public class BanAccount {
         this.userType = userType;
     }
 
+    public String getBanType() {
+        return banType;
+    }
+
+    public void setBanType(String banType) {
+        this.banType = banType;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -97,6 +107,7 @@ public class BanAccount {
         sb.append(", note=").append(note);
         sb.append(", releasetime=").append(releasetime);
         sb.append(", userType=").append(userType);
+        sb.append(", banType=").append(banType);
         sb.append("]");
         return sb.toString();
     }

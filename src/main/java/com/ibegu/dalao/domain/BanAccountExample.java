@@ -614,6 +614,76 @@ public class BanAccountExample {
             addCriterion("user_type not between", value1, value2, "userType");
             return (Criteria) this;
         }
+
+        public Criteria andBanTypeIsNull() {
+            addCriterion("ban_type is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBanTypeIsNotNull() {
+            addCriterion("ban_type is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBanTypeEqualTo(String value) {
+            addCriterion("ban_type =", value, "banType");
+            return (Criteria) this;
+        }
+
+        public Criteria andBanTypeNotEqualTo(String value) {
+            addCriterion("ban_type <>", value, "banType");
+            return (Criteria) this;
+        }
+
+        public Criteria andBanTypeGreaterThan(String value) {
+            addCriterion("ban_type >", value, "banType");
+            return (Criteria) this;
+        }
+
+        public Criteria andBanTypeGreaterThanOrEqualTo(String value) {
+            addCriterion("ban_type >=", value, "banType");
+            return (Criteria) this;
+        }
+
+        public Criteria andBanTypeLessThan(String value) {
+            addCriterion("ban_type <", value, "banType");
+            return (Criteria) this;
+        }
+
+        public Criteria andBanTypeLessThanOrEqualTo(String value) {
+            addCriterion("ban_type <=", value, "banType");
+            return (Criteria) this;
+        }
+
+        public Criteria andBanTypeLike(String value) {
+            addCriterion("ban_type like", value, "banType");
+            return (Criteria) this;
+        }
+
+        public Criteria andBanTypeNotLike(String value) {
+            addCriterion("ban_type not like", value, "banType");
+            return (Criteria) this;
+        }
+
+        public Criteria andBanTypeIn(List<String> values) {
+            addCriterion("ban_type in", values, "banType");
+            return (Criteria) this;
+        }
+
+        public Criteria andBanTypeNotIn(List<String> values) {
+            addCriterion("ban_type not in", values, "banType");
+            return (Criteria) this;
+        }
+
+        public Criteria andBanTypeBetween(String value1, String value2) {
+            addCriterion("ban_type between", value1, value2, "banType");
+            return (Criteria) this;
+        }
+
+        public Criteria andBanTypeNotBetween(String value1, String value2) {
+            addCriterion("ban_type not between", value1, value2, "banType");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

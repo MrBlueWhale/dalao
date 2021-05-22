@@ -340,13 +340,13 @@
 <!--      </a-form-item>-->
       <a-form-item label="封禁原因" name="reason">
         <a-select v-model:value="formState.reason" placeholder="请选择封禁原因">
-          <a-select-option v-for="item in banReasons" :key="item" value="item">{{ item }}</a-select-option>
+          <a-select-option v-for="item in banReasons" :key="item" :value="item">{{ item }}</a-select-option>
 <!--          <a-select-option value="beijing">Zone two</a-select-option>-->
         </a-select>
       </a-form-item>
-      <a-form-item label="解禁时间" required name="date1">
+      <a-form-item label="解禁时间" required name="releasetime">
         <a-date-picker
-            v-model:value="formState.date1"
+            v-model:value="formState.releasetime"
             show-time
             type="date"
             placeholder="选择解禁时间"
@@ -356,8 +356,8 @@
       <a-form-item label="发送通知" name="delivery">
         <a-switch v-model:checked="formState.delivery" />
       </a-form-item>
-      <a-form-item label="限制功能" name="type">
-        <a-checkbox-group v-model:value="formState.type">
+      <a-form-item label="限制功能" name="banType">
+        <a-checkbox-group v-model:value="formState.banType">
           <a-checkbox value="1" name="type">发布评论</a-checkbox>
           <a-checkbox value="2" name="type">发布比赛</a-checkbox>
           <a-checkbox value="3" name="type">发布通知</a-checkbox>
@@ -398,7 +398,8 @@
 import {defineComponent, onMounted, ref, reactive, toRef, toRaw, UnwrapRef} from 'vue';
 import {createFromIconfontCN} from '@ant-design/icons-vue';
 import { ValidateErrorEntity } from 'ant-design-vue/es/form/interface';
-import { Moment } from 'moment';
+import { Moment, } from 'moment';
+import moment from 'moment';
 
 import {message} from 'ant-design-vue';
 import {Tool} from "@/util/tool";
@@ -416,11 +417,13 @@ declare let hexMd5: any;
 declare let KEY: any;
 
 interface FormState {
-  sid: string;
+  uid: string;
   reason: string | undefined;
-  date1: Moment | undefined;
+  releasetime: Moment | undefined;
+  bannedtime: Date | undefined;
+  // bannedtime: Moment | undefined;
   delivery: boolean;
-  type: string[];
+  banType: string[];
   // resource: string;
   note: string;
 }
@@ -747,11 +750,12 @@ export default defineComponent({
 
     const formRef = ref();
     const formState: UnwrapRef<FormState> = reactive({
-      sid: '',
-      reason: undefined,
-      date1: undefined,
+      uid: '',
+      reason: '',
+      releasetime: undefined,
+      bannedtime: undefined,
       delivery: false,
-      type: [],
+      banType: [],
       // resource: '',
       note: '',
     });
@@ -761,8 +765,8 @@ export default defineComponent({
       //   { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
       // ],
       reason: [{ required: true, message: '选择封禁原因', trigger: 'change' }],
-      date1: [{ required: true, message: '选择最晚解封时间', trigger: 'change', type: 'object' }],
-      type: [
+      releasetime: [{ required: true, message: '选择最晚解封时间', trigger: 'change', type: 'object' }],
+      banType: [
         {
           type: 'array',
           required: true,
@@ -812,6 +816,16 @@ export default defineComponent({
 
       // sponsor.value.password = hexMd5(sponsor.value.password + KEY);
 
+      // formState.bannedtime = Moment(new Date());
+
+      console.log("xxx",formState.releasetime);
+      console.log("yyy",new Date());
+      console.log("zzz",moment().toDate());
+
+      formState.bannedtime = new Date();
+
+      console.log("zzz",moment().toDate());
+
       axios.post("/admin/banAccount", toRaw(formState)).then((response) => {
         banModalLoading.value = false;
         const data = response.data; // data = commonResp
@@ -845,7 +859,7 @@ export default defineComponent({
       }else {
       banModalVisible.value = true;
       sponsor.value = record;
-        formState.sid = record.sid;
+        formState.uid = record.sid;
       console.log("sponsor", sponsor.value);
       console.log("banDetails", banAccount.value);
       }
