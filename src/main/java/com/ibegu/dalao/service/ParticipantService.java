@@ -90,5 +90,12 @@ public class ParticipantService {
             System.out.println("A");
         }
 
-    }
+//    public ParticipantResp getDetail(ParticipantReq req) {
+//
+//       Participant participant = participantMapper.selectByPrimaryKey(req.getPid());
+//
+//
+//        return CopyUtil.copy(participant, ParticipantResp.class);
+//    }
+}
 }

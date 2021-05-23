@@ -6,6 +6,10 @@ import com.ibegu.dalao.resp.ParticipantResp;
 import com.ibegu.dalao.resp.PageResp;
 import com.ibegu.dalao.service.ParticipantService;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 
 import javax.annotation.Resource;
 
@@ -28,7 +32,11 @@ public class ParticipantController {
         return resp;
 
     }
-    @GetMapping("/detail")
+//    @GetMapping("/detail")
+//    private  ParticipantService participantService;
+
+
+    @GetMapping("/pdetail")
     public CommonResp getDetail(ParticipantReq req){
         CommonResp<ParticipantResp> resp = new CommonResp<>();
         ParticipantResp details = participantService.getDetail(req);
@@ -46,4 +54,5 @@ public class ParticipantController {
         participantService.save(req);
         return resp;
     }
+
 }

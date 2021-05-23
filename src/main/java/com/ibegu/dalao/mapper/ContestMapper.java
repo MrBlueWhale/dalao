@@ -3,9 +3,11 @@ package com.ibegu.dalao.mapper;
 import com.ibegu.dalao.domain.Contest;
 import com.ibegu.dalao.domain.ContestExample;
 import java.util.List;
+
+import com.ibegu.dalao.mapper.extend.ContestMappperExtend;
 import org.apache.ibatis.annotations.Param;
 
-public interface ContestMapper {
+public interface ContestMapper extends ContestMappperExtend {
     long countByExample(ContestExample example);
 
     int deleteByExample(ContestExample example);

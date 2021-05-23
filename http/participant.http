@@ -1,4 +1,12 @@
 ###
+<<<<<<< Updated upstream
 GET http://localhost:8002/participant/detail?pid=1
+=======
+GET http://localhost:8002/participant/pdetail?pid=1
+
+
+#####
+
+>>>>>>> Stashed changes
 
 ###
