@@ -148,6 +148,15 @@
                   查看详情
                 </a-button>
 
+                <a-button type="primary" v-if="record.identityStatus=='未认证'" @click="notify(record)">
+                  <!--              <a-button type="primary" @click="resetPassword">-->
+                  通知认证
+                </a-button>
+                <a-button type="primary" v-if="record.identityStatus=='审核中'" @click="verify(record)">
+                  <!--              <a-button type="primary" @click="resetPassword">-->
+                  开始认证
+                </a-button>
+
                 <a-button type="primary" @click="resetPassword(record)">
                   重置密码
                 </a-button>
@@ -576,10 +585,10 @@ export default defineComponent({
         title: '联系电话',
         dataIndex: 'telNum'
       },
-      {
-        title: '邮箱地址',
-        dataIndex: 'email'
-      },
+      // {
+      //   title: '邮箱地址',
+      //   dataIndex: 'email'
+      // },
       {
         title: 'Action',
         key: 'action',
