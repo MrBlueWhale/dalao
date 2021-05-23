@@ -409,7 +409,9 @@
       <a-descriptions-item label="封禁理由" :span="3">{{ banAccount.reason }}</a-descriptions-item>
       <a-descriptions-item label="上次封禁时间" :span="3">{{ banAccount.bannedtime }}</a-descriptions-item>
       <a-descriptions-item label="预计解禁时间" :span="3">{{ banAccount.releasetime }}</a-descriptions-item>
-      <a-descriptions-item label="账户状态" :span="3"><a-badge status="warning" text="封禁中" /></a-descriptions-item>
+      <a-descriptions-item label="账户状态" :span="3">
+        <a-badge status="warning" text="封禁中"/>
+      </a-descriptions-item>
     </a-descriptions>
 
     <div style="margin-top: 50px;">
@@ -439,12 +441,12 @@
               <a-checkbox value="1" :key="item" name="type">{{ item }}</a-checkbox>
             </div>
 
-            <a-checkbox v-for="item in banAccount.banType" :key="item.indexOf"  name="type">{{ item }}</a-checkbox>
-<!--            <a-checkbox value="1" name="type">发布评论</a-checkbox>-->
-<!--            <a-checkbox value="2" name="type">发布比赛</a-checkbox>-->
-<!--            <a-checkbox value="3" name="type">发布通知</a-checkbox>-->
-<!--            <a-checkbox value="4" name="type">删除比赛</a-checkbox>-->
-<!--            <a-checkbox value="5" name="type">删除通知</a-checkbox>-->
+            <a-checkbox v-for="item in banAccount.banType" :key="item.indexOf" name="type">{{ item }}</a-checkbox>
+            <!--            <a-checkbox value="1" name="type">发布评论</a-checkbox>-->
+            <!--            <a-checkbox value="2" name="type">发布比赛</a-checkbox>-->
+            <!--            <a-checkbox value="3" name="type">发布通知</a-checkbox>-->
+            <!--            <a-checkbox value="4" name="type">删除比赛</a-checkbox>-->
+            <!--            <a-checkbox value="5" name="type">删除通知</a-checkbox>-->
           </a-checkbox-group>
         </a-form-item>
         <a-form-item label="备注" name="note">
@@ -618,11 +620,11 @@ export default defineComponent({
     banReasons.add('未经授权使用，侵犯版权或商标权');
 
     let banTypes = new Map();
-    banTypes.set("1","发布评论");
-    banTypes.set("2","发布比赛");
-    banTypes.set("3","发布通知");
-    banTypes.set("4","删除比赛");
-    banTypes.set("5","删除通知");
+    banTypes.set("1", "发布评论");
+    banTypes.set("2", "发布比赛");
+    banTypes.set("3", "发布通知");
+    banTypes.set("4", "删除比赛");
+    banTypes.set("5", "删除通知");
 
 
     const handleQuerySponsor = (params: any) => {
@@ -643,6 +645,9 @@ export default defineComponent({
 
         if (data.success) {
           sponsors.value = data.content.list;
+          for (let i = 0; i < sponsors.value.length; i++) {
+            sponsors.value[i].joinDate = moment(sponsors.value[i].joinDate).format('YYYY-MM-DD HH:mm:ss')
+          }
 
           // 重置分页按钮
           pagination.value.current = params.page;
@@ -1000,11 +1005,11 @@ export default defineComponent({
           if (data.success) {
             banAccount.value = data.content;
 
-            for(let i=0;i<banAccount.value.banType.length;i++){
+            for (let i = 0; i < banAccount.value.banType.length; i++) {
               banAccount.value.banType[i] = banTypes.get(banAccount.value.banType[i]);
             }
             // banAccount.value.banType =
-            console.log("banAcountDetail",banAccount.value);
+            console.log("banAcountDetail", banAccount.value);
 
             // message.success(banAccount.value);
 

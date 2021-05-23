@@ -3,12 +3,12 @@
 
     <h1 class="h1">这是竞赛管理模块的页面22</h1>
 
-<!--    <div>-->
-<!--      <a-image-preview-group>-->
-<!--        <a-image :width="200" src="/image/certification-imgs/test1.jpg"/>-->
-<!--        <a-image :width="200" src="/image/certification-imgs/test2.jpg"/>-->
-<!--      </a-image-preview-group>-->
-<!--    </div>-->
+    <!--    <div>-->
+    <!--      <a-image-preview-group>-->
+    <!--        <a-image :width="200" src="/image/certification-imgs/test1.jpg"/>-->
+    <!--        <a-image :width="200" src="/image/certification-imgs/test2.jpg"/>-->
+    <!--      </a-image-preview-group>-->
+    <!--    </div>-->
 
     <a-layout>
 
@@ -81,78 +81,77 @@
                 @change="handleTableChange"
             >
               <!--          定义对封面的渲染-->
-<!--              <template #avatar="{ text: avatar }">-->
-<!--                &lt;!&ndash;            <img v-if="avatar" :src="avatar" alt="avatar"/>&ndash;&gt;-->
-<!--                <a-avatar size="large" v-if="avatar" :src="avatar" alt="avatar"/>-->
-<!--              </template>-->
+              <!--              <template #avatar="{ text: avatar }">-->
+              <!--                &lt;!&ndash;            <img v-if="avatar" :src="avatar" alt="avatar"/>&ndash;&gt;-->
+              <!--                <a-avatar size="large" v-if="avatar" :src="avatar" alt="avatar"/>-->
+              <!--              </template>-->
 
-<!--              <template #contestStatus="{ text: contestStatus }">-->
-
-
-<!--                <a-tag color="warning" :contest_status="contestStatus" v-if="contestStatus == '未认证'">-->
-<!--                  <template #icon>-->
-<!--                    <exclamation-circle-outlined/>-->
-<!--                  </template>-->
-<!--                  {{ contestStatus }}-->
-<!--                </a-tag>-->
-<!--                <a-tag color="processing" :contest_status="contestStatus" v-else-if="contestStatus == '审核中'">-->
-<!--                  <template #icon>-->
-<!--                    <sync-outlined :spin="true"/>-->
-<!--                  </template>-->
-<!--                  {{ contestStatus }}-->
-<!--                </a-tag>-->
-<!--                <a-tag color="success" :contest_status="contestStatus" v-else>-->
-<!--                  <template #icon>-->
-<!--                    <check-circle-outlined/>-->
-<!--                  </template>-->
-<!--                  {{ contestStatus }}-->
-<!--                </a-tag>-->
-
-<!--              </template>-->
+              <!--              <template #contestStatus="{ text: contestStatus }">-->
 
 
+              <!--                <a-tag color="warning" :contest_status="contestStatus" v-if="contestStatus == '未认证'">-->
+              <!--                  <template #icon>-->
+              <!--                    <exclamation-circle-outlined/>-->
+              <!--                  </template>-->
+              <!--                  {{ contestStatus }}-->
+              <!--                </a-tag>-->
+              <!--                <a-tag color="processing" :contest_status="contestStatus" v-else-if="contestStatus == '审核中'">-->
+              <!--                  <template #icon>-->
+              <!--                    <sync-outlined :spin="true"/>-->
+              <!--                  </template>-->
+              <!--                  {{ contestStatus }}-->
+              <!--                </a-tag>-->
+              <!--                <a-tag color="success" :contest_status="contestStatus" v-else>-->
+              <!--                  <template #icon>-->
+              <!--                    <check-circle-outlined/>-->
+              <!--                  </template>-->
+              <!--                  {{ contestStatus }}-->
+              <!--                </a-tag>-->
 
-<!--              <template v-slot:action="{ text, record }">-->
-<!--                &lt;!&ndash;            空格组件：两个按钮之间的空格&ndash;&gt;-->
-<!--                <a-space size="small">-->
-<!--                  <router-link :to="'/admin/contest?sponsorId=' + record.sid">-->
-<!--                    <a-button type="primary">-->
-<!--                      竞赛管理-->
-<!--                    </a-button>-->
-<!--                  </router-link>-->
+              <!--              </template>-->
 
-<!--                  <a-button type="primary" @click="viewDetails(record)">-->
-<!--                    &lt;!&ndash;              <a-button type="primary" @click="resetPassword">&ndash;&gt;-->
-<!--                    查看详情-->
-<!--                  </a-button>-->
 
-<!--                  <a-button type="primary" v-if="record.contestStatus=='未认证'" @click="notify(record)">-->
-<!--                    &lt;!&ndash;              <a-button type="primary" @click="resetPassword">&ndash;&gt;-->
-<!--                    通知认证-->
-<!--                  </a-button>-->
-<!--                  <a-button type="primary" v-if="record.contestStatus=='审核中'" @click="verify(record)">-->
-<!--                    &lt;!&ndash;              <a-button type="primary" @click="resetPassword">&ndash;&gt;-->
-<!--                    开始认证-->
-<!--                  </a-button>-->
+              <!--              <template v-slot:action="{ text, record }">-->
+              <!--                &lt;!&ndash;            空格组件：两个按钮之间的空格&ndash;&gt;-->
+              <!--                <a-space size="small">-->
+              <!--                  <router-link :to="'/admin/contest?sponsorId=' + record.sid">-->
+              <!--                    <a-button type="primary">-->
+              <!--                      竞赛管理-->
+              <!--                    </a-button>-->
+              <!--                  </router-link>-->
 
-<!--                  <a-button type="primary" @click="resetPassword(record)">-->
-<!--                    重置密码-->
-<!--                  </a-button>-->
-<!--                  <a-popconfirm-->
-<!--                      title="封禁后该账号功能受限，确认封禁?"-->
-<!--                      ok-text="是"-->
-<!--                      cancel-text="否"-->
-<!--                      @confirm="handleBanAccount(record)"-->
-<!--                  >-->
-<!--                    <a-button type="danger" shape="round">-->
-<!--                      封禁账号-->
-<!--                    </a-button>-->
-<!--                  </a-popconfirm>-->
-<!--                  <a-button type="primary" shape="round" @click="handleReleaseAccount(record)">-->
-<!--                    解除封禁-->
-<!--                  </a-button>-->
-<!--                </a-space>-->
-<!--              </template>-->
+              <!--                  <a-button type="primary" @click="viewDetails(record)">-->
+              <!--                    &lt;!&ndash;              <a-button type="primary" @click="resetPassword">&ndash;&gt;-->
+              <!--                    查看详情-->
+              <!--                  </a-button>-->
+
+              <!--                  <a-button type="primary" v-if="record.contestStatus=='未认证'" @click="notify(record)">-->
+              <!--                    &lt;!&ndash;              <a-button type="primary" @click="resetPassword">&ndash;&gt;-->
+              <!--                    通知认证-->
+              <!--                  </a-button>-->
+              <!--                  <a-button type="primary" v-if="record.contestStatus=='审核中'" @click="verify(record)">-->
+              <!--                    &lt;!&ndash;              <a-button type="primary" @click="resetPassword">&ndash;&gt;-->
+              <!--                    开始认证-->
+              <!--                  </a-button>-->
+
+              <!--                  <a-button type="primary" @click="resetPassword(record)">-->
+              <!--                    重置密码-->
+              <!--                  </a-button>-->
+              <!--                  <a-popconfirm-->
+              <!--                      title="封禁后该账号功能受限，确认封禁?"-->
+              <!--                      ok-text="是"-->
+              <!--                      cancel-text="否"-->
+              <!--                      @confirm="handleBanAccount(record)"-->
+              <!--                  >-->
+              <!--                    <a-button type="danger" shape="round">-->
+              <!--                      封禁账号-->
+              <!--                    </a-button>-->
+              <!--                  </a-popconfirm>-->
+              <!--                  <a-button type="primary" shape="round" @click="handleReleaseAccount(record)">-->
+              <!--                    解除封禁-->
+              <!--                  </a-button>-->
+              <!--                </a-space>-->
+              <!--              </template>-->
             </a-table>
           </layout>
 
@@ -386,7 +385,9 @@
         <a-descriptions-item label="封禁理由" :span="3">{{ banAccount.reason }}</a-descriptions-item>
         <a-descriptions-item label="上次封禁时间" :span="3">{{ banAccount.bannedtime }}</a-descriptions-item>
         <a-descriptions-item label="预计解禁时间" :span="3">{{ banAccount.releasetime }}</a-descriptions-item>
-        <a-descriptions-item label="账户状态" :span="3"><a-badge status="warning" text="封禁中" /></a-descriptions-item>
+        <a-descriptions-item label="账户状态" :span="3">
+          <a-badge status="warning" text="封禁中"/>
+        </a-descriptions-item>
       </a-descriptions>
 
       <div style="margin-top: 50px;">
@@ -416,7 +417,7 @@
                 <a-checkbox value="1" :key="item" name="type">{{ item }}</a-checkbox>
               </div>
 
-              <a-checkbox v-for="item in banAccount.banType" :key="item.indexOf"  name="type">{{ item }}</a-checkbox>
+              <a-checkbox v-for="item in banAccount.banType" :key="item.indexOf" name="type">{{ item }}</a-checkbox>
               <!--            <a-checkbox value="1" name="type">发布评论</a-checkbox>-->
               <!--            <a-checkbox value="2" name="type">发布比赛</a-checkbox>-->
               <!--            <a-checkbox value="3" name="type">发布通知</a-checkbox>-->
@@ -433,8 +434,6 @@
       </div>
 
     </a-modal>
-
-
 
 
   </a-layout>
@@ -521,7 +520,6 @@ export default defineComponent({
     console.log("route.meta：", route.meta);
 
 
-
     const param = ref();
     param.value = {};
     const contests = ref();
@@ -563,8 +561,8 @@ export default defineComponent({
       },
       {
         title: 'Action',
-        key:'action',
-        slots:{customRender:'action'}
+        key: 'action',
+        slots: {customRender: 'action'}
       }
     ];
 
@@ -582,7 +580,6 @@ export default defineComponent({
     contestMap.set('gameEnded', '结束比赛')
 
 
-
     let account_status = '';
     let accountStatusMap = new Map()
     accountStatusMap.set(0, '正常')
@@ -597,11 +594,11 @@ export default defineComponent({
     banReasons.add('未经授权使用，侵犯版权或商标权');
 
     let banTypes = new Map();
-    banTypes.set("1","发布评论");
-    banTypes.set("2","发布比赛");
-    banTypes.set("3","发布通知");
-    banTypes.set("4","删除比赛");
-    banTypes.set("5","删除通知");
+    banTypes.set("1", "发布评论");
+    banTypes.set("2", "发布比赛");
+    banTypes.set("3", "发布通知");
+    banTypes.set("4", "删除比赛");
+    banTypes.set("5", "删除通知");
 
 
     const handleQueryContest = (params: any) => {
@@ -622,6 +619,13 @@ export default defineComponent({
 
         if (data.success) {
           contests.value = data.content.list;
+
+          for (let i = 0; i < contests.value.length; i++) {
+            contests.value[i].competeEndTime = moment(contests.value[i].competeEndTime).format('YYYY-MM-DD HH:mm:ss')
+            contests.value[i].competeStartTime = moment(contests.value[i].competeStartTime).format('YYYY-MM-DD HH:mm:ss')
+            contests.value[i].registrationStartTime = moment(contests.value[i].registrationStartTime).format('YYYY-MM-DD HH:mm:ss')
+            contests.value[i].registrationEndTime = moment(contests.value[i].registrationEndTime).format('YYYY-MM-DD HH:mm:ss')
+          }
 
           // 重置分页按钮
           pagination.value.current = params.page;
@@ -649,7 +653,7 @@ export default defineComponent({
       if (value.key === 'welcome') {
         isShowWelcome.value = true;
       } else {
-        contest_status = contestMap.get(value.key) == "待审核"? 0:1;
+        contest_status = contestMap.get(value.key) == "待审核" ? 0 : 1;
         isShowWelcome.value = false;
         //这里本应该去查询数据库里所有的主办方数据 而我写死了只查前1000条 可以另写个all方法
         handleQueryContest({
@@ -731,20 +735,6 @@ export default defineComponent({
     const contest = ref({
       // password: '',
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     //初始化逻辑都写到onMounted()里
