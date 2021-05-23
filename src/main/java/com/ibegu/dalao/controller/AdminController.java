@@ -4,6 +4,7 @@ import com.ibegu.dalao.req.AdminBanAccountReq;
 import com.ibegu.dalao.req.AdminSponsorQueryReq;
 import com.ibegu.dalao.req.AdminSponsorResetPasswordReq;
 import com.ibegu.dalao.resp.AdminSponsorQueryResp;
+import com.ibegu.dalao.resp.AdminViewBannedAccountResp;
 import com.ibegu.dalao.resp.CommonResp;
 import com.ibegu.dalao.resp.PageResp;
 import com.ibegu.dalao.service.AdminService;
@@ -81,6 +82,16 @@ public class AdminController {
         CommonResp resp = new CommonResp<>();
         adminService.banAccount(req);
         // resp.setContent(sponsorDetail);
+        return resp;
+
+    }
+
+    @GetMapping("/viewBannedAccount/{sid}")
+    public CommonResp viewBannedAccount(@PathVariable Long sid ){
+
+        CommonResp<AdminViewBannedAccountResp> resp = new CommonResp<>();
+        AdminViewBannedAccountResp content = adminService.viewBannedAccount(sid);
+        resp.setContent(content);
         return resp;
 
     }

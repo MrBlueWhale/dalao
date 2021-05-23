@@ -2,10 +2,7 @@ package com.ibegu.dalao.service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.ibegu.dalao.domain.Admin;
-import com.ibegu.dalao.domain.BanAccount;
-import com.ibegu.dalao.domain.Sponsor;
-import com.ibegu.dalao.domain.SponsorExample;
+import com.ibegu.dalao.domain.*;
 import com.ibegu.dalao.mapper.AdminMapper;
 import com.ibegu.dalao.mapper.BanAccountMapper;
 import com.ibegu.dalao.mapper.SponsorMapper;
@@ -13,6 +10,7 @@ import com.ibegu.dalao.req.AdminBanAccountReq;
 import com.ibegu.dalao.req.AdminSponsorQueryReq;
 import com.ibegu.dalao.req.AdminSponsorResetPasswordReq;
 import com.ibegu.dalao.resp.AdminSponsorQueryResp;
+import com.ibegu.dalao.resp.AdminViewBannedAccountResp;
 import com.ibegu.dalao.resp.PageResp;
 import com.ibegu.dalao.utils.CopyUtil;
 import com.ibegu.dalao.utils.SnowFlake;
@@ -22,6 +20,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -148,9 +148,35 @@ public class AdminService {
 
 
 
+    }
+
+    public AdminViewBannedAccountResp viewBannedAccount(Long sid) {
+
+        BanAccountExample banAccountExample = new BanAccountExample();
+        BanAccountExample.Criteria criteria = banAccountExample.createCriteria();
+
+        LOG.info("content:{}", (ObjectUtils.isEmpty(sid)));
+
+        // if (!ObjectUtils.isEmpty(sid)) {
+        //     criteria.andUidEqualTo(sid);
+        //     criteria.andBannedtimeGreaterThanOrEqualTo(banAccountMapper.findByMaxBannedTime());
+        // }
+
+        BanAccount banAccount = banAccountMapper.findByMaxBannedTime(sid);
+        AdminViewBannedAccountResp content = CopyUtil.copy(banAccount, AdminViewBannedAccountResp.class);
+
+        LOG.info("banAccount:{}", banAccount);
+        LOG.info("banType1:{}", banAccount.getBanType());
+        String banType = banAccount.getBanType().replace("[","").replace("]","");
+        LOG.info("banType2:{}", banType.split(","));
+        LOG.info("banType3:{}", new ArrayList<String>(Arrays.asList(banType.split(","))));
+
+        content.setBanType(new ArrayList<String>(Arrays.asList(banType.split(", "))));
+
+        LOG.info("content:{}", content);
 
 
-
-
+        return content;
+        // return null;
     }
 }

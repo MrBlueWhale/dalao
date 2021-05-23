@@ -2,10 +2,12 @@ package com.ibegu.dalao.mapper;
 
 import com.ibegu.dalao.domain.BanAccount;
 import com.ibegu.dalao.domain.BanAccountExample;
-import java.util.List;
+import com.ibegu.dalao.mapper.extend.BanAccountMapperExtend;
 import org.apache.ibatis.annotations.Param;
 
-public interface BanAccountMapper {
+import java.util.List;
+
+public interface BanAccountMapper extends BanAccountMapperExtend {
     long countByExample(BanAccountExample example);
 
     int deleteByExample(BanAccountExample example);

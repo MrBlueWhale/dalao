@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--<mapper namespace="com.ibegu.dalao.mapper.extend.BanAccountMapperExtend">-->
+<mapper namespace="com.ibegu.dalao.mapper.BanAccountMapper">
+
+    <select id="findByMaxBannedTime" resultType="com.ibegu.dalao.domain.BanAccount">
+
+<!--        select max(bannedtime) from `ban_account`-->
+
+        select bid, reason, bannedTime, `interval`, `uid`, note, releaseTime, user_type, ban_type from ban_account WHERE ( `uid` = #{sid} )
+        ORDER BY `bannedTime`DESC
+        limit 1;
+
+    </select>
+
+</mapper>
