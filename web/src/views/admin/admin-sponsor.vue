@@ -435,19 +435,21 @@
           <a-switch v-model:checked="releaseAccount.delivery"/>
         </a-form-item>
         <a-form-item label="选择解禁已限制的功能" name="banType">
-          <a-checkbox-group v-model:value="releaseAccount.banType">
+          <!--          <a-checkbox-group v-model:value="releaseAccount.banType">-->
+          <!--          <a-checkbox-group v-model:value="banAccount.banType">-->
 
-            <div v-for="item in banAccount.banType" :key="item">
-              <a-checkbox value="1" :key="item" name="type">{{ item }}</a-checkbox>
-            </div>
+          <!--            <div v-for="item in banAccount.banType" :key="item">-->
+          <!--              <a-checkbox value="1" :key="item" name="type">{{ item }}</a-checkbox>-->
+          <!--            </div>-->
 
-            <a-checkbox v-for="item in banAccount.banType" :key="item.indexOf" name="type">{{ item }}</a-checkbox>
-            <!--            <a-checkbox value="1" name="type">发布评论</a-checkbox>-->
-            <!--            <a-checkbox value="2" name="type">发布比赛</a-checkbox>-->
-            <!--            <a-checkbox value="3" name="type">发布通知</a-checkbox>-->
-            <!--            <a-checkbox value="4" name="type">删除比赛</a-checkbox>-->
-            <!--            <a-checkbox value="5" name="type">删除通知</a-checkbox>-->
-          </a-checkbox-group>
+          <!--            <a-checkbox v-for="(item, index) in banAccount.banType" :key="index" name="type" :value="banAccount.banType[index]">{{ item }}-{{index}}</a-checkbox>-->
+          <!--            <a-checkbox value="1" name="type">发布评论</a-checkbox>-->
+          <!--            <a-checkbox value="2" name="type">发布比赛</a-checkbox>-->
+
+          <!--          </a-checkbox-group>-->
+
+          <a-checkbox-group v-model:value="releaseAccount.banType" :options="banAccount.banType"/>
+
         </a-form-item>
         <a-form-item label="备注" name="note">
           <a-textarea v-model:value="releaseAccount.note"/>
@@ -734,6 +736,7 @@ export default defineComponent({
         const data = response.data;
         console.log(data);
         sponsorDetail.value = data.content;
+        // sponsorDetail.value.joinDate
         console.log("主办方详情：", sponsorDetail);
         // if(contestDetail.value.sponsorDetail==1){
         //   str = "running";
@@ -1008,6 +1011,10 @@ export default defineComponent({
             for (let i = 0; i < banAccount.value.banType.length; i++) {
               banAccount.value.banType[i] = banTypes.get(banAccount.value.banType[i]);
             }
+
+            //格式化时间
+            // banAccount.value.bannedtime
+
             // banAccount.value.banType =
             console.log("banAcountDetail", banAccount.value);
 
