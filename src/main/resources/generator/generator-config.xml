@@ -51,8 +51,14 @@
 <!--        <table tableName="reply" />-->
 <!--        <table tableName="review" />-->
 <!--        <table tableName="sponsor" />-->
-        <table tableName="ban_account" />
+<!--        <table tableName="ban_account" />-->
 <!--        <table tableName="team" />-->
+
+        <table tableName="contest" domainObjectName="Contest">
+            <property name="useActualColumnNames" value="false"/>
+            <columnOverride column="contest_intro" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        </table>
+
 <!--        <table tableName="par_team_cts" />-->
         <!--        <table tableName="demo" domainObjectName="Demo"/>-->
         <!--<table tableName="ebook"/>-->

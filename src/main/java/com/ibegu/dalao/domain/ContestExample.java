@@ -295,6 +295,76 @@ public class ContestExample {
             return (Criteria) this;
         }
 
+        public Criteria andContestIntroIsNull() {
+            addCriterion("contest_intro is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andContestIntroIsNotNull() {
+            addCriterion("contest_intro is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andContestIntroEqualTo(String value) {
+            addCriterion("contest_intro =", value, "contestIntro");
+            return (Criteria) this;
+        }
+
+        public Criteria andContestIntroNotEqualTo(String value) {
+            addCriterion("contest_intro <>", value, "contestIntro");
+            return (Criteria) this;
+        }
+
+        public Criteria andContestIntroGreaterThan(String value) {
+            addCriterion("contest_intro >", value, "contestIntro");
+            return (Criteria) this;
+        }
+
+        public Criteria andContestIntroGreaterThanOrEqualTo(String value) {
+            addCriterion("contest_intro >=", value, "contestIntro");
+            return (Criteria) this;
+        }
+
+        public Criteria andContestIntroLessThan(String value) {
+            addCriterion("contest_intro <", value, "contestIntro");
+            return (Criteria) this;
+        }
+
+        public Criteria andContestIntroLessThanOrEqualTo(String value) {
+            addCriterion("contest_intro <=", value, "contestIntro");
+            return (Criteria) this;
+        }
+
+        public Criteria andContestIntroLike(String value) {
+            addCriterion("contest_intro like", value, "contestIntro");
+            return (Criteria) this;
+        }
+
+        public Criteria andContestIntroNotLike(String value) {
+            addCriterion("contest_intro not like", value, "contestIntro");
+            return (Criteria) this;
+        }
+
+        public Criteria andContestIntroIn(List<String> values) {
+            addCriterion("contest_intro in", values, "contestIntro");
+            return (Criteria) this;
+        }
+
+        public Criteria andContestIntroNotIn(List<String> values) {
+            addCriterion("contest_intro not in", values, "contestIntro");
+            return (Criteria) this;
+        }
+
+        public Criteria andContestIntroBetween(String value1, String value2) {
+            addCriterion("contest_intro between", value1, value2, "contestIntro");
+            return (Criteria) this;
+        }
+
+        public Criteria andContestIntroNotBetween(String value1, String value2) {
+            addCriterion("contest_intro not between", value1, value2, "contestIntro");
+            return (Criteria) this;
+        }
+
         public Criteria andRegistrationStartTimeIsNull() {
             addCriterion("registration_start_time is null");
             return (Criteria) this;
