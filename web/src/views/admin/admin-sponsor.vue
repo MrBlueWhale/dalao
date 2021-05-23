@@ -47,7 +47,7 @@
         <layout v-show="!isShowWelcome">
 
           <div class="about">
-            <h1>电子书管理</h1>
+            <h1>主办方管理</h1>
           </div>
 
           <p>

@@ -1,13 +1,12 @@
 package com.ibegu.dalao.controller;
 
 import com.ibegu.dalao.req.AdminBanAccountReq;
+import com.ibegu.dalao.req.AdminContestQueryReq;
 import com.ibegu.dalao.req.AdminSponsorQueryReq;
 import com.ibegu.dalao.req.AdminSponsorResetPasswordReq;
-import com.ibegu.dalao.resp.AdminSponsorQueryResp;
-import com.ibegu.dalao.resp.AdminViewBannedAccountResp;
-import com.ibegu.dalao.resp.CommonResp;
-import com.ibegu.dalao.resp.PageResp;
+import com.ibegu.dalao.resp.*;
 import com.ibegu.dalao.service.AdminService;
+import com.ibegu.dalao.service.ContestService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -27,6 +26,9 @@ public class AdminController {
     @Resource
     AdminService adminService;
 
+    @Resource
+    ContestService contestService;
+
 
 
     // @GetMapping("/listSponsor")
@@ -45,6 +47,16 @@ public class AdminController {
 
         CommonResp<PageResp<AdminSponsorQueryResp>> resp = new CommonResp<>();
         PageResp<AdminSponsorQueryResp> list = adminService.listSponsor(req);
+        resp.setContent(list);
+        return resp;
+
+    }
+
+    @GetMapping("/listContest")
+    public CommonResp listContest(@Valid AdminContestQueryReq req){
+
+        CommonResp<PageResp<AdminContestQueryResp>> resp = new CommonResp<>();
+        PageResp<AdminContestQueryResp> list = adminService.listContest(req);
         resp.setContent(list);
         return resp;
 

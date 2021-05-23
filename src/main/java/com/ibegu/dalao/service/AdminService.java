@@ -5,10 +5,13 @@ import com.github.pagehelper.PageInfo;
 import com.ibegu.dalao.domain.*;
 import com.ibegu.dalao.mapper.AdminMapper;
 import com.ibegu.dalao.mapper.BanAccountMapper;
+import com.ibegu.dalao.mapper.ContestMapper;
 import com.ibegu.dalao.mapper.SponsorMapper;
 import com.ibegu.dalao.req.AdminBanAccountReq;
+import com.ibegu.dalao.req.AdminContestQueryReq;
 import com.ibegu.dalao.req.AdminSponsorQueryReq;
 import com.ibegu.dalao.req.AdminSponsorResetPasswordReq;
+import com.ibegu.dalao.resp.AdminContestQueryResp;
 import com.ibegu.dalao.resp.AdminSponsorQueryResp;
 import com.ibegu.dalao.resp.AdminViewBannedAccountResp;
 import com.ibegu.dalao.resp.PageResp;
@@ -44,6 +47,8 @@ public class AdminService {
     private SponsorMapper sponsorMapper;
     @Resource
     private BanAccountMapper banAccountMapper;
+    @Resource
+    private ContestMapper contestMapper;
 
     @Resource
     private SnowFlake snowFlake;
@@ -178,5 +183,62 @@ public class AdminService {
 
         return content;
         // return null;
+    }
+
+    public PageResp<AdminContestQueryResp> listContest(AdminContestQueryReq req) {
+
+        //创建查询条件 从数据库中返回
+        ContestExample contestExample = new ContestExample();
+        ContestExample.Criteria criteria = contestExample.createCriteria();
+        //动态条件查询
+        if (!ObjectUtils.isEmpty(req.getContestName())) {
+            criteria.andContestNameLike("%" + req.getContestName() + "%");
+        }
+        if (!ObjectUtils.isEmpty(req.getRegistrationStartTime())) {
+            criteria.andRegistrationStartTimeGreaterThanOrEqualTo(req.getRegistrationStartTime());
+        }
+        if (!ObjectUtils.isEmpty(req.getRegistrationEndTime())) {
+            criteria.andRegistrationEndTimeLessThanOrEqualTo(req.getRegistrationEndTime());
+        }
+
+        if (!ObjectUtils.isEmpty(req.getType())) {
+            criteria.andTypeEqualTo(req.getType());
+        }
+
+        if (!ObjectUtils.isEmpty(req.getCategory())) {
+            criteria.andCategoryEqualTo(req.getCategory());
+        }
+
+        if (!ObjectUtils.isEmpty(req.getRank())) {
+            criteria.andRankEqualTo(req.getRank());
+        }
+        if (!ObjectUtils.isEmpty(req.getContestStatus())) {
+            criteria.andContestStatusEqualTo(req.getContestStatus());
+        }
+
+
+
+        //只对遇到的第一句sql起作用 最好放在一起
+        //查第几页 多少条
+        PageHelper.startPage(req.getPage(), req.getSize());
+
+        List<Contest> contestList = contestMapper.selectByExample(contestExample);
+
+        PageInfo<Contest> pageInfo = new PageInfo<>(contestList);
+        LOG.info("总行数：{}", pageInfo.getTotal());
+        LOG.info("总页数：{}", pageInfo.getPages());
+
+        //法二：列表复制
+        List<AdminContestQueryResp> adminRespList = CopyUtil.copyList(contestList, AdminContestQueryResp.class);
+
+        //往这里面添加参数再返回即可
+        PageResp<AdminContestQueryResp> pageResp = new PageResp<>();
+        pageResp.setTotal(pageInfo.getTotal());
+        pageResp.setList(adminRespList);
+
+
+        return pageResp;
+
+
     }
 }

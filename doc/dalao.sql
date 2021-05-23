@@ -233,3 +233,31 @@ INSERT INTO contest
 VALUES
 (4, '2021年高教社杯全国大学生数学建模竞赛', 3, '为了培养学生的创新意识及运用数学方法和计算机技术解决实际问题的能力，中国工业与应用数学学会全国大学生数学建模竞赛组委会决定举办2021高教社杯全国大学生数学建模竞赛（以下简称竞赛），欢迎各高等院校按照竞赛章程、参赛规则及有关规定组织同学报名参赛。\r\n\r\n为了培养学生的创新意识及运用数学方法和计算机技术解决实际问题的能力，中国工业与应用数学学会全国大学生数学建模竞赛组委会决定举办2021高教社杯全国大学生数学建模竞赛（以下简称竞赛），欢迎各高等院校按照竞赛章程、参赛规则及有关规定组织同学报名参赛。\r\n\r\n为了培养学生的创新意识及运用数学方法和计算机技术解决实际问题的能力，中国工业与应用数学学会全国大学生数学建模竞赛组委会决定举办2021高教社杯全国大学生数学建模竞赛（以下简称竞赛），欢迎各高等院校按照竞赛章程、参赛规则及有关规定组织同学报名参赛。\r\n\r\n为了培养学生的创新意识及运用数学方法和计算机技术解决实际问题的能力，中国工业与应用数学学会全国大学生数学建模竞赛组委会决定举办2021高教社杯全国大学生数学建模竞赛（以下简称竞赛），欢迎各高等院校按照竞赛章程、参赛规则及有关规定组织同学报名参赛。\r\n\r\n', '2021/6/1 00:00:00', '2021/6/30 00:00:00', '2021/6/5 00:00:00', '2021/6/27 00:00:00', 66, '个人赛', '数学', 120, '省级', '全四川省', 1);
 
+
+INSERT INTO `dalao`.`sponsor`(`sid`, `avatar`, `name`, `address`, `tel_num`, `email`, `password`, `intro`, `identity_status`, `join_date`, `account_status`) VALUES (1, '/image/sponsor-avatar/ia_100000030.png', 'test1', 'test1', '19981481120', '2971529737@qq.com', '123qwe', '比赛主办方测试账号1 四川省畜牧兽医学会的前身，是四川省自然科学学会畜牧兽医专业组，1958年11月自然科学学会和科普协会合并成立四川省科学技术协会之后，畜牧兽医专业组在杨兴业、丘祥聘、王正杓、曹振华等几位老专家的倡议下组建而成。经过两年的筹备工作，四川省畜牧兽医学会于1960年底宣告正式成立，召开了第一次会员代表大会，选出了省农牧厅副厅长张敏为第一届理事会理事长。', '未认证', '2021-05-19 20:10:09', 1);
+INSERT INTO `dalao`.`sponsor`(`sid`, `avatar`, `name`, `address`, `tel_num`, `email`, `password`, `intro`, `identity_status`, `join_date`, `account_status`) VALUES (2, '/image/sponsor-avatar/avatar2.jpg', 'test2', 'test2', '19981481120', '2971529737@qq.com', '123yur', '比赛主办方测试账号2 四川省畜牧兽医学会的前身，是四川省自然科学学会畜牧兽医专业组，1958年11月自然科学学会和科普协会合并成立四川省科学技术协会之后，畜牧兽医专业组在杨兴业、丘祥聘、王正杓、曹振华等几位老专家的倡议下组建而成。经过两年的筹备工作，四川省畜牧兽医学会于1960年底宣告正式成立，召开了第一次会员代表大会，选出了省农牧厅副厅长张敏为第一届理事会理事长。', '审核中', '2021-05-19 20:11:09', 1);
+INSERT INTO `dalao`.`sponsor`(`sid`, `avatar`, `name`, `address`, `tel_num`, `email`, `password`, `intro`, `identity_status`, `join_date`, `account_status`) VALUES (3, '/image/sponsor-avatar/avatar3.jpg', 'test3', 'test3', '19981481120', '2971529737@qq.com', '111111', '比赛主办方测试账号3 四川省畜牧兽医学会的前身，是四川省自然科学学会畜牧兽医专业组，1958年11月自然科学学会和科普协会合并成立四川省科学技术协会之后，畜牧兽医专业组在杨兴业、丘祥聘、王正杓、曹振华等几位老专家的倡议下组建而成。经过两年的筹备工作，四川省畜牧兽医学会于1960年底宣告正式成立，召开了第一次会员代表大会，选出了省农牧厅副厅长张敏为第一届理事会理事长。', '未认证', '2021-05-19 20:11:09', 1);
+INSERT INTO `dalao`.`sponsor`(`sid`, `avatar`, `name`, `address`, `tel_num`, `email`, `password`, `intro`, `identity_status`, `join_date`, `account_status`) VALUES (4, '/image/sponsor-avatar/avatar4.jpg', 'test4', 'test4', '19981481120', '2971529737@qq.com', '321321', '比赛主办方测试账号4 四川省畜牧兽医学会的前身，是四川省自然科学学会畜牧兽医专业组，1958年11月自然科学学会和科普协会合并成立四川省科学技术协会之后，畜牧兽医专业组在杨兴业、丘祥聘、王正杓、曹振华等几位老专家的倡议下组建而成。经过两年的筹备工作，四川省畜牧兽医学会于1960年底宣告正式成立，召开了第一次会员代表大会，选出了省农牧厅副厅长张敏为第一届理事会理事长。 ', '已认证', '2021-05-19 20:12:09', 0);
+INSERT INTO `dalao`.`sponsor`(`sid`, `avatar`, `name`, `address`, `tel_num`, `email`, `password`, `intro`, `identity_status`, `join_date`, `account_status`) VALUES (5, '/image/sponsor-avatar/avatar5.jpg', 'test5', 'test5', '19981481120', '2971529737@qq.com', '123123', '比赛主办方测试账号5 四川省畜牧兽医学会的前身，是四川省自然科学学会畜牧兽医专业组，1958年11月自然科学学会和科普协会合并成立四川省科学技术协会之后，畜牧兽医专业组在杨兴业、丘祥聘、王正杓、曹振华等几位老专家的倡议下组建而成。经过两年的筹备工作，四川省畜牧兽医学会于1960年底宣告正式成立，召开了第一次会员代表大会，选出了省农牧厅副厅长张敏为第一届理事会理事长。', '未认证', '2021-05-19 20:13:09', 0);
+INSERT INTO `dalao`.`sponsor`(`sid`, `avatar`, `name`, `address`, `tel_num`, `email`, `password`, `intro`, `identity_status`, `join_date`, `account_status`) VALUES (6, '/image/sponsor-avatar/avatar6.jpg', 'test6', 'test6', '19981481120', '2971529737@qq.com', '123456', '比赛主办方测试账号6 四川省畜牧兽医学会的前身，是四川省自然科学学会畜牧兽医专业组，1958年11月自然科学学会和科普协会合并成立四川省科学技术协会之后，畜牧兽医专业组在杨兴业、丘祥聘、王正杓、曹振华等几位老专家的倡议下组建而成。经过两年的筹备工作，四川省畜牧兽医学会于1960年底宣告正式成立，召开了第一次会员代表大会，选出了省农牧厅副厅长张敏为第一届理事会理事长。', '已认证', '2021-05-19 20:14:09', 0);
+INSERT INTO `dalao`.`sponsor`(`sid`, `avatar`, `name`, `address`, `tel_num`, `email`, `password`, `intro`, `identity_status`, `join_date`, `account_status`) VALUES (7, '/image/sponsor-avatar/avatar.jpg', 'test7', 'test7', '19981481120', '2971529737@qq.com', '123123', '比赛主办方测试账号7 四川省畜牧兽医学会的前身，是四川省自然科学学会畜牧兽医专业组，1958年11月自然科学学会和科普协会合并成立四川省科学技术协会之后，畜牧兽医专业组在杨兴业、丘祥聘、王正杓、曹振华等几位老专家的倡议下组建而成。经过两年的筹备工作，四川省畜牧兽医学会于1960年底宣告正式成立，召开了第一次会员代表大会，选出了省农牧厅副厅长张敏为第一届理事会理事长。', '审核中', '2021-05-19 20:15:09', 0);
+
+
+
+INSERT INTO `dalao`.`ban_account`(`bid`, `reason`, `bannedTime`, `interval`, `uid`, `note`, `releaseTime`, `user_type`, `ban_type`) VALUES (51363431575588864, '侮辱或攻击他人的宗教、种族或性取向', '2021-05-23 01:39:56', NULL, 3, '规范化发过后好好 ', '2021-05-30 01:39:39', 1, '[1, 4, 2, 5]');
+INSERT INTO `dalao`.`ban_account`(`bid`, `reason`, `bannedTime`, `interval`, `uid`, `note`, `releaseTime`, `user_type`, `ban_type`) VALUES (51363431575588865, '侮辱或攻击他人的宗教、种族或性取向', '2021-05-24 01:39:56', NULL, 3, '规范化发过后好好 ', '2021-05-30 01:39:39', 1, '[1, 4, 2]');
+INSERT INTO `dalao`.`ban_account`(`bid`, `reason`, `bannedTime`, `interval`, `uid`, `note`, `releaseTime`, `user_type`, `ban_type`) VALUES (51363431575588866, '侮辱或攻击他人的宗教、种族或性取向', '2021-05-25 01:39:56', NULL, 3, '规范化发过后好好 ', '2021-05-30 01:39:39', 1, '[1, 4]');
+INSERT INTO `dalao`.`ban_account`(`bid`, `reason`, `bannedTime`, `interval`, `uid`, `note`, `releaseTime`, `user_type`, `ban_type`) VALUES (51363431575588867, '侮辱或攻击他人的宗教、种族或性取向', '2021-05-26 01:39:56', NULL, 3, '规范化发过后好好 ', '2021-05-30 01:39:39', 1, '[1]');
+INSERT INTO `dalao`.`ban_account`(`bid`, `reason`, `bannedTime`, `interval`, `uid`, `note`, `releaseTime`, `user_type`, `ban_type`) VALUES (51570147961475072, '侮辱或攻击他人的宗教、种族或性取向', '2021-05-23 15:21:21', NULL, 1, 'yjthjjjghjhj', '2021-05-28 15:21:12', 1, '[1, 4, 2, 5]');
+
+
+
+
+
+
+
+
+
+
+
+
