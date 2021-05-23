@@ -200,3 +200,64 @@ ALTER TABLE `dalao`.`adminkey`
 
 ALTER TABLE `dalao`.`participant`
     MODIFY COLUMN `avatar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '头像地址' AFTER `password`;
+
+CREATE TABLE `dalao`.`ban_account`  (
+                                     `bid` bigint(0) NOT NULL COMMENT '数据id',
+                                     `reason` varchar(255) NULL COMMENT '封禁原因',
+                                     `bannedTime` datetime(0) NULL COMMENT '封禁时间',
+                                     `interval` varchar(255) NULL,
+                                     `uid` bigint(0) NOT NULL COMMENT '被封禁用户id',
+                                     `note` varchar(255) NULL COMMENT '备注',
+                                     `releaseTime` datetime(0) NULL COMMENT '解封时间',
+                                     PRIMARY KEY (`bid`)
+);
+
+
+INSERT INTO contest
+(`cid`, `contest_name`, `sponsor_id`, `contest_intro`, `registration_start_time`, `registration_end_time`, `compete_start_time`, `compete_end_time`, `page_view`, `type`, `category`, `entry_fee`, `rank`, `audience`, `contest_status`)
+VALUES
+(1, '2021年全国大学生数据统计与分析竞赛', 1, '在大数据时代背景下，统计学作为大数据分析领域的基础显得尤为重要。为了帮助学生更好的学习和应用数据统计与分析的知识，促进统计、计算机、数学等相关专业的发展，培养具有数据分析与应用型人才，提升高校毕业生的就业竞争力，经研究决定，河北省现场统计学会、四川省现场统计学会等联合发起“全国大学生数据统计与分析竞赛”（以下简称“竞赛”），为我国数据统计与分析行业提供人才支持，夯实人才队伍基础。', '2021/4/12 00:00:00', '2021/5/21 00:00:00', '2021/5/27 00:00:00', '2021/5/30 00:00:00', 10, '组队赛', '\r\n\r\n    数学 计算机&信息技术\r\n\r\n数学 计算机&信息技术', 150, ' 全国性', '全国', 0);
+
+INSERT INTO contest
+(`cid`, `contest_name`, `sponsor_id`, `contest_intro`, `registration_start_time`, `registration_end_time`, `compete_start_time`, `compete_end_time`, `page_view`, `type`, `category`, `entry_fee`, `rank`, `audience`, `contest_status`)
+VALUES
+(2, '2021年全国大学生技术竞赛', 2, '为贯彻习总书记在十九大报告中关于“推动互联网、大数据、人工智能和实体经济深度融合”以及“善于运用互联网技术和信息化手段开展工作”等讲话精神，引导高校在校生学习掌握计算机与互联网知识，提高计算机的技能应用能力，全国大学生计算机技能应用大赛将于2021年3月至7月举办，通过参赛激发学生学习计算机知识、技术的兴趣和潜能，提升运用信息技术解决实际问题的综合实践能力、创新创业能力和团队合作精神，并促进学校进一步深化改革，提高电子、信息、通信等相关学科的教育质量。\r\n本次大赛是推动计算机教育实践平台建设的具体举措之一，目的是提高大学生综合素质，具体落实、进一步推动高校本科面向 21 世纪的计算机教学的知识体系、课程体系、教学内容和教学方法的改革，引导学生踊跃参加课外科技活动，为培养德智体美全面发展、具备运用信息技术解决实际问题的综合实践能力、创新创业能力以及团队合作意识的人才服务。\r\n为贯彻习总书记在十九大报告中关于“推动互联网、大数据、人工智能和实体经济深度融合”以及“善于运用互联网技术和信息化手段开展工作”等讲话精神，引导高校在校生学习掌握计算机与互联网知识，提高计算机的技能应用能力，全国大学生计算机技能应用大赛将于2021年3月至7月举办，通过参赛激发学生学习计算机知识、技术的兴趣和潜能，提升运用信息技术解决实际问题的综合实践能力、创新创业能力和团队合作精神，并促进学校进一步深化改革，提高电子、信息、通信等相关学科的教育质量。\r\n本次大赛是推动计算机教育实践平台建设的具体举措之一，目的是提高大学生综合素质，具体落实、进一步推动高校本科面向 21 世纪的计算机教学的知识体系、课程体系、教学内容和教学方法的改革，引导学生踊跃参加课外科技活动，为培养德智体美全面发展、具备运用信息技术解决实际问题的综合实践能力、创新创业能力以及团队合作意识的人才服务。\r\n为贯彻习总书记在十九大报告中关于“推动互联网、大数据、人工智能和实体经济深度融合”以及“善于运用互联网技术和信息化手段开展工作”等讲话精神，引导高校在校生学习掌握计算机与互联网知识，提高计算机的技能应用能力，全国大学生计算机技能应用大赛将于2021年3月至7月举办，通过参赛激发学生学习计算机知识、技术的兴趣和潜能，提升运用信息技术解决实际问题的综合实践能力、创新创业能力和团队合作精神，并促进学校进一步深化改革，提高电子、信息、通信等相关学科的教育质量。\r\n本次大赛是推动计算机教育实践平台建设的具体举措之一，目的是提高大学生综合素质，具体落实、进一步推动高校本科面向 21 世纪的计算机教学的知识体系、课程体系、教学内容和教学方法的改革，引导学生踊跃参加课外科技活动，为培养德智体美全面发展、具备运用信息技术解决实际问题的综合实践能力、创新创业能力以及团队合作意识的人才服务。\r\n', '2021/5/20 00:00:00', '2021/5/30 00:00:00', '2021/5/20 00:00:00', '2021/5/22 00:00:00', 30, '个人赛', 'Word、Excel、PPT、C语言、C++、Java', 200, '全国性', '全国', 1);
+
+INSERT INTO contest
+(`cid`, `contest_name`, `sponsor_id`, `contest_intro`, `registration_start_time`, `registration_end_time`, `compete_start_time`, `compete_end_time`, `page_view`, `type`, `category`, `entry_fee`, `rank`, `audience`, `contest_status`)
+VALUES
+(3, '2021年第五届“普译奖”全国大学生翻译比赛', 3, '2021年第五届“普译奖”全国大学生翻译比赛', '2021/5/29 00:00:00', '2021/6/6 00:00:00', '2021/5/30 00:00:00', '2021/6/5 00:00:00', 100, '组队赛', '英语', 300, '全国性', '全国', 0);
+
+INSERT INTO contest
+(`cid`, `contest_name`, `sponsor_id`, `contest_intro`, `registration_start_time`, `registration_end_time`, `compete_start_time`, `compete_end_time`, `page_view`, `type`, `category`, `entry_fee`, `rank`, `audience`, `contest_status`)
+VALUES
+(4, '2021年高教社杯全国大学生数学建模竞赛', 3, '为了培养学生的创新意识及运用数学方法和计算机技术解决实际问题的能力，中国工业与应用数学学会全国大学生数学建模竞赛组委会决定举办2021高教社杯全国大学生数学建模竞赛（以下简称竞赛），欢迎各高等院校按照竞赛章程、参赛规则及有关规定组织同学报名参赛。\r\n\r\n为了培养学生的创新意识及运用数学方法和计算机技术解决实际问题的能力，中国工业与应用数学学会全国大学生数学建模竞赛组委会决定举办2021高教社杯全国大学生数学建模竞赛（以下简称竞赛），欢迎各高等院校按照竞赛章程、参赛规则及有关规定组织同学报名参赛。\r\n\r\n为了培养学生的创新意识及运用数学方法和计算机技术解决实际问题的能力，中国工业与应用数学学会全国大学生数学建模竞赛组委会决定举办2021高教社杯全国大学生数学建模竞赛（以下简称竞赛），欢迎各高等院校按照竞赛章程、参赛规则及有关规定组织同学报名参赛。\r\n\r\n为了培养学生的创新意识及运用数学方法和计算机技术解决实际问题的能力，中国工业与应用数学学会全国大学生数学建模竞赛组委会决定举办2021高教社杯全国大学生数学建模竞赛（以下简称竞赛），欢迎各高等院校按照竞赛章程、参赛规则及有关规定组织同学报名参赛。\r\n\r\n', '2021/6/1 00:00:00', '2021/6/30 00:00:00', '2021/6/5 00:00:00', '2021/6/27 00:00:00', 66, '个人赛', '数学', 120, '省级', '全四川省', 1);
+
+
+INSERT INTO `dalao`.`sponsor`(`sid`, `avatar`, `name`, `address`, `tel_num`, `email`, `password`, `intro`, `identity_status`, `join_date`, `account_status`) VALUES (1, '/image/sponsor-avatar/ia_100000030.png', 'test1', 'test1', '19981481120', '2971529737@qq.com', '123qwe', '比赛主办方测试账号1 四川省畜牧兽医学会的前身，是四川省自然科学学会畜牧兽医专业组，1958年11月自然科学学会和科普协会合并成立四川省科学技术协会之后，畜牧兽医专业组在杨兴业、丘祥聘、王正杓、曹振华等几位老专家的倡议下组建而成。经过两年的筹备工作，四川省畜牧兽医学会于1960年底宣告正式成立，召开了第一次会员代表大会，选出了省农牧厅副厅长张敏为第一届理事会理事长。', '未认证', '2021-05-19 20:10:09', 1);
+INSERT INTO `dalao`.`sponsor`(`sid`, `avatar`, `name`, `address`, `tel_num`, `email`, `password`, `intro`, `identity_status`, `join_date`, `account_status`) VALUES (2, '/image/sponsor-avatar/avatar2.jpg', 'test2', 'test2', '19981481120', '2971529737@qq.com', '123yur', '比赛主办方测试账号2 四川省畜牧兽医学会的前身，是四川省自然科学学会畜牧兽医专业组，1958年11月自然科学学会和科普协会合并成立四川省科学技术协会之后，畜牧兽医专业组在杨兴业、丘祥聘、王正杓、曹振华等几位老专家的倡议下组建而成。经过两年的筹备工作，四川省畜牧兽医学会于1960年底宣告正式成立，召开了第一次会员代表大会，选出了省农牧厅副厅长张敏为第一届理事会理事长。', '审核中', '2021-05-19 20:11:09', 1);
+INSERT INTO `dalao`.`sponsor`(`sid`, `avatar`, `name`, `address`, `tel_num`, `email`, `password`, `intro`, `identity_status`, `join_date`, `account_status`) VALUES (3, '/image/sponsor-avatar/avatar3.jpg', 'test3', 'test3', '19981481120', '2971529737@qq.com', '111111', '比赛主办方测试账号3 四川省畜牧兽医学会的前身，是四川省自然科学学会畜牧兽医专业组，1958年11月自然科学学会和科普协会合并成立四川省科学技术协会之后，畜牧兽医专业组在杨兴业、丘祥聘、王正杓、曹振华等几位老专家的倡议下组建而成。经过两年的筹备工作，四川省畜牧兽医学会于1960年底宣告正式成立，召开了第一次会员代表大会，选出了省农牧厅副厅长张敏为第一届理事会理事长。', '未认证', '2021-05-19 20:11:09', 1);
+INSERT INTO `dalao`.`sponsor`(`sid`, `avatar`, `name`, `address`, `tel_num`, `email`, `password`, `intro`, `identity_status`, `join_date`, `account_status`) VALUES (4, '/image/sponsor-avatar/avatar4.jpg', 'test4', 'test4', '19981481120', '2971529737@qq.com', '321321', '比赛主办方测试账号4 四川省畜牧兽医学会的前身，是四川省自然科学学会畜牧兽医专业组，1958年11月自然科学学会和科普协会合并成立四川省科学技术协会之后，畜牧兽医专业组在杨兴业、丘祥聘、王正杓、曹振华等几位老专家的倡议下组建而成。经过两年的筹备工作，四川省畜牧兽医学会于1960年底宣告正式成立，召开了第一次会员代表大会，选出了省农牧厅副厅长张敏为第一届理事会理事长。 ', '已认证', '2021-05-19 20:12:09', 0);
+INSERT INTO `dalao`.`sponsor`(`sid`, `avatar`, `name`, `address`, `tel_num`, `email`, `password`, `intro`, `identity_status`, `join_date`, `account_status`) VALUES (5, '/image/sponsor-avatar/avatar5.jpg', 'test5', 'test5', '19981481120', '2971529737@qq.com', '123123', '比赛主办方测试账号5 四川省畜牧兽医学会的前身，是四川省自然科学学会畜牧兽医专业组，1958年11月自然科学学会和科普协会合并成立四川省科学技术协会之后，畜牧兽医专业组在杨兴业、丘祥聘、王正杓、曹振华等几位老专家的倡议下组建而成。经过两年的筹备工作，四川省畜牧兽医学会于1960年底宣告正式成立，召开了第一次会员代表大会，选出了省农牧厅副厅长张敏为第一届理事会理事长。', '未认证', '2021-05-19 20:13:09', 0);
+INSERT INTO `dalao`.`sponsor`(`sid`, `avatar`, `name`, `address`, `tel_num`, `email`, `password`, `intro`, `identity_status`, `join_date`, `account_status`) VALUES (6, '/image/sponsor-avatar/avatar6.jpg', 'test6', 'test6', '19981481120', '2971529737@qq.com', '123456', '比赛主办方测试账号6 四川省畜牧兽医学会的前身，是四川省自然科学学会畜牧兽医专业组，1958年11月自然科学学会和科普协会合并成立四川省科学技术协会之后，畜牧兽医专业组在杨兴业、丘祥聘、王正杓、曹振华等几位老专家的倡议下组建而成。经过两年的筹备工作，四川省畜牧兽医学会于1960年底宣告正式成立，召开了第一次会员代表大会，选出了省农牧厅副厅长张敏为第一届理事会理事长。', '已认证', '2021-05-19 20:14:09', 0);
+INSERT INTO `dalao`.`sponsor`(`sid`, `avatar`, `name`, `address`, `tel_num`, `email`, `password`, `intro`, `identity_status`, `join_date`, `account_status`) VALUES (7, '/image/sponsor-avatar/avatar.jpg', 'test7', 'test7', '19981481120', '2971529737@qq.com', '123123', '比赛主办方测试账号7 四川省畜牧兽医学会的前身，是四川省自然科学学会畜牧兽医专业组，1958年11月自然科学学会和科普协会合并成立四川省科学技术协会之后，畜牧兽医专业组在杨兴业、丘祥聘、王正杓、曹振华等几位老专家的倡议下组建而成。经过两年的筹备工作，四川省畜牧兽医学会于1960年底宣告正式成立，召开了第一次会员代表大会，选出了省农牧厅副厅长张敏为第一届理事会理事长。', '审核中', '2021-05-19 20:15:09', 0);
+
+
+
+INSERT INTO `dalao`.`ban_account`(`bid`, `reason`, `bannedTime`, `interval`, `uid`, `note`, `releaseTime`, `user_type`, `ban_type`) VALUES (51363431575588864, '侮辱或攻击他人的宗教、种族或性取向', '2021-05-23 01:39:56', NULL, 3, '规范化发过后好好 ', '2021-05-30 01:39:39', 1, '[1, 4, 2, 5]');
+INSERT INTO `dalao`.`ban_account`(`bid`, `reason`, `bannedTime`, `interval`, `uid`, `note`, `releaseTime`, `user_type`, `ban_type`) VALUES (51363431575588865, '侮辱或攻击他人的宗教、种族或性取向', '2021-05-24 01:39:56', NULL, 3, '规范化发过后好好 ', '2021-05-30 01:39:39', 1, '[1, 4, 2]');
+INSERT INTO `dalao`.`ban_account`(`bid`, `reason`, `bannedTime`, `interval`, `uid`, `note`, `releaseTime`, `user_type`, `ban_type`) VALUES (51363431575588866, '侮辱或攻击他人的宗教、种族或性取向', '2021-05-25 01:39:56', NULL, 3, '规范化发过后好好 ', '2021-05-30 01:39:39', 1, '[1, 4]');
+INSERT INTO `dalao`.`ban_account`(`bid`, `reason`, `bannedTime`, `interval`, `uid`, `note`, `releaseTime`, `user_type`, `ban_type`) VALUES (51363431575588867, '侮辱或攻击他人的宗教、种族或性取向', '2021-05-26 01:39:56', NULL, 3, '规范化发过后好好 ', '2021-05-30 01:39:39', 1, '[1]');
+INSERT INTO `dalao`.`ban_account`(`bid`, `reason`, `bannedTime`, `interval`, `uid`, `note`, `releaseTime`, `user_type`, `ban_type`) VALUES (51570147961475072, '侮辱或攻击他人的宗教、种族或性取向', '2021-05-23 15:21:21', NULL, 1, 'yjthjjjghjhj', '2021-05-28 15:21:12', 1, '[1, 4, 2, 5]');
+
+
+
+
+
+
+
+
+
+
+
+

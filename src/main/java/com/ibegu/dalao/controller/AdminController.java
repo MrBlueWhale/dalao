@@ -1,11 +1,12 @@
 package com.ibegu.dalao.controller;
 
+import com.ibegu.dalao.req.AdminBanAccountReq;
+import com.ibegu.dalao.req.AdminContestQueryReq;
 import com.ibegu.dalao.req.AdminSponsorQueryReq;
 import com.ibegu.dalao.req.AdminSponsorResetPasswordReq;
-import com.ibegu.dalao.resp.AdminSponsorQueryResp;
-import com.ibegu.dalao.resp.CommonResp;
-import com.ibegu.dalao.resp.PageResp;
+import com.ibegu.dalao.resp.*;
 import com.ibegu.dalao.service.AdminService;
+import com.ibegu.dalao.service.ContestService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -25,6 +26,9 @@ public class AdminController {
     @Resource
     AdminService adminService;
 
+    @Resource
+    ContestService contestService;
+
 
 
     // @GetMapping("/listSponsor")
@@ -43,6 +47,16 @@ public class AdminController {
 
         CommonResp<PageResp<AdminSponsorQueryResp>> resp = new CommonResp<>();
         PageResp<AdminSponsorQueryResp> list = adminService.listSponsor(req);
+        resp.setContent(list);
+        return resp;
+
+    }
+
+    @GetMapping("/listContest")
+    public CommonResp listContest(@Valid AdminContestQueryReq req){
+
+        CommonResp<PageResp<AdminContestQueryResp>> resp = new CommonResp<>();
+        PageResp<AdminContestQueryResp> list = adminService.listContest(req);
         resp.setContent(list);
         return resp;
 
@@ -68,6 +82,28 @@ public class AdminController {
         CommonResp resp = new CommonResp<>();
         adminService.resetSponsorPassword(req);
         // resp.setContent(sponsorDetail);
+        return resp;
+
+    }
+
+    @PostMapping("/banAccount")
+    public CommonResp banAccount( @RequestBody AdminBanAccountReq req){
+
+        // LOG.info("请求：{}", req);
+
+        CommonResp resp = new CommonResp<>();
+        adminService.banAccount(req);
+        // resp.setContent(sponsorDetail);
+        return resp;
+
+    }
+
+    @GetMapping("/viewBannedAccount/{sid}")
+    public CommonResp viewBannedAccount(@PathVariable Long sid ){
+
+        CommonResp<AdminViewBannedAccountResp> resp = new CommonResp<>();
+        AdminViewBannedAccountResp content = adminService.viewBannedAccount(sid);
+        resp.setContent(content);
         return resp;
 
     }

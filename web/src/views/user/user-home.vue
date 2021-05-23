@@ -40,115 +40,55 @@
       <a-layout-content
               :style="{ background: '#fff', padding: '24px', margin: 0, minHeight: '280px' }"
       >
-        <div>
-          <a-carousel autoplay arrows draggable style="width: 960px; margin-left: 11%;" >
+
+        <div style="position: center;">
+<!--          <a-carousel autoplay autospeed="3000" arrows draggable variableHeight="true" style="width: 1080px; margin-left: 13%;" >-->
+          <a-carousel autoplay autospeed="3000" arrows draggable variableHeight="true" style="-moz-background-size:100% 100%; background-size:100% 100%;" >
+<!--          <a-carousel autoplay autospeed="3000" arrows draggable  style=" margin-left: 13%;" >-->
 
             <template #prevArrow>
               <div class="custom-slick-arrow" style="left: 10px; zindex: 1">
                 <left-circle-outlined />
               </div>
             </template>
+
             <template #nextArrow>
               <div class="custom-slick-arrow" style="right: 10px">
                 <right-circle-outlined />
               </div>
             </template>
 
-            <div>
-              <img src="/image/contest_2.png" />
-            </div>
-            <div>
-              <img src="/image/contest-poster/ia_100000011.jpg" />
-            </div>
-            <div>
-              <img src="/image/contest-poster/ia_100000052.png" />
-            </div>
-            <div>
-              <img src="/image/contest-poster/ia_100000054.png" />
-            </div>
+            <div><img class="slide-img" src="/image/contest-poster/ia_100000001.png"/></div>
+            <div><img class="slide-img" src="/image/contest-poster/ia_100000002.png"/></div>
+            <div><img src="/image/contest-poster/ia_100000003.png"/></div>
+            <div><img src="/image/contest-poster/ia_100000004.jpg"/></div>
+            <div><img src="/image/contest-poster/ia_100000005.png"/></div>
+            <div><img src="/image/contest-poster/ia_100000006.png"/></div>
+            <div><img src="/image/contest-poster/ia_100000007.png"/></div>
+            <div><img src="/image/contest-poster/ia_100000008.png"/></div>
+            <div><img class="slide-img" src="/image/contest-poster/ia_100000011.jpg"/></div>
+<!--            <div><img src="/image/contest-poster/ia_100000019.png"/></div>-->
+<!--            <div><img src="/image/contest-poster/ia_100000020.png"/></div>-->
+<!--            <div><img src="/image/contest-poster/ia_100000021.png"/></div>-->
+<!--            <div><img src="/image/contest-poster/ia_100000022.png"/></div>-->
+<!--            <div><img src="/image/contest-poster/ia_100000023.png"/></div>-->
+<!--            <div><img src="/image/contest-poster/ia_100000024.png"/></div>-->
+<!--            <div><img src="/image/contest-poster/ia_100000025.png"/></div>-->
+<!--            <div><img src="/image/contest-poster/ia_100000026.png"/></div>-->
+<!--            <div><img src="/image/contest-poster/ia_100000052.png"/></div>-->
+<!--            <div><img src="/image/contest-poster/ia_100000053.png"/></div>-->
+<!--            <div><img src="/image/contest-poster/ia_100000054.png"/></div>-->
+<!--            <div><img src="/image/contest-poster/ia_100000055.png"/></div>-->
+
           </a-carousel>
         </div>
 
+
+
         <br><br>
-        <div class="components-page-header-demo-content">
-          <a-list item-layout="vertical" size="large" :pagination="pagination" :data-source="contests">
-          <template #renderItem="{ item }">
-          <a-page-header
-                  :title="item.contestName"
-                  class="site-page-header"
-                  sub-title="This is a subtitle"
-                  :avatar="{ src: 'https://avatars1.githubusercontent.com/u/8186664?s=460&v=4' }"
-
-          >
-            <!--<template v-slot:action="{ text, record }">-->
-            <template v-slot:tags>
-              <a-tag color="blue">正在报名...</a-tag>
-            </template>
-            <template v-slot:extra>
-              <a-button key="3">Operation</a-button>
-              <a-button key="2" @click="viewDetail(item)">竞赛详情</a-button>
-              <a-button key="1" type="primary">加入意向比赛</a-button>
-              <a-dropdown key="more">
-                <a-button :style="{ border: 'none', padding: 0 }">
-                  <EllipsisOutlined :style="{ fontSize: '20px', verticalAlign: 'top' }" />
-                </a-button>
-                <template v-slot:overlay>
-                  <a-menu>
-                    <a-menu-item>
-                      <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
-                        1st menu item
-                      </a>
-                    </a-menu-item>
-                    <a-menu-item>
-                      <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
-                        2nd menu item
-                      </a>
-                    </a-menu-item>
-                    <a-menu-item>
-                      <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
-                        3rd menu item
-                      </a>
-                    </a-menu-item>
-                  </a-menu>
-                </template>
-              </a-dropdown>
-            </template>
-            <a-row class="content">
-              <div style="flex: 1">
-                <p>
-                  {{item.contestIntro}}
-                </p>
-                <p>
-                  经研究决定&#x27;，河北省现场统计学会、四川省现场统计学会等联合发起“全国大学生数据统计与分析竞赛”（以下简称“竞赛”），
-                  为我国数据统计与分析行业提供人才支持，夯实人才队伍基础。
-                </p>
-                <div>
-                  <template v-for="item in iconLinks" :key="item.src">
-                    <a class="example-link">
-                      <img class="example-link-icon" :src="item.src" :alt="item.text" />
-                      {{item.text }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    </a>
-                  </template>
-                </div>
-              </div>
-              <div class="image">
-                <img
-                        src="https://gw.alipayobjects.com/zos/antfincdn/K%24NnlsB%26hz/pageHeader.svg"
-                        alt="content"
-                        style="width: 100%"
-                />
-              </div>
-            </a-row>
-          </a-page-header>
-          </template>
-          </a-list>
-        </div>
 
 
-
-
-
-        <a-list item-layout="vertical" size="large" :pagination="pagination" :data-source="contests">
+        <a-list item-layout="vertical" size="large" :pagination="pagination" :grid="{ gutter: 20, column: 3 }" :data-source="listData">
           <template #footer>
             <div>
               <b>ant design vue</b>
@@ -156,12 +96,12 @@
             </div>
           </template>
           <template #renderItem="{ item }">
-            <a-list-item key="item.contestName">
+            <a-list-item key="item.title">
               <template #actions>
-          <!--<span v-for="{ type, text } in actions" :key="type">-->
-            <!--<component v-bind:is="type" style="margin-right: 8px" />-->
-            <!--{{ text }}-->
-          <!--</span>-->
+          <span v-for="{ type, text } in actions" :key="type">
+            <component v-bind:is="type" style="margin-right: 8px" />
+            {{ text }}
+          </span>
               </template>
               <template #extra>
                 <img
@@ -170,48 +110,16 @@
                         src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
                 />
               </template>
-              <a-list-item-meta :description="item.category">
+              <a-list-item-meta :description="item.description">
                 <template #title>
-                  <a :href="item.href">{{ item.contestName }}</a>
+                  <a :href="item.href">{{ item.title }}</a>
                 </template>
                 <template #avatar><a-avatar :src="item.avatar" /></template>
               </a-list-item-meta>
-              {{ item.contestName }}
+              {{ item.content }}
             </a-list-item>
           </template>
         </a-list>
-        <!--<a-list item-layout="vertical" size="large" :pagination="pagination" :grid="{ gutter: 20, column: 3 }" :data-source="listData">-->
-          <!--<template #footer>-->
-            <!--<div>-->
-              <!--<b>ant design vue</b>-->
-              <!--footer part-->
-            <!--</div>-->
-          <!--</template>-->
-          <!--<template #renderItem="{ item }">-->
-            <!--<a-list-item key="item.title">-->
-              <!--<template #actions>-->
-          <!--<span v-for="{ type, text } in actions" :key="type">-->
-            <!--<component v-bind:is="type" style="margin-right: 8px" />-->
-            <!--{{ text }}-->
-          <!--</span>-->
-              <!--</template>-->
-              <!--<template #extra>-->
-                <!--<img-->
-                        <!--width="272"-->
-                        <!--alt="logo"-->
-                        <!--src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"-->
-                <!--/>-->
-              <!--</template>-->
-              <!--<a-list-item-meta :description="item.description">-->
-                <!--<template #title>-->
-                  <!--<a :href="item.href">{{ item.title }}</a>-->
-                <!--</template>-->
-                <!--<template #avatar><a-avatar :src="item.avatar" /></template>-->
-              <!--</a-list-item-meta>-->
-              <!--{{ item.content }}-->
-            <!--</a-list-item>-->
-          <!--</template>-->
-        <!--</a-list>-->
 
 
 
@@ -262,6 +170,9 @@
 import {defineComponent, onMounted, ref, reactive, toRef} from 'vue'
 
 import { LeftCircleOutlined, RightCircleOutlined } from '@ant-design/icons-vue';
+
+
+
 
 import axios from 'axios';
 

@@ -95,6 +95,7 @@
         // 如果不清空现有数据，则编辑保存重新加载数据后，再点编辑，则列表显示的还是编辑前的数据
         axios.get("/contest/list", {
           params:{
+            pid: params.pid,
             page: params.page,
             size: params.size
           }
@@ -115,6 +116,7 @@
       const handleTableChange = (pagination: any) => {
         console.log("看看自带的分页参数都有啥：" + pagination);
         handleQuery({
+          pid: pagination.pid,
           page: pagination.current,
           size: pagination.pageSize
         });
@@ -141,6 +143,7 @@
         handleQuery({
           //真正传递到后端的page和size的名字，需要与后端中pageReq中的参数值保持一致，才能完成映射
           page: 1,
+          pid: 1,
           size: pagination.value.pageSize
         });
       });

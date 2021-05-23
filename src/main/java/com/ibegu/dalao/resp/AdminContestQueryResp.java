@@ -1,15 +1,13 @@
-package com.ibegu.dalao.domain;
+package com.ibegu.dalao.resp;
 
 import java.util.Date;
 
-public class Contest {
+public class AdminContestQueryResp {
     private Long cid;
 
     private String contestName;
 
     private Long sponsorId;
-
-    private String contestIntro;
 
     private Date registrationStartTime;
 
@@ -33,6 +31,8 @@ public class Contest {
 
     private Integer contestStatus;
 
+    private String contestIntro;
+
     public Long getCid() {
         return cid;
     }
@@ -55,14 +55,6 @@ public class Contest {
 
     public void setSponsorId(Long sponsorId) {
         this.sponsorId = sponsorId;
-    }
-
-    public String getContestIntro() {
-        return contestIntro;
-    }
-
-    public void setContestIntro(String contestIntro) {
-        this.contestIntro = contestIntro;
     }
 
     public Date getRegistrationStartTime() {
@@ -153,6 +145,14 @@ public class Contest {
         this.contestStatus = contestStatus;
     }
 
+    public String getContestIntro() {
+        return contestIntro;
+    }
+
+    public void setContestIntro(String contestIntro) {
+        this.contestIntro = contestIntro;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -162,7 +162,6 @@ public class Contest {
         sb.append(", cid=").append(cid);
         sb.append(", contestName=").append(contestName);
         sb.append(", sponsorId=").append(sponsorId);
-        sb.append(", contestIntro=").append(contestIntro);
         sb.append(", registrationStartTime=").append(registrationStartTime);
         sb.append(", registrationEndTime=").append(registrationEndTime);
         sb.append(", competeStartTime=").append(competeStartTime);
@@ -174,6 +173,7 @@ public class Contest {
         sb.append(", rank=").append(rank);
         sb.append(", audience=").append(audience);
         sb.append(", contestStatus=").append(contestStatus);
+        sb.append(", contestIntro=").append(contestIntro);
         sb.append("]");
         return sb.toString();
     }

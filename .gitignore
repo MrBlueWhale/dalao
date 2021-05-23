@@ -19,6 +19,7 @@ target/
 *.iws
 *.iml
 *.ipr
+.idea/encodings.xml
 
 ### NetBeans ###
 /nbproject/private/
@@ -34,3 +35,4 @@ build/
 .vscode/
 src/main/resources/static/
 src/main/resources/templates/
+/.idea/

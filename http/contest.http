@@ -4,9 +4,12 @@
 ###
 GET http://localhost:8002/contest/list?cid=1
 ###
-GET http://localhost:8002/contest/list?page=2&size=3
+GET http://localhost:8002/contest/list?pid=1
 
 ###
-GET http://localhost:8002/contest/detail/1
+GET http://localhost:8002/contest/detail?cid=1
 ###
 
+###
+GET http://localhost:8002/contest/contestList?pid=1
+###

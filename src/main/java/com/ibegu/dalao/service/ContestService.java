@@ -8,6 +8,7 @@ import com.ibegu.dalao.domain.ContestExample;
 import com.ibegu.dalao.mapper.ContestMapper;
 import com.ibegu.dalao.req.ContestReq;
 import com.ibegu.dalao.req.PageReq;
+import com.ibegu.dalao.req.ParTeamCtsReq;
 import com.ibegu.dalao.resp.ContestResp;
 import com.ibegu.dalao.resp.PageResp;
 import com.ibegu.dalao.utils.CopyUtil;
@@ -32,16 +33,17 @@ public class ContestService {
     @Resource
     private ContestMapper contestMapper;
 
-    public PageResp<ContestResp> list(ContestReq req) {
+    public PageResp<ContestResp> list(ParTeamCtsReq req) {
 
-        ContestExample contestExample = new ContestExample();
-        ContestExample.Criteria criteria = contestExample.createCriteria();
-        if(!ObjectUtils.isEmpty(req.getContestName())){
-            criteria.andContestNameLike("%"+req.getContestName()+"%");
-        }
+//        ContestExample contestExample = new ContestExample();
+//        ContestExample.Criteria criteria = contestExample.createCriteria();
+//        if(!ObjectUtils.isEmpty(req.getContestName())){
+//            criteria.andContestNameLike("%"+req.getContestName()+"%");
+//        }
         //进行分页，通过前端获得的数据来确定请求的每页行数和第几页
         PageHelper.startPage(req.getPage(),req.getSize());
-        List<Contest> contestList = contestMapper.selectByExample(contestExample);
+        //List<Contest> contestList = contestMapper.selectByExample(contestExample);
+        List<Contest> contestList = contestMapper.selectPtcContestList(req.getPid());
         //打印总行数和总页数
         PageInfo<Contest> pageInfo = new PageInfo<>(contestList);
         LOG.info("总行数：{}", pageInfo.getTotal());
@@ -77,5 +79,13 @@ public class ContestService {
        ContestResp contestResp = CopyUtil.copy(contest, ContestResp.class);
 
         return contestResp;
+    }
+
+    public List<ContestResp> getContestList(ParTeamCtsReq req) {
+        List<Contest> contestList = contestMapper.selectPtcContestList(req.getPid());
+        List<ContestResp> list = CopyUtil.copyList(contestList, ContestResp.class);
+
+        return list;
+
     }
 }
