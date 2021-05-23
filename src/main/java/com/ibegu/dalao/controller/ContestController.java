@@ -1,6 +1,7 @@
 package com.ibegu.dalao.controller;
 
 import com.ibegu.dalao.req.ContestReq;
+import com.ibegu.dalao.req.ParTeamCtsReq;
 import com.ibegu.dalao.resp.CommonResp;
 import com.ibegu.dalao.resp.ContestResp;
 import com.ibegu.dalao.resp.PageResp;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 
 @RestController    //用来返回字符串（controll+responsebody）
@@ -21,7 +23,7 @@ public class ContestController {
 
 
     @GetMapping("/list")
-    public CommonResp list(ContestReq req){
+    public CommonResp list(ParTeamCtsReq req){
         CommonResp<PageResp<ContestResp>> resp = new CommonResp<>();
         PageResp<ContestResp> list = contestService.list(req);
         resp.setContent(list);
@@ -38,5 +40,14 @@ public class ContestController {
 
         return resp;
 
+    }
+
+    @GetMapping("/contestList")
+    public CommonResp getContestList(ParTeamCtsReq req){
+        CommonResp<List<ContestResp>> resp= new CommonResp<>();
+        List<ContestResp> list = contestService.getContestList(req);
+        resp.setContent(list);
+
+        return  resp;
     }
 }
