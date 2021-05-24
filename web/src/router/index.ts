@@ -16,6 +16,7 @@ import UserSafety from '../views/user/user-safety.vue'
 import UserAbout from '../views/user/user-about.vue'
 import UserDetails from '../views/user/user-details.vue'
 import AdminContest from '../views/admin/admin-contest.vue'
+import AdminContestDetail from '../views/admin/admin-contest-detail.vue'
 import AdminDiscussion from '../views/admin/admin-discussion.vue'
 import AdminNotification from '../views/admin/admin-notification.vue'
 import AdminParticipant from '../views/admin/admin-participant.vue'
@@ -52,7 +53,11 @@ const routes: Array<RouteRecordRaw> = [
         path: 'contest',
         name: 'AdminContest',
         component: AdminContest
-      },  {
+      },{
+        path: 'contest-detail',
+        name: 'AdminContestDetail',
+        component: AdminContestDetail
+      }, {
         path: 'discussion',
         name: 'AdminDiscussion',
         component: AdminDiscussion

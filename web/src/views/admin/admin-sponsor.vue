@@ -139,7 +139,7 @@
               <a-space size="small">
                 <router-link :to="'/admin/contest?sponsorId=' + record.sid">
                   <a-button type="primary">
-                    竞赛管理
+                    查看竞赛
                   </a-button>
                 </router-link>
 
