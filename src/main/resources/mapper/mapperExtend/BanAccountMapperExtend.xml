@@ -8,8 +8,20 @@
 <!--        select max(bannedtime) from `ban_account`-->
 
         select bid, reason, bannedTime, `interval`, `uid`, note, releaseTime, user_type, ban_type from ban_account WHERE ( `uid` = #{sid} )
-        ORDER BY `bannedTime`DESC
+        ORDER BY `bannedTime` DESC, `bid` DESC
         limit 1;
+
+    </select>
+
+    <select id="findByUid" resultType="com.ibegu.dalao.domain.BanAccount">
+
+<!--        select max(bannedtime) from `ban_account`-->
+
+        select bid, reason, bannedTime, `interval`, `uid`, note, releaseTime, user_type, ban_type from ban_account WHERE ( `uid` = #{uid} )
+        ORDER BY `bannedTime` DESC,`bid` DESC
+        limit 1;
+
+
 
     </select>
 

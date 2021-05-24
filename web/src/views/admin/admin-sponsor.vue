@@ -422,7 +422,7 @@
         <!--      <a-form-item ref="name" label="Activity name" name="name">-->
         <!--        <a-input v-model:value="formState.name" />-->
         <!--      </a-form-item>-->
-        <a-form-item label="更新解禁时间" required name="releasetime">
+        <a-form-item label="更新解禁时间" >
           <a-date-picker
               v-model:value="releaseAccount.releasetime"
               show-time
@@ -435,18 +435,7 @@
           <a-switch v-model:checked="releaseAccount.delivery"/>
         </a-form-item>
         <a-form-item label="选择解禁已限制的功能" name="banType">
-          <!--          <a-checkbox-group v-model:value="releaseAccount.banType">-->
-          <!--          <a-checkbox-group v-model:value="banAccount.banType">-->
 
-          <!--            <div v-for="item in banAccount.banType" :key="item">-->
-          <!--              <a-checkbox value="1" :key="item" name="type">{{ item }}</a-checkbox>-->
-          <!--            </div>-->
-
-          <!--            <a-checkbox v-for="(item, index) in banAccount.banType" :key="index" name="type" :value="banAccount.banType[index]">{{ item }}-{{index}}</a-checkbox>-->
-          <!--            <a-checkbox value="1" name="type">发布评论</a-checkbox>-->
-          <!--            <a-checkbox value="2" name="type">发布比赛</a-checkbox>-->
-
-          <!--          </a-checkbox-group>-->
 
           <a-checkbox-group v-model:value="releaseAccount.banType" :options="banAccount.banType"/>
 
@@ -961,9 +950,9 @@ export default defineComponent({
     const releaseAccount = ref({
       // password: '',
       uid: 0,
-      banType: [""],
+      banType: [''],
       // releasetime: new Date(),
-      dilivery: true,
+      delivery: true,
       note: "",
 
     });
@@ -972,8 +961,17 @@ export default defineComponent({
     const handleReleaseAccountModalOk = () => {
 
       releaseModalLoading.value = true;
+      for (let i = 0; i < releaseAccount.value.banType.length; i++) {
+        banTypes.forEach(function(value,key){
+          console.log(value,key);
+          if(releaseAccount.value.banType[i] === value){
+            releaseAccount.value.banType[i] = key
+          }
+        });
 
-      axios.post("/admin/releaseAccount", releaseAccount).then((response) => {
+      }
+
+      axios.post("/admin/releaseAccount", releaseAccount.value).then((response) => {
         releaseModalLoading.value = false;
         const data = response.data; // data = commonResp
         if (data.success) {
@@ -986,7 +984,7 @@ export default defineComponent({
           });
 
           //
-          message.success("成功封禁该账户！")
+          message.success("成功解禁该账户功能！")
 
 
         } else {

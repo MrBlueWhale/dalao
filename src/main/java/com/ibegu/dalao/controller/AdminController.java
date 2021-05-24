@@ -1,9 +1,6 @@
 package com.ibegu.dalao.controller;
 
-import com.ibegu.dalao.req.AdminBanAccountReq;
-import com.ibegu.dalao.req.AdminContestQueryReq;
-import com.ibegu.dalao.req.AdminSponsorQueryReq;
-import com.ibegu.dalao.req.AdminSponsorResetPasswordReq;
+import com.ibegu.dalao.req.*;
 import com.ibegu.dalao.resp.*;
 import com.ibegu.dalao.service.AdminService;
 import com.ibegu.dalao.service.ContestService;
@@ -108,5 +105,17 @@ public class AdminController {
 
     }
 
+
+    @PostMapping("/releaseAccount")
+    public CommonResp releaseAccount( @RequestBody AdminReleaseAccountReq req){
+
+        // LOG.info("请求：{}", req);
+
+        CommonResp resp = new CommonResp<>();
+        adminService.releaseAccount(req);
+        // resp.setContent(sponsorDetail);
+        return resp;
+
+    }
 
 }

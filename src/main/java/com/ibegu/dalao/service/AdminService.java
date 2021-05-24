@@ -7,10 +7,7 @@ import com.ibegu.dalao.mapper.AdminMapper;
 import com.ibegu.dalao.mapper.BanAccountMapper;
 import com.ibegu.dalao.mapper.ContestMapper;
 import com.ibegu.dalao.mapper.SponsorMapper;
-import com.ibegu.dalao.req.AdminBanAccountReq;
-import com.ibegu.dalao.req.AdminContestQueryReq;
-import com.ibegu.dalao.req.AdminSponsorQueryReq;
-import com.ibegu.dalao.req.AdminSponsorResetPasswordReq;
+import com.ibegu.dalao.req.*;
 import com.ibegu.dalao.resp.AdminContestQueryResp;
 import com.ibegu.dalao.resp.AdminSponsorQueryResp;
 import com.ibegu.dalao.resp.AdminViewBannedAccountResp;
@@ -185,6 +182,60 @@ public class AdminService {
         // return null;
     }
 
+    public void releaseAccount(AdminReleaseAccountReq req) {
+
+//更新被封禁账户的账户状态
+
+        BanAccount banAccount = banAccountMapper.findByUid(req.getUid());
+        LOG.info("banAccount:{}-{}", banAccount, banAccount.getClass());
+
+        ArrayList<String> banTypesOld = new ArrayList<String>(Arrays.asList(banAccount.getBanType().replace("[","").replace("]","").split(", ")));
+        LOG.info("banTypesOld:{}-{}", banTypesOld, banTypesOld.getClass());
+        ArrayList<String> releaseBanTypes = req.getBanType();
+        LOG.info("releaseBanTypes:{}-{}", releaseBanTypes, releaseBanTypes.getClass());
+        banTypesOld.removeAll(releaseBanTypes);
+        LOG.info("banTypesOld:{}-{}", banTypesOld, banTypesOld.getClass());
+        String banTypesUpdate = banTypesOld.toString();
+        LOG.info("banTypesUpdate:{}-{}-{}", banTypesUpdate, banTypesUpdate.getClass(),ObjectUtils.isEmpty(banTypesOld));
+
+
+
+        // ArrayList<String> bantypes = req.getBanType();
+        String bantypes = req.getBanType().toString();
+        LOG.info("banType1Old:{}-{}", banAccount.getBanType(), banAccount.getBanType().getClass());
+
+        LOG.info("banType2New:{}-{}", bantypes, bantypes.getClass());
+        LOG.info("banType3:{}-{}", req.getBanType(), req.getBanType().getClass());
+
+
+        if(ObjectUtils.isEmpty(banTypesOld)){
+            Sponsor sponsor = sponsorMapper.selectByPrimaryKey(req.getUid());
+            sponsor.setAccountStatus(0);
+            sponsorMapper.updateByPrimaryKey(sponsor);
+        }
+
+
+        //    更新封禁表
+
+        BanAccount banAccountUpdate = CopyUtil.copy(req, BanAccount.class);
+
+        banAccountUpdate.setBid(snowFlake.nextId());
+        banAccountUpdate.setReason(banAccount.getReason());
+        banAccountUpdate.setBannedtime(banAccount.getBannedtime());
+        // banAccountUpdate.setNote(req.getNote());
+        banAccountUpdate.setUserType(banAccount.getUserType());
+        banAccountUpdate.setBanType(banTypesUpdate);
+        // banAccount.setUserType(1);
+
+        LOG.info("banAccountUpdate:{}", banAccountUpdate);
+
+        banAccountMapper.insert(banAccountUpdate);
+
+
+
+    }
+
+
     public PageResp<AdminContestQueryResp> listContest(AdminContestQueryReq req) {
 
         //创建查询条件 从数据库中返回
@@ -241,4 +292,6 @@ public class AdminService {
 
 
     }
+
+
 }
