@@ -33,6 +33,45 @@ public class ContestService {
     @Resource
     private ContestMapper contestMapper;
 
+
+    public PageResp<ContestResp> list(ContestReq req) {
+
+        ContestExample contestExample = new ContestExample();
+        ContestExample.Criteria criteria = contestExample.createCriteria();
+        if(!ObjectUtils.isEmpty(req.getContestName())){
+            criteria.andContestNameLike("%"+req.getContestName()+"%");
+        }
+        //进行分页，通过前端获得的数据来确定请求的每页行数和第几页
+        PageHelper.startPage(req.getPage(),req.getSize());
+        List<Contest> contestList = contestMapper.selectByExample(contestExample);
+        //打印总行数和总页数
+        PageInfo<Contest> pageInfo = new PageInfo<>(contestList);
+        LOG.info("总行数：{}", pageInfo.getTotal());
+        LOG.info("总页数:{}", pageInfo.getPages());
+        //使用for循环将contest中的值赋给contestResp
+//        List<ContestResp> respList = new ArrayList<>();
+//        for (Contest contest : contestList) {
+////            ContestResp contestResp = new ContestResp();
+////            BeanUtils.copyProperties(contest,contestResp);
+        //对象复制
+//            ContestResp contestResp = CopyUtil.copy(contest, ContestResp.class);
+//            respList.add(contestResp);
+//
+//        }
+
+        //与上方被注释掉的代码等价
+        List<ContestResp> list = CopyUtil.copyList(contestList, ContestResp.class);
+
+        PageResp<ContestResp> pageResp = new PageResp();
+        pageResp.setTotal(pageInfo.getTotal());
+        pageResp.setList(list);
+
+
+
+        return pageResp;
+    }
+
+
     public PageResp<ContestResp> list(ParTeamCtsReq req) {
 
 //        ContestExample contestExample = new ContestExample();

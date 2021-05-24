@@ -46,6 +46,16 @@ public class ParticipantController {
 
     }
 
+    @GetMapping("/detail")
+    public CommonResp getDetail_Profile(ParticipantReq req){
+        CommonResp<ParticipantResp> resp = new CommonResp<>();
+        ParticipantResp details = participantService.getDetail(req);
+        resp.setContent(details);
+
+        return resp;
+
+    }
+
 
     @PostMapping("/save")
     //保存类与更新类都是post
