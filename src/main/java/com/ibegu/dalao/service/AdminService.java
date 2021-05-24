@@ -8,11 +8,9 @@ import com.ibegu.dalao.mapper.BanAccountMapper;
 import com.ibegu.dalao.mapper.ContestMapper;
 import com.ibegu.dalao.mapper.SponsorMapper;
 import com.ibegu.dalao.req.*;
-import com.ibegu.dalao.resp.AdminContestQueryResp;
-import com.ibegu.dalao.resp.AdminSponsorQueryResp;
-import com.ibegu.dalao.resp.AdminViewBannedAccountResp;
-import com.ibegu.dalao.resp.PageResp;
+import com.ibegu.dalao.resp.*;
 import com.ibegu.dalao.utils.CopyUtil;
+import com.ibegu.dalao.utils.DateUtil;
 import com.ibegu.dalao.utils.SnowFlake;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -294,4 +292,38 @@ public class AdminService {
     }
 
 
+    public AdminContestDetailQueryResp getContestDetail(Long cid) {
+
+        Contest contest = contestMapper.selectByPrimaryKey(cid);
+
+        AdminContestDetailQueryResp content = CopyUtil.copy(contest, AdminContestDetailQueryResp.class);
+
+        Long sponsorId = contest.getSponsorId();
+
+        Sponsor sponsor = sponsorMapper.selectByPrimaryKey(sponsorId);
+
+        content.setSponsorName(sponsor.getName());
+        content.setSponsorAvatar(sponsor.getAvatar());
+
+        // 格式化时间
+        content.setRegistrationStartTime(DateUtil.formatDateTime(contest.getRegistrationStartTime()));
+        content.setRegistrationEndTime(DateUtil.formatDateTime(contest.getRegistrationEndTime()));
+        content.setCompeteStartTime(DateUtil.formatDateTime(contest.getCompeteStartTime()));
+        content.setCompeteEndTime(DateUtil.formatDateTime(contest.getCompeteEndTime()));
+
+
+        return content;
+    }
+
+    public void failContestAudit(Long cid) {
+        Contest contest = contestMapper.selectByPrimaryKey(cid);
+        contest.setContestStatus(9);
+        contestMapper.updateByPrimaryKey(contest);
+    }
+
+    public void passContestAudit(Long cid) {
+        Contest contest = contestMapper.selectByPrimaryKey(cid);
+        contest.setContestStatus(1);
+        contestMapper.updateByPrimaryKey(contest);
+    }
 }
