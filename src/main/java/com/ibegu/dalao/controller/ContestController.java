@@ -32,6 +32,18 @@ public class ContestController {
         return resp;
 
     }
+
+
+    @GetMapping("/list_home")
+    public CommonResp listHome(ContestReq req){
+        CommonResp<PageResp<ContestResp>> resp = new CommonResp<>();
+        PageResp<ContestResp> list = contestService.list(req);
+        resp.setContent(list);
+
+
+        return resp;
+
+    }
     @GetMapping("/detail")
     public CommonResp getDetail(ContestReq req){
         CommonResp<ContestResp> resp = new CommonResp<>();

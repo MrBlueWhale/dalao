@@ -13,6 +13,20 @@ import com.ibegu.dalao.utils.SnowFlake;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.ibegu.dalao.domain.Contest;
+import com.ibegu.dalao.domain.ContestExample;
+import com.ibegu.dalao.domain.Participant;
+import com.ibegu.dalao.mapper.ContestMapper;
+import com.ibegu.dalao.mapper.ParticipantMapper;
+import com.ibegu.dalao.req.ContestReq;
+import com.ibegu.dalao.req.ParticipantReq;
+import com.ibegu.dalao.resp.ContestResp;
+import com.ibegu.dalao.resp.PageResp;
+import com.ibegu.dalao.resp.ParticipantResp;
+import com.ibegu.dalao.utils.CopyUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 

@@ -345,7 +345,7 @@ export default defineComponent({
     //初始化逻辑都写到onMounted()里
     onMounted(() => {
       console.log("onMounted");
-      axios.get("/contest/list", {
+      axios.get("/contest/list_home", {
       }).then((response) => {
         const data = response.data;
         contests.value = data.content.list;
