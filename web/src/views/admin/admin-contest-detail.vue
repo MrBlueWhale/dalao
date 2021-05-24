@@ -50,8 +50,31 @@
       </div>
 
       <div class="manage-buttons" style="text-align: center; margin-top: 30px">
-        <a-button type="primary" shape="round" :disabled="passBtnDisabled" @click="pass(contestDetail.cid)">通过/发布</a-button>
-        <a-button type="danger" shape="round" :disabled="failBtnDisabled" style="margin-left: 20%;"  @click="notify(contestDetail.cid)">打回/提醒</a-button>
+
+        <a-popconfirm
+            title="确认发布后比赛就能被参赛者看到了，确认通过?"
+            ok-text="是"
+            cancel-text="否"
+            @confirm="pass(contestDetail.cid)"
+        >
+          <a-button type="primary" shape="round" :disabled="passBtnDisabled">
+            通过/发布
+          </a-button>
+        </a-popconfirm>
+
+        <a-popconfirm
+            title="打回后主办方需要重新提交比赛信息，确认打回?"
+            ok-text="是"
+            cancel-text="否"
+            @confirm="notify(contestDetail.cid)"
+        >
+          <a-button type="danger" shape="round" :disabled="failBtnDisabled" style="margin-left: 20%;" >
+            打回/提醒
+          </a-button>
+        </a-popconfirm>
+
+<!--        <a-button type="primary" shape="round" :disabled="passBtnDisabled" @click="pass(contestDetail.cid)">通过/发布</a-button>-->
+<!--        <a-button type="danger" shape="round" :disabled="failBtnDisabled" style="margin-left: 20%;"  @click="notify(contestDetail.cid)">打回/提醒</a-button>-->
       </div>
 
 <!--      <div class="recall-contest" :visible="recallBtnVisible" style="text-align: center; margin-top: 30px">-->
@@ -61,6 +84,17 @@
     </a-layout-content>
   </a-layout>
 
+  <a-modal
+      title="填写打回理由"
+      width="600px"
+      v-model:visible="failNotifyModalVisible"
+      :confirm-loading="failNotifyModalLoading"
+      @ok="handlefailNotifyModalOk"
+      okText="确认"
+  >
+        <a-textarea v-model:value="failNotify"/>
+
+  </a-modal>
 
 </template>
 
@@ -69,7 +103,8 @@
 
 import {defineComponent, onMounted, ref, createVNode} from 'vue';
 import axios from 'axios';
-import {message, Modal} from 'ant-design-vue';
+
+import {message, Modal, notification} from 'ant-design-vue';
 import {Tool} from "@/util/tool";
 import {useRoute} from "vue-router";
 import ExclamationCircleOutlined from "@ant-design/icons-vue/ExclamationCircleOutlined";
@@ -105,6 +140,10 @@ export default defineComponent({
 
     const recallBtnDisabled = ref(false);
     const recallBtnVisible = ref(false);
+
+    const failNotifyModalLoading = ref(false);
+    const failNotifyModalVisible = ref(false);
+    const failNotify = ref();
 
 
     /**
@@ -161,14 +200,23 @@ export default defineComponent({
       });
     };
 
+
+    const openNotificationWithIcon = (type: string) => {
+      notification[type]({
+        message: '成功通知',
+        description:
+            '操作成功，比赛审核通过啦~',
+      });
+    };
+
     const pass = (cid: any) => {
       console.log("通过审核，比赛ID：",cid);
 
       loading.value = true;
 
-      // TODO: 后端api写完后把这个删掉---模拟请求成功后的button状态
-      passBtnDisabled.value = true;
-      failBtnDisabled.value = true;
+      // // TODO: 后端api写完后把这个删掉---模拟请求成功后的button状态
+      // passBtnDisabled.value = true;
+      // failBtnDisabled.value = true;
 
 
       // 如果不清空现有数据，则编辑保存重新加载数据后，再点编辑，则列表显示的还是编辑前的数据
@@ -184,6 +232,13 @@ export default defineComponent({
           handleQueryContestDetail(cid);
           // passBtnDisabled.value = true;
 
+          notification['success']({
+            message: '成功通知',
+            description:
+                '操作成功，比赛审核通过啦~',
+          });
+
+
         } else {
           message.error(data.message);
         }
@@ -195,27 +250,36 @@ export default defineComponent({
 
     // TODO: 新建审核记录表--查看某比赛的审核记录--记录审核留言note--需要修改下面的前端api就扣
 
-    const notify = (cid: any) => {
+    const handlefailNotifyModalOk = () => {
 
-      console.log("打回比赛，比赛ID：",cid);
+      console.log("打回比赛，比赛ID：",contestId);
 
-      loading.value = true;
+      failNotifyModalLoading.value = true;
 
-      // TODO: 后端api写完后把这个删掉---模拟请求成功后的button状态
-      passBtnDisabled.value = true;
-      failBtnDisabled.value = true;
+      // // TODO: 后端api写完后把这个删掉---模拟请求成功后的button状态
+      // passBtnDisabled.value = true;
+      // failBtnDisabled.value = true;
 
-      axios.get("/admin/failContestAudit/" + cid
+      axios.get("/admin/failContestAudit/" + contestId
       ).then((response) => {
         loading.value = false;
+        failNotifyModalLoading.value = false;
+
         const data = response.data;
         console.log(data);
 
         if (data.success) {
+          failNotifyModalVisible.value = false;
 
           //审核失败后 重新获取一下该比赛的详情
-          handleQueryContestDetail(cid);
+          handleQueryContestDetail(contestId);
           // failBtnDisabled.value = true;
+
+          notification['success']({
+            message: '成功通知',
+            description:
+                '操作成功，比赛已打回，主办方收到你的消息啦~',
+          });
 
         } else {
           message.error(data.message);
@@ -223,6 +287,17 @@ export default defineComponent({
 
       });
 
+
+    }
+
+
+    const notify = (cid: any) => {
+      failNotifyModalVisible.value = true;
+
+      console.log("打回比赛，比赛ID：",cid);
+      // failNotifyModalLoading.value = true;
+
+      // handlefailNotifyModalOk(cid);
 
 
     }
@@ -279,6 +354,11 @@ export default defineComponent({
       failBtnDisabled,
       recallBtnDisabled,
       recallBtnVisible,
+
+      failNotifyModalLoading,
+      failNotifyModalVisible,
+      handlefailNotifyModalOk,
+      failNotify,
 
       // docs,
 
