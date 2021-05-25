@@ -4,6 +4,7 @@ import com.ibegu.dalao.req.*;
 import com.ibegu.dalao.resp.*;
 import com.ibegu.dalao.service.AdminService;
 import com.ibegu.dalao.service.ContestService;
+import com.ibegu.dalao.service.ParticipantService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -25,6 +26,9 @@ public class AdminController {
 
     @Resource
     ContestService contestService;
+
+    @Resource
+    ParticipantService participantService;
 
 
 
@@ -59,12 +63,32 @@ public class AdminController {
 
     }
 
+    @GetMapping("/listParticipant")
+    public CommonResp listParticipant(@Valid AdminParticipantQueryReq req){
+
+        CommonResp<PageResp<AdminParticipantQueryResp>> resp = new CommonResp<>();
+        PageResp<AdminParticipantQueryResp> list = adminService.listParticipant(req);
+        resp.setContent(list);
+        return resp;
+
+    }
+
     @GetMapping("/getSponsorDetail")
     public CommonResp getSponsorDetail(@Valid AdminSponsorQueryReq req){
 
         CommonResp<AdminSponsorQueryResp> resp = new CommonResp<>();
         AdminSponsorQueryResp  sponsorDetail = adminService.getSponsorDetail(req);
         resp.setContent(sponsorDetail);
+        return resp;
+
+    }
+
+    @GetMapping("/getParticipantDetail")
+    public CommonResp getParticipantDetail(@Valid AdminParticipantQueryReq req){
+
+        CommonResp<AdminParticipantDetailQueryResp> resp = new CommonResp<>();
+        AdminParticipantDetailQueryResp  participantDetail = adminService.getParticipantDetail(req);
+        resp.setContent(participantDetail);
         return resp;
 
     }
@@ -82,6 +106,21 @@ public class AdminController {
         return resp;
 
     }
+
+    @PostMapping("/resetParticipantPassword")
+    public CommonResp resetParticipantPassword( @Valid @RequestBody AdminParticipantResetPasswordReq req){
+
+        // LOG.info("请求：{}", req);
+
+        CommonResp resp = new CommonResp<>();
+        adminService.resetParticipantPassword(req);
+        // resp.setContent(participantDetail);
+        return resp;
+
+    }
+
+
+
 
     @PostMapping("/banAccount")
     public CommonResp banAccount( @RequestBody AdminBanAccountReq req){
@@ -146,5 +185,12 @@ public class AdminController {
         return resp;
 
     }
+
+
+
+
+
+
+
 
 }

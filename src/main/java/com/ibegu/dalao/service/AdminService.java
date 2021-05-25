@@ -3,10 +3,7 @@ package com.ibegu.dalao.service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.ibegu.dalao.domain.*;
-import com.ibegu.dalao.mapper.AdminMapper;
-import com.ibegu.dalao.mapper.BanAccountMapper;
-import com.ibegu.dalao.mapper.ContestMapper;
-import com.ibegu.dalao.mapper.SponsorMapper;
+import com.ibegu.dalao.mapper.*;
 import com.ibegu.dalao.req.*;
 import com.ibegu.dalao.resp.*;
 import com.ibegu.dalao.utils.CopyUtil;
@@ -44,6 +41,8 @@ public class AdminService {
     private BanAccountMapper banAccountMapper;
     @Resource
     private ContestMapper contestMapper;
+    @Resource
+    private ParticipantMapper participantMapper;
 
     @Resource
     private SnowFlake snowFlake;
@@ -102,6 +101,30 @@ public class AdminService {
         return sponsorDetailResp;
 
     }
+
+    public AdminParticipantDetailQueryResp getParticipantDetail(AdminParticipantQueryReq req) {
+
+        Participant participantDetail = participantMapper.selectByPrimaryKey(req.getPid());
+
+        AdminParticipantDetailQueryResp content = CopyUtil.copy(participantDetail, AdminParticipantDetailQueryResp.class);
+
+        content.setJoinDate(DateUtil.formatDateTime(participantDetail.getJoinDate()));
+
+        return content;
+
+    }
+
+    public void resetParticipantPassword(AdminParticipantResetPasswordReq req) {
+
+        LOG.info("修改密码传入的请求参数：{}", req);
+
+        Participant participant = CopyUtil.copy(req, Participant.class);
+        // participant.setSid(req.getSid());
+        participant.setPassword(req.getPassword());
+
+        participantMapper.updateByPrimaryKeySelective(participant);
+    }
+
 
     public void resetSponsorPassword(AdminSponsorResetPasswordReq req) {
 
@@ -291,6 +314,69 @@ public class AdminService {
 
     }
 
+    public PageResp<AdminParticipantQueryResp> listParticipant(AdminParticipantQueryReq req) {
+
+        //创建查询条件 从数据库中返回
+        ParticipantExample participantExample = new ParticipantExample();
+        ParticipantExample.Criteria criteria = participantExample.createCriteria();
+        //动态条件查询
+        if (!ObjectUtils.isEmpty(req.getNickname())) {
+            criteria.andNicknameLike("%" + req.getNickname() + "%");
+        }
+        if (!ObjectUtils.isEmpty(req.getName())) {
+            criteria.andNameLike("%" + req.getName() + "%");
+        }
+        if (!ObjectUtils.isEmpty(req.getUniversity())) {
+            criteria.andUniversityEqualTo(req.getUniversity());
+        }
+        if (!ObjectUtils.isEmpty(req.getCollege())) {
+            criteria.andCollegeEqualTo(req.getCollege());
+        }
+        if (!ObjectUtils.isEmpty(req.getTelNum())) {
+            criteria.andTelNumEqualTo(req.getTelNum());
+        }
+
+        if (!ObjectUtils.isEmpty(req.getEmail())) {
+            criteria.andEmailEqualTo(req.getEmail());
+        }
+
+        if (!ObjectUtils.isEmpty(req.getIdNumber())) {
+            criteria.andIdNumberEqualTo(req.getIdNumber());
+        }
+
+        if (!ObjectUtils.isEmpty(req.getJoinDate())) {
+            criteria.andJoinDateGreaterThanOrEqualTo(req.getJoinDate());
+        }
+        if (!ObjectUtils.isEmpty(req.getAccountStatus())) {
+            criteria.andAccountStatusEqualTo(req.getAccountStatus());
+        }
+
+
+
+        //只对遇到的第一句sql起作用 最好放在一起
+        //查第几页 多少条
+        PageHelper.startPage(req.getPage(), req.getSize());
+
+        List<Participant> participantList = participantMapper.selectByExample(participantExample);
+
+        PageInfo<Participant> pageInfo = new PageInfo<>(participantList);
+        LOG.info("总行数：{}", pageInfo.getTotal());
+        LOG.info("总页数：{}", pageInfo.getPages());
+
+        //法二：列表复制
+        List<AdminParticipantQueryResp> adminRespList = CopyUtil.copyList(participantList, AdminParticipantQueryResp.class);
+
+        //往这里面添加参数再返回即可
+        PageResp<AdminParticipantQueryResp> pageResp = new PageResp<>();
+        pageResp.setTotal(pageInfo.getTotal());
+        pageResp.setList(adminRespList);
+
+
+        return pageResp;
+
+
+    }
+
 
     public AdminContestDetailQueryResp getContestDetail(Long cid) {
 
@@ -326,4 +412,7 @@ public class AdminService {
         contest.setContestStatus(1);
         contestMapper.updateByPrimaryKey(contest);
     }
+
+
+
 }

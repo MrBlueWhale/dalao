@@ -1,27 +1,27 @@
 <template>
-  <h1>这是比赛详情页面</h1>
+  <h3>这是比赛详情页面</h3>
 
   <a-layout>
     <a-layout-content
-        :style="{ background: '#fff', padding: '24px', margin: 0, minHeight: '600px' }"
+        :style="{ background: '#fff', padding: '24px', margin: '5%',  }"
     >
 
-      <div class="contest-detail-description" style="">
-        <a-descriptions title="比赛详情" bordered>
-          <a-descriptions-item label="比赛名称"><h1>{{ contestDetail.contestName }}</h1></a-descriptions-item>
-          <a-descriptions-item label="规模"><h1>{{ contestDetail.rank }}</h1></a-descriptions-item>
-          <a-descriptions-item label="参赛者范围"><h1>{{ contestDetail.audience }}</h1></a-descriptions-item>
+      <div class="contest-detail-description" >
+        <a-descriptions title="比赛详情" bordered size="small">
+          <a-descriptions-item label="比赛名称"><h3>{{ contestDetail.contestName }}</h3></a-descriptions-item>
+          <a-descriptions-item label="规模"><h3>{{ contestDetail.rank }}</h3></a-descriptions-item>
+          <a-descriptions-item label="参赛者范围"><h3>{{ contestDetail.audience }}</h3></a-descriptions-item>
 
-          <a-descriptions-item label="报名费"><h1>{{ contestDetail.entryFee }}元</h1></a-descriptions-item>
-          <a-descriptions-item label="参赛方式"><h1>{{ contestDetail.type }}</h1></a-descriptions-item>
-          <a-descriptions-item label="类别"><h1>{{ contestDetail.category }}</h1></a-descriptions-item>
+          <a-descriptions-item label="报名费"><h3>{{ contestDetail.entryFee }}元</h3></a-descriptions-item>
+          <a-descriptions-item label="参赛方式"><h3>{{ contestDetail.type }}</h3></a-descriptions-item>
+          <a-descriptions-item label="类别"><h3>{{ contestDetail.category }}</h3></a-descriptions-item>
 
-          <a-descriptions-item label="报名开始时间"><h1>{{ contestDetail.registrationStartTime }}</h1></a-descriptions-item>
-          <a-descriptions-item label="报名结束时间" :span="2"><h1>{{ contestDetail.registrationEndTime }}</h1>
+          <a-descriptions-item label="报名开始时间"><h3>{{ contestDetail.registrationStartTime }}</h3></a-descriptions-item>
+          <a-descriptions-item label="报名结束时间" :span="2"><h3>{{ contestDetail.registrationEndTime }}</h3>
           </a-descriptions-item>
 
-          <a-descriptions-item label="比赛开始时间"><h1>{{ contestDetail.competeStartTime }}</h1></a-descriptions-item>
-          <a-descriptions-item label="比赛结束时间" :span="2"><h1>{{ contestDetail.competeEndTime }}</h1></a-descriptions-item>
+          <a-descriptions-item label="比赛开始时间"><h3>{{ contestDetail.competeStartTime }}</h3></a-descriptions-item>
+          <a-descriptions-item label="比赛结束时间" :span="2"><h3>{{ contestDetail.competeEndTime }}</h3></a-descriptions-item>
 
           <a-descriptions-item label="审核状态" :span="1">
             <a-badge v-if="contestDetail.contestStatus == 0" status="processing" text="待审核"/>
@@ -32,7 +32,7 @@
           </a-descriptions-item>
 
           <a-descriptions-item label="主办方名称" :span="1">
-            <h1>{{ contestDetail.sponsorName }}</h1>
+            <h3>{{ contestDetail.sponsorName }}</h3>
           </a-descriptions-item>
 
           <a-descriptions-item label="主办方头像" :span="1">
@@ -41,13 +41,34 @@
 
 
           <a-descriptions-item label="比赛介绍" :span="3">
-            <h1>{{ contestDetail.contestIntro }}</h1>
+            <h3>{{ contestDetail.contestIntro }}</h3>
           </a-descriptions-item>
 
 
 
         </a-descriptions>
       </div>
+
+<!--      <a-descriptions title="比赛详情" bordered>-->
+<!--        <a-descriptions-item label="比赛名称"><h1>{{contestDetail.contestName}}</h1></a-descriptions-item>-->
+<!--        <a-descriptions-item label="规模"><h1>{{contestDetail.rank}}</h1></a-descriptions-item>-->
+<!--        <a-descriptions-item label="参赛者范围"><h1>{{contestDetail.audience}}</h1></a-descriptions-item>-->
+<!--        <a-descriptions-item label="报名开始时间"><h1>{{contestDetail.registrationStartTime}}</h1></a-descriptions-item>-->
+<!--        <a-descriptions-item label="报名结束时间" :span="2"><h1>{{contestDetail.registrationEndTime}}</h1></a-descriptions-item>-->
+<!--        <a-descriptions-item label="比赛开始时间"><h1>{{contestDetail.competeStartTime}}</h1></a-descriptions-item>-->
+<!--        <a-descriptions-item label="比赛结束时间" :span="2"><h1>{{contestDetail.competeEndTime}}</h1></a-descriptions-item>-->
+<!--        <a-descriptions-item label="Status" :span="3">-->
+<!--          <a-badge status="processing" text="Running" />-->
+<!--        </a-descriptions-item>-->
+<!--        <a-descriptions-item label="报名费"><h1>{{contestDetail.entryFee}}元</h1></a-descriptions-item>-->
+<!--        <a-descriptions-item label="参赛方式"><h1>{{contestDetail.type}}</h1></a-descriptions-item>-->
+<!--        <a-descriptions-item label="类别"><h1>{{contestDetail.category}}</h1></a-descriptions-item>-->
+<!--        <a-descriptions-item label="比赛介绍">-->
+<!--          <h1>{{contestDetail.contestIntro}}</h1>-->
+<!--        </a-descriptions-item>-->
+<!--      </a-descriptions>-->
+
+      <a-divider />
 
       <div class="manage-buttons" style="text-align: center; margin-top: 30px">
 
@@ -369,7 +390,7 @@ export default defineComponent({
 
 
 <style>
-img {
+.img {
   width: 50px;
   height: 50px;
 }
