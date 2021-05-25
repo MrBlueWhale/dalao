@@ -139,7 +139,7 @@
               <a-space size="small">
                 <router-link :to="'/admin/contest?sponsorId=' + record.sid">
                   <a-button type="primary">
-                    竞赛管理
+                    查看竞赛
                   </a-button>
                 </router-link>
 
@@ -422,7 +422,7 @@
         <!--      <a-form-item ref="name" label="Activity name" name="name">-->
         <!--        <a-input v-model:value="formState.name" />-->
         <!--      </a-form-item>-->
-        <a-form-item label="更新解禁时间" required name="releasetime">
+        <a-form-item label="更新解禁时间" >
           <a-date-picker
               v-model:value="releaseAccount.releasetime"
               show-time
@@ -435,19 +435,10 @@
           <a-switch v-model:checked="releaseAccount.delivery"/>
         </a-form-item>
         <a-form-item label="选择解禁已限制的功能" name="banType">
-          <a-checkbox-group v-model:value="releaseAccount.banType">
 
-            <div v-for="item in banAccount.banType" :key="item">
-              <a-checkbox value="1" :key="item" name="type">{{ item }}</a-checkbox>
-            </div>
 
-            <a-checkbox v-for="item in banAccount.banType" :key="item.indexOf" name="type">{{ item }}</a-checkbox>
-            <!--            <a-checkbox value="1" name="type">发布评论</a-checkbox>-->
-            <!--            <a-checkbox value="2" name="type">发布比赛</a-checkbox>-->
-            <!--            <a-checkbox value="3" name="type">发布通知</a-checkbox>-->
-            <!--            <a-checkbox value="4" name="type">删除比赛</a-checkbox>-->
-            <!--            <a-checkbox value="5" name="type">删除通知</a-checkbox>-->
-          </a-checkbox-group>
+          <a-checkbox-group v-model:value="releaseAccount.banType" :options="banAccount.banType"/>
+
         </a-form-item>
         <a-form-item label="备注" name="note">
           <a-textarea v-model:value="releaseAccount.note"/>
@@ -734,6 +725,7 @@ export default defineComponent({
         const data = response.data;
         console.log(data);
         sponsorDetail.value = data.content;
+        // sponsorDetail.value.joinDate
         console.log("主办方详情：", sponsorDetail);
         // if(contestDetail.value.sponsorDetail==1){
         //   str = "running";
@@ -958,9 +950,9 @@ export default defineComponent({
     const releaseAccount = ref({
       // password: '',
       uid: 0,
-      banType: [""],
+      banType: [''],
       // releasetime: new Date(),
-      dilivery: true,
+      delivery: true,
       note: "",
 
     });
@@ -969,8 +961,17 @@ export default defineComponent({
     const handleReleaseAccountModalOk = () => {
 
       releaseModalLoading.value = true;
+      for (let i = 0; i < releaseAccount.value.banType.length; i++) {
+        banTypes.forEach(function(value,key){
+          console.log(value,key);
+          if(releaseAccount.value.banType[i] === value){
+            releaseAccount.value.banType[i] = key
+          }
+        });
 
-      axios.post("/admin/releaseAccount", releaseAccount).then((response) => {
+      }
+
+      axios.post("/admin/releaseAccount", releaseAccount.value).then((response) => {
         releaseModalLoading.value = false;
         const data = response.data; // data = commonResp
         if (data.success) {
@@ -983,7 +984,7 @@ export default defineComponent({
           });
 
           //
-          message.success("成功封禁该账户！")
+          message.success("成功解禁该账户功能！")
 
 
         } else {
@@ -1008,6 +1009,10 @@ export default defineComponent({
             for (let i = 0; i < banAccount.value.banType.length; i++) {
               banAccount.value.banType[i] = banTypes.get(banAccount.value.banType[i]);
             }
+
+            //格式化时间
+            // banAccount.value.bannedtime
+
             // banAccount.value.banType =
             console.log("banAcountDetail", banAccount.value);
 

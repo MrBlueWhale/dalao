@@ -74,7 +74,7 @@
 
             <a-table
                 :columns="columns"
-                :row-key="record => record.sid"
+                :row-key="record => record.cid"
                 :data-source="contests"
                 :pagination="pagination"
                 :loading="loading"
@@ -111,47 +111,44 @@
               <!--              </template>-->
 
 
-              <!--              <template v-slot:action="{ text, record }">-->
-              <!--                &lt;!&ndash;            空格组件：两个按钮之间的空格&ndash;&gt;-->
-              <!--                <a-space size="small">-->
-              <!--                  <router-link :to="'/admin/contest?sponsorId=' + record.sid">-->
-              <!--                    <a-button type="primary">-->
-              <!--                      竞赛管理-->
-              <!--                    </a-button>-->
-              <!--                  </router-link>-->
+                            <template v-slot:action="{ text, record }">
+                              <!--            空格组件：两个按钮之间的空格-->
+                              <a-space size="small">
+                                <router-link :to="'/admin/contest-detail?contestId=' + record.cid">
+                                  <a-button type="primary">
+                                    查看详情
+                                  </a-button>
+                                </router-link>
 
-              <!--                  <a-button type="primary" @click="viewDetails(record)">-->
-              <!--                    &lt;!&ndash;              <a-button type="primary" @click="resetPassword">&ndash;&gt;-->
-              <!--                    查看详情-->
-              <!--                  </a-button>-->
+<!--                                <a-button type="primary" @click="viewDetails(record)">-->
+<!--                                  &lt;!&ndash;              <a-button type="primary" @click="resetPassword">&ndash;&gt;-->
+<!--                                  查看详情-->
+<!--                                </a-button>-->
 
-              <!--                  <a-button type="primary" v-if="record.contestStatus=='未认证'" @click="notify(record)">-->
-              <!--                    &lt;!&ndash;              <a-button type="primary" @click="resetPassword">&ndash;&gt;-->
-              <!--                    通知认证-->
-              <!--                  </a-button>-->
-              <!--                  <a-button type="primary" v-if="record.contestStatus=='审核中'" @click="verify(record)">-->
-              <!--                    &lt;!&ndash;              <a-button type="primary" @click="resetPassword">&ndash;&gt;-->
-              <!--                    开始认证-->
-              <!--                  </a-button>-->
+<!--                                <a-button type="primary" v-if="record.contestStatus=='未认证'" @click="notify(record)">-->
+<!--                                  &lt;!&ndash;              <a-button type="primary" @click="resetPassword">&ndash;&gt;-->
+<!--                                  通知认证-->
+<!--                                </a-button>-->
+<!--                                <a-button type="primary" v-if="record.contestStatus=='审核中'" @click="verify(record)">-->
+<!--                                  &lt;!&ndash;              <a-button type="primary" @click="resetPassword">&ndash;&gt;-->
+<!--                                  开始认证-->
+<!--                                </a-button>-->
 
-              <!--                  <a-button type="primary" @click="resetPassword(record)">-->
-              <!--                    重置密码-->
-              <!--                  </a-button>-->
-              <!--                  <a-popconfirm-->
-              <!--                      title="封禁后该账号功能受限，确认封禁?"-->
-              <!--                      ok-text="是"-->
-              <!--                      cancel-text="否"-->
-              <!--                      @confirm="handleBanAccount(record)"-->
-              <!--                  >-->
-              <!--                    <a-button type="danger" shape="round">-->
-              <!--                      封禁账号-->
-              <!--                    </a-button>-->
-              <!--                  </a-popconfirm>-->
-              <!--                  <a-button type="primary" shape="round" @click="handleReleaseAccount(record)">-->
-              <!--                    解除封禁-->
-              <!--                  </a-button>-->
-              <!--                </a-space>-->
-              <!--              </template>-->
+<!--                                <a-popconfirm-->
+<!--                                    title="封禁后该账号功能受限，确认封禁?"-->
+<!--                                    ok-text="是"-->
+<!--                                    cancel-text="否"-->
+<!--                                    @confirm="handleBanContest(record)"-->
+<!--                                >-->
+<!--                                  <a-button type="danger" shape="round">-->
+<!--                                    封禁比赛-->
+<!--                                  </a-button>-->
+<!--                                </a-popconfirm>-->
+<!--                                <a-button type="primary" shape="round" @click="handleReleaseContest(record)">-->
+<!--                                  解除封禁-->
+<!--                                </a-button>-->
+                              </a-space>
+                            </template>
             </a-table>
           </layout>
 
@@ -162,121 +159,6 @@
         </a-layout-content>
       </a-layout>
 
-      <template>
-        <a-drawer width="640" placement="right" :closable="false" :visible="visible" @close="onClose">
-          <p :style="[pStyle, pStyle2]">主办方详情资料</p>
-
-          <p :style="pStyle">主办方标识</p>
-          <a-image
-              :width="200"
-              :height="100"
-              :src="sponsorDetail.avatar"
-              fallback="data:image/png;base64,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"
-          />
-
-          <a-divider/>
-
-          <p :style="pStyle">概况</p>
-
-          <a-row>
-            <a-col :span="12">
-              <!--            <description-item title="Name" content="{{ sponsorDetail.name }}"/>-->
-              <a-descriptions>
-                <a-descriptions-item label="机构名称">{{ sponsorDetail.name }}</a-descriptions-item>
-              </a-descriptions>
-            </a-col>
-            <a-col :span="12">
-              <!--            <description-item title="Account" content="AntDesign@example.com"/>-->
-              <a-descriptions>
-                <a-descriptions-item label="认证状态">{{ sponsorDetail.contestStatus }}</a-descriptions-item>
-              </a-descriptions>
-            </a-col>
-          </a-row>
-          <a-row>
-            <a-col :span="12">
-              <!--            <description-item title="Name" content="{{ sponsorDetail.name }}"/>-->
-              <a-descriptions>
-                <a-descriptions-item label="机构所在地">中国 浙江 杭州</a-descriptions-item>
-              </a-descriptions>
-            </a-col>
-            <a-col :span="12">
-              <!--            <description-item title="Account" content="AntDesign@example.com"/>-->
-              <a-descriptions>
-                <a-descriptions-item label="入驻时间">{{ sponsorDetail.joinDate }}</a-descriptions-item>
-              </a-descriptions>
-            </a-col>
-          </a-row>
-
-          <a-divider/>
-          <p :style="pStyle">主办方简介</p>
-          <a-row>
-            <a-descriptions>
-              <a-descriptions-item>{{ sponsorDetail.intro }}</a-descriptions-item>
-            </a-descriptions>
-          </a-row>
-          <a-divider/>
-          <p :style="pStyle">联系方式</p>
-          <a-row>
-            <a-col :span="12">
-              <a-descriptions>
-                <a-descriptions-item label="邮件地址">{{ sponsorDetail.email }}</a-descriptions-item>
-              </a-descriptions>
-            </a-col>
-          </a-row>
-          <a-row>
-            <a-col :span="12">
-              <a-descriptions>
-                <a-descriptions-item label="机构电话">{{ sponsorDetail.telNum }}</a-descriptions-item>
-              </a-descriptions>
-            </a-col>
-          </a-row>
-          <a-row>
-            <a-col :span="12">
-              <a-descriptions>
-                <a-descriptions-item label="通信地址">{{ sponsorDetail.address }}</a-descriptions-item>
-              </a-descriptions>
-            </a-col>
-          </a-row>
-          <a-row>
-            <a-col :span="12">
-              <a-descriptions>
-                <a-descriptions-item label="机构代表人">兰鑫</a-descriptions-item>
-              </a-descriptions>
-            </a-col>
-          </a-row>
-          <a-divider/>
-          <p :style="pStyle">机构证书</p>
-          <!--        <a-row>-->
-          <!--                    <img class="certify-img" src="/image/certification-imgs/test1.jpg" alt="avatar"/>-->
-          <!--        </a-row>-->
-          <a-row>
-            <div>
-              <a-image-preview-group>
-                <a-image :width="220" :height="150" src="/image/certification-imgs/test1.jpg"/>
-                <a-image :width="220" :height="150" src="/image/certification-imgs/test2.jpg"/>
-              </a-image-preview-group>
-            </div>
-          </a-row>
-
-          <a-divider/>
-          <div
-              :style="{
-        position: 'absolute',
-        bottom: 0,
-        width: '100%',
-        borderTop: '1px solid #e8e8e8',
-        padding: '10px 16px',
-        textAlign: 'right',
-        left: 0,
-        background: '#fff',
-        borderRadius: '0 0 4px 4px',
-      }"
-          >
-            <a-button style="margin-right: 8px" @click="onClose">退出浏览</a-button>
-          </div>
-
-        </a-drawer>
-      </template>
 
     </a-layout>
 
@@ -286,154 +168,6 @@
       <strong style="color: rgba(64, 64, 64, 0.6)"> gray </strong>
       button.
     </div>
-
-    <a-modal
-        title="重置密码"
-        v-model:visible="resetModalVisible"
-        :confirm-loading="resetModalLoading"
-        @ok="handleResetModalOk"
-    >
-      <a-form :model="sponsor" :label-col="{ span: 6 }" :wrapper-col="{ span: 18 }">
-        <a-form-item label="新密码">
-          <a-input v-model:value="sponsor.password" type="password"/>
-        </a-form-item>
-      </a-form>
-    </a-modal>
-
-
-    <a-modal
-        title="封禁账户"
-        width="600px"
-        v-model:visible="banModalVisible"
-        :confirm-loading="banModalLoading"
-        @ok="handleBanAccountModalOk"
-        okText="确认"
-    >
-      <template #footer>
-        <a-button key="resetThisForm" @click="ResetBanForm">重置</a-button>
-        <a-button key="submit" type="primary" :loading="loading" @click="handleBanAccountModalOk">提交</a-button>
-      </template>
-      <div style="text-align: center;">
-        <p>待封禁账户：{{ sponsor.name }}</p>
-      </div>
-      <a-form
-          ref="formRef"
-          :model="formState"
-          :rules="rules"
-          :label-col="labelCol"
-          :wrapper-col="wrapperCol"
-      >
-        <!--      <a-form-item ref="name" label="Activity name" name="name">-->
-        <!--        <a-input v-model:value="formState.name" />-->
-        <!--      </a-form-item>-->
-        <a-form-item label="封禁原因" name="reason">
-          <a-select v-model:value="formState.reason" placeholder="请选择封禁原因">
-            <a-select-option v-for="item in banReasons" :key="item" :value="item">{{ item }}</a-select-option>
-            <!--          <a-select-option value="beijing">Zone two</a-select-option>-->
-          </a-select>
-        </a-form-item>
-        <a-form-item label="解禁时间" required name="releasetime">
-          <a-date-picker
-              v-model:value="formState.releasetime"
-              show-time
-              type="date"
-              placeholder="选择解禁时间"
-              style="width: 100%"
-          />
-        </a-form-item>
-        <a-form-item label="发送通知" name="delivery">
-          <a-switch v-model:checked="formState.delivery"/>
-        </a-form-item>
-        <a-form-item label="限制功能" name="banType">
-          <a-checkbox-group v-model:value="formState.banType">
-            <a-checkbox value="1" name="type">发布评论</a-checkbox>
-            <a-checkbox value="2" name="type">发布比赛</a-checkbox>
-            <a-checkbox value="3" name="type">发布通知</a-checkbox>
-            <a-checkbox value="4" name="type">删除比赛</a-checkbox>
-            <a-checkbox value="5" name="type">删除通知</a-checkbox>
-          </a-checkbox-group>
-        </a-form-item>
-        <!--      <a-form-item label="Resources" name="resource">-->
-        <!--        <a-radio-group v-model:value="formState.resource">-->
-        <!--          <a-radio value="1">Sponsor</a-radio>-->
-        <!--          <a-radio value="2">Venue</a-radio>-->
-        <!--        </a-radio-group>-->
-        <!--      </a-form-item>-->
-        <a-form-item label="备注" name="note">
-          <a-textarea v-model:value="formState.note"/>
-        </a-form-item>
-        <!--      <a-form-item :wrapper-col="{ span: 14, offset: 4 }">-->
-        <!--        <a-button type="primary" @click="onSubmit">Create</a-button>-->
-        <!--        <a-button style="margin-left: 10px" @click="resetForm">Reset</a-button>-->
-        <!--      </a-form-item>-->
-      </a-form>
-    </a-modal>
-
-    <a-modal
-        title="解禁账户"
-        width="600px"
-        v-model:visible="releaseModalVisible"
-        :confirm-loading="releaseModalLoading"
-        @ok="handleReleaseAccountModalOk"
-        okText="确认"
-    >
-      <div style="text-align: center;">
-        <p>待解禁账户：{{ sponsor.name }}</p>
-      </div>
-
-      <a-descriptions title="封禁情况" bordered>
-        <a-descriptions-item label="封禁理由" :span="3">{{ banAccount.reason }}</a-descriptions-item>
-        <a-descriptions-item label="上次封禁时间" :span="3">{{ banAccount.bannedtime }}</a-descriptions-item>
-        <a-descriptions-item label="预计解禁时间" :span="3">{{ banAccount.releasetime }}</a-descriptions-item>
-        <a-descriptions-item label="账户状态" :span="3">
-          <a-badge status="warning" text="封禁中"/>
-        </a-descriptions-item>
-      </a-descriptions>
-
-      <div style="margin-top: 50px;">
-        <span style="font-weight: bolder">更新解禁</span>
-        <a-form
-            :model="releaseAccount"
-        >
-          <!--      <a-form-item ref="name" label="Activity name" name="name">-->
-          <!--        <a-input v-model:value="formState.name" />-->
-          <!--      </a-form-item>-->
-          <a-form-item label="更新解禁时间" required name="releasetime">
-            <a-date-picker
-                v-model:value="releaseAccount.releasetime"
-                show-time
-                type="date"
-                placeholder="选择解禁时间"
-                style="width: 100%"
-            />
-          </a-form-item>
-          <a-form-item label="发送通知" name="delivery">
-            <a-switch v-model:checked="releaseAccount.delivery"/>
-          </a-form-item>
-          <a-form-item label="选择解禁已限制的功能" name="banType">
-            <a-checkbox-group v-model:value="releaseAccount.banType">
-
-              <div v-for="item in banAccount.banType" :key="item">
-                <a-checkbox value="1" :key="item" name="type">{{ item }}</a-checkbox>
-              </div>
-
-              <a-checkbox v-for="item in banAccount.banType" :key="item.indexOf" name="type">{{ item }}</a-checkbox>
-              <!--            <a-checkbox value="1" name="type">发布评论</a-checkbox>-->
-              <!--            <a-checkbox value="2" name="type">发布比赛</a-checkbox>-->
-              <!--            <a-checkbox value="3" name="type">发布通知</a-checkbox>-->
-              <!--            <a-checkbox value="4" name="type">删除比赛</a-checkbox>-->
-              <!--            <a-checkbox value="5" name="type">删除通知</a-checkbox>-->
-            </a-checkbox-group>
-          </a-form-item>
-          <a-form-item label="备注" name="note">
-            <a-textarea v-model:value="releaseAccount.note"/>
-          </a-form-item>
-
-        </a-form>
-
-      </div>
-
-    </a-modal>
 
 
   </a-layout>
@@ -447,7 +181,7 @@ import {ValidateErrorEntity} from 'ant-design-vue/es/form/interface';
 import {Moment,} from 'moment';
 import moment from 'moment';
 
-import {message} from 'ant-design-vue';
+import {message, notification} from 'ant-design-vue';
 import {Tool} from "@/util/tool";
 import {useRoute} from "vue-router";
 
@@ -477,25 +211,6 @@ interface FormState {
 // import HelloWorld from "@/components/HelloWorld.vue";
 
 // const listData: Record<string, string>[] = [];
-const listData: any = [];
-
-let contest_status_o = '';
-
-for (let i = 0; i < 23; i++) {
-
-  contest_status_o = i % 3 === 0 ? '已认证' : (i % 3 === 1 ? '审核中' : '未认证');
-
-  listData.push({
-    href: 'https://www.antdv.com/',
-    title: `ant design vue part ${i}`,
-    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-    description:
-        'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-    content:
-        'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
-    contest_status: contest_status_o
-  });
-}
 
 
 export default defineComponent({
@@ -580,27 +295,6 @@ export default defineComponent({
     contestMap.set('gameEnded', '结束比赛')
 
 
-    let account_status = '';
-    let accountStatusMap = new Map()
-    accountStatusMap.set(0, '正常')
-    accountStatusMap.set(1, '禁言中')
-    // accountStatusMap.set('verified', '已认证')
-
-    let banReasons = new Set();
-    banReasons.add('侮辱或攻击他人的宗教、种族或性取向');
-    banReasons.add('存在主张暴力或虐待人或动物的内容');
-    banReasons.add('显示有人在进行或企图进行自我伤害');
-    banReasons.add('描述了毒品、枪支、管制物品的买卖');
-    banReasons.add('未经授权使用，侵犯版权或商标权');
-
-    let banTypes = new Map();
-    banTypes.set("1", "发布评论");
-    banTypes.set("2", "发布比赛");
-    banTypes.set("3", "发布通知");
-    banTypes.set("4", "删除比赛");
-    banTypes.set("5", "删除通知");
-
-
     const handleQueryContest = (params: any) => {
       axios.get("/admin/listContest", {
         params: {
@@ -613,9 +307,6 @@ export default defineComponent({
         const data = response.data;
         //ref数据的赋值
         contests.value = data.content.list;
-        // ebooks2.books = data.content;
-
-        // console.log(response)
 
         if (data.success) {
           contests.value = data.content.list;
@@ -678,26 +369,7 @@ export default defineComponent({
     };
 
 
-    const sponsorDetail = ref({});
-    const visible = ref<boolean>(false);
-    const pStyle = {
-      fontSize: '16px',
-      color: 'rgba(0,0,0,0.85)',
-      lineHeight: '24px',
-      display: 'block',
-      marginBottom: '16px',
-    };
-    const pStyle2 = {
-      marginBottom: '24px',
-    };
-
-    const showDrawer = () => {
-      visible.value = true;
-    };
-
-    const onClose = () => {
-      visible.value = false;
-    };
+    const contestDetail = ref();
 
     const viewDetails = (record: any) => {
       console.log("拿到的数据：", record);
@@ -711,26 +383,15 @@ export default defineComponent({
       ).then((response) => {
         const data = response.data;
         console.log(data);
-        sponsorDetail.value = data.content;
-        console.log("主办方详情：", sponsorDetail);
-        // if(contestDetail.value.sponsorDetail==1){
-        //   str = "running";
-        // }else {
-        //   str = "end";
-        // }
+        contestDetail.value = data.content;
+        console.log("主办方详情：", contestDetail);
+
       });
-
-
-      visible.value = true;
 
     };
 
 
     // -------- 重置密码 ---------
-
-    const sponsor = ref({
-      password: '',
-    });
 
     const contest = ref({
       // password: '',
@@ -754,7 +415,6 @@ export default defineComponent({
     return {
       demos,
       demos_reactive: toRef(demos2, "demos"),
-      listData,
       // pagination: {
       //   onChange: (page: any) => {
       //     console.log(page);
@@ -772,7 +432,6 @@ export default defineComponent({
       contests,
       loading,
       columns,
-      sponsor,
 
       contest,
 
@@ -787,12 +446,8 @@ export default defineComponent({
 
 
       //抽屉板块
-      visible,
-      pStyle,
-      pStyle2,
       viewDetails,
-      onClose,
-      sponsorDetail,
+      contestDetail,
 
 
     }

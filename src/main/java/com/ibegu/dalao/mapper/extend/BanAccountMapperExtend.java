@@ -7,4 +7,5 @@ public interface BanAccountMapperExtend {
 
     public BanAccount findByMaxBannedTime(@Param("sid") Long sid);
 
+    public BanAccount findByUid(@Param("uid") Long uid);
 }

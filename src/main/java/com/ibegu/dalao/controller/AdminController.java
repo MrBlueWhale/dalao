@@ -1,9 +1,6 @@
 package com.ibegu.dalao.controller;
 
-import com.ibegu.dalao.req.AdminBanAccountReq;
-import com.ibegu.dalao.req.AdminContestQueryReq;
-import com.ibegu.dalao.req.AdminSponsorQueryReq;
-import com.ibegu.dalao.req.AdminSponsorResetPasswordReq;
+import com.ibegu.dalao.req.*;
 import com.ibegu.dalao.resp.*;
 import com.ibegu.dalao.service.AdminService;
 import com.ibegu.dalao.service.ContestService;
@@ -99,7 +96,7 @@ public class AdminController {
     }
 
     @GetMapping("/viewBannedAccount/{sid}")
-    public CommonResp viewBannedAccount(@PathVariable Long sid ){
+    public CommonResp viewBannedAccount(@PathVariable Long sid ) {
 
         CommonResp<AdminViewBannedAccountResp> resp = new CommonResp<>();
         AdminViewBannedAccountResp content = adminService.viewBannedAccount(sid);
@@ -108,5 +105,46 @@ public class AdminController {
 
     }
 
+    @PostMapping("/releaseAccount")
+    public CommonResp releaseAccount( @RequestBody AdminReleaseAccountReq req){
+
+        // LOG.info("请求：{}", req);
+
+        CommonResp resp = new CommonResp<>();
+        adminService.releaseAccount(req);
+        // resp.setContent(sponsorDetail);
+        return resp;
+
+    }
+
+    @GetMapping("/getContestDetail/{cid}")
+    public CommonResp getContestDetail(@PathVariable Long cid ){
+
+        CommonResp<AdminContestDetailQueryResp> resp = new CommonResp<>();
+        AdminContestDetailQueryResp content = adminService.getContestDetail(cid);
+        resp.setContent(content);
+        return resp;
+
+    }
+
+    @GetMapping("/failContestAudit/{cid}")
+    public CommonResp failContestAudit(@PathVariable Long cid ){
+
+        CommonResp resp = new CommonResp<>();
+        adminService.failContestAudit(cid);
+        // resp.setContent(content);
+        return resp;
+
+    }
+
+    @GetMapping("/passContestAudit/{cid}")
+    public CommonResp passContestAudit(@PathVariable Long cid ){
+
+        CommonResp resp = new CommonResp<>();
+        adminService.passContestAudit(cid);
+        // resp.setContent(content);
+        return resp;
+
+    }
 
 }
