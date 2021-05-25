@@ -251,8 +251,9 @@ INSERT INTO `dalao`.`ban_account`(`bid`, `reason`, `bannedTime`, `interval`, `ui
 INSERT INTO `dalao`.`ban_account`(`bid`, `reason`, `bannedTime`, `interval`, `uid`, `note`, `releaseTime`, `user_type`, `ban_type`) VALUES (51570147961475072, '侮辱或攻击他人的宗教、种族或性取向', '2021-05-23 15:21:21', NULL, 1, 'yjthjjjghjhj', '2021-05-28 15:21:12', 1, '[1, 4, 2, 5]');
 
 
-
-
+INSERT INTO `dalao`.`participant`(`pid`, `nickname`, `password`, `avatar`, `name`, `gender`, `university`, `college`, `major`, `grade`, `student_id`, `tel_num`, `email`, `id_number`, `join_date`, `account_status`) VALUES (1, 'jinn', '123', '/image/avatar.jpg', '明锦22', '男', '四川大学', '软件学院', '软件工程', '本科二年级', '2018141463022', '15348553796', '527383740@qq.com', '52262320000125', '2021-05-21 08:59:18', 0);
+INSERT INTO `dalao`.`contest`(`cid`, `contest_name`, `sponsor_id`, `contest_intro`, `registration_start_time`, `registration_end_time`, `compete_start_time`, `compete_end_time`, `page_view`, `type`, `category`, `entry_fee`, `rank`, `audience`, `contest_status`) VALUES (1, '2021年全国大学生数据统计与分析竞赛', 1, '在大数据时代背景下，统计学作为大数据分析领域的基础显得尤为重要。为了帮助学生更好的学习和应用数据统计与分析的知识，促进统计、计算机、数学等相关专业的发展，培养具有数据分析与应用型人才，提升高校毕业生的就业竞争力，经研究决定，河北省现场统计学会、四川省现场统计学会等联合发起“全国大学生数据统计与分析竞赛”（以下简称“竞赛”），为我国数据统计与分析行业提供人才支持，夯实人才队伍基础。', '2021-04-12 00:00:00', '2021-05-21 00:00:00', '2021-05-22 00:00:00', '2021-05-30 00:00:00', 10, '组队赛', '\r\n\r\n    数学 计算机&信息技术\r\n\r\n数学 计算机&信息技术', 150, ' 全国性', '全国', 0);
+INSERT INTO `dalao`.`contest`(`cid`, `contest_name`, `sponsor_id`, `contest_intro`, `registration_start_time`, `registration_end_time`, `compete_start_time`, `compete_end_time`, `page_view`, `type`, `category`, `entry_fee`, `rank`, `audience`, `contest_status`) VALUES (2, '2021年全国大学生英语竞赛', 2, 'XXX', '2021-05-22 07:25:48', '2021-05-22 07:25:51', '2021-05-22 07:25:55', '2021-05-22 07:25:57', 11, '组队赛', '英语', 100, '全国性', '全国', 0);
 
 
 
