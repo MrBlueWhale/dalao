@@ -27,6 +27,13 @@ export class Tool {
     }
   }
 
+  //创建一个方法，返回value值对应的key
+
+  // public static findKey (obj: object,value: any, compare = (a: any, b: any) => a === b) {
+  //   return Object.keys(obj).find(k => compare(obj[k], value))
+  //
+  // }
+
   /**
    * 使用递归将数组转为树形结构
    * 父ID属性为parent

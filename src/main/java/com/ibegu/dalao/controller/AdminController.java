@@ -1,11 +1,9 @@
 package com.ibegu.dalao.controller;
 
-import com.ibegu.dalao.req.AdminSponsorQueryReq;
-import com.ibegu.dalao.req.AdminSponsorResetPasswordReq;
-import com.ibegu.dalao.resp.AdminSponsorQueryResp;
-import com.ibegu.dalao.resp.CommonResp;
-import com.ibegu.dalao.resp.PageResp;
+import com.ibegu.dalao.req.*;
+import com.ibegu.dalao.resp.*;
 import com.ibegu.dalao.service.AdminService;
+import com.ibegu.dalao.service.ContestService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -25,6 +23,9 @@ public class AdminController {
     @Resource
     AdminService adminService;
 
+    @Resource
+    ContestService contestService;
+
 
 
     // @GetMapping("/listSponsor")
@@ -43,6 +44,16 @@ public class AdminController {
 
         CommonResp<PageResp<AdminSponsorQueryResp>> resp = new CommonResp<>();
         PageResp<AdminSponsorQueryResp> list = adminService.listSponsor(req);
+        resp.setContent(list);
+        return resp;
+
+    }
+
+    @GetMapping("/listContest")
+    public CommonResp listContest(@Valid AdminContestQueryReq req){
+
+        CommonResp<PageResp<AdminContestQueryResp>> resp = new CommonResp<>();
+        PageResp<AdminContestQueryResp> list = adminService.listContest(req);
         resp.setContent(list);
         return resp;
 
@@ -72,5 +83,68 @@ public class AdminController {
 
     }
 
+    @PostMapping("/banAccount")
+    public CommonResp banAccount( @RequestBody AdminBanAccountReq req){
+
+        // LOG.info("请求：{}", req);
+
+        CommonResp resp = new CommonResp<>();
+        adminService.banAccount(req);
+        // resp.setContent(sponsorDetail);
+        return resp;
+
+    }
+
+    @GetMapping("/viewBannedAccount/{sid}")
+    public CommonResp viewBannedAccount(@PathVariable Long sid ) {
+
+        CommonResp<AdminViewBannedAccountResp> resp = new CommonResp<>();
+        AdminViewBannedAccountResp content = adminService.viewBannedAccount(sid);
+        resp.setContent(content);
+        return resp;
+
+    }
+
+    @PostMapping("/releaseAccount")
+    public CommonResp releaseAccount( @RequestBody AdminReleaseAccountReq req){
+
+        // LOG.info("请求：{}", req);
+
+        CommonResp resp = new CommonResp<>();
+        adminService.releaseAccount(req);
+        // resp.setContent(sponsorDetail);
+        return resp;
+
+    }
+
+    @GetMapping("/getContestDetail/{cid}")
+    public CommonResp getContestDetail(@PathVariable Long cid ){
+
+        CommonResp<AdminContestDetailQueryResp> resp = new CommonResp<>();
+        AdminContestDetailQueryResp content = adminService.getContestDetail(cid);
+        resp.setContent(content);
+        return resp;
+
+    }
+
+    @GetMapping("/failContestAudit/{cid}")
+    public CommonResp failContestAudit(@PathVariable Long cid ){
+
+        CommonResp resp = new CommonResp<>();
+        adminService.failContestAudit(cid);
+        // resp.setContent(content);
+        return resp;
+
+    }
+
+    @GetMapping("/passContestAudit/{cid}")
+    public CommonResp passContestAudit(@PathVariable Long cid ){
+
+        CommonResp resp = new CommonResp<>();
+        adminService.passContestAudit(cid);
+        // resp.setContent(content);
+        return resp;
+
+    }
 
 }

@@ -1,23 +1,23 @@
-package com.ibegu.dalao.domain;
+package com.ibegu.dalao.resp;
 
-import java.util.Date;
-
-public class Contest {
+public class AdminContestDetailQueryResp {
     private Long cid;
 
     private String contestName;
 
     private Long sponsorId;
 
-    private String contestIntro;
+    private String sponsorName;
 
-    private Date registrationStartTime;
+    private String sponsorAvatar;
 
-    private Date registrationEndTime;
+    private String registrationStartTime;
 
-    private Date competeStartTime;
+    private String registrationEndTime;
 
-    private Date competeEndTime;
+    private String competeStartTime;
+
+    private String competeEndTime;
 
     private Integer pageView;
 
@@ -32,6 +32,8 @@ public class Contest {
     private String audience;
 
     private Integer contestStatus;
+
+    private String contestIntro;
 
     public Long getCid() {
         return cid;
@@ -57,43 +59,51 @@ public class Contest {
         this.sponsorId = sponsorId;
     }
 
-    public String getContestIntro() {
-        return contestIntro;
+    public String getSponsorName() {
+        return sponsorName;
     }
 
-    public void setContestIntro(String contestIntro) {
-        this.contestIntro = contestIntro;
+    public void setSponsorName(String sponsorName) {
+        this.sponsorName = sponsorName;
     }
 
-    public Date getRegistrationStartTime() {
+    public String getSponsorAvatar() {
+        return sponsorAvatar;
+    }
+
+    public void setSponsorAvatar(String sponsorAvatar) {
+        this.sponsorAvatar = sponsorAvatar;
+    }
+
+    public String getRegistrationStartTime() {
         return registrationStartTime;
     }
 
-    public void setRegistrationStartTime(Date registrationStartTime) {
+    public void setRegistrationStartTime(String registrationStartTime) {
         this.registrationStartTime = registrationStartTime;
     }
 
-    public Date getRegistrationEndTime() {
+    public String getRegistrationEndTime() {
         return registrationEndTime;
     }
 
-    public void setRegistrationEndTime(Date registrationEndTime) {
+    public void setRegistrationEndTime(String registrationEndTime) {
         this.registrationEndTime = registrationEndTime;
     }
 
-    public Date getCompeteStartTime() {
+    public String getCompeteStartTime() {
         return competeStartTime;
     }
 
-    public void setCompeteStartTime(Date competeStartTime) {
+    public void setCompeteStartTime(String competeStartTime) {
         this.competeStartTime = competeStartTime;
     }
 
-    public Date getCompeteEndTime() {
+    public String getCompeteEndTime() {
         return competeEndTime;
     }
 
-    public void setCompeteEndTime(Date competeEndTime) {
+    public void setCompeteEndTime(String competeEndTime) {
         this.competeEndTime = competeEndTime;
     }
 
@@ -153,28 +163,34 @@ public class Contest {
         this.contestStatus = contestStatus;
     }
 
+    public String getContestIntro() {
+        return contestIntro;
+    }
+
+    public void setContestIntro(String contestIntro) {
+        this.contestIntro = contestIntro;
+    }
+
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", cid=").append(cid);
-        sb.append(", contestName=").append(contestName);
-        sb.append(", sponsorId=").append(sponsorId);
-        sb.append(", contestIntro=").append(contestIntro);
-        sb.append(", registrationStartTime=").append(registrationStartTime);
-        sb.append(", registrationEndTime=").append(registrationEndTime);
-        sb.append(", competeStartTime=").append(competeStartTime);
-        sb.append(", competeEndTime=").append(competeEndTime);
-        sb.append(", pageView=").append(pageView);
-        sb.append(", type=").append(type);
-        sb.append(", category=").append(category);
-        sb.append(", entryFee=").append(entryFee);
-        sb.append(", rank=").append(rank);
-        sb.append(", audience=").append(audience);
-        sb.append(", contestStatus=").append(contestStatus);
-        sb.append("]");
-        return sb.toString();
+        return "AdminContestDetailQueryResp{" +
+                "cid=" + cid +
+                ", contestName='" + contestName + '\'' +
+                ", sponsorId=" + sponsorId +
+                ", sponsorName='" + sponsorName + '\'' +
+                ", sponsorAvatar='" + sponsorAvatar + '\'' +
+                ", registrationStartTime='" + registrationStartTime + '\'' +
+                ", registrationEndTime='" + registrationEndTime + '\'' +
+                ", competeStartTime='" + competeStartTime + '\'' +
+                ", competeEndTime='" + competeEndTime + '\'' +
+                ", pageView=" + pageView +
+                ", type='" + type + '\'' +
+                ", category='" + category + '\'' +
+                ", entryFee=" + entryFee +
+                ", rank='" + rank + '\'' +
+                ", audience='" + audience + '\'' +
+                ", contestStatus=" + contestStatus +
+                ", contestIntro='" + contestIntro + '\'' +
+                '}';
     }
 }
