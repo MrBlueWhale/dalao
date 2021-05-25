@@ -154,7 +154,6 @@
         columns,
         loading,
         handleTableChange,
-
         edit,
         modalVisible,
         modalLoading,

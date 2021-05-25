@@ -81,6 +81,7 @@ public class ContestService {
         return contestResp;
     }
 
+    //获取对应用户所参加的比赛
     public List<ContestResp> getContestList(ParTeamCtsReq req) {
         List<Contest> contestList = contestMapper.selectPtcContestList(req.getPid());
         List<ContestResp> list = CopyUtil.copyList(contestList, ContestResp.class);
