@@ -1,0 +1,21 @@
+###
+POST http://localhost:8002/team/save
+Content-Type: application/json
+
+{
+  "contestId": "2",
+  "teamName": "来个大佬",
+  "uniName": "四川大学",
+  "uniAddr": "成都市双流区",
+  "zone": "西南赛区",
+  "instructorName": "王xx",
+  "instructorTel": "123456789",
+  "instructorEmail": "423498243@qq.com",
+  "instructorProf": "院长",
+  "leaderTel": "19981481120",
+  "member1Tel": "19912341234",
+  "member2Tel": "19912344321",
+  "member3Tel": "15348553796"
+}
+
+###
