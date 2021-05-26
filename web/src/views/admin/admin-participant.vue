@@ -166,10 +166,10 @@
     </a-layout>
 
     <template>
-      <a-drawer width="640" placement="right" :closable="false" :visible="visible" @close="onClose">
+      <a-drawer width="600px" height="600px" placement="left"  :closable="false" :visible="visible" @close="onClose">
         <p :style="[pStyle, pStyle2]">参赛者详情资料</p>
 
-        <p :style="pStyle">参赛者标识</p>
+        <p :style="pStyle">参赛者头像</p>
         <a-image
             :width="200"
             :height="100"
@@ -179,29 +179,23 @@
 
         <a-divider/>
 
-        <p :style="pStyle">概况</p>
+        <p :style="pStyle">账户信息</p>
 
         <a-row>
           <a-col :span="12">
             <!--            <description-item title="Name" content="{{ participantDetail.name }}"/>-->
             <a-descriptions>
-              <a-descriptions-item label="机构名称">{{ participantDetail.name }}</a-descriptions-item>
+              <a-descriptions-item label="昵称">{{ participantDetail.nickname }}</a-descriptions-item>
             </a-descriptions>
           </a-col>
           <a-col :span="12">
             <!--            <description-item title="Account" content="AntDesign@example.com"/>-->
             <a-descriptions>
-              <a-descriptions-item label="认证状态">{{ participantDetail.identityStatus }}</a-descriptions-item>
+              <a-descriptions-item label="认证状态">已实名</a-descriptions-item>
             </a-descriptions>
           </a-col>
         </a-row>
         <a-row>
-          <a-col :span="12">
-            <!--            <description-item title="Name" content="{{ participantDetail.name }}"/>-->
-            <a-descriptions>
-              <a-descriptions-item label="机构所在地">中国 浙江 杭州</a-descriptions-item>
-            </a-descriptions>
-          </a-col>
           <a-col :span="12">
             <!--            <description-item title="Account" content="AntDesign@example.com"/>-->
             <a-descriptions>
@@ -210,14 +204,76 @@
           </a-col>
         </a-row>
 
-        <a-divider/>
-        <p :style="pStyle">参赛者简介</p>
         <a-row>
           <a-descriptions>
-            <a-descriptions-item>{{ participantDetail.intro }}</a-descriptions-item>
+            <a-descriptions-item label="个性签名">我爱吃土豆</a-descriptions-item>
           </a-descriptions>
         </a-row>
+
         <a-divider/>
+        <p :style="pStyle">个人信息</p>
+
+        <a-row>
+          <a-col :span="12">
+            <!--            <description-item title="Account" content="AntDesign@example.com"/>-->
+            <a-descriptions>
+              <a-descriptions-item label="姓名">{{ participantDetail.name }}</a-descriptions-item>
+            </a-descriptions>
+          </a-col>
+          <a-col :span="12">
+            <!--            <description-item title="Account" content="AntDesign@example.com"/>-->
+            <a-descriptions>
+              <a-descriptions-item label="性别">{{ participantDetail.gender }}</a-descriptions-item>
+            </a-descriptions>
+          </a-col>
+        </a-row>
+
+        <a-row>
+          <a-col :span="16">
+            <!--            <description-item title="Account" content="AntDesign@example.com"/>-->
+            <a-descriptions>
+              <a-descriptions-item label="身份证号">{{ participantDetail.idNumber }}</a-descriptions-item>
+            </a-descriptions>
+          </a-col>
+        </a-row>
+
+        <a-row>
+          <a-col :span="12">
+            <a-descriptions>
+              <a-descriptions-item label="学校">{{ participantDetail.university }}</a-descriptions-item>
+            </a-descriptions>
+          </a-col>
+          <a-col :span="12">
+            <a-descriptions>
+              <a-descriptions-item label="学院">{{ participantDetail.college }}</a-descriptions-item>
+            </a-descriptions>
+          </a-col>
+        </a-row>
+
+        <a-row>
+          <a-col :span="12">
+            <a-descriptions>
+              <a-descriptions-item label="专业">{{ participantDetail.major }}</a-descriptions-item>
+            </a-descriptions>
+          </a-col>
+          <a-col :span="12">
+            <a-descriptions>
+              <a-descriptions-item label="年级">{{ participantDetail.grade }}</a-descriptions-item>
+            </a-descriptions>
+          </a-col>
+        </a-row>
+
+        <a-row>
+          <a-col :span="12">
+            <!--            <description-item title="Account" content="AntDesign@example.com"/>-->
+            <a-descriptions>
+              <a-descriptions-item label="学号">{{ participantDetail.studentId }}</a-descriptions-item>
+            </a-descriptions>
+          </a-col>
+        </a-row>
+
+        <a-divider/>
+
         <p :style="pStyle">联系方式</p>
         <a-row>
           <a-col :span="12">
@@ -229,34 +285,34 @@
         <a-row>
           <a-col :span="12">
             <a-descriptions>
-              <a-descriptions-item label="机构电话">{{ participantDetail.telNum }}</a-descriptions-item>
+              <a-descriptions-item label="联系电话">{{ participantDetail.telNum }}</a-descriptions-item>
             </a-descriptions>
           </a-col>
         </a-row>
         <a-row>
-          <a-col :span="12">
+          <a-col :span="16">
             <a-descriptions>
-              <a-descriptions-item label="通信地址">{{ participantDetail.address }}</a-descriptions-item>
+              <a-descriptions-item label="通信地址">四川省成都市双流区西航港街道川大路二段二号</a-descriptions-item>
             </a-descriptions>
           </a-col>
         </a-row>
-        <a-row>
-          <a-col :span="12">
-            <a-descriptions>
-              <a-descriptions-item label="机构代表人">兰鑫</a-descriptions-item>
-            </a-descriptions>
-          </a-col>
-        </a-row>
+<!--        <a-row>-->
+<!--          <a-col :span="12">-->
+<!--            <a-descriptions>-->
+<!--              <a-descriptions-item label="机构代表人">兰鑫</a-descriptions-item>-->
+<!--            </a-descriptions>-->
+<!--          </a-col>-->
+<!--        </a-row>-->
         <a-divider/>
-        <p :style="pStyle">机构证书</p>
+        <p :style="pStyle">获奖证书</p>
         <!--        <a-row>-->
         <!--                    <img class="certify-img" src="/image/certification-imgs/test1.jpg" alt="avatar"/>-->
         <!--        </a-row>-->
         <a-row>
           <div>
             <a-image-preview-group>
-              <a-image :width="220" :height="150" src="/image/certification-imgs/test1.jpg"/>
-              <a-image :width="220" :height="150" src="/image/certification-imgs/test2.jpg"/>
+              <a-image :width="220" :height="150" src="/image/honor-certificates/certificates-1.png"/>
+              <a-image :width="220" :height="150" src="/image/honor-certificates/certificates-2.jpg"/>
             </a-image-preview-group>
           </div>
         </a-row>
