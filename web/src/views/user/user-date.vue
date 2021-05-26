@@ -29,6 +29,9 @@
     </a-row>
   </div>
 
+<!--<h1>{{contestLsit}}</h1>-->
+<!--  <h1 v-for="item in contestList" :key="item">{{item.competeStartTime.getFullYear()}}</h1>-->
+<!--  <h1 v-for="item in contestList.competeEndTime" :key="item">{{item}}</h1>-->
   <div :style="{ width: '1500px', border: '1px solid #d9d9d9', borderRadius: '4px',background: '#ececec'}">
     <a-calendar v-model:value="value" :fullscreen="false">
       <template #dateCellRender="{ current: value }">
@@ -65,27 +68,51 @@
       const value = ref<Moment>();
       const getListData = (value: Moment) => {
         let listData;
-        switch (value.date()) {
-          case beginDate.getDate():
-            if(value.month()==beginDate.getMonth()&&value.year()==beginDate.getFullYear()){
-              if(nowDate<beginDate){
-                listData = [
-                  { type: 'warning', content: '未开始' },
-                ];
-              }else if(nowDate>=beginDate&&nowDate<=endDate){
-                listData = [
-                  { type: 'error', content: '进行中' },
-                ];
-              }else {
-                listData = [
-                  { type: 'success', content: '已结束' },
-                ];
-              }
+        for(let i=0; i < contestList.value.length; i++){
+          switch (value.date()) {
+            case contestList.value[i].competeStartTime.getDate():
+              if(value.month()==contestList.value[i].competeStartTime.getMonth()&&value.year()==contestList.value[i].competeStartTime.getFullYear()){
+                if(nowDate<contestList.value[i].competeStartTime){
+                  listData = [
+                    { type: 'warning', content: '未开始' },
+                  ];
+                }else if(nowDate>=contestList.value[i].competeStartTime&&nowDate<=contestList.value[i].competeEndTime){
+                  listData = [
+                    { type: 'error', content: '进行中' },
+                  ];
+                }else {
+                  listData = [
+                    { type: 'success', content: '已结束' },
+                  ];
+                }
 
-            }
-            break;
-          default:
+              }
+              break;
+            default:
+          }
+
         }
+        // switch (value.date()) {
+        //   case beginDate.getDate():
+        //     if(value.month()==beginDate.getMonth()&&value.year()==beginDate.getFullYear()){
+        //       if(nowDate<beginDate){
+        //         listData = [
+        //           { type: 'warning', content: '未开始' },
+        //         ];
+        //       }else if(nowDate>=beginDate&&nowDate<=endDate){
+        //         listData = [
+        //           { type: 'error', content: '进行中' },
+        //         ];
+        //       }else {
+        //         listData = [
+        //           { type: 'success', content: '已结束' },
+        //         ];
+        //       }
+        //
+        //     }
+        //     break;
+        //   default:
+        // }
         return listData || [];
       };
 
@@ -98,8 +125,10 @@
       const route = useRoute();
       const participant = ref();
       participant.value = {};
-      const contestDetail = ref();
-      contestDetail.value = {};
+      // const contestDetail = ref();
+      // contestDetail.value = {};
+     const contestList = ref();
+     contestList.value = {};
       //用来得到传入此页面的用户id
       //由于现在无数据，先写死
       //const participantId = route.query.pid;
@@ -127,31 +156,36 @@
       //查询所有比赛
       const handleQuery1 = (params: any) => {
         // 如果不清空现有数据，则编辑保存重新加载数据后，再点编辑，则列表显示的还是编辑前的数据
-        axios.get("/contest/detail", {
+        axios.get("/contest/contestList", {
                   params:{
-                    cid: params.cid
+                    pid: params.pid
                   }
                 }
         ).then((response) => {
           const data = response.data;
           console.log(data);
-          contestDetail.value = data.content;
-
-          beginDate = new Date(contestDetail.value.competeStartTime);
-          endDate = new Date(contestDetail.value.competeEndTime);
+          //contestDetail.value = data.content;
+          // beginDate = new Date(contestDetail.value.competeStartTime);
+          // endDate = new Date(contestDetail.value.competeEndTime);
+          contestList.value = data.content;
+          console.log("---------------------------------");
+          console.log(contestList.value[0]);
+          for(let i=0; i < contestList.value.length; i++){
+             contestList.value[i].competeStartTime = new Date(contestList.value[i].competeStartTime);
+             contestList.value[i].competeEndTime = new Date(contestList.value[i].competeEndTime);
+          }
+          console.log("修改后",contestList);
         });
       };
 
 
       onMounted(()=> {
 
-        //console.log("比赛id：", contestId);
-
         handleQuery({
           pid: 1,
         });
         handleQuery1({
-          cid: 1,
+          pid: 1,
         })
 
       });
@@ -162,7 +196,8 @@
         getListData,
         getMonthData,
         participant,
-        contestDetail,
+        //contestDetail,
+        contestList,
         nowDate,
         beginDate,
         endDate,
