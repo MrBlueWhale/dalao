@@ -139,11 +139,23 @@ public class AdminService {
 
     public void banAccount(AdminBanAccountReq req) {
 
-        //更新被封禁账户的账户状态
-        Long sponsorId = req.getUid();
-        Sponsor sponsor = sponsorMapper.selectByPrimaryKey(sponsorId);
-        sponsor.setAccountStatus(1);
-        sponsorMapper.updateByPrimaryKey(sponsor);
+        if(ObjectUtils.isEmpty(req.getUserType())){
+
+            //如果没有用户类型参数 则默认为主办方 实则为0
+            //更新被封禁账户的账户状态
+            Long sponsorId = req.getUid();
+            Sponsor sponsor = sponsorMapper.selectByPrimaryKey(sponsorId);
+            sponsor.setAccountStatus(1);
+            sponsorMapper.updateByPrimaryKey(sponsor);
+        }else{
+            //用户类型为1（参赛者）
+            //更新被封禁账户的账户状态
+            Long participantId = req.getUid();
+            Participant participant = participantMapper.selectByPrimaryKey(participantId);
+            participant.setAccountStatus(1);
+            participantMapper.updateByPrimaryKey(participant);
+
+        }
 
     //    更新封禁表
 
@@ -152,7 +164,7 @@ public class AdminService {
         banAccount.setBid(snowFlake.nextId());
         banAccount.setUid(req.getUid());
         banAccount.setBanType((req.getBanType()).toString());
-        banAccount.setUserType(1);
+        banAccount.setUserType(ObjectUtils.isEmpty(req.getUserType()) ? 1 : 0 );
 
         LOG.info("banAccount:{}", banAccount);
 
@@ -203,11 +215,42 @@ public class AdminService {
         // return null;
     }
 
+    public AdminViewBannedAccountResp viewBannedPAccount(Long pid) {
+
+        BanAccountExample banAccountExample = new BanAccountExample();
+        BanAccountExample.Criteria criteria = banAccountExample.createCriteria();
+
+        LOG.info("content:{}", (ObjectUtils.isEmpty(pid)));
+
+        BanAccount banAccount = banAccountMapper.findParticipantByMaxBannedTime(pid);
+        AdminViewBannedAccountResp content = CopyUtil.copy(banAccount, AdminViewBannedAccountResp.class);
+
+        LOG.info("banAccount:{}", banAccount);
+        LOG.info("banType1:{}", banAccount.getBanType());
+        String banType = banAccount.getBanType().replace("[","").replace("]","");
+        LOG.info("banType2:{}", banType.split(","));
+        LOG.info("banType3:{}", new ArrayList<String>(Arrays.asList(banType.split(","))));
+
+        content.setBanType(new ArrayList<String>(Arrays.asList(banType.split(", "))));
+
+        LOG.info("content:{}", content);
+
+
+        return content;
+        // return null;
+
+    }
+
+
     public void releaseAccount(AdminReleaseAccountReq req) {
 
 //更新被封禁账户的账户状态
 
-        BanAccount banAccount = banAccountMapper.findByUid(req.getUid());
+        Integer userType = (ObjectUtils.isEmpty(req.getUserType())) ? 1 : 0;
+        LOG.info("userType:{}-{}", userType, userType.getClass());
+        BanAccount banAccount = banAccountMapper.findByUidAndUserType(req.getUid(), userType);
+
+
         LOG.info("banAccount:{}-{}", banAccount, banAccount.getClass());
 
         ArrayList<String> banTypesOld = new ArrayList<String>(Arrays.asList(banAccount.getBanType().replace("[","").replace("]","").split(", ")));
@@ -228,12 +271,27 @@ public class AdminService {
         LOG.info("banType2New:{}-{}", bantypes, bantypes.getClass());
         LOG.info("banType3:{}-{}", req.getBanType(), req.getBanType().getClass());
 
-
         if(ObjectUtils.isEmpty(banTypesOld)){
-            Sponsor sponsor = sponsorMapper.selectByPrimaryKey(req.getUid());
-            sponsor.setAccountStatus(0);
-            sponsorMapper.updateByPrimaryKey(sponsor);
+            if(userType == 1){
+                //没有用户类型参数 默认为主办方---1
+
+                Sponsor sponsor = sponsorMapper.selectByPrimaryKey(req.getUid());
+                sponsor.setAccountStatus(0);
+                sponsorMapper.updateByPrimaryKey(sponsor);
+
+            }else{
+                //    参赛者--用户类型为---0
+                Participant participant = participantMapper.selectByPrimaryKey(req.getUid());
+                participant.setAccountStatus(0);
+                participantMapper.updateByPrimaryKey(participant);
+
+            }
+
         }
+
+
+        // BanAccount banAccount = banAccountMapper.findByUid(req.getUid());
+
 
 
         //    更新封禁表
@@ -244,7 +302,7 @@ public class AdminService {
         banAccountUpdate.setReason(banAccount.getReason());
         banAccountUpdate.setBannedtime(banAccount.getBannedtime());
         // banAccountUpdate.setNote(req.getNote());
-        banAccountUpdate.setUserType(banAccount.getUserType());
+        banAccountUpdate.setUserType(userType);
         banAccountUpdate.setBanType(banTypesUpdate);
         // banAccount.setUserType(1);
 
@@ -412,7 +470,6 @@ public class AdminService {
         contest.setContestStatus(1);
         contestMapper.updateByPrimaryKey(contest);
     }
-
 
 
 }

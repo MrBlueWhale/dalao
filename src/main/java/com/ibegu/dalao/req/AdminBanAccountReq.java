@@ -22,9 +22,19 @@ public class AdminBanAccountReq {
 
     private Date bannedtime;
 
-    // private Integer userType;
+    private Integer userType;
+
 
     private ArrayList<String> banType;
+
+    public Integer getUserType() {
+        return userType;
+    }
+
+    public void setUserType(Integer userType) {
+        this.userType = userType;
+    }
+
 
     public Boolean getDelivery() {
         return delivery;
@@ -91,6 +101,7 @@ public class AdminBanAccountReq {
                 ", note='" + note + '\'' +
                 ", releasetime=" + releasetime +
                 ", bannedtime=" + bannedtime +
+                ", userType=" + userType +
                 ", banType=" + banType +
                 '}';
     }

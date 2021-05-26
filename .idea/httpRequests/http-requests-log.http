@@ -1,3 +1,229 @@
+POST http://localhost:8002/admin/releaseAccount
+Content-Type: application/json
+
+{
+  "uid":"2",
+  "userType": "0",
+  "banType":["2"],
+  "delivery":true,
+  "note":"yyyy",
+  "releasetime":"2021-05-30T17:16:03.339Z"
+}
+
+<> 2021-05-26T121140.200.json
+
+###
+
+POST http://localhost:8002/admin/releaseAccount
+Content-Type: application/json
+
+{
+  "uid":"2",
+  "userType": "0",
+  "banType":["4"],
+  "delivery":true,
+  "note":"yyyy",
+  "releasetime":"2021-05-30T17:16:03.339Z"
+}
+
+<> 2021-05-26T121015.200.json
+
+###
+
+POST http://localhost:8002/admin/releaseAccount
+Content-Type: application/json
+
+{
+  "uid":"2",
+  "userType": "0",
+  "banType":["1"],
+  "delivery":true,
+  "note":"yyyy",
+  "releasetime":"2021-05-30T17:16:03.339Z"
+}
+
+<> 2021-05-26T120954.200.json
+
+###
+
+POST http://localhost:8002/admin/banAccount
+Content-Type: application/json
+
+{
+  "uid": "2",
+  "userType": "0",
+  "reason":"描述了毒品、枪支、管制物品的买卖",
+  "releasetime":"2021-05-30T16:28:13.950Z",
+  "bannedtime":"2021-05-25T16:28:24.118Z",
+  "delivery":true,
+  "banType":["1","4"],
+  "note":"dgthfgh"
+}
+
+<> 2021-05-26T120918.200.json
+
+###
+
+POST http://localhost:8002/admin/releaseAccount
+Content-Type: application/json
+
+{
+  "uid":"2",
+  "userType": "0",
+  "banType":["1"],
+  "delivery":true,
+  "note":"yyyy",
+  "releasetime":"2021-05-30T17:16:03.339Z"
+}
+
+<> 2021-05-26T120738-1.200.json
+
+###
+
+POST http://localhost:8002/admin/releaseAccount
+Content-Type: application/json
+
+{
+  "uid":"2",
+  "userType": "0",
+  "banType":["4"],
+  "delivery":true,
+  "note":"yyyy",
+  "releasetime":"2021-05-30T17:16:03.339Z"
+}
+
+<> 2021-05-26T120656.200.json
+
+###
+
+POST http://localhost:8002/admin/releaseAccount
+Content-Type: application/json
+
+{
+  "uid":"2",
+  "user_type": "0",
+  "banType":["4"],
+  "delivery":true,
+  "note":"yyyy",
+  "releasetime":"2021-05-30T17:16:03.339Z"
+}
+
+<> 2021-05-26T012503.200.json
+
+###
+
+POST http://localhost:8002/admin/banAccount
+Content-Type: application/json
+
+{
+  "uid": "2",
+  "userType": "0",
+  "reason":"描述了毒品、枪支、管制物品的买卖",
+  "releasetime":"2021-05-30T16:28:13.950Z",
+  "bannedtime":"2021-05-25T16:28:24.118Z",
+  "delivery":true,
+  "banType":["1","4"],
+  "note":"dgthfgh"
+}
+
+<> 2021-05-26T012427.200.json
+
+###
+
+POST http://localhost:8002/admin/releaseAccount
+Content-Type: application/json
+
+{
+  "uid":"1",
+  "user_type": "0",
+  "banType":["4"],
+  "delivery":true,
+  "note":"yyyy",
+  "releasetime":"2021-05-30T17:16:03.339Z"
+}
+
+<> 2021-05-26T012030.200.json
+
+###
+
+GET http://localhost:8002/admin/viewBannedPAccount/1
+
+<> 2021-05-26T125429.200.json
+
+###
+
+GET http://localhost:8002/admin/viewBannedPAccount/1
+
+<> 2021-05-26T125249.200.json
+
+###
+
+GET http://localhost:8002/admin/viewBannedAccount/1
+
+<> 2021-05-26T125231.200.json
+
+###
+
+POST http://localhost:8002/admin/banAccount
+Content-Type: application/json
+
+{
+  "uid": "1",
+  "userType": "0",
+  "reason":"描述了毒品、枪支、管制物品的买卖",
+  "releasetime":"2021-05-30T16:28:13.950Z",
+  "bannedtime":"2021-05-25T16:28:24.118Z",
+  "delivery":true,
+  "banType":["1","4"],
+  "note":"dgthfgh"
+}
+
+<> 2021-05-26T123857.200.json
+
+###
+
+POST http://localhost:8002/admin/banAccount
+Content-Type: application/json
+
+{
+  "uid": "1",
+  "userType": "0",
+  "reason":"描述了毒品、枪支、管制物品的买卖",
+  "releasetime":"2021-05-30T16:28:13.950Z",
+  "bannedtime":"2021-05-25T16:28:24.118Z",
+  "delivery":true,
+  "banType":["1","4"],
+  "note":"dgthfgh"
+}
+
+<> 2021-05-26T123539.200.json
+
+###
+
+POST http://localhost:8002/admin/banAccount
+Content-Type: application/json
+
+{
+  "uid": "1",
+  "userType": "0"
+}
+
+<> 2021-05-26T122337.200.json
+
+###
+
+POST http://localhost:8002/admin/banAccount
+Content-Type: application/json
+
+{
+  "uid": "1",
+  "userType": "0"
+}
+
+<> 2021-05-26T122104.200.json
+
+###
+
 POST http://localhost:8002/admin/resetParticipantPassword
 Content-Type: application/json
 

@@ -13,11 +13,33 @@
 
     </select>
 
+    <select id="findParticipantByMaxBannedTime" resultType="com.ibegu.dalao.domain.BanAccount">
+
+<!--        select max(bannedtime) from `ban_account`-->
+
+        select bid, reason, bannedTime, `interval`, `uid`, note, releaseTime, user_type, ban_type from ban_account WHERE ( `uid` = #{uid} ) AND ( `user_type` = 0)
+        ORDER BY `bannedTime` DESC, `bid` DESC
+        limit 1;
+
+    </select>
+
     <select id="findByUid" resultType="com.ibegu.dalao.domain.BanAccount">
 
 <!--        select max(bannedtime) from `ban_account`-->
 
         select bid, reason, bannedTime, `interval`, `uid`, note, releaseTime, user_type, ban_type from ban_account WHERE ( `uid` = #{uid} )
+        ORDER BY `bannedTime` DESC,`bid` DESC
+        limit 1;
+
+
+
+    </select>
+
+    <select id="findByUidAndUserType" resultType="com.ibegu.dalao.domain.BanAccount">
+
+<!--        select max(bannedtime) from `ban_account`-->
+
+        select bid, reason, bannedTime, `interval`, `uid`, note, releaseTime, user_type, ban_type from ban_account WHERE ( `uid` = #{uid} ) AND ( `user_type` = #{user_type})
         ORDER BY `bannedTime` DESC,`bid` DESC
         limit 1;
 

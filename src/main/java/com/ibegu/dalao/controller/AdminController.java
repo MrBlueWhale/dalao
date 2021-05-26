@@ -120,8 +120,6 @@ public class AdminController {
     }
 
 
-
-
     @PostMapping("/banAccount")
     public CommonResp banAccount( @RequestBody AdminBanAccountReq req){
 
@@ -134,11 +132,21 @@ public class AdminController {
 
     }
 
-    @GetMapping("/viewBannedAccount/{sid}")
-    public CommonResp viewBannedAccount(@PathVariable Long sid ) {
+    @GetMapping("/viewBannedAccount/{uid}")
+    public CommonResp viewBannedAccount(@PathVariable Long uid ) {
 
         CommonResp<AdminViewBannedAccountResp> resp = new CommonResp<>();
-        AdminViewBannedAccountResp content = adminService.viewBannedAccount(sid);
+        AdminViewBannedAccountResp content = adminService.viewBannedAccount(uid);
+        resp.setContent(content);
+        return resp;
+
+    }
+
+    @GetMapping("/viewBannedPAccount/{uid}")
+    public CommonResp viewBannedPAccount(@PathVariable Long uid ) {
+
+        CommonResp<AdminViewBannedAccountResp> resp = new CommonResp<>();
+        AdminViewBannedAccountResp content = adminService.viewBannedPAccount(uid);
         resp.setContent(content);
         return resp;
 
