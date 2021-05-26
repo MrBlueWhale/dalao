@@ -1,69 +1,15 @@
 <template>
-
-    <a-layout>
-      <a-layout style="padding: 0 24px 24px">
-
-        <a-layout-content
-            :style="{ background: '#fff', padding: '24px', margin: 0, minHeight: '280px' }"
-        >
-          Content:<br/>
-
-
-          <a-list item-layout="vertical" size="large" :pagination="pagination" :grid="{ gutter: 20, column: 3 }" :data-source="listData">
-            <template #footer>
-              <div>
-                <b>ant design vue</b>
-                footer part
-              </div>
-            </template>
-            <template #renderItem="{ item }">
-              <a-list-item key="item.title">
-                <template #actions>
-          <span v-for="{ type, text } in actions" :key="type">
-            <component v-bind:is="type" style="margin-right: 8px" />
-            {{ text }}
-          </span>
-                </template>
-                <template #extra>
-                  <img
-                      width="272"
-                      alt="logo"
-                      src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
-                  />
-                </template>
-                <a-list-item-meta :description="item.description">
-                  <template #title>
-                    <a :href="item.href">{{ item.title }}</a>
-                  </template>
-                  <template #avatar><a-avatar :src="item.avatar" /></template>
-                </a-list-item-meta>
-                {{ item.content }}
-              </a-list-item>
-            </template>
-          </a-list>
-
-
-
-          通过ref():
-          <pre>{{ demos }}</pre>
-          <br/>
-<!--          通过reactive():<br/>-->
-<!--          <pre>-->
-<!--          {{ demos_reactive }}-->
-<!--        </pre>-->
-<!--          <br/>-->
-
-          <!--        {{demos}}-->
-        </a-layout-content>
-      </a-layout>
-    </a-layout>
-
+  <a-layout>
+    <sponsor-header></sponsor-header>
+    <router-view></router-view>
+    <admin-footer></admin-footer>
+  </a-layout>
 </template>
 
 
 <script lang="ts">
 import {defineComponent, onMounted, ref, reactive, toRef} from 'vue';
-import AdminHeader from '@/components/admin-header.vue';
+import SponsorHeader from '@/components/sponsor-header.vue';
 import AdminFooter from '@/components/admin-footer.vue';
 import axios from 'axios';
 
@@ -85,10 +31,8 @@ for (let i = 0; i < 23; i++) {
 }
 
 
-
-
 export default defineComponent({
-  name: 'AdminHome',
+  name: 'SponsorApp',
 
   //放一些参数定义，方法定义
   setup() {
@@ -116,30 +60,28 @@ export default defineComponent({
       demos,
       demos_reactive: toRef(demos2, "demos"),
       listData,
-      pagination : {
+      pagination: {
         onChange: (page: any) => {
           console.log(page);
         },
         pageSize: 3,
       },
       actions: [
-        { type: 'StarOutlined', text: '156' },
-        { type: 'LikeOutlined', text: '156' },
-        { type: 'MessageOutlined', text: '2' },
+        {type: 'StarOutlined', text: '156'},
+        {type: 'LikeOutlined', text: '156'},
+        {type: 'MessageOutlined', text: '2'},
       ],
     }
   },
 
 
   components: {
-    AdminHeader,
+    SponsorHeader,
     AdminFooter,
   },
 
 });
 </script>
-
-
 
 
 <style scoped>
@@ -148,11 +90,6 @@ export default defineComponent({
 /*  height: 50px;*/
 /*}*/
 </style>
-
-
-
-
-
 
 
 <style>

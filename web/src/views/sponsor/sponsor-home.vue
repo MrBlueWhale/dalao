@@ -1,6 +1,6 @@
 <template>
   <a-layout>
-<admin-header></admin-header>
+<!--<admin-header></admin-header>-->
     <a-layout>
       <a-layout-sider width="200" style="background: #fff">
         <a-menu
@@ -107,14 +107,14 @@
         </a-layout-content>
       </a-layout>
     </a-layout>
-<admin-footer></admin-footer>
+<!--<admin-footer></admin-footer>-->
   </a-layout>
 </template>
 
 
 <script lang="ts">
 import {defineComponent, onMounted, ref, reactive, toRef} from 'vue';
-import AdminHeader from '@/components/admin-header.vue';
+import SponsorHeader from '@/components/sponsor-header.vue';
 import AdminFooter from '@/components/admin-footer.vue';
 import axios from 'axios';
 
@@ -183,7 +183,7 @@ export default defineComponent({
 
 
   components: {
-    AdminHeader,
+    SponsorHeader,
     AdminFooter,
   },
 
