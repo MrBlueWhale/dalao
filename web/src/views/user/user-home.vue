@@ -66,18 +66,6 @@
             <div><img src="/image/contest-poster/ia_100000007.png"/></div>
             <div><img src="/image/contest-poster/ia_100000008.png"/></div>
             <div><img class="slide-img" src="/image/contest-poster/ia_100000011.jpg"/></div>
-<!--            <div><img src="/image/contest-poster/ia_100000019.png"/></div>-->
-<!--            <div><img src="/image/contest-poster/ia_100000020.png"/></div>-->
-<!--            <div><img src="/image/contest-poster/ia_100000021.png"/></div>-->
-<!--            <div><img src="/image/contest-poster/ia_100000022.png"/></div>-->
-<!--            <div><img src="/image/contest-poster/ia_100000023.png"/></div>-->
-<!--            <div><img src="/image/contest-poster/ia_100000024.png"/></div>-->
-<!--            <div><img src="/image/contest-poster/ia_100000025.png"/></div>-->
-<!--            <div><img src="/image/contest-poster/ia_100000026.png"/></div>-->
-<!--            <div><img src="/image/contest-poster/ia_100000052.png"/></div>-->
-<!--            <div><img src="/image/contest-poster/ia_100000053.png"/></div>-->
-<!--            <div><img src="/image/contest-poster/ia_100000054.png"/></div>-->
-<!--            <div><img src="/image/contest-poster/ia_100000055.png"/></div>-->
 
           </a-carousel>
         </div>
@@ -100,7 +88,8 @@
             <template v-slot:extra>
               <a-button key="3">Operation</a-button>
               <a-button key="2" @click="viewDetail(item)">竞赛详情</a-button>
-              <a-button key="1" type="primary">加入意向比赛</a-button>
+
+              <a-button key="1" @click="joinGame(item)" type="primary">加入意向比赛</a-button>
               <a-dropdown key="more">
                 <a-button :style="{ border: 'none', padding: 0 }">
                   <EllipsisOutlined :style="{ fontSize: '20px', verticalAlign: 'top' }" />
@@ -239,6 +228,7 @@
 
         <!--        {{demos}}-->
       </a-layout-content>
+
     </a-layout>
 
     <a-modal
@@ -267,22 +257,113 @@
         </a-descriptions-item>
       </a-descriptions>
     </a-modal>
+
+
   </a-layout>
+    <a-modal
+            title="参加比赛"
+            width="600px"
+            v-model:visible="joinModalVisible"
+            :confirm-loading="joinModalLoading"
+            @ok="handleJoinGameModalOk"
+            okText="确认"
+    >
+        <template #footer>
+            <a-button key="resetThisForm" @click="ResetBanForm">重置</a-button>
+            <a-button key="submit" type="primary" :loading="loading" @click="handleJoinGameModalOk">提交</a-button>
+        </template>
+
+        <div style="text-align: center;">
+            <p>意向比赛：{{ contestDetail.contestName }}</p>
+        </div>
+
+<!--        <a-descriptions-item label="比赛名称"><h3>{{contestDetail.contestName}}</h3></a-descriptions-item>-->
+        <a-form ref="formRef"
+                :model="formState"
+                :rules="rules"
+                :label-col="labelCol"
+                :wrapper-col="wrapperCol">
+            <a-form-item label="队伍名称" name="teamName">
+                <a-input v-model:value="formState.teamName"/>
+            </a-form-item>
+            <a-form-item label="学校名称">
+                <p>{{participant.university}}</p>
+            </a-form-item>
+            <a-form-item label="学校地址" name="uniAddr">
+                <a-input v-model:value="formState.uniAddr"/>
+            </a-form-item>
+            <a-form-item label="赛区" name="zone">
+                <a-input v-model:value="formState.zone"/>
+            </a-form-item>
+            <a-form-item label="指导老师" name="instructorName">
+                <a-input v-model:value="formState.instructorName"/>
+            </a-form-item>
+            <a-form-item label="指导老师联系电话" name="instructorTel">
+                <a-input v-model:value="formState.instructorTel"/>
+            </a-form-item>
+            <a-form-item label="指导老师邮箱" name="instructorEmail">
+                <a-input v-model:value="formState.instructorEmail"/>
+            </a-form-item>
+            <a-form-item label="指导老师职务" name="instructorProf">
+                <a-input v-model:value="formState.instructorProf"/>
+            </a-form-item>
+            <a-form-item label="队长电话" name="leaderTel">
+                <a-input v-model:value="formState.leaderTel"/>
+            </a-form-item>
+            <a-form-item label="队员一电话" name="member1Tel">
+                <a-input v-model:value="formState.member1Tel"/>
+            </a-form-item>
+            <a-form-item label="队员二电话" name="member2Tel">
+                <a-input v-model:value="formState.member2Tel"/>
+            </a-form-item>
+            <a-form-item label="队员三电话" name="member3Tel">
+                <a-input v-model:value="formState.member3Tel"/>
+            </a-form-item>
+
+
+
+        </a-form>
+
+    </a-modal>
+
 </template>
 
 
 <script lang="ts">
-import {defineComponent, onMounted, ref, reactive, toRef} from 'vue'
+import {defineComponent, onMounted, ref, reactive, toRef, toRaw, UnwrapRef} from 'vue'
 
-import { LeftCircleOutlined, RightCircleOutlined } from '@ant-design/icons-vue';
+import {createFromIconfontCN, LeftCircleOutlined, RightCircleOutlined } from '@ant-design/icons-vue';
 
 import axios from 'axios';
+
+import {ValidateErrorEntity} from 'ant-design-vue/es/form/interface';
+import {Moment,} from 'moment';
+import moment from 'moment';
+
+import {message} from 'ant-design-vue';
+import {Tool} from "@/util/tool";
 
 // import HelloWorld from "@/components/HelloWorld.vue";
 
 // const listData: Record<string, string>[] = [];
 const listData: any = [];
 
+
+interface FormState {
+    contestId: number;
+    teamName: string;
+    uniName: string;
+    uniAddr: string;
+    zone: string;
+    instructorName: string;
+    instructorTel: string;
+    instructorEmail: string;
+    instructorProf: string;
+    leaderTel: string;
+    member1Tel: string;
+    member2Tel: string;
+    member3Tel: string;
+}
 
 const routes = [
   {
@@ -327,20 +408,147 @@ export default defineComponent({
     const loading = ref(false);
     const modalVisible = ref(false);
     const modalLoading = ref(false);
+    const joinModalVisible = ref(false);
+    const joinModalLoading = ref(false);
+
     console.log("setup");
     // 使用ref()定义响应式数据
     const demos = ref();
     //reactive中放入对象 并自定义属性
     const demos2 = reactive({demos: []});
     const contests = ref();
-    const contestDetail = ref();
+    const contestDetail = ref({
+        // cid: 0,
+    });
     contestDetail.value = {};
     var str;
 
     const viewDetail = (item: any) =>{
       modalVisible.value = true;
       contestDetail.value = item;
-    }
+    };
+
+
+
+      // -------- 组队参赛 ---------
+
+//////////////// 组队参赛表单 ///////
+
+      const formRef = ref();
+      const formState: UnwrapRef<FormState> = reactive({
+          contestId: 0,
+          teamName: '',
+          uniName: '',
+          uniAddr: '',
+          zone: '',
+          instructorName: '',
+          instructorTel: '',
+          instructorEmail: '',
+          instructorProf: '',
+          leaderTel: '',
+          member1Tel: '',
+          member2Tel: '',
+          member3Tel: '',
+      });
+
+      const rules = {
+          teamName: [{required: true, message: '队伍名不能为空', trigger: 'blur'}],
+          uniAddr: [{required: true, message: '大学地址不能为空', trigger: 'blur'}],
+          zone: [{required: true, message: '赛区不能为空', trigger: 'blur'}],
+          instructorName: [{required: true, message: '指导老师名字不能为空', trigger: 'blur'}],
+          instructorTel: [{required: true, message: '指导老师手机号不能为空', trigger: 'blur'},
+              {
+                  pattern:/^1[34578]\d{9}$/, message: '请输入有效的手机号'
+              }],
+          instructorEmail: [{required: true, message: '邮箱不能为空', trigger: 'blur'},
+              {
+          pattern:/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/, message: '你的邮箱格式不正确'
+              }],
+          instructorProf: [{required: true, message: '指导老师职位不能为空', trigger: 'blur'}],
+          leaderTel: [{required: true, message: '队长手机号不能为空', trigger: 'blur'},
+              {
+                  pattern:/^1[34578]\d{9}$/, message: '请输入有效的手机号'
+              }],
+          member1Tel: [{required: true, message: '队员手机号不能为空', trigger: 'blur'},
+              {
+                  pattern:/^1[34578]\d{9}$/, message: '请输入有效的手机号'
+              }],
+          member2Tel: [{required: true, message: '队员手机号不能为空', trigger: 'blur'},
+              {
+                  pattern:/^1[34578]\d{9}$/, message: '请输入有效的手机号'
+              }],
+          member3Tel: [{required: true, message: '队员手机号不能为空', trigger: 'blur'},
+              {
+                  pattern:/^1[34578]\d{9}$/, message: '请输入有效的手机号'
+              }],
+
+      };
+
+      const onSubmit = () => {
+          formRef.value
+              .validate()
+              .then(() => {
+                  console.log('values', formState, toRaw(formState));
+              })
+              .catch((error: ValidateErrorEntity<FormState>) => {
+                  console.log('error', error);
+              });
+      };
+      const ResetBanForm = () => {
+          formRef.value.resetFields();
+      };
+
+
+
+      const joinGame = (item: any) =>{
+          joinModalVisible.value = true;
+          contestDetail.value = item;
+          console.log("该行数据的id：", item.cid);
+          formState.contestId = item.cid;
+
+          console.log("该行数据：", item);
+          contestDetail.value = item;
+
+      };
+
+      const handleJoinGameModalOk = (record: any)=>{
+
+          onSubmit();
+
+          console.log("joinForm1", formState);
+          console.log("joinForm2", toRaw(formState));
+
+          // formState.contestId = contestDetail.value.cid;
+
+          axios.post("/team/save", toRaw(formState)).then((response) => {
+              joinModalLoading.value = false;
+              const data = response.data; // data = commonResp
+              if (data.success) {
+                  joinModalVisible.value = false;
+
+                  // // 重新加载列表（？需要吗）
+                  // handleQuery({
+                  //     page: pagination.value.current,
+                  //     size: pagination.value.pageSize,
+                  // });
+
+                  //
+                  message.success("成功参赛！")
+
+
+              } else {
+                  message.error(data.message);
+              }
+          });
+
+
+
+        console.log(record);
+
+      };
+
+      const participant = ref();
+
 
     //初始化逻辑都写到onMounted()里
     onMounted(() => {
@@ -367,6 +575,16 @@ export default defineComponent({
         console.log("比赛详情：", contestDetail);
       });
 
+        axios.get("/participant/detail", {params:{
+            pid: 1,
+            }}).then((response) => {
+            loading.value = false;
+            const data = response.data;
+            console.log(data);
+            participant.value = data.content;
+            console.log("登录者：", participant);
+        });
+
     });
 
     //html代码要拿到响应式变量 需要在setup的最后return
@@ -379,8 +597,27 @@ export default defineComponent({
 
       modalVisible,
       modalLoading,
+        joinModalVisible,
+        joinModalLoading,
       viewDetail,
+        joinGame,
       contestDetail,
+         handleJoinGameModalOk,
+
+
+        formRef,
+        labelCol: {span: 4},
+        wrapperCol: {span: 14},
+        other: '',
+        formState,
+        rules,
+        onSubmit,
+        ResetBanForm,
+
+        participant,
+
+
+
 
       demos_reactive: toRef(demos2, "demos"),
       listData,
