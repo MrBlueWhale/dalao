@@ -27,6 +27,8 @@ GET http://localhost:8002/admin/getSponsorDetail?sid=1
 ###
 
 ###
+GET http://localhost:8002/admin/listParticipant?page=1&size=4&accountStatus=0
+###
 GET http://localhost:8002/admin/getSponsorDetail?sid=1
 
 ###

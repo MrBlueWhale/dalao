@@ -1,3 +1,9 @@
+GET http://localhost:8002/admin/listParticipant?page=1&size=4&accountStatus=0
+
+<> 2021-05-26T122334.200.json
+
+###
+
 POST http://localhost:8002/admin/releaseAccount
 Content-Type: application/json
 

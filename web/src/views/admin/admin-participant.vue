@@ -3,55 +3,59 @@
     <h1 class="h1">这是参赛者管理模块的页面</h1>
   </a-layout>
 
+
   <a-layout>
 
-    <a-layout-sider width="200" style="background: #fff">
-      <a-menu
-          mode="inline"
-          v-model:selectedKeys="selectedKeys2"
-          v-model:openKeys="openKeys"
-          :style="{ height: '100%', borderRight: 0 }"
-          @click="handleClick"
-      >
-
-        <a-menu-item key="welcome">
-          <MailOutlined/>
-          <span>欢迎</span>
-        </a-menu-item>
-
-        <a-menu-item key="notCertified">
-          <!--            <icon-font class="icons-bar" type="icon-weirenzheng" style="font-size:24px"/>-->
-          <icon-font class="icons-bar" type="icon-weirenzheng"/>
-          <span>未认证</span>
-        </a-menu-item>
-        <a-menu-item key="underReview">
-          <icon-font class="icons-bar" type="icon-shenhezhong1"/>
-          <span>审核中</span>
-        </a-menu-item>
-        <a-menu-item key="verified">
-          <icon-font class="icons-bar" type="icon-yirenzheng6"/>
-          <span>已认证</span>
-        </a-menu-item>
-      </a-menu>
-    </a-layout-sider>
-
     <a-layout style="padding: 0 24px 24px">
-      <!--      <h1 class="h1">这是主办方管理模块的页面</h1>-->
+      <!--      <h1 class="h1">这是参赛者管理模块的页面</h1>-->
 
       <a-layout-content
           :style="{ background: '#fff', padding: '24px', margin: 0, minHeight: '280px' }"
       >
 
+        <a-tabs v-model:activeKey="activeKey" >
+          <a-tab-pane key="welcome" >
+            <template #tab>
+        <span @click="handleClick('welcome')">
+          <MailOutlined/>
+          欢迎
+        </span>
+            </template>
+            <h1>Welcome Admin</h1>
+            <h1>欢迎使用管理比赛参赛者功能</h1>
+          </a-tab-pane>
+          <a-tab-pane key="normal" >
+            <template #tab >
+        <span @click="handleClick('normal')">
+          <icon-font class="icons-bar" type="icon-zhengchang" style="font-size: 18px"/>
+          正常
+        </span>
+            </template>
+            账户正常
+          </a-tab-pane>
+          <a-tab-pane key="exceptional" >
+            <template #tab>
+        <span @click="handleClick('exceptional')">
+          <icon-font class="icons-bar" type="icon-yichang" style="font-size: 20px"/>
+          异常
+        </span>
+            </template>
+            账户异常
+          </a-tab-pane>
+        </a-tabs>
+
+
+
         <div class="welcome about" v-show="isShowWelcome">
           <h1>Welcome Admin</h1>
-          <h1>欢迎使用管理比赛主办方功能</h1>
+          <h1>欢迎使用管理比赛参赛者功能</h1>
         </div>
 
 
         <layout v-show="!isShowWelcome">
 
           <div class="about">
-            <h1>主办方管理</h1>
+            <h1>参赛者管理</h1>
           </div>
 
           <p>
@@ -61,7 +65,7 @@
                 </a-input>
               </a-form-item>
               <a-form-item>
-                <a-button type="primary" @click="handleQuerySponsor({page: 1, size: pagination.pageSize})">
+                <a-button type="primary" @click="handleQueryParticipant({page: 1, size: pagination.pageSize})">
                   查询
                 </a-button>
               </a-form-item>
@@ -75,8 +79,8 @@
 
           <a-table
               :columns="columns"
-              :row-key="record => record.sid"
-              :data-source="sponsors"
+              :row-key="record => record.pid"
+              :data-source="participants"
               :pagination="pagination"
               :loading="loading"
               @change="handleTableChange"
@@ -85,34 +89,6 @@
             <template #avatar="{ text: avatar }">
               <!--            <img v-if="avatar" :src="avatar" alt="avatar"/>-->
               <a-avatar size="large" v-if="avatar" :src="avatar" alt="avatar"/>
-            </template>
-
-            <template #identityStatus="{ text: identityStatus }">
-
-
-              <a-tag color="warning" :identity_status="identityStatus" v-if="identityStatus == '未认证'">
-                <template #icon>
-                  <exclamation-circle-outlined/>
-                </template>
-                {{ identityStatus }}
-              </a-tag>
-              <a-tag color="processing" :identity_status="identityStatus" v-else-if="identityStatus == '审核中'">
-                <template #icon>
-                  <sync-outlined :spin="true"/>
-                </template>
-                {{ identityStatus }}
-              </a-tag>
-              <a-tag color="success" :identity_status="identityStatus" v-else>
-                <template #icon>
-                  <check-circle-outlined/>
-                </template>
-                {{ identityStatus }}
-              </a-tag>
-
-              <!--              <a-tag :identity_status="identityStatus">{{ identityStatus }}</a-tag>-->
-              <!--              -->
-              <!--              <a-tag :identity_status="identityStatus">{{ identityStatus }}</a-tag>-->
-
             </template>
 
             <template #accountStatus="{ text: accountStatus }">
@@ -141,7 +117,7 @@
             <template v-slot:action="{ text, record }">
               <!--            空格组件：两个按钮之间的空格-->
               <a-space size="small">
-                <router-link :to="'/admin/contest?sponsorId=' + record.sid">
+                <router-link :to="'/admin/contest?participantId=' + record.pid">
                   <a-button type="primary">
                     查看竞赛
                   </a-button>
@@ -191,13 +167,13 @@
 
     <template>
       <a-drawer width="640" placement="right" :closable="false" :visible="visible" @close="onClose">
-        <p :style="[pStyle, pStyle2]">主办方详情资料</p>
+        <p :style="[pStyle, pStyle2]">参赛者详情资料</p>
 
-        <p :style="pStyle">主办方标识</p>
+        <p :style="pStyle">参赛者标识</p>
         <a-image
             :width="200"
             :height="100"
-            :src="sponsorDetail.avatar"
+            :src="participantDetail.avatar"
             fallback="data:image/png;base64,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"
         />
 
@@ -207,21 +183,21 @@
 
         <a-row>
           <a-col :span="12">
-            <!--            <description-item title="Name" content="{{ sponsorDetail.name }}"/>-->
+            <!--            <description-item title="Name" content="{{ participantDetail.name }}"/>-->
             <a-descriptions>
-              <a-descriptions-item label="机构名称">{{ sponsorDetail.name }}</a-descriptions-item>
+              <a-descriptions-item label="机构名称">{{ participantDetail.name }}</a-descriptions-item>
             </a-descriptions>
           </a-col>
           <a-col :span="12">
             <!--            <description-item title="Account" content="AntDesign@example.com"/>-->
             <a-descriptions>
-              <a-descriptions-item label="认证状态">{{ sponsorDetail.identityStatus }}</a-descriptions-item>
+              <a-descriptions-item label="认证状态">{{ participantDetail.identityStatus }}</a-descriptions-item>
             </a-descriptions>
           </a-col>
         </a-row>
         <a-row>
           <a-col :span="12">
-            <!--            <description-item title="Name" content="{{ sponsorDetail.name }}"/>-->
+            <!--            <description-item title="Name" content="{{ participantDetail.name }}"/>-->
             <a-descriptions>
               <a-descriptions-item label="机构所在地">中国 浙江 杭州</a-descriptions-item>
             </a-descriptions>
@@ -229,16 +205,16 @@
           <a-col :span="12">
             <!--            <description-item title="Account" content="AntDesign@example.com"/>-->
             <a-descriptions>
-              <a-descriptions-item label="入驻时间">{{ sponsorDetail.joinDate }}</a-descriptions-item>
+              <a-descriptions-item label="入驻时间">{{ participantDetail.joinDate }}</a-descriptions-item>
             </a-descriptions>
           </a-col>
         </a-row>
 
         <a-divider/>
-        <p :style="pStyle">主办方简介</p>
+        <p :style="pStyle">参赛者简介</p>
         <a-row>
           <a-descriptions>
-            <a-descriptions-item>{{ sponsorDetail.intro }}</a-descriptions-item>
+            <a-descriptions-item>{{ participantDetail.intro }}</a-descriptions-item>
           </a-descriptions>
         </a-row>
         <a-divider/>
@@ -246,21 +222,21 @@
         <a-row>
           <a-col :span="12">
             <a-descriptions>
-              <a-descriptions-item label="邮件地址">{{ sponsorDetail.email }}</a-descriptions-item>
+              <a-descriptions-item label="邮件地址">{{ participantDetail.email }}</a-descriptions-item>
             </a-descriptions>
           </a-col>
         </a-row>
         <a-row>
           <a-col :span="12">
             <a-descriptions>
-              <a-descriptions-item label="机构电话">{{ sponsorDetail.telNum }}</a-descriptions-item>
+              <a-descriptions-item label="机构电话">{{ participantDetail.telNum }}</a-descriptions-item>
             </a-descriptions>
           </a-col>
         </a-row>
         <a-row>
           <a-col :span="12">
             <a-descriptions>
-              <a-descriptions-item label="通信地址">{{ sponsorDetail.address }}</a-descriptions-item>
+              <a-descriptions-item label="通信地址">{{ participantDetail.address }}</a-descriptions-item>
             </a-descriptions>
           </a-col>
         </a-row>
@@ -321,9 +297,9 @@
       :confirm-loading="resetModalLoading"
       @ok="handleResetModalOk"
   >
-    <a-form :model="sponsor" :label-col="{ span: 6 }" :wrapper-col="{ span: 18 }">
+    <a-form :model="participant" :label-col="{ span: 6 }" :wrapper-col="{ span: 18 }">
       <a-form-item label="新密码">
-        <a-input v-model:value="sponsor.password" type="password"/>
+        <a-input v-model:value="participant.password" type="password"/>
       </a-form-item>
     </a-form>
   </a-modal>
@@ -342,7 +318,7 @@
       <a-button key="submit" type="primary" :loading="loading" @click="handleBanAccountModalOk">提交</a-button>
     </template>
     <div style="text-align: center;">
-      <p>待封禁账户：{{ sponsor.name }}</p>
+      <p>待封禁账户：{{ participant.name }}</p>
     </div>
     <a-form
         ref="formRef"
@@ -383,7 +359,7 @@
       </a-form-item>
       <!--      <a-form-item label="Resources" name="resource">-->
       <!--        <a-radio-group v-model:value="formState.resource">-->
-      <!--          <a-radio value="1">Sponsor</a-radio>-->
+      <!--          <a-radio value="1">Participant</a-radio>-->
       <!--          <a-radio value="2">Venue</a-radio>-->
       <!--        </a-radio-group>-->
       <!--      </a-form-item>-->
@@ -406,7 +382,7 @@
       okText="确认"
   >
     <div style="text-align: center;">
-      <p>待解禁账户：{{ sponsor.name }}</p>
+      <p>待解禁账户：{{ participant.name }}</p>
     </div>
 
     <a-descriptions title="封禁情况" bordered>
@@ -475,7 +451,7 @@ import descriptionItem from './descriptionItem/index.vue';
 import axios from 'axios';
 
 const IconFont = createFromIconfontCN({
-  scriptUrl: '//at.alicdn.com/t/font_2558111_009ekmettrll3.js',
+  scriptUrl: '//at.alicdn.com/t/font_2572250_3fo10dh305g.js',
 });
 
 declare let hexMd5: any;
@@ -489,6 +465,7 @@ interface FormState {
   // bannedtime: Moment | undefined;
   delivery: boolean;
   banType: string[];
+  userType: number;
   // resource: string;
   note: string;
 }
@@ -499,23 +476,6 @@ interface FormState {
 // const listData: Record<string, string>[] = [];
 const listData: any = [];
 
-let identity_status_o = '';
-
-for (let i = 0; i < 23; i++) {
-
-  identity_status_o = i % 3 === 0 ? '已认证' : (i % 3 === 1 ? '审核中' : '未认证');
-
-  listData.push({
-    href: 'https://www.antdv.com/',
-    title: `ant design vue part ${i}`,
-    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-    description:
-        'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-    content:
-        'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
-    identity_status: identity_status_o
-  });
-}
 
 
 export default defineComponent({
@@ -531,10 +491,10 @@ export default defineComponent({
 
     const param = ref();
     param.value = {};
-    const sponsors = ref();
+    const participants = ref();
     const pagination = ref({
       current: 1,
-      pageSize: 2,
+      pageSize: 4,
       total: 0
     });
 
@@ -546,20 +506,23 @@ export default defineComponent({
         slots: {customRender: 'avatar'}
       },
       {
+        title: '昵称',
+        dataIndex: 'nickname'
+      },      {
         title: '名称',
         dataIndex: 'name'
       },
-      // {
-      //   title: '通讯地址',
-      //   dataIndex: 'address',
-      //   slots: {customRender: 'address'}
-      // },
       {
-        title: '认证状态',
-        key: 'identityStatus',
-        dataIndex: 'identityStatus',
-        slots: {customRender: 'identityStatus'}
+        title: '学校',
+        dataIndex: 'university',
+        slots: {customRender: 'university'}
       },
+      // {
+      //   title: '认证状态',
+      //   key: 'identityStatus',
+      //   dataIndex: 'identityStatus',
+      //   slots: {customRender: 'identityStatus'}
+      // },
       {
         title: '账号状态',
         key: 'accountStatus',
@@ -587,6 +550,8 @@ export default defineComponent({
 
     const isShowWelcome = ref(true);
 
+    const activeKey = ref('welcome');
+
     let identity_status = '';
     let identityMap = new Map()
     identityMap.set('notCertified', '未认证')
@@ -595,8 +560,8 @@ export default defineComponent({
 
     let account_status = '';
     let accountStatusMap = new Map()
-    accountStatusMap.set(0, '正常')
-    accountStatusMap.set(1, '禁言中')
+    accountStatusMap.set('normal', 0)
+    accountStatusMap.set('exceptional', 1)
     // accountStatusMap.set('verified', '已认证')
 
     let banReasons = new Set();
@@ -614,26 +579,26 @@ export default defineComponent({
     banTypes.set("5", "删除通知");
 
 
-    const handleQuerySponsor = (params: any) => {
-      axios.get("/admin/listSponsor", {
+    const handleQueryParticipant = (params: any) => {
+      axios.get("/admin/listParticipant", {
         params: {
           page: params.page,
           size: params.size,
-          identityStatus: identity_status,
+          accountStatus: account_status,
           name: param.value.name,
         }
       }).then((response) => {
         const data = response.data;
         //ref数据的赋值
-        sponsors.value = data.content.list;
+        participants.value = data.content.list;
         // ebooks2.books = data.content;
 
         // console.log(response)
 
         if (data.success) {
-          sponsors.value = data.content.list;
-          for (let i = 0; i < sponsors.value.length; i++) {
-            sponsors.value[i].joinDate = moment(sponsors.value[i].joinDate).format('YYYY-MM-DD HH:mm:ss')
+          participants.value = data.content.list;
+          for (let i = 0; i < participants.value.length; i++) {
+            participants.value[i].joinDate = moment(participants.value[i].joinDate).format('YYYY-MM-DD HH:mm:ss')
           }
 
           // 重置分页按钮
@@ -659,15 +624,18 @@ export default defineComponent({
 
     const handleClick = (value: any) => {
       console.log("menu click", value);
-      if (value.key === 'welcome') {
+      if (value === 'welcome') {
         isShowWelcome.value = true;
       } else {
-        identity_status = identityMap.get(value.key);
+        account_status = accountStatusMap.get(value);
+        console.log("account_status", account_status);
+
         isShowWelcome.value = false;
-        //这里本应该去查询数据库里所有的主办方数据 而我写死了只查前1000条 可以另写个all方法
-        handleQuerySponsor({
+        //这里本应该去查询数据库里所有的参赛者数据 而我写死了只查前1000条 可以另写个all方法
+        handleQueryParticipant({
           page: 1,
           size: 1000,
+          accountStatus: account_status,
         });
       }
 
@@ -680,14 +648,14 @@ export default defineComponent({
      */
     const handleTableChange = (pagination: any) => {
       console.log("看看自带的分页参数都有啥：" + pagination);
-      handleQuerySponsor({
+      handleQueryParticipant({
         page: pagination.current,
         size: pagination.pageSize
       });
     };
 
 
-    const sponsorDetail = ref({});
+    const participantDetail = ref({});
     const visible = ref<boolean>(false);
     const pStyle = {
       fontSize: '16px',
@@ -710,20 +678,20 @@ export default defineComponent({
 
     const viewDetails = (record: any) => {
       console.log("拿到的数据：", record);
-      console.log("该行数据的id：", record.sid);
+      console.log("该行数据的id：", record.pid);
 
-      axios.get("/admin/getSponsorDetail", {
+      axios.get("/admin/getParticipantDetail", {
             params: {
-              sid: record.sid
+              pid: record.pid
             }
           }
       ).then((response) => {
         const data = response.data;
         console.log(data);
-        sponsorDetail.value = data.content;
-        // sponsorDetail.value.joinDate
-        console.log("主办方详情：", sponsorDetail);
-        // if(contestDetail.value.sponsorDetail==1){
+        participantDetail.value = data.content;
+        // participantDetail.value.joinDate
+        console.log("参赛者详情：", participantDetail);
+        // if(contestDetail.value.participantDetail==1){
         //   str = "running";
         // }else {
         //   str = "end";
@@ -738,7 +706,7 @@ export default defineComponent({
 
     // -------- 重置密码 ---------
 
-    const sponsor = ref({
+    const participant = ref({
       password: '',
     });
 
@@ -748,16 +716,16 @@ export default defineComponent({
     const handleResetModalOk = () => {
       resetModalLoading.value = true;
 
-      // sponsor.value.password = hexMd5(sponsor.value.password + KEY);
+      // participant.value.password = hexMd5(participant.value.password + KEY);
 
-      axios.post("/admin/resetSponsorPassword", sponsor.value).then((response) => {
+      axios.post("/admin/resetParticipantPassword", participant.value).then((response) => {
         resetModalLoading.value = false;
         const data = response.data; // data = commonResp
         if (data.success) {
           resetModalVisible.value = false;
 
           // 重新加载列表（？需要吗）
-          handleQuerySponsor({
+          handleQueryParticipant({
             page: pagination.value.current,
             size: pagination.value.pageSize,
           });
@@ -776,25 +744,25 @@ export default defineComponent({
     const resetPassword = (record: any) => {
       resetModalVisible.value = true;
       console.log("拿到的数据：", record);
-      console.log("该行数据的id：", record.sid);
+      console.log("该行数据的id：", record.pid);
 
       // resetModalVisible.value = true;
-      sponsor.value = Tool.copy(record);
-      sponsor.value.password = '';
+      participant.value = Tool.copy(record);
+      participant.value.password = '';
       // let password = '123456';
 
-      console.log("sponsor", sponsor.value);
+      console.log("participant", participant.value);
 
-      // // axios.post("/admin/resetSponsorPassword", user.value).then((response) => {
-      // axios.post("/admin/resetSponsorPassword", sponsor.value
+      // // axios.post("/admin/resetParticipantPassword", user.value).then((response) => {
+      // axios.post("/admin/resetParticipantPassword", participant.value
       // //     {
-      // //     sid: record.sid,
+      // //     pid: record.pid,
       // //     password: password,
       // //
       // // // }).then((response) => {
-      // // // axios.put("/admin/resetSponsorPassword", {
-      // // //   sid: record.sid,
-      // // //   password: sponsor.value.password,
+      // // // axios.put("/admin/resetParticipantPassword", {
+      // // //   pid: record.pid,
+      // // //   password: participant.value.password,
       // // }
       // ).then((response) => {
       //   // modalLoading.value = false;
@@ -802,10 +770,10 @@ export default defineComponent({
       //   if (data.success) {
       //     // modalVisible.value = false;
       //
-      //     console.log(sponsor.value.password);
+      //     console.log(participant.value.password);
       //
       //     // 重新加载列表
-      //     handleQuerySponsor({
+      //     handleQueryParticipant({
       //       page: pagination.value.current,
       //       size: pagination.value.pageSize,
       //     });
@@ -831,6 +799,7 @@ export default defineComponent({
       bannedtime: undefined,
       delivery: false,
       banType: [],
+      userType: 0,
       // resource: '',
       note: '',
     });
@@ -889,7 +858,7 @@ export default defineComponent({
 
       banModalLoading.value = true;
 
-      // sponsor.value.password = hexMd5(sponsor.value.password + KEY);
+      // participant.value.password = hexMd5(participant.value.password + KEY);
 
       // formState.bannedtime = Moment(new Date());
 
@@ -901,6 +870,8 @@ export default defineComponent({
 
       console.log("zzz", moment().toDate());
 
+      formState.userType = 0;
+
       axios.post("/admin/banAccount", toRaw(formState)).then((response) => {
         banModalLoading.value = false;
         const data = response.data; // data = commonResp
@@ -908,7 +879,7 @@ export default defineComponent({
           banModalVisible.value = false;
 
           // 重新加载列表（？需要吗）
-          handleQuerySponsor({
+          handleQueryParticipant({
             page: pagination.value.current,
             size: pagination.value.pageSize,
           });
@@ -926,16 +897,16 @@ export default defineComponent({
     let banAccountWarningVisible = false;
 
     const handleBanAccount = (record: any) => {
-      console.log("该行数据的id：", record.sid);
+      console.log("该行数据的id：", record.pid);
       console.log("该行数据：", record);
       if (record.accountStatus === 1) {
         message.warn("该账号已被禁用，无法再次封禁！")
         // banAccountWarningVisible = true;
       } else {
         banModalVisible.value = true;
-        sponsor.value = record;
-        formState.uid = record.sid;
-        console.log("sponsor", sponsor.value);
+        participant.value = record;
+        formState.uid = record.pid;
+        console.log("participant", participant.value);
         console.log("banDetails", banAccount.value);
       }
 
@@ -949,6 +920,7 @@ export default defineComponent({
       banType: [''],
       // releasetime: new Date(),
       delivery: true,
+      userType: 0,
       note: "",
 
     });
@@ -967,6 +939,8 @@ export default defineComponent({
 
       }
 
+      releaseAccount.value.userType = 0;
+
       axios.post("/admin/releaseAccount", releaseAccount.value).then((response) => {
         releaseModalLoading.value = false;
         const data = response.data; // data = commonResp
@@ -974,7 +948,7 @@ export default defineComponent({
           releaseModalVisible.value = false;
 
           // 重新加载列表（？需要吗）
-          handleQuerySponsor({
+          handleQueryParticipant({
             page: pagination.value.current,
             size: pagination.value.pageSize,
           });
@@ -989,7 +963,7 @@ export default defineComponent({
       });
     };
     const handleReleaseAccount = (record: any) => {
-      console.log("该行数据的id：", record.sid);
+      console.log("该行数据的id：", record.pid);
       console.log("该行数据：", record);
       if (record.accountStatus === 0) {
         message.warn("该账号处于正常状态，不用解禁啦~")
@@ -997,7 +971,7 @@ export default defineComponent({
       } else {
 
         //查看被封禁属性  banAccount
-        axios.get("/admin/viewBannedAccount/" + record.sid).then((response) => {
+        axios.get("/admin/viewBannedPAccount/" + record.pid).then((response) => {
           const data = response.data; // data = commonResp
           if (data.success) {
             banAccount.value = data.content;
@@ -1020,9 +994,9 @@ export default defineComponent({
         });
 
         releaseModalVisible.value = true;
-        sponsor.value = record;
-        releaseAccount.value.uid = record.sid;
-        console.log("sponsor", sponsor.value);
+        participant.value = record;
+        releaseAccount.value.uid = record.pid;
+        console.log("participant", participant.value);
         console.log("banDetails", banAccount.value);
       }
 
@@ -1062,9 +1036,11 @@ export default defineComponent({
 
       param,
 
-      sponsors,
+      participants,
       loading,
       columns,
+
+      activeKey,
 
       pagination,
       handleTableChange,
@@ -1073,7 +1049,7 @@ export default defineComponent({
 
 
       handleClick,
-      handleQuerySponsor,
+      handleQueryParticipant,
 
 
       //抽屉板块
@@ -1082,10 +1058,10 @@ export default defineComponent({
       pStyle2,
       viewDetails,
       onClose,
-      sponsorDetail,
+      participantDetail,
 
       //重置密码
-      sponsor,
+      participant,
       resetPassword,
       resetModalVisible,
       resetModalLoading,
