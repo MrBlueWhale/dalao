@@ -45,6 +45,13 @@ public class TeamService {
     public String save(TeamReq req) {
         String str = null;
         Team team = CopyUtil.copy(req, Team.class);
+        //如果队员号码出现重复，则提示不能成功
+        if((req.getLeaderTel()).equals(req.getMember1Tel())||(req.getLeaderTel()).equals(req.getMember2Tel())||
+        (req.getLeaderTel()).equals(req.getMember3Tel())||(req.getMember1Tel()).equals(req.getMember2Tel())||
+                (req.getMember1Tel()).equals(req.getMember3Tel())||(req.getMember2Tel()).equals(req.getMember3Tel())){
+            str = "队员与队长的联系方式不能相同！";
+            return  str;
+        }
         //如果已经参加该比赛，则不能再次参加
         TeamExample teamExample = new TeamExample();
         TeamExample.Criteria teamExampleCriteria = teamExample.createCriteria();

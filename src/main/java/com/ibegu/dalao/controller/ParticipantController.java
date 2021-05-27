@@ -1,7 +1,9 @@
 package com.ibegu.dalao.controller;
 
+import com.ibegu.dalao.req.LoginParticipantReq;
 import com.ibegu.dalao.req.ParticipantReq;
 import com.ibegu.dalao.resp.CommonResp;
+import com.ibegu.dalao.resp.LoginParticipantResp;
 import com.ibegu.dalao.resp.ParticipantResp;
 import com.ibegu.dalao.resp.PageResp;
 import com.ibegu.dalao.service.ParticipantService;
@@ -62,6 +64,34 @@ public class ParticipantController {
     public CommonResp save(@RequestBody ParticipantReq req){
         CommonResp resp = new CommonResp<>();
         participantService.save(req);
+        return resp;
+    }
+
+    @PostMapping("/login")
+    //登录验证
+    public CommonResp login(@RequestBody LoginParticipantReq req){
+        CommonResp<ParticipantResp> resp = new CommonResp<>();
+        LoginParticipantResp resp1 = participantService.login(req);
+        if(resp1.getString()!=null){
+            resp.setSuccess(false);
+            resp.setMessage(resp1.getString());
+        }
+        ParticipantResp participantResp = new ParticipantResp();
+        participantResp.setPid(resp1.getPid());
+        resp.setContent(participantResp);
+        return resp;
+    }
+
+    @PostMapping("/signup")
+    //用户注册
+    public CommonResp signup(@RequestBody LoginParticipantReq req){
+        CommonResp<ParticipantResp> resp = new CommonResp<>();
+
+        if((participantService.signup(req))!=null){
+            resp.setSuccess(false);
+            resp.setMessage(participantService.signup(req));
+        }
+        participantService.signup(req);
         return resp;
     }
 

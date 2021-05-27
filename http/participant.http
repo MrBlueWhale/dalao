@@ -1,12 +1,26 @@
 ###
-<<<<<<< Updated upstream
-GET http://localhost:8002/participant/detail?pid=1
-=======
-GET http://localhost:8002/participant/pdetail?pid=1
 
+POST http://localhost:8002/participant/login
+Content-Type: application/json
 
-#####
+{
+  "telNum": "12345678",
+  "password": "123456"
 
->>>>>>> Stashed changes
+}
+###
+
+###
+POST http://localhost:8002/participant/signup
+Content-Type: application/json
+
+{
+  "name": "zzc",
+  "university": "四川大学",
+  "password": "123456",
+  "confirmPassword": "123456",
+  "telNum": "13281056878"
+
+}
 
 ###

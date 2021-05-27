@@ -121,24 +121,6 @@
         </a-form-item>
       </a-form>
 
-      <!--<a-table-->
-              <!--:columns="columns"-->
-              <!--:row-key="record => record.cid"-->
-              <!--:data-source="contests"-->
-              <!--:pagination="pagination"-->
-              <!--:loading="loading"-->
-              <!--@change="handleTableChange"-->
-      <!--&gt;-->
-        <!--<template v-slot:action="{ text, record }">-->
-          <!--<a-space size="small">-->
-            <!--<router-link :to="'/user/details?cid=' + record.cid">-->
-              <!--<a-button type="primary">-->
-                <!--详情-->
-              <!--</a-button>-->
-            <!--</router-link>-->
-          <!--</a-space>-->
-        <!--</template>-->
-      <!--</a-table>-->
     </a-layout-content>
   </a-layout>
 
@@ -157,6 +139,7 @@
   import { Moment } from 'moment';
   import { defineComponent, reactive, toRaw, UnwrapRef, onMounted, ref } from 'vue';
   import axios from 'axios';
+  import {useRoute} from "vue-router";
 
   interface Participants {
     avatar: string;
@@ -186,6 +169,7 @@
         // name: '',
       })
 
+      const route = useRoute();
 
       const onSubmit = () => {
         console.log('submit!', toRaw(participant));
@@ -236,12 +220,12 @@
         // 如果不清空现有数据，则编辑保存重新加载数据后，再点编辑，则列表显示的还是编辑前的数据
         axios.get("/participant/pdetail", {
           params:{
-            pid: 1
+            pid: 6
           }
         }).then((response) => {
           loading.value = false;
           const data = response.data;
-          console.log(data)
+          console.log(data);
           participant.value = data.content;
 
         });

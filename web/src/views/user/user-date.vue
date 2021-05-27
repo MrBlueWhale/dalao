@@ -182,10 +182,10 @@
       onMounted(()=> {
 
         handleQuery({
-          pid: 1,
+          pid: 6,
         });
         handleQuery1({
-          pid: 1,
+          pid: 6,
         })
 
       });

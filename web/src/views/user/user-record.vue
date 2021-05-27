@@ -38,6 +38,7 @@
 <script lang="ts">
   import { defineComponent, onMounted, ref } from 'vue';
   import axios from 'axios';
+  import {useRoute} from "vue-router";
 
   export default defineComponent({
     name: 'UserRecord',
@@ -87,6 +88,7 @@
         }
       ];
 
+      const route = useRoute();
       /**
        * 数据查询
        **/
@@ -143,7 +145,7 @@
         handleQuery({
           //真正传递到后端的page和size的名字，需要与后端中pageReq中的参数值保持一致，才能完成映射
           page: 1,
-          pid: 1,
+          pid: 6,
           size: pagination.value.pageSize
         });
       });

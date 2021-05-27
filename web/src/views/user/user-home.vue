@@ -182,51 +182,10 @@
             </a-list-item>
           </template>
         </a-list>
-        <!--<a-list item-layout="vertical" size="large" :pagination="pagination" :grid="{ gutter: 20, column: 3 }" :data-source="listData">-->
-          <!--<template #footer>-->
-            <!--<div>-->
-              <!--<b>ant design vue</b>-->
-              <!--footer part-->
-            <!--</div>-->
-          <!--</template>-->
-          <!--<template #renderItem="{ item }">-->
-            <!--<a-list-item key="item.title">-->
-              <!--<template #actions>-->
-          <!--<span v-for="{ type, text } in actions" :key="type">-->
-            <!--<component v-bind:is="type" style="margin-right: 8px" />-->
-            <!--{{ text }}-->
-          <!--</span>-->
-              <!--</template>-->
-              <!--<template #extra>-->
-                <!--<img-->
-                        <!--width="272"-->
-                        <!--alt="logo"-->
-                        <!--src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"-->
-                <!--/>-->
-              <!--</template>-->
-              <!--<a-list-item-meta :description="item.description">-->
-                <!--<template #title>-->
-                  <!--<a :href="item.href">{{ item.title }}</a>-->
-                <!--</template>-->
-                <!--<template #avatar><a-avatar :src="item.avatar" /></template>-->
-              <!--</a-list-item-meta>-->
-              <!--{{ item.content }}-->
-            <!--</a-list-item>-->
-          <!--</template>-->
-        <!--</a-list>-->
-
-
 
         通过ref():
         <pre>{{ demos }}</pre>
         <br/>
-        <!--          通过reactive():<br/>-->
-        <!--          <pre>-->
-        <!--          {{ demos_reactive }}-->
-        <!--        </pre>-->
-        <!--          <br/>-->
-
-        <!--        {{demos}}-->
       </a-layout-content>
 
     </a-layout>
@@ -309,6 +268,7 @@
             </a-form-item>
             <a-form-item label="队长电话" name="leaderTel">
                 <a-input v-model:value="formState.leaderTel"/>
+                <p>本账户你的电话：{{participant.telNum}}</p>
             </a-form-item>
             <a-form-item label="队员一电话" name="member1Tel">
                 <a-input v-model:value="formState.member1Tel"/>
@@ -525,14 +485,6 @@ export default defineComponent({
               const data = response.data; // data = commonResp
               if (data.success) {
                   joinModalVisible.value = false;
-
-                  // // 重新加载列表（？需要吗）
-                  // handleQuery({
-                  //     page: pagination.value.current,
-                  //     size: pagination.value.pageSize,
-                  // });
-
-                  //
                   message.success("成功参赛！")
 
 
@@ -546,6 +498,7 @@ export default defineComponent({
         console.log(record);
 
       };
+
 
       const participant = ref();
 
@@ -576,7 +529,7 @@ export default defineComponent({
       });
 
         axios.get("/participant/detail", {params:{
-            pid: 1,
+            pid: 6,
             }}).then((response) => {
             loading.value = false;
             const data = response.data;
