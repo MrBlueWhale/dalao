@@ -565,3 +565,104 @@
 2021-05-27 01:00:08.805 DEBUG com.ibegu.dalao.mapper.DemoMapper.selectByExample :137  [32m                  [0;39m <==      Total: 6
 2021-05-27 01:00:08.806 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":[{"id":1,"name":"测试"},{"id":2,"name":"恣意横行"},{"id":3,"name":"一本有趣的书"},{"id":4,"name":"大陆译本"},{"id":5,"name":"放下了吗"},{"id":6,"name":"回血"}],"success":true}
 2021-05-27 01:00:08.808 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：15 ms -------------
+2021-05-27 10:16:58.373 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :55   [32m                  [0;39m Starting DalaoApplicationTests using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 24504 (started by Mr�������� in F:\Code\Code IDEA\dalao)
+2021-05-27 10:16:58.376 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
+2021-05-27 10:16:58.379 INFO  org.hibernate.validator.internal.util.Version     :21   [32m                  [0;39m HV000001: Hibernate Validator 6.1.6.Final
+2021-05-27 10:17:01.067 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :181  [32m                  [0;39m Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-27 10:17:01.673 INFO  com.ibegu.dalao.config.DalaoApplicationTests      :61   [32m                  [0;39m Started DalaoApplicationTests in 3.713 seconds (JVM running for 4.646)
+2021-05-27 10:17:01.997 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :218  [32m                  [0;39m Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-27 10:17:08.675 INFO  org.hibernate.validator.internal.util.Version     :21   [32m                  [0;39m HV000001: Hibernate Validator 6.1.6.Final
+2021-05-27 10:17:08.680 INFO  com.ibegu.dalao.config.DalaoApplication           :55   [32m                  [0;39m Starting DalaoApplication using Java 1.8.0_251 on DESKTOP-EL2UR8T with PID 23380 (F:\Code\Code IDEA\dalao\target\classes started by Mr风语恺撒 in F:\Code\Code IDEA\dalao)
+2021-05-27 10:17:08.681 INFO  com.ibegu.dalao.config.DalaoApplication           :660  [32m                  [0;39m No active profile set, falling back to default profiles: default
+2021-05-27 10:17:08.729 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :255  [32m                  [0;39m Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-05-27 10:17:08.729 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :255  [32m                  [0;39m For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-05-27 10:17:10.652 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :108  [32m                  [0;39m Tomcat initialized with port(s): 8002 (http)
+2021-05-27 10:17:10.667 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  [32m                  [0;39m Initializing ProtocolHandler ["http-nio-8002"]
+2021-05-27 10:17:10.668 INFO  org.apache.catalina.core.StandardService          :173  [32m                  [0;39m Starting service [Tomcat]
+2021-05-27 10:17:10.669 INFO  org.apache.catalina.core.StandardEngine           :173  [32m                  [0;39m Starting Servlet engine: [Apache Tomcat/9.0.39]
+2021-05-27 10:17:10.671 INFO  org.apache.catalina.core.AprLifecycleListener     :173  [32m                  [0;39m Loaded Apache Tomcat Native library [1.2.24] using APR version [1.7.0].
+2021-05-27 10:17:10.672 INFO  org.apache.catalina.core.AprLifecycleListener     :173  [32m                  [0;39m APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2021-05-27 10:17:10.673 INFO  org.apache.catalina.core.AprLifecycleListener     :173  [32m                  [0;39m APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-05-27 10:17:10.697 INFO  org.apache.catalina.core.AprLifecycleListener     :173  [32m                  [0;39m OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2021-05-27 10:17:10.832 INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] :173  [32m                  [0;39m Initializing Spring embedded WebApplicationContext
+2021-05-27 10:17:10.833 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :289  [32m                  [0;39m Root WebApplicationContext: initialization completed in 2103 ms
+2021-05-27 10:17:11.835 INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor  :181  [32m                  [0;39m Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-27 10:17:12.295 INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer    :58   [32m                  [0;39m LiveReload server is running on port 35729
+2021-05-27 10:17:12.325 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  [32m                  [0;39m Starting ProtocolHandler ["http-nio-8002"]
+2021-05-27 10:17:12.352 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :220  [32m                  [0;39m Tomcat started on port(s): 8002 (http) with context path ''
+2021-05-27 10:17:12.369 INFO  com.ibegu.dalao.config.DalaoApplication           :61   [32m                  [0;39m Started DalaoApplication in 4.078 seconds (JVM running for 7.489)
+2021-05-27 10:17:12.372 INFO  com.ibegu.dalao.config.DalaoApplication           :25   [32m                  [0;39m 启动成功！！
+2021-05-27 10:17:12.373 INFO  com.ibegu.dalao.config.DalaoApplication           :26   [32m                  [0;39m 地址: 	http://127.0.0.1:8002
+2021-05-27 10:22:28.485 INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] :173  [32m                  [0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-05-27 10:22:28.487 INFO  org.springframework.web.servlet.DispatcherServlet :525  [32m                  [0;39m Initializing Servlet 'dispatcherServlet'
+2021-05-27 10:22:28.499 INFO  org.springframework.web.servlet.DispatcherServlet :547  [32m                  [0;39m Completed initialization in 12 ms
+2021-05-27 10:22:28.585 INFO  com.ibegu.dalao.aspect.LogAspect                  :52   [32m                  [0;39m ------------- 开始 -------------
+2021-05-27 10:22:28.585 INFO  com.ibegu.dalao.aspect.LogAspect                  :52   [32m                  [0;39m ------------- 开始 -------------
+2021-05-27 10:22:28.586 INFO  com.ibegu.dalao.aspect.LogAspect                  :53   [32m                  [0;39m 请求地址: http://localhost:8002/demo/list GET
+2021-05-27 10:22:28.586 INFO  com.ibegu.dalao.aspect.LogAspect                  :53   [32m                  [0;39m 请求地址: http://localhost:8002/demo/list GET
+2021-05-27 10:22:28.587 INFO  com.ibegu.dalao.aspect.LogAspect                  :54   [32m                  [0;39m 类名方法: com.ibegu.dalao.controller.DemoController.list
+2021-05-27 10:22:28.587 INFO  com.ibegu.dalao.aspect.LogAspect                  :54   [32m                  [0;39m 类名方法: com.ibegu.dalao.controller.DemoController.list
+2021-05-27 10:22:28.587 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
+2021-05-27 10:22:28.587 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
+2021-05-27 10:22:28.674 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{}]
+2021-05-27 10:22:28.674 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{}]
+2021-05-27 10:22:28.746 INFO  com.zaxxer.hikari.HikariDataSource                :110  [32m                  [0;39m HikariPool-1 - Starting...
+2021-05-27 10:22:30.816 INFO  com.zaxxer.hikari.HikariDataSource                :123  [32m                  [0;39m HikariPool-1 - Start completed.
+2021-05-27 10:22:30.826 DEBUG com.ibegu.dalao.mapper.DemoMapper.selectByExample :137  [32m                  [0;39m ==>  Preparing: select id, `name` from demo
+2021-05-27 10:22:30.838 DEBUG com.ibegu.dalao.mapper.DemoMapper.selectByExample :137  [32m                  [0;39m ==>  Preparing: select id, `name` from demo
+2021-05-27 10:22:30.851 DEBUG com.ibegu.dalao.mapper.DemoMapper.selectByExample :137  [32m                  [0;39m ==> Parameters: 
+2021-05-27 10:22:30.851 DEBUG com.ibegu.dalao.mapper.DemoMapper.selectByExample :137  [32m                  [0;39m ==> Parameters: 
+2021-05-27 10:22:30.901 TRACE com.ibegu.dalao.mapper.DemoMapper.selectByExample :143  [32m                  [0;39m <==    Columns: id, name
+2021-05-27 10:22:30.901 TRACE com.ibegu.dalao.mapper.DemoMapper.selectByExample :143  [32m                  [0;39m <==    Columns: id, name
+2021-05-27 10:22:30.902 TRACE com.ibegu.dalao.mapper.DemoMapper.selectByExample :143  [32m                  [0;39m <==        Row: 1, 测试
+2021-05-27 10:22:30.902 TRACE com.ibegu.dalao.mapper.DemoMapper.selectByExample :143  [32m                  [0;39m <==        Row: 1, 测试
+2021-05-27 10:22:30.904 TRACE com.ibegu.dalao.mapper.DemoMapper.selectByExample :143  [32m                  [0;39m <==        Row: 2, 恣意横行
+2021-05-27 10:22:30.904 TRACE com.ibegu.dalao.mapper.DemoMapper.selectByExample :143  [32m                  [0;39m <==        Row: 2, 恣意横行
+2021-05-27 10:22:30.905 TRACE com.ibegu.dalao.mapper.DemoMapper.selectByExample :143  [32m                  [0;39m <==        Row: 3, 一本有趣的书
+2021-05-27 10:22:30.905 TRACE com.ibegu.dalao.mapper.DemoMapper.selectByExample :143  [32m                  [0;39m <==        Row: 3, 一本有趣的书
+2021-05-27 10:22:30.906 TRACE com.ibegu.dalao.mapper.DemoMapper.selectByExample :143  [32m                  [0;39m <==        Row: 4, 大陆译本
+2021-05-27 10:22:30.906 TRACE com.ibegu.dalao.mapper.DemoMapper.selectByExample :143  [32m                  [0;39m <==        Row: 4, 大陆译本
+2021-05-27 10:22:30.906 TRACE com.ibegu.dalao.mapper.DemoMapper.selectByExample :143  [32m                  [0;39m <==        Row: 5, 放下了吗
+2021-05-27 10:22:30.906 TRACE com.ibegu.dalao.mapper.DemoMapper.selectByExample :143  [32m                  [0;39m <==        Row: 5, 放下了吗
+2021-05-27 10:22:30.907 TRACE com.ibegu.dalao.mapper.DemoMapper.selectByExample :143  [32m                  [0;39m <==        Row: 6, 回血
+2021-05-27 10:22:30.907 TRACE com.ibegu.dalao.mapper.DemoMapper.selectByExample :143  [32m                  [0;39m <==        Row: 6, 回血
+2021-05-27 10:22:30.907 DEBUG com.ibegu.dalao.mapper.DemoMapper.selectByExample :137  [32m                  [0;39m <==      Total: 6
+2021-05-27 10:22:30.908 DEBUG com.ibegu.dalao.mapper.DemoMapper.selectByExample :137  [32m                  [0;39m <==      Total: 6
+2021-05-27 10:22:30.937 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":[{"id":1,"name":"测试"},{"id":2,"name":"恣意横行"},{"id":3,"name":"一本有趣的书"},{"id":4,"name":"大陆译本"},{"id":5,"name":"放下了吗"},{"id":6,"name":"回血"}],"success":true}
+2021-05-27 10:22:30.937 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":[{"id":1,"name":"测试"},{"id":2,"name":"恣意横行"},{"id":3,"name":"一本有趣的书"},{"id":4,"name":"大陆译本"},{"id":5,"name":"放下了吗"},{"id":6,"name":"回血"}],"success":true}
+2021-05-27 10:22:30.937 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：2353 ms -------------
+2021-05-27 10:22:30.937 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：2353 ms -------------
+2021-05-27 10:24:07.118 INFO  com.ibegu.dalao.aspect.LogAspect                  :52   [32m                  [0;39m ------------- 开始 -------------
+2021-05-27 10:24:07.119 INFO  com.ibegu.dalao.aspect.LogAspect                  :53   [32m                  [0;39m 请求地址: http://localhost:8002/demo/list GET
+2021-05-27 10:24:07.119 INFO  com.ibegu.dalao.aspect.LogAspect                  :52   [32m                  [0;39m ------------- 开始 -------------
+2021-05-27 10:24:07.119 INFO  com.ibegu.dalao.aspect.LogAspect                  :54   [32m                  [0;39m 类名方法: com.ibegu.dalao.controller.DemoController.list
+2021-05-27 10:24:07.119 INFO  com.ibegu.dalao.aspect.LogAspect                  :53   [32m                  [0;39m 请求地址: http://localhost:8002/demo/list GET
+2021-05-27 10:24:07.119 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
+2021-05-27 10:24:07.119 INFO  com.ibegu.dalao.aspect.LogAspect                  :54   [32m                  [0;39m 类名方法: com.ibegu.dalao.controller.DemoController.list
+2021-05-27 10:24:07.119 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{}]
+2021-05-27 10:24:07.119 INFO  com.ibegu.dalao.aspect.LogAspect                  :55   [32m                  [0;39m 远程地址: 127.0.0.1
+2021-05-27 10:24:07.120 INFO  com.ibegu.dalao.aspect.LogAspect                  :77   [32m                  [0;39m 请求参数: [{}]
+2021-05-27 10:24:07.122 DEBUG com.ibegu.dalao.mapper.DemoMapper.selectByExample :137  [32m                  [0;39m ==>  Preparing: select id, `name` from demo
+2021-05-27 10:24:07.123 DEBUG com.ibegu.dalao.mapper.DemoMapper.selectByExample :137  [32m                  [0;39m ==>  Preparing: select id, `name` from demo
+2021-05-27 10:24:07.123 DEBUG com.ibegu.dalao.mapper.DemoMapper.selectByExample :137  [32m                  [0;39m ==> Parameters: 
+2021-05-27 10:24:07.123 DEBUG com.ibegu.dalao.mapper.DemoMapper.selectByExample :137  [32m                  [0;39m ==> Parameters: 
+2021-05-27 10:24:07.124 TRACE com.ibegu.dalao.mapper.DemoMapper.selectByExample :143  [32m                  [0;39m <==    Columns: id, name
+2021-05-27 10:24:07.124 TRACE com.ibegu.dalao.mapper.DemoMapper.selectByExample :143  [32m                  [0;39m <==        Row: 1, 测试
+2021-05-27 10:24:07.124 TRACE com.ibegu.dalao.mapper.DemoMapper.selectByExample :143  [32m                  [0;39m <==    Columns: id, name
+2021-05-27 10:24:07.125 TRACE com.ibegu.dalao.mapper.DemoMapper.selectByExample :143  [32m                  [0;39m <==        Row: 1, 测试
+2021-05-27 10:24:07.125 TRACE com.ibegu.dalao.mapper.DemoMapper.selectByExample :143  [32m                  [0;39m <==        Row: 2, 恣意横行
+2021-05-27 10:24:07.125 TRACE com.ibegu.dalao.mapper.DemoMapper.selectByExample :143  [32m                  [0;39m <==        Row: 2, 恣意横行
+2021-05-27 10:24:07.125 TRACE com.ibegu.dalao.mapper.DemoMapper.selectByExample :143  [32m                  [0;39m <==        Row: 3, 一本有趣的书
+2021-05-27 10:24:07.126 TRACE com.ibegu.dalao.mapper.DemoMapper.selectByExample :143  [32m                  [0;39m <==        Row: 4, 大陆译本
+2021-05-27 10:24:07.126 TRACE com.ibegu.dalao.mapper.DemoMapper.selectByExample :143  [32m                  [0;39m <==        Row: 3, 一本有趣的书
+2021-05-27 10:24:07.127 TRACE com.ibegu.dalao.mapper.DemoMapper.selectByExample :143  [32m                  [0;39m <==        Row: 5, 放下了吗
+2021-05-27 10:24:07.127 TRACE com.ibegu.dalao.mapper.DemoMapper.selectByExample :143  [32m                  [0;39m <==        Row: 4, 大陆译本
+2021-05-27 10:24:07.127 TRACE com.ibegu.dalao.mapper.DemoMapper.selectByExample :143  [32m                  [0;39m <==        Row: 5, 放下了吗
+2021-05-27 10:24:07.127 TRACE com.ibegu.dalao.mapper.DemoMapper.selectByExample :143  [32m                  [0;39m <==        Row: 6, 回血
+2021-05-27 10:24:07.127 TRACE com.ibegu.dalao.mapper.DemoMapper.selectByExample :143  [32m                  [0;39m <==        Row: 6, 回血
+2021-05-27 10:24:07.127 DEBUG com.ibegu.dalao.mapper.DemoMapper.selectByExample :137  [32m                  [0;39m <==      Total: 6
+2021-05-27 10:24:07.128 DEBUG com.ibegu.dalao.mapper.DemoMapper.selectByExample :137  [32m                  [0;39m <==      Total: 6
+2021-05-27 10:24:07.129 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":[{"id":1,"name":"测试"},{"id":2,"name":"恣意横行"},{"id":3,"name":"一本有趣的书"},{"id":4,"name":"大陆译本"},{"id":5,"name":"放下了吗"},{"id":6,"name":"回血"}],"success":true}
+2021-05-27 10:24:07.129 INFO  com.ibegu.dalao.aspect.LogAspect                  :97   [32m                  [0;39m 返回结果: {"content":[{"id":1,"name":"测试"},{"id":2,"name":"恣意横行"},{"id":3,"name":"一本有趣的书"},{"id":4,"name":"大陆译本"},{"id":5,"name":"放下了吗"},{"id":6,"name":"回血"}],"success":true}
+2021-05-27 10:24:07.129 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：10 ms -------------
+2021-05-27 10:24:07.129 INFO  com.ibegu.dalao.aspect.LogAspect                  :98   [32m                  [0;39m ------------- 结束 耗时：11 ms -------------
