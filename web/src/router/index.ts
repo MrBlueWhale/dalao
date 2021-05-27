@@ -6,6 +6,7 @@ import AdminHome from '../views/admin/admin-home.vue'
 import SponsorApp from '../views/sponsor/sponsor-app.vue'
 import SponsorHome from '../views/sponsor/sponsor-home.vue'
 import SponsorContest from '../views/sponsor/sponsor-contest.vue'
+import SponsorContestDetail from '../views/sponsor/sponsor-contest-detail.vue'
 import SponsorTeam from '../views/sponsor/sponsor-team.vue'
 import SponsorNotification from '../views/sponsor/sponsor-notification.vue'
 import SponsorAbout from '../views/sponsor/sponsor-about.vue'
@@ -105,6 +106,10 @@ const routes: Array<RouteRecordRaw> = [
                 path: 'contest',
                 name: 'SponsorContest',
                 component: SponsorContest
+            }, {
+                path: 'contest-detail',
+                name: 'SponsorContestDetail',
+                component: SponsorContestDetail
             }, {
                 path: 'team',
                 name: 'SponsorTeam',
