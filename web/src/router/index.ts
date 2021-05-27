@@ -3,7 +3,14 @@ import Home from '../views/home.vue'
 import About from '../views/about.vue'
 import AdminApp from '../views/admin/admin-app.vue'
 import AdminHome from '../views/admin/admin-home.vue'
+import SponsorApp from '../views/sponsor/sponsor-app.vue'
 import SponsorHome from '../views/sponsor/sponsor-home.vue'
+import SponsorContest from '../views/sponsor/sponsor-contest.vue'
+import SponsorContestDetail from '../views/sponsor/sponsor-contest-detail.vue'
+import SponsorTeam from '../views/sponsor/sponsor-team.vue'
+import SponsorNotification from '../views/sponsor/sponsor-notification.vue'
+import SponsorAbout from '../views/sponsor/sponsor-about.vue'
+import SponsorHelp from '../views/sponsor/sponsor-help.vue'
 import UserApp from '../views/user/user-app.vue'
 import UserHome from '../views/user/user-home.vue'
 import UserHelp from '../views/user/user-help.vue'
@@ -90,6 +97,39 @@ const routes: Array<RouteRecordRaw> = [
     path: '/sponsor/home',
     name: 'SponsorHome',
     component: SponsorHome
+    redirect: '/sponsor/home',
+    children: [
+      {
+        path: 'home',
+        name: 'SponsorHome',
+        component: SponsorHome
+      },
+      {
+        path: 'contest',
+        name: 'SponsorContest',
+        component: SponsorContest
+      }, {
+        path: 'contest-detail',
+        name: 'SponsorContestDetail',
+        component: SponsorContestDetail
+      }, {
+        path: 'team',
+        name: 'SponsorTeam',
+        component: SponsorTeam
+      }, {
+        path: 'notification',
+        name: 'SponsorNotification',
+        component: SponsorNotification
+      }, {
+        path: 'about',
+        name: 'SponsorAbout',
+        component: SponsorAbout
+      }, {
+        path: 'help',
+        name: 'SponsorHelp',
+        component: SponsorHelp
+      },
+    ],
   },
   {
     path: '/user/',

@@ -1,131 +1,207 @@
 <template>
-  <a-layout>
-<!--    <admin-header-top></admin-header-top>-->
-<!--<admin-header></admin-header>-->
+
     <a-layout>
-      <a-layout-sider width="200" style="background: #fff">
-        <a-menu
-            mode="inline"
-            v-model:selectedKeys="selectedKeys2"
-            v-model:openKeys="openKeys"
-            :style="{ height: '100%', borderRight: 0 }"
-        >
-          <a-sub-menu key="sub1">
-            <template #title>
-              <span>
-                <user-outlined />
-                subnav 1
-              </span>
-            </template>
-            <a-menu-item key="1">option1</a-menu-item>
-            <a-menu-item key="2">option2</a-menu-item>
-            <a-menu-item key="3">option3</a-menu-item>
-            <a-menu-item key="4">option4</a-menu-item>
-          </a-sub-menu>
-          <a-sub-menu key="sub2">
-            <template #title>
-              <span>
-                <laptop-outlined />
-                subnav 2
-              </span>
-            </template>
-            <a-menu-item key="5">option5</a-menu-item>
-            <a-menu-item key="6">option6</a-menu-item>
-            <a-menu-item key="7">option7</a-menu-item>
-            <a-menu-item key="8">option8</a-menu-item>
-          </a-sub-menu>
-          <a-sub-menu key="sub3">
-            <template #title>
-              <span>
-                <notification-outlined />
-                subnav 3
-              </span>
-            </template>
-            <a-menu-item key="9">option9</a-menu-item>
-            <a-menu-item key="10">option10</a-menu-item>
-            <a-menu-item key="11">option11</a-menu-item>
-            <a-menu-item key="12">option12</a-menu-item>
-          </a-sub-menu>
-        </a-menu>
-      </a-layout-sider>
       <a-layout style="padding: 0 24px 24px">
-        <a-breadcrumb style="margin: 16px 0">
-          <a-breadcrumb-item>Home</a-breadcrumb-item>
-          <a-breadcrumb-item>List</a-breadcrumb-item>
-          <a-breadcrumb-item>App</a-breadcrumb-item>
-        </a-breadcrumb>
+
         <a-layout-content
             :style="{ background: '#fff', padding: '24px', margin: 0, minHeight: '280px' }"
         >
-          Content:<br/>
+          <div class="intro-box" style="padding-left: 41%;
+  padding-bottom: 30px;">
+            <div class="intro" >
+              <span>欢迎使用来个大佬管理员端</span>
+              <span>下面是你能使用的功能哦~</span>
+            </div>
+          </div>
 
+          <div style="background-color: #eaedf2; padding: 20px">
 
-          <a-list item-layout="vertical" size="large" :pagination="pagination" :grid="{ gutter: 20, column: 3 }" :data-source="listData">
-            <template #footer>
-              <div>
-                <b>ant design vue</b>
-                footer part
-              </div>
-            </template>
-            <template #renderItem="{ item }">
-              <a-list-item key="item.title">
-                <template #actions>
-          <span v-for="{ type, text } in actions" :key="type">
-            <component v-bind:is="type" style="margin-right: 8px" />
-            {{ text }}
-          </span>
-                </template>
-                <template #extra>
+            <a-row :gutter="10">
+              <a-col :span="6">
+                <a-card hoverable bordered style="width: 300px; height: 200px">
+                  <template #cover>
+                    <img
+                        alt="example"
+                        src="/image/admin-cards/card-1.jpg"
+                        style="height: 250px;"
+                    />
+                  </template>
+                  <template class="ant-card-actions" #actions>
+                    <SmileTwoTone key="happy" />
+                    <!--              <edit-outlined key="edit" />-->
+                    <ellipsis-outlined key="ellipsis" />
+                    <HeartTwoTone key="favour" twoToneColor="#eb2f96" />
+                  </template>
+                  <a-card-meta title="参赛者管理" description="管理参赛者账户及其关联信息">
+                    <!--              <p>· 参赛者密码管理</p>-->
+                  </a-card-meta>
+<!--                  <a-row :gutter="8">-->
+<!--                    <a-col :span="12">-->
+<!--                      <p>· 按条件查询参赛者</p>-->
+<!--                      <p>· 参赛者账户状态分类管理</p>-->
+<!--                      <p>· 查看参赛者账户信息</p>-->
+<!--                    </a-col>-->
+<!--                    <a-col :span="12">-->
+<!--                      <p>· 查看参赛者参加的比赛信息</p>-->
+<!--                      <p>· 参赛者密码管理</p>-->
+<!--                      <p>· 参赛者账号封禁与解封</p>-->
+<!--                    </a-col>-->
+<!--                  </a-row>-->
+                </a-card>
+
+              </a-col>
+              <a-col :span="6">
+                <a-card hoverable bordered style="width: 300px; height: 200px">
+                  <template #cover>
+                    <img
+                        alt="example"
+                        src="/image/admin-cards/card-2.jpg"
+                        style="height: 250px;"
+                    />
+                  </template>
+                  <template class="ant-card-actions" #actions>
+                    <SmileTwoTone key="happy" />
+                    <ellipsis-outlined key="ellipsis" />
+                    <HeartTwoTone key="favour" twoToneColor="#eb2f96" />
+                  </template>
+                  <a-card-meta title="主办方管理" description="管理主办方账户及其关联信息">
+                  </a-card-meta>
+                </a-card>
+
+              </a-col>
+              <a-col :span="6">
+                <a-card hoverable bordered style="width: 300px; height: 200px">
+                  <template #cover>
+                    <img
+                        alt="example"
+                        src="/image/admin-cards/card-3.jpg"
+                        style="height: 250px;"
+                    />
+                  </template>
+                  <template class="ant-card-actions" #actions>
+                    <SmileTwoTone key="happy" />
+                    <ellipsis-outlined key="ellipsis" />
+                    <HeartTwoTone key="favour" twoToneColor="#eb2f96" />
+                  </template>
+                  <a-card-meta title="竞赛管理" description="管理及审核竞赛信息">
+                  </a-card-meta>
+                </a-card>
+
+              </a-col>
+              <a-col :span="6">
+                <a-card hoverable bordered style="width: 300px; height: 200px">
+                  <template #cover>
+                    <img
+                        alt="example"
+                        src="/image/admin-cards/card-4.jpg"
+                        style="height: 250px;"
+                    />
+                  </template>
+                  <template class="ant-card-actions" #actions>
+                    <SmileTwoTone key="happy" />
+                    <ellipsis-outlined key="ellipsis" />
+                    <HeartTwoTone key="favour" twoToneColor="#eb2f96" />
+                  </template>
+                  <a-card-meta title="组队管理" description="管理及审核队伍信息">
+                  </a-card-meta>
+                </a-card>
+
+              </a-col>
+
+            </a-row>
+
+          <div class="divide-box" style="padding: 30px;"></div>
+
+          <a-row :gutter="10">
+            <a-col :span="6"></a-col>
+
+            <a-col :span="6">
+              <a-card hoverable bordered style="width: 300px; height: 200px">
+                <template #cover>
                   <img
-                      width="272"
-                      alt="logo"
-                      src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
+                      alt="example"
+                      src="/image/admin-cards/card-5.jpg"
+                      style="height: 250px;"
                   />
                 </template>
-                <a-list-item-meta :description="item.description">
-                  <template #title>
-                    <a :href="item.href">{{ item.title }}</a>
-                  </template>
-                  <template #avatar><a-avatar :src="item.avatar" /></template>
-                </a-list-item-meta>
-                {{ item.content }}
-              </a-list-item>
-            </template>
-          </a-list>
+                <template class="ant-card-actions" #actions>
+                  <SmileTwoTone key="happy" />
+                  <ellipsis-outlined key="ellipsis" />
+                  <HeartTwoTone key="favour" twoToneColor="#eb2f96" />
+                </template>
+                <a-card-meta title="通知管理" description="管理比赛通知信息">
+                </a-card-meta>
+              </a-card>
+
+            </a-col>
+            <a-col :span="6">
+              <a-card hoverable bordered style="width: 300px; height: 200px">
+                <template #cover>
+                  <img
+                      alt="example"
+                      src="/image/admin-cards/card-6.jpg"
+                      style="height: 250px;"
+                  />
+                </template>
+                <template class="ant-card-actions" #actions>
+                  <SmileTwoTone key="happy" />
+                  <ellipsis-outlined key="ellipsis" />
+                  <HeartTwoTone key="favour" twoToneColor="#eb2f96" />
+                </template>
+                <a-card-meta title="社群管理" description="管理及审核社区评论及回复等信息">
+                </a-card-meta>
+              </a-card>
+
+            </a-col>
+<!--            <a-col :span="6">-->
+<!--              <a-card hoverable bordered style="width: 300px; height: 200px">-->
+<!--                <template #cover>-->
+<!--                  <img-->
+<!--                      alt="example"-->
+<!--                      src="/image/admin-cards/card-7.jpg"-->
+<!--                      style="height: 250px;"-->
+<!--                  />-->
+<!--                </template>-->
+<!--                <template class="ant-card-actions" #actions>-->
+<!--                  <SmileTwoTone key="happy" />-->
+<!--                  <ellipsis-outlined key="ellipsis" />-->
+<!--                  <HeartTwoTone key="favour" twoToneColor="#eb2f96" />-->
+<!--                </template>-->
+<!--                <a-card-meta title="帮助与提醒" description="帮助与提醒">-->
+<!--                </a-card-meta>-->
+<!--              </a-card>-->
+
+<!--            </a-col>-->
+
+          </a-row>
+
+          </div>
 
 
-
-          通过ref():
-          <pre>{{ demos }}</pre>
-          <br/>
-<!--          通过reactive():<br/>-->
-<!--          <pre>-->
-<!--          {{ demos_reactive }}-->
-<!--        </pre>-->
-<!--          <br/>-->
-
-          <!--        {{demos}}-->
         </a-layout-content>
       </a-layout>
     </a-layout>
-<!--<admin-footer></admin-footer>-->
-  </a-layout>
+
 </template>
 
 
 <script lang="ts">
 import {defineComponent, onMounted, ref, reactive, toRef} from 'vue';
+
+import { SmileTwoTone, HeartTwoTone, CheckCircleTwoTone } from '@ant-design/icons-vue';
+
+
 import AdminHeader from '@/components/admin-header.vue';
 import AdminFooter from '@/components/admin-footer.vue';
 import axios from 'axios';
 
 // import HelloWorld from "@/components/HelloWorld.vue";
 
-// const listData: Record<string, string>[] = [];
-const listData: any = [];
+// const cardData: Record<string, string>[] = [];
+const cardData: any = [];
 
 for (let i = 0; i < 23; i++) {
-  listData.push({
+  cardData.push({
     href: 'https://www.antdv.com/',
     title: `ant design vue part ${i}`,
     avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
@@ -167,7 +243,7 @@ export default defineComponent({
     return {
       demos,
       demos_reactive: toRef(demos2, "demos"),
-      listData,
+      cardData,
       pagination : {
         onChange: (page: any) => {
           console.log(page);
@@ -186,6 +262,10 @@ export default defineComponent({
   components: {
     AdminHeader,
     AdminFooter,
+
+    SmileTwoTone,
+    HeartTwoTone,
+    CheckCircleTwoTone,
   },
 
 });
@@ -199,6 +279,25 @@ export default defineComponent({
 /*  width: 50px;*/
 /*  height: 50px;*/
 /*}*/
+
+.intro{
+  font-size: 25px;
+  text-align: center;
+  width: 320px !important;
+  height: 90px !important;
+  /*display: flex !important;*/
+  /*justify-content: center !important;*/
+  /*align-items: center !important;*/
+  border-radius: 5px !important;
+  /*cursor: pointer !important;*/
+  outline: currentcolor none medium !important;
+  /*user-select: none !important;*/
+  background: rgb(78, 83, 255) none repeat scroll 0% 0% !important;
+  background-color: rgb(78, 83, 255);
+  border: 1px solid rgb(78, 83, 255) !important;
+  color: rgb(255, 255, 255) !important;
+}
+
 </style>
 
 

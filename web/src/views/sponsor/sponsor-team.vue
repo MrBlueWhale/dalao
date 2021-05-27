@@ -1,6 +1,5 @@
 <template>
   <a-layout>
-<!--<sponsor-header></sponsor-header>-->
     <a-layout>
       <a-layout-sider width="200" style="background: #fff">
         <a-menu
@@ -13,7 +12,7 @@
             <template #title>
               <span>
                 <user-outlined />
-                机构信息
+                subnav 1
               </span>
             </template>
             <a-menu-item key="1">option1</a-menu-item>
@@ -25,7 +24,7 @@
             <template #title>
               <span>
                 <laptop-outlined />
-                机构认证
+                subnav 2
               </span>
             </template>
             <a-menu-item key="5">option5</a-menu-item>
@@ -37,105 +36,43 @@
             <template #title>
               <span>
                 <notification-outlined />
-                我的消息
+                subnav 3
               </span>
             </template>
-            <a-menu-item key="9">系统消息</a-menu-item>
-            <a-menu-item key="10">管理员消息</a-menu-item>
-            <a-menu-item key="11">参赛者消息</a-menu-item>
-<!--            <a-menu-item key="12">option12</a-menu-item>-->
+            <a-menu-item key="9">option9</a-menu-item>
+            <a-menu-item key="10">option10</a-menu-item>
+            <a-menu-item key="11">option11</a-menu-item>
+            <a-menu-item key="12">option12</a-menu-item>
           </a-sub-menu>
         </a-menu>
       </a-layout-sider>
       <a-layout style="padding: 0 24px 24px">
         <a-breadcrumb style="margin: 16px 0">
           <a-breadcrumb-item>Home</a-breadcrumb-item>
-<!--          <a-breadcrumb-item>List</a-breadcrumb-item>-->
-<!--          <a-breadcrumb-item>App</a-breadcrumb-item>-->
+          <a-breadcrumb-item>List</a-breadcrumb-item>
+          <a-breadcrumb-item>App</a-breadcrumb-item>
         </a-breadcrumb>
         <a-layout-content
             :style="{ background: '#fff', padding: '24px', margin: 0, minHeight: '280px' }"
         >
-          <div class="intro-box" style="padding-left: 41%;
-  padding-bottom: 30px;">
-            <div class="intro" >
-              <span>欢迎使用来个大佬主办方端</span>
-              <span>下面是你能使用的功能哦~</span>
-            </div>
-          </div>
+          Content:<br/>
 
-          <div style="background-color: #eaedf2; padding: 20px">
+          <h1> 这是主办方模块 队伍管理页面 </h1>
 
-            <a-row :gutter="8">
 
-              <a-col :span="8">
-                <a-card hoverable bordered style="width: 300px; height: 300px">
-                  <template #cover>
-                    <img
-                        alt="example"
-                        src="/image/sponsor-cards/card-4.png"
-                        style="height: 300px;"
-                    />
-                  </template>
-                  <template class="ant-card-actions" #actions>
-                    <SmileTwoTone key="happy" />
-                    <ellipsis-outlined key="ellipsis" />
-                    <HeartTwoTone key="favour" twoToneColor="#eb2f96" />
-                  </template>
-                  <a-card-meta title="竞赛管理" description="管理竞赛及其关联信息">
-                  </a-card-meta>
-                </a-card>
+          通过ref():
+          <pre>{{ demos }}</pre>
+          <br/>
+<!--          通过reactive():<br/>-->
+<!--          <pre>-->
+<!--          {{ demos_reactive }}-->
+<!--        </pre>-->
+<!--          <br/>-->
 
-              </a-col>
-              <a-col :span="8">
-                <a-card hoverable bordered style="width: 300px; height: 300px">
-                  <template #cover>
-                    <img
-                        alt="example"
-                        src="/image/sponsor-cards/card-5.png"
-                        style="height: 300px;"
-                    />
-                  </template>
-                  <template class="ant-card-actions" #actions>
-                    <SmileTwoTone key="happy" />
-                    <ellipsis-outlined key="ellipsis" />
-                    <HeartTwoTone key="favour" twoToneColor="#eb2f96" />
-                  </template>
-                  <a-card-meta title="通知管理" description="管理比赛通知等信息">
-                  </a-card-meta>
-                </a-card>
-
-              </a-col>
-              <a-col :span="8">
-                <a-card hoverable bordered style="width: 300px; height: 300px">
-                  <template #cover>
-                    <img
-                        alt="example"
-                        src="/image/sponsor-cards/card-6.png"
-                        style="height: 300px;"
-                    />
-                  </template>
-                  <template class="ant-card-actions" #actions>
-                    <SmileTwoTone key="happy" />
-                    <ellipsis-outlined key="ellipsis" />
-                    <HeartTwoTone key="favour" twoToneColor="#eb2f96" />
-                  </template>
-                  <a-card-meta title="组队管理" description="管理及审核队伍信息">
-                  </a-card-meta>
-                </a-card>
-
-              </a-col>
-
-            </a-row>
-
-            <div class="divide-box" style="padding: 30px;"></div>
-
-          </div>
-
+          <!--        {{demos}}-->
         </a-layout-content>
       </a-layout>
     </a-layout>
-<!--<sponsor-footer></sponsor-footer>-->
   </a-layout>
 </template>
 
@@ -167,7 +104,7 @@ for (let i = 0; i < 23; i++) {
 
 
 export default defineComponent({
-  name: 'AdminHome',
+  name: 'SponsorTeam',
 
   //放一些参数定义，方法定义
   setup() {
@@ -226,26 +163,6 @@ export default defineComponent({
 /*  width: 50px;*/
 /*  height: 50px;*/
 /*}*/
-
-.intro{
-  font-size: 25px;
-  text-align: center;
-  width: 320px !important;
-  height: 90px !important;
-  /*display: flex !important;*/
-  /*justify-content: center !important;*/
-  /*align-items: center !important;*/
-  border-radius: 5px !important;
-  /*cursor: pointer !important;*/
-  outline: currentcolor none medium !important;
-  /*user-select: none !important;*/
-  background: rgb(222, 189, 056) none repeat scroll 0% 0% !important;
-  background-color: rgb(222, 189, 056);
-  border: 1px solid rgb(222, 189, 056) !important;
-  color: rgb(255, 255, 255) !important;
-}
-
-
 </style>
 
 
